@@ -5,7 +5,7 @@
 // Module: cbdc_puf_ctrl
 // Description:
 //   Conventional synchronous control FSM that sequences a single CBDC-PUF run
-//   per Section 10 and Decision A6/A7:
+//   following Section 3.1; cycle counts and readout are engineering choices:
 //     1. Assert clr=1 with excite=0, latch=0
 //     2. Release clr=0 and allow initialization state to settle (excite=0, latch=0)
 //     3. Assert excite=1 (with latch=0) and wait EXCITE_CYCLES
@@ -16,6 +16,7 @@
 //==============================================================================
 module cbdc_puf_ctrl #(
     parameter integer N_STAGES          = 16,
+    parameter [3:0] GATE_INIT           = 4'h8,
     parameter integer CLR_CYCLES        = 4,
     parameter integer INIT_SETTLE_CYCLES= 4,
     parameter integer EXCITE_CYCLES     = 8,
@@ -28,6 +29,7 @@ module cbdc_puf_ctrl #(
     input  wire [N_STAGES-1:0] challenge_i,  // Desired 16-bit challenge
     output reg                 busy_o,       // High while sequence is running
     output reg                 resp_valid_o, // Pulses high for 1 cycle when resp_bit_o is ready
+    output reg                 request_error_o, // One-cycle pulse: unsupported challenge
     output reg                 resp_bit_o,   // Synchronized PUF response bit
 
     // To/From cbdc_puf_core
@@ -37,6 +39,23 @@ module cbdc_puf_ctrl #(
     output reg                 puf_clr_o,    // Drives core.clr
     input  wire                puf_q_i       // Driven by core.q
 );
+
+    // Inputs are synchronous to clk; start_i is accepted only while idle.
+    // This rejects quiescent configurations without changing the paper's race.
+    // resp_valid_o means sequence completion, not a physical liveness measurement.
+    wire challenge_supported_w = (^challenge_i) ^ (GATE_INIT == 4'h7);
+    // synthesis translate_off
+    initial begin
+        if (N_STAGES < 1 || (GATE_INIT != 4'h8 && GATE_INIT != 4'h7))
+            $fatal(1, "Invalid controller chain parameters");
+        if (CLR_CYCLES < 1 || CLR_CYCLES > 65536 ||
+            INIT_SETTLE_CYCLES < 1 || INIT_SETTLE_CYCLES > 65536 ||
+            EXCITE_CYCLES < 1 || EXCITE_CYCLES > 65536 ||
+            LATCH_CYCLES < 1 || LATCH_CYCLES > 65536 ||
+            HOLD_CYCLES < 3 || HOLD_CYCLES > 65536)
+            $fatal(1, "Cycle counts must fit timer; HOLD_CYCLES must be >= 3");
+    end
+    // synthesis translate_on
 
     // FSM states
     localparam [2:0]
@@ -53,7 +72,7 @@ module cbdc_puf_ctrl #(
     reg [15:0] timer_r;
 
     // 2-flop synchronizer for reading the asynchronous FDCE_1 output (puf_q_i)
-    reg q_sync1_r, q_sync2_r;
+    (* ASYNC_REG = "TRUE", SHREG_EXTRACT = "NO" *) reg q_sync1_r, q_sync2_r;
     always @(posedge clk) begin
         if (!rst_n) begin
             q_sync1_r <= 1'b0;
@@ -70,6 +89,7 @@ module cbdc_puf_ctrl #(
             timer_r      <= 16'd0;
             busy_o       <= 1'b0;
             resp_valid_o <= 1'b0;
+            request_error_o <= 1'b0;
             resp_bit_o   <= 1'b0;
             puf_c_o      <= {N_STAGES{1'b0}};
             puf_excite_o <= 1'b0;
@@ -77,6 +97,7 @@ module cbdc_puf_ctrl #(
             puf_clr_o    <= 1'b0;
         end else begin
             resp_valid_o <= 1'b0;
+            request_error_o <= 1'b0;
 
             case (state_r)
                 ST_IDLE: begin
@@ -84,11 +105,16 @@ module cbdc_puf_ctrl #(
                     puf_latch_o  <= 1'b0;
                     puf_clr_o    <= 1'b0;
                     if (start_i) begin
-                        puf_c_o      <= challenge_i; // Lock challenge before init
-                        puf_clr_o    <= 1'b1;        // Step 1: clr=1, excite=0, latch=0
-                        busy_o       <= 1'b1;
-                        timer_r      <= 16'd0;
-                        state_r      <= ST_INIT_CLR;
+                        if (challenge_supported_w) begin
+                            puf_c_o      <= challenge_i; // Lock challenge before init
+                            puf_clr_o    <= 1'b1;        // Clear before excitation
+                            busy_o       <= 1'b1;
+                            timer_r      <= 16'd0;
+                            state_r      <= ST_INIT_CLR;
+                        end else begin
+                            busy_o <= 1'b0;
+                            request_error_o <= 1'b1;
+                        end
                     end else begin
                         busy_o       <= 1'b0;
                     end
@@ -175,7 +201,14 @@ module cbdc_puf_ctrl #(
                     state_r      <= ST_IDLE;
                 end
 
-                default: state_r <= ST_IDLE;
+                default: begin
+                    state_r <= ST_IDLE;
+                    busy_o <= 1'b0;
+                    puf_latch_o <= 1'b0;
+                    puf_excite_o <= 1'b0;
+                    puf_clr_o <= 1'b1;
+                    request_error_o <= 1'b1;
+                end
             endcase
         end
     end

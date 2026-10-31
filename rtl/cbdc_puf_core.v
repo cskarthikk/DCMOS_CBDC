@@ -8,15 +8,15 @@
 //   chain (Qb), cross-coupled feedback paths, and negative-edge DFF arbiter
 //   (FDCE_1) per Figure 1, Figure 2, and Equations (1)-(3).
 //
-//   NOTE (Section 10): No debug ports are attached to qu or qb so the critical
-//   physical nets remain symmetrically loaded. Testbenches inspect dut.qu_w and
+//   No debug ports are attached to qu or qb to avoid additional loads.
+//   Symmetric physical loading is not implied. Testbenches inspect dut.qu_w and
 //   dut.qb_w via hierarchical reference.
 //
 // Parameters:
 //   N_STAGES      : Number of stages per chain (16)
 //   GATE_INIT     : 4'h8 = AND2 (Fig. 1), 4'h7 = NAND2 (Table 1)
 //   CROSS_COUPLE  : 1 = Cross-coupled (Qb -> Upper, Qu -> Lower, Fig. 1 & Eq. 1)
-//                   0 = Same-side feedback (Qu -> Upper, Qb -> Lower, Decision A3)
+//                   0 = Same-side feedback (experimental, not the paper architecture)
 //   ELEMENT_STYLE : 0 = Style P (3 LUTs/elem), 1 = Style 2LUT (2 LUTs/elem)
 //==============================================================================
 module cbdc_puf_core #(
@@ -28,15 +28,22 @@ module cbdc_puf_core #(
     input  wire [N_STAGES-1:0] c,      // 16-bit challenge input (static during run)
     input  wire                excite, // Gate enable for both chains
     input  wire                latch,  // FDCE_1 clock enable (CE)
-    input  wire                clr,    // FDCE_1 async clear (CLR, Decision A6)
+    input  wire                clr,    // Explicit asynchronous clear (engineering addition)
     output wire                q       // Captured 1-bit raw PUF response
 );
+
+    // Direct-core users must keep c stable and enforce supported parity:
+    // AND2: odd; NAND2: even. Eligibility does not guarantee physical oscillation.
+    // synthesis translate_off
+    initial if (CROSS_COUPLE != 0 && CROSS_COUPLE != 1)
+        $fatal(1, "CROSS_COUPLE must be 0 or 1 (0 is experimental)");
+    // synthesis translate_on
 
     // Critical terminal nets of the upper and lower configurable delay chains
     (* DONT_TOUCH = "TRUE" *) wire qu_w;
     (* DONT_TOUCH = "TRUE" *) wire qb_w;
 
-    // Feedback routing selection (Decision A3: CROSS_COUPLE = 1 is authoritative)
+    // CROSS_COUPLE = 1 follows Figure 1 and Equation (1).
     wire fb_to_upper_w = (CROSS_COUPLE != 0) ? qb_w : qu_w;
     wire fb_to_lower_w = (CROSS_COUPLE != 0) ? qu_w : qb_w;
 
@@ -67,7 +74,7 @@ module cbdc_puf_core #(
     );
 
     // Negative-edge-triggered DFF arbiter (Xilinx FDCE_1 primitive, Section 4.1)
-    // Decision A4: D = Qu (qu_w), negative-edge C = Qb (qb_w), CE = latch, CLR = clr
+    // Figure 1: D = Qu, negative-edge C = Qb, CE = latch; CLR is explicit here.
     // Captures Qu on the falling edge of Qb while latch == 1:
     //   tau_Qu < tau_Qb (Delta_sigma < 0) => Qu falls before Qb => captures Q = 0 (Fig. 2a)
     //   tau_Qu > tau_Qb (Delta_sigma > 0) => Qb falls before Qu => captures Q = 1 (Fig. 2b)

@@ -8,7 +8,9 @@
 // Module: cbdc_puf_ref_model
 // Description:
 //   Pure mathematical reference model implementing Equations (1), (2), and (3)
-//   from Section 3.1 of Liu et al. (2023), plus liveness/oscillation analysis:
+//   from Section 3.1 of Liu et al. (2023), plus startup eligibility:
+//   Style P extension: add mux_u_ps[i]/mux_b_ps[i] to selected stage delays.
+//   Set mux delays to zero when phi/psi already include the entire stage.
 //     tau_Qu = sum_{i=0}^{15} ((1 - C[i])*phi_u[i] + C[i]*psi_u[i]) + tau_u
 //     tau_Qb = sum_{i=0}^{15} ((1 - C[i])*phi_b[i] + C[i]*psi_b[i]) + tau_b
 //     Delta_sigma = tau_Qu - tau_Qb
@@ -24,7 +26,8 @@ module cbdc_puf_ref_model #(
     output reg  signed [31:0]  delta_sigma_ps_o,
     output reg                 expected_q_o,
     output reg                 expected_init_qu_o,
-    output reg                 expected_oscillates_o
+    output reg                 startup_eligible_o,
+    output reg                 initialized_o = 1'b0
 );
 
     // Delay arrays in picoseconds (populated by the testbench to match injected profile)
@@ -37,39 +40,49 @@ module cbdc_puf_ref_model #(
     integer tau_u_ps;
     integer tau_b_ps;
 
-    integer idx;
-    integer sum_u, sum_b;
+    integer idx, init_idx;
+    reg signed [63:0] sum_u, sum_b;
     reg     chain_inv_parity;
     reg     gate_init_out;
     reg     gate_inverts_when_excited;
 
-    // Trigger recalculation whenever challenge or trigger event changes
-    event recalc_ev;
-
     initial begin
+        if (N_STAGES < 1 || (GATE_INIT != 4'h8 && GATE_INIT != 4'h7))
+            $fatal(1, "Invalid reference model parameters");
         tau_u_ps = 50;
         tau_b_ps = 50;
-        for (idx = 0; idx < N_STAGES; idx = idx + 1) begin
-            phi_u_ps[idx] = 50;
-            psi_u_ps[idx] = 50;
-            phi_b_ps[idx] = 50;
-            psi_b_ps[idx] = 50;
-            mux_u_ps[idx] = 50;
-            mux_b_ps[idx] = 50;
+        for (init_idx = 0; init_idx < N_STAGES; init_idx = init_idx + 1) begin
+            phi_u_ps[init_idx] = 50;
+            psi_u_ps[init_idx] = 50;
+            phi_b_ps[init_idx] = 50;
+            psi_b_ps[init_idx] = 50;
+            mux_u_ps[init_idx] = 50;
+            mux_b_ps[init_idx] = 50;
         end
+        initialized_o = 1'b1;
     end
 
-    always @(c_i or recalc_ev) begin
+    // Includes every read array element: profile changes automatically recalculate.
+    always @* begin
         sum_u = tau_u_ps;
         sum_b = tau_b_ps;
         for (idx = 0; idx < N_STAGES; idx = idx + 1) begin
-            if (c_i[idx] == 1'b0) begin
+            if (c_i[idx] === 1'b0) begin
                 sum_u = sum_u + phi_u_ps[idx] + mux_u_ps[idx];
                 sum_b = sum_b + phi_b_ps[idx] + mux_b_ps[idx];
-            end else begin
+            end else if (c_i[idx] === 1'b1) begin
                 sum_u = sum_u + psi_u_ps[idx] + mux_u_ps[idx];
                 sum_b = sum_b + psi_b_ps[idx] + mux_b_ps[idx];
+            end else begin
+                sum_u = 64'bx;
+                sum_b = 64'bx;
             end
+        end
+
+        // Keep exported 32-bit totals and signed difference representable.
+        if (sum_u < 0 || sum_b < 0 || sum_u > 2147483647 || sum_b > 2147483647) begin
+            sum_u = 64'bx;
+            sum_b = 64'bx;
         end
 
         tau_qu_ps_o      = sum_u;
@@ -88,10 +101,11 @@ module cbdc_puf_ref_model #(
         expected_init_qu_o = gate_init_out ^ chain_inv_parity;
 
         // During Excitation (Excite = I0 = 1), gate output is:
-        //   AND2  (4'h8): non-inverting (0), so loop oscillates when chain_inv_parity == 1
-        //   NAND2 (4'h7): inverting (1),     so loop oscillates when chain_inv_parity == 0
+        //   AND2 requires odd parity; NAND2 requires even parity to launch a race.
+        // The full cross-coupled loop has even inversion parity. This is NOT a
+        // prediction of sustained oscillation, capture availability, or validity.
         gate_inverts_when_excited = (GATE_INIT == 4'h7) ? 1'b1 : 1'b0;
-        expected_oscillates_o     = chain_inv_parity ^ gate_inverts_when_excited;
+        startup_eligible_o       = chain_inv_parity ^ gate_inverts_when_excited;
     end
 
 endmodule

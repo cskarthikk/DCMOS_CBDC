@@ -10,7 +10,7 @@
 //
 // Parameters:
 //   ELEMENT_STYLE:
-//     0 = Style P (Default, Decision A9):
+//     0 = Style P (documented FPGA interpretation of Figure 1):
 //         - u_buf : LUT2 #(.INIT(4'hA)) non-inverting path (phi_i)
 //         - u_inv : LUT2 #(.INIT(4'h5)) inverting path (psi_i)
 //         - u_mux : LUT3 #(.INIT(8'hCA)) 2:1 path selector controlled by c_i
@@ -26,6 +26,13 @@ module cbdc_puf_element #(
     input  wire c_i,   // Challenge bit C[i] (0 = buffer path, 1 = inverter path)
     output wire sig_o  // Output to next stage (Q^{i+1})
 );
+
+    // Effective phi/psi include selected mux arc and routing, not just u_buf/u_inv.
+    // DONT_TOUCH preserves structure; placement and routing still need validation.
+    // synthesis translate_off
+    initial if (ELEMENT_STYLE != 0 && ELEMENT_STYLE != 1)
+        $fatal(1, "ELEMENT_STYLE must be 0 or 1");
+    // synthesis translate_on
 
     generate
         if (ELEMENT_STYLE == 0) begin : gen_style_p
@@ -67,7 +74,7 @@ module cbdc_puf_element #(
                 .I2 (c_i)
             );
 
-        end else begin : gen_style_2lut
+        end else if (ELEMENT_STYLE == 1) begin : gen_style_2lut
             // Table 1 2-LUT2 experimental variant (2 LUT2s per element = 64 LUT2s/instance)
             (* DONT_TOUCH = "TRUE" *) wire stage1_w;
 

@@ -38,7 +38,7 @@ module tb_cbdc_puf_m1;
         .q      (q_and_dut)
     );
 
-    // Instantiate Core with NAND2 entrance gate (GATE_INIT = 4'h7, Table 1, Decision A2)
+    // Experimental NAND2 comparison motivated by Section 4.1/Table 1.
     cbdc_puf_core #(
         .N_STAGES      (N_STAGES),
         .GATE_INIT     (4'h7),
@@ -60,7 +60,8 @@ module tb_cbdc_puf_m1;
     wire signed [31:0] ref_delta_sigma_ps;
     wire               ref_expected_q;
     wire               ref_expected_init_qu;
-    wire               ref_expected_osc;
+    wire               ref_startup_eligible;
+    wire               ref_initialized;
 
     cbdc_puf_ref_model #(
         .N_STAGES  (N_STAGES),
@@ -72,7 +73,8 @@ module tb_cbdc_puf_m1;
         .delta_sigma_ps_o      (ref_delta_sigma_ps),
         .expected_q_o          (ref_expected_q),
         .expected_init_qu_o    (ref_expected_init_qu),
-        .expected_oscillates_o (ref_expected_osc)
+        .startup_eligible_o   (ref_startup_eligible),
+        .initialized_o        (ref_initialized)
     );
 
     //--------------------------------------------------------------------------
@@ -85,6 +87,7 @@ module tb_cbdc_puf_m1;
     wire                ctrl_busy;
     wire                ctrl_valid;
     wire                ctrl_resp_bit;
+    wire                ctrl_error;
     wire [N_STAGES-1:0] ctrl_puf_c;
     wire                ctrl_puf_excite;
     wire                ctrl_puf_latch;
@@ -110,6 +113,7 @@ module tb_cbdc_puf_m1;
         .busy_o       (ctrl_busy),
         .resp_valid_o (ctrl_valid),
         .resp_bit_o   (ctrl_resp_bit),
+        .request_error_o (ctrl_error),
         .puf_c_o      (ctrl_puf_c),
         .puf_excite_o (ctrl_puf_excite),
         .puf_latch_o  (ctrl_puf_latch),
@@ -178,7 +182,6 @@ module tb_cbdc_puf_m1;
             `APPLY_STAGE_DLY(13)
             `APPLY_STAGE_DLY(14)
             `APPLY_STAGE_DLY(15)
-            -> u_ref.recalc_ev;
         end
     endtask
 
@@ -210,7 +213,7 @@ module tb_cbdc_puf_m1;
                     u_ref.phi_b_ps[k] = 45;
                     u_ref.psi_b_ps[k] = 48;
                 end else begin
-                    // Mixed profile: C[k]=0 favors Upper (-15 ps/stage), C[k]=1 favors Lower (+15 ps/stage)
+                    // Mixed profile: C[k]=0 favors Upper (-15 ps/stage), C[k]=1 favors Lower (+17 ps/stage)
                     u_ref.phi_u_ps[k] = 45 + (k % 3);
                     u_ref.phi_b_ps[k] = 60 + (k % 3);
                     u_ref.psi_u_ps[k] = 65 + (k % 5);
@@ -226,13 +229,19 @@ module tb_cbdc_puf_m1;
     //--------------------------------------------------------------------------
     integer qb_and_fall_cnt  = 0;
     integer qb_nand_fall_cnt = 0;
+    integer and_capture_edges = 0;
+    integer nand_capture_edges = 0;
 
     always @(negedge dut_and.qb_w) begin
         if (excite_tb === 1'b1) qb_and_fall_cnt = qb_and_fall_cnt + 1;
+        if (excite_tb === 1'b1 && latch_tb === 1'b1 && clr_tb === 1'b0)
+            and_capture_edges = and_capture_edges + 1;
     end
 
     always @(negedge dut_nand.qb_w) begin
         if (excite_tb === 1'b1) qb_nand_fall_cnt = qb_nand_fall_cnt + 1;
+        if (excite_tb === 1'b1 && latch_tb === 1'b1 && clr_tb === 1'b0)
+            nand_capture_edges = nand_capture_edges + 1;
     end
 
     //--------------------------------------------------------------------------
@@ -243,6 +252,7 @@ module tb_cbdc_puf_m1;
     integer ch_idx;
     integer and_live_cnt;
     integer nand_live_cnt;
+    integer sweep_start_errors;
     reg [15:0] test_vec [0:5];
 
     initial begin
@@ -260,6 +270,8 @@ module tb_cbdc_puf_m1;
         ctrl_start_tb = 1'b0;
         ctrl_c_in_tb  = 16'h7FFF;
 
+        wait (ref_initialized === 1'b1);
+        #1; // All module initial blocks complete before loading profiles.
         load_delay_profile(0);
         #5000;
         clr_tb   = 1'b0;
@@ -279,6 +291,9 @@ module tb_cbdc_puf_m1;
             // Nodes 0 .. i_stg must be 0, and nodes i_stg+1 .. 16 must be 1!
             if (dut_and.u_chain_upper.node_w[i_stg] !== 1'b0 ||
                 dut_and.u_chain_upper.node_w[i_stg+1] !== 1'b1 ||
+                dut_and.u_chain_lower.node_w[i_stg] !== 1'b0 ||
+                dut_and.u_chain_lower.node_w[i_stg+1] !== 1'b1 ||
+                dut_and.qb_w !== 1'b1 ||
                 dut_and.qu_w !== 1'b1) begin
                 $display("  [FAIL] Stage %0d mapping mismatch! node[%0d]=%b, node[%0d]=%b, qu=%b",
                          i_stg, i_stg, dut_and.u_chain_upper.node_w[i_stg],
@@ -321,7 +336,7 @@ module tb_cbdc_puf_m1;
         c_tb          = 16'h7FFF;
         qb_and_fall_cnt = 0;
 
-        // Phase 2: Excitation (Excite=1, Latch=0) -> Loop must oscillate, but Q must stay 0!
+        // Phase 2: this artificial transport profile must show activity; Q stays 0.
         excite_tb = 1'b1;
         latch_tb  = 1'b0;
         #20000;
@@ -370,7 +385,7 @@ module tb_cbdc_puf_m1;
             $display("  [FAIL] Q changed while Latch=0! Q=%b (expected retained 1)", q_and_dut);
             err_cnt = err_cnt + 1;
         end
-        // Now drop excite_tb = 0; Q must still remain 1 (Decision A6: clr is separate from ~Excite)
+        // Drop excite_tb; Q stays 1 because clr is separate from ~Excite.
         excite_tb = 1'b0;
         #10000;
         if (q_and_dut !== 1'b1) begin
@@ -417,6 +432,7 @@ module tb_cbdc_puf_m1;
                 excite_tb = 1'b0;
                 latch_tb  = 1'b0;
                 clr_tb    = 1'b1;
+                and_capture_edges = 0;
                 #2000;
                 clr_tb    = 1'b0;
                 #4000;
@@ -428,7 +444,7 @@ module tb_cbdc_puf_m1;
                 #2000;
                 excite_tb = 1'b0;
 
-                if (q_and_dut !== ref_expected_q) begin
+                if (and_capture_edges == 0 || q_and_dut !== ref_expected_q) begin
                     $display("  [FAIL] Profile %0d, C=0x%04h: tau_Qu=%0d ps, tau_Qb=%0d ps, Delta_sigma=%0d ps -> Q=%b (expected %b)",
                              i_stg, c_tb, ref_tau_qu_ps, ref_tau_qb_ps, ref_delta_sigma_ps, q_and_dut, ref_expected_q);
                     err_cnt = err_cnt + 1;
@@ -440,10 +456,17 @@ module tb_cbdc_puf_m1;
         end
 
         //======================================================================
-        // TEST 7: Full 65,536-Challenge Liveness & Polarity Sweep (Decision A2/A10)
+        // TEST 7: Full challenge initialization, model activity and capture sweep.
         //======================================================================
         $display("\n[TEST 7] Running full 65,536-challenge sweep (0x0000 .. 0xFFFF)...");
-        // To keep 65,536-challenge sweep fast (~2-3 seconds in simulator), set compact 5 ps LUT delays
+        // Drain all previously scheduled OLD-profile transport events before
+        // changing delays. Short new-profile waits cannot flush old events.
+        excite_tb = 1'b0;
+        latch_tb = 1'b0;
+        clr_tb = 1'b1;
+        #5000;
+        sweep_start_errors = err_cnt;
+        // Compact artificial delays for the exhaustive activity/capture sweep.
         u_ref.tau_u_ps = 5;
         u_ref.tau_b_ps = 5;
         for (i_stg = 0; i_stg < N_STAGES; i_stg = i_stg + 1) begin
@@ -463,25 +486,45 @@ module tb_cbdc_puf_m1;
             c_tb            = ch_idx[15:0];
             excite_tb       = 1'b0;
             latch_tb        = 1'b0;
+            clr_tb          = 1'b1;
             qb_and_fall_cnt  = 0;
             qb_nand_fall_cnt = 0;
+            and_capture_edges = 0;
+            nand_capture_edges = 0;
             #300; // Settle initialization state
 
             // Check init state matches reference model for every single challenge
-            if (dut_and.qu_w !== ref_expected_init_qu) begin
+            if (dut_and.qu_w !== (^c_tb) || dut_and.qb_w !== (^c_tb) ||
+                dut_nand.qu_w !== (~^c_tb) || dut_nand.qb_w !== (~^c_tb)) begin
                 $display("  [FAIL] Init polarity mismatch at C=0x%04h", c_tb);
                 err_cnt = err_cnt + 1;
             end
 
-            // Excite both cores for 600 ps (~3 oscillation cycles)
+            // Excite both cores for 600 ps (about two round trips in this profile).
             excite_tb = 1'b1;
+            clr_tb = 1'b0;
             #600;
+
+            // Count actual capture edges after the excitation-only window.
+            latch_tb = 1'b1;
+            #600;
+            latch_tb = 1'b0;
+            #1;
+            if ((^c_tb) === 1'b1) begin
+                if (and_capture_edges < 2 || q_and_dut !== 1'b0 || nand_capture_edges != 0)
+                    $fatal(1, "AND eligible capture/NAND quiescence failed C=%h", c_tb);
+            end else begin
+                if (nand_capture_edges < 2 || q_nand_dut !== 1'b0 || and_capture_edges != 0)
+                    $fatal(1, "NAND eligible capture/AND quiescence failed C=%h", c_tb);
+            end
 
             if (qb_and_fall_cnt > 0)  and_live_cnt  = and_live_cnt  + 1;
             if (qb_nand_fall_cnt > 0) nand_live_cnt = nand_live_cnt + 1;
 
-            // Verify oscillation liveness matches exact loop inversion parity prediction
-            if ((qb_and_fall_cnt > 0) !== ref_expected_osc) begin
+            // Model-specific activity only: not a physical oscillation guarantee.
+            if ((qb_and_fall_cnt >= 2) !== (^c_tb) ||
+                (qb_nand_fall_cnt >= 2) !== (~^c_tb) ||
+                ref_startup_eligible !== (^c_tb)) begin
                 $display("  [FAIL] Unexpected liveness at C=0x%04h", c_tb);
                 err_cnt = err_cnt + 1;
             end
@@ -489,14 +532,14 @@ module tb_cbdc_puf_m1;
 
         excite_tb = 1'b0;
         $display("  [INFO] 65,536-Challenge Sweep Complete:");
-        $display("         - AND2  gate (Fig. 1,  4'h8) oscillating challenges : %0d / 65536 (all odd-parity C)",  and_live_cnt);
-        $display("         - NAND2 gate (Table 1, 4'h7) oscillating challenges : %0d / 65536 (all even-parity C)", nand_live_cnt);
-        $display("         - Combined complementary coverage                   : %0d / 65536 (100%%)", and_live_cnt + nand_live_cnt);
+        $display("         - AND2 observed active challenges : %0d / 65536 (odd parity)", and_live_cnt);
+        $display("         - NAND2 observed active challenges: %0d / 65536 (even parity)", nand_live_cnt);
+        $display("         - These are TWO configurations, not 65536 usable races in one core.");
 
         if (and_live_cnt != 32768 || nand_live_cnt != 32768) begin
-            $display("  [FAIL] Expected 32768 oscillating challenges for AND2 and 32768 for NAND2!");
+            $display("  [FAIL] Expected 32768 active challenges in each artificial-model configuration!");
             err_cnt = err_cnt + 1;
-        end else begin
+        end else if (err_cnt == sweep_start_errors) begin
             $display("  [PASS] Full 65,536-challenge sweep verified with 0 mismatches.");
         end
 
@@ -508,10 +551,16 @@ module tb_cbdc_puf_m1;
             $display("  MILESTONE 1 SIMULATION RESULT: ALL TESTS PASSED (0 ERRORS)");
         end else begin
             $display("  MILESTONE 1 SIMULATION RESULT: FAILED WITH %0d ERRORS", err_cnt);
+            $fatal(1, "Milestone 1 failed");
         end
         $display("  REMINDER: ARTIFICIAL DELAYS; NOT A PUF PROOF.");
         $display("==============================================================================\n");
         $finish;
+    end
+
+    initial begin
+        #200000000;
+        $fatal(1, "Watchdog: testbench did not complete");
     end
 
 endmodule

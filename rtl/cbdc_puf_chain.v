@@ -5,7 +5,7 @@
 // Module: cbdc_puf_chain
 // Description:
 //   One configurable delay chain consisting of 1 entrance gate (LUT2 configured
-//   as AND2 or NAND2 per Decision A2) followed by N_STAGES = 16 cascaded
+//   as AND2 (Figure 1) or experimental NAND2 (Section 4.1)) followed by 16 cascaded
 //   configurable delay elements (Section 3.1, Figure 1).
 //
 // Parameters:
@@ -24,6 +24,14 @@ module cbdc_puf_chain #(
     input  wire [N_STAGES-1:0] c_i,        // 16-bit challenge bus C[15:0]
     output wire                chain_o     // Final output of the chain (Qu or Qb)
 );
+
+    // synthesis translate_off
+    initial begin
+        if (N_STAGES < 1) $fatal(1, "N_STAGES must be positive");
+        if (GATE_INIT != 4'h8 && GATE_INIT != 4'h7)
+            $fatal(1, "Only AND2 and NAND2 entrance gates are supported");
+    end
+    // synthesis translate_on
 
     // Internal chain bus: node[0] is Q^0 (gate output), node[N_STAGES] is Qu or Qb
     (* DONT_TOUCH = "TRUE" *) wire [N_STAGES:0] node_w;

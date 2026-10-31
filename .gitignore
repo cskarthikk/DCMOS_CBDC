@@ -1,0 +1,7 @@
+/build_sim/
+/build_m1/
+/.Xil/
+*.jou
+*.log
+*.pb
+/xsim.dir/
