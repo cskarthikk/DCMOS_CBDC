@@ -1,4 +1,44 @@
-# Single-instance CBDC-PUF: Milestone 1
+# CBDC-PUF on Basys 3
+
+Single-instance CBDC-PUF research implementation for the Digilent Basys 3
+(`xc7a35tcpg236-1`), developed with Vivado 2025.2.
+
+## Current status (2026-11-02)
+
+- RTL, reference model, artificial-delay tests and isolated AMD primitive tests
+  have been exercised successfully.
+- The button/switch board design has been synthesized, placed, routed, programmed
+  and manually tested on the Basys 3. All 401 routable nets completed routing;
+  the original routed board build reported setup slack +4.526 ns and hold slack
+  +0.119 ns on constrained paths. These margins do not validate the asynchronous race.
+- The initial physical layout returned 1 for all eight manually tested challenges.
+  A diagnostic layout swapping the two chain locations produced repeatable zeros
+  for `8000`, `8003`, `800C`, `800F`, and ones for the other tested challenges,
+  including `FFFE`. These small manual samples show reported challenge dependence,
+  not established PUF quality, balanced routing or verified capture behavior.
+- A separate USB-UART diagnostic design and CSV collector are prepared. HDL tests
+  passed, including serial framing/recovery and capture-window edge flags.
+  Automated hardware acquisition has not yet been verified in this project record.
+- Randomness, environmental reliability, cross-device uniqueness, and resistance
+  to modeling attacks have **not** been established.
+
+## Start here
+
+| Goal | Guide |
+|---|---|
+| Core simulation checks and their limits | [Verification record](VERIFICATION.md) |
+| Buttons, switches, LEDs and board setup | [Board bring-up](BOARD_BRINGUP.md) |
+| Initial paired physical placement | [Physical implementation](PHYSICAL_IMPLEMENTATION.md) |
+| Swapped-layout diagnostic experiment | [Swapped-layout notes](DIAGNOSTIC_SWAPPED.md) |
+| Automated acquisition and capture flags | [Serial diagnostic guide](SERIAL_DIAGNOSTIC.md) |
+
+Use `cbdc_puf_basys3` for the manual interface and `cbdc_puf_serial` for UART
+diagnostics. Their board XDC files are alternatives, not constraints to combine.
+Enable exactly one of the original and swapped placement files for implementation.
+The serial build adds diagnostic loads to both chains; compare its measurements
+separately from the manual build. See the guides before rebuilding or programming.
+
+## Research basis
 
 This project follows Figure 1 and Equations (1)-(3) of Liu et al.,
 "CBDC-PUF: A Novel Physical Unclonable Function Design Framework Utilizing
@@ -29,8 +69,9 @@ is inserted to conceal this inconsistency with the paper's full-domain claim.
 
 Style 2LUT (buffer followed by XOR) and same-side feedback remain explicit
 experiments. Neither is the baseline or established as equivalent to the paper.
-SHA-3, 128 instances, BCH correction and board communication are outside this
-single raw-response milestone. No modeling-attack resistance is claimed.
+SHA-3, 128 instances and BCH correction are outside this single raw-response
+project. Board interfaces and UART acquisition are included as engineering
+instrumentation. No modeling-attack resistance is claimed.
 
 ## RTL interfaces
 
@@ -102,9 +143,9 @@ the usable latch window remain unresolved by Boolean logic.
 Equation (3)'s equality convention is zero mathematically, not a physical
 guarantee for a zero/near-zero delay difference.
 
-## Next stage: controlled Vivado synthesis audit
+## Optional scripted Vivado synthesis audit
 
-When beginning that stage, run:
+For the separate scripted core audit, run:
 
 ```powershell
 vivado -mode batch -source scripts/run_m1_vivado.tcl
