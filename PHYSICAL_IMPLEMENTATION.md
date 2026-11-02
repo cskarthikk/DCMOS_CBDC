@@ -1,0 +1,22 @@
+# Initial physical implementation plan
+
+The paired placement is an engineering starting point, not the authors' hard macro.
+Upper/lower use SLICE_X20Y100..116 and SLICE_X21Y100..116 respectively.
+Device checkpoint query confirmed SLICEL sites in corresponding CLBLL_L tiles.
+Each head uses A6LUT; each element uses A6LUT(buffer), B6LUT(inverter),
+C6LUT(mux). Corresponding LUT input positions are locked identically.
+All 98 LUTs have LOC/BEL/LOCK_PINS. The arbiter remains placer-selected.
+No controller logic is added to the PUF feedback. No routes are locked yet.
+
+Files: constraints/puf_paired_placement.xdc and puf_feedback_acknowledge.xdc.
+The latter now uses supported XDC commands only and acknowledges one exact net.
+Add both as implementation-only constraints (USED_IN_SYNTHESIS false).
+Keep basys3.xdc enabled for both synthesis and implementation.
+Run implementation to route_design; do not generate a bitstream at this checkpoint.
+
+Inspect actual placement, route completion, DRC, controller timing and paired route
+lengths/delays before accepting this layout. Same-type slices, BELs and input maps
+reduce some systematic differences but do not establish matched routing, pulse
+survival, a usable arbiter capture window, or a working PUF. Do not bypass a clock
+routing failure or other DRC by broad severity changes. Post-route results may
+require changing the placement or routing strategy.

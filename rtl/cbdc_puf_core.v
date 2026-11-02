@@ -23,13 +23,16 @@ module cbdc_puf_core #(
     parameter integer N_STAGES      = 16,
     parameter [3:0]   GATE_INIT     = 4'h8,
     parameter integer CROSS_COUPLE  = 1,
-    parameter integer ELEMENT_STYLE = 0
+    parameter integer ELEMENT_STYLE = 0,
+    parameter integer DIAGNOSTIC = 0
 ) (
     input  wire [N_STAGES-1:0] c,      // 16-bit challenge input (static during run)
     input  wire                excite, // Gate enable for both chains
     input  wire                latch,  // FDCE_1 clock enable (CE)
     input  wire                clr,    // Explicit asynchronous clear (engineering addition)
-    output wire                q       // Captured 1-bit raw PUF response
+    output wire                q,      // Captured 1-bit raw PUF response
+    output wire                qb_capture_seen_o,
+    output wire                qu_capture_seen_o
 );
 
     // Direct-core users must keep c stable and enforce supported parity:
@@ -89,6 +92,17 @@ module cbdc_puf_core #(
         .D   (qu_w)
     );
 
+    // Diagnostic-only loads. A set flag means >=1 falling edge while CE was high;
+    // it does not count edges or establish oscillation/metastability resolution.
+    generate if (DIAGNOSTIC != 0) begin : gen_diagnostic
+        (* DONT_TOUCH = "TRUE" *) FDCE_1 qb_seen (
+            .Q(qb_capture_seen_o), .C(qb_w), .CE(latch), .CLR(clr), .D(1'b1));
+        (* DONT_TOUCH = "TRUE" *) FDCE_1 qu_seen (
+            .Q(qu_capture_seen_o), .C(qu_w), .CE(latch), .CLR(clr), .D(1'b1));
+    end else begin : gen_no_diagnostic
+        assign qb_capture_seen_o = 1'b0;
+        assign qu_capture_seen_o = 1'b0;
+    end endgenerate
 endmodule
 
 `default_nettype wire

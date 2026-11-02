@@ -1,0 +1,648 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Sun Nov  1 00:17:20 2026
+# Process ID         : 13672
+# Current directory  : C:/BTech/Semester_5/DCMOS/Project/vivado/cbdc_puf_m1/cbdc_puf_m1.runs/synth_1
+# Command line       : vivado.exe -log cbdc_puf_basys3.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source cbdc_puf_basys3.tcl
+# Log file           : C:/BTech/Semester_5/DCMOS/Project/vivado/cbdc_puf_m1/cbdc_puf_m1.runs/synth_1/cbdc_puf_basys3.vds
+# Journal file       : C:/BTech/Semester_5/DCMOS/Project/vivado/cbdc_puf_m1/cbdc_puf_m1.runs/synth_1\vivado.jou
+# Running On         : CsKarthik
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : 13th Gen Intel(R) Core(TM) i7-13620H
+# CPU Frequency      : 2918 MHz
+# CPU Physical cores : 10
+# CPU Logical cores  : 16
+# Host memory        : 16857 MB
+# Swap memory        : 7024 MB
+# Total Virtual      : 23882 MB
+# Available Virtual  : 3425 MB
+#-----------------------------------------------------------
+source cbdc_puf_basys3.tcl -notrace
+create_project: Time (s): cpu = 00:00:20 ; elapsed = 00:00:14 . Memory (MB): peak = 526.105 ; gain = 219.621
+Command: read_checkpoint -auto_incremental -incremental C:/BTech/Semester_5/DCMOS/Project/vivado/cbdc_puf_m1/cbdc_puf_m1.srcs/utils_1/imports/synth_1/cbdc_puf_top.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/BTech/Semester_5/DCMOS/Project/vivado/cbdc_puf_m1/cbdc_puf_m1.srcs/utils_1/imports/synth_1/cbdc_puf_top.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top cbdc_puf_basys3 -part xc7a35tcpg236-1 -flatten_hierarchy none
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 19360
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 1260.547 ; gain = 542.613
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'cbdc_puf_basys3' [C:/BTech/Semester_5/DCMOS/Project/rtl/cbdc_puf_basys3.v:4]
+INFO: [Synth 8-6157] synthesizing module 'cbdc_button' [C:/BTech/Semester_5/DCMOS/Project/rtl/cbdc_button.v:4]
+	Parameter STABLE_CYCLES bound to: 1000000 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'cbdc_button' (0#1) [C:/BTech/Semester_5/DCMOS/Project/rtl/cbdc_button.v:4]
+INFO: [Synth 8-6157] synthesizing module 'cbdc_puf_top' [C:/BTech/Semester_5/DCMOS/Project/rtl/cbdc_puf_top.v:6]
+INFO: [Synth 8-6157] synthesizing module 'cbdc_puf_ctrl' [C:/BTech/Semester_5/DCMOS/Project/rtl/cbdc_puf_ctrl.v:17]
+	Parameter N_STAGES bound to: 16 - type: integer 
+	Parameter GATE_INIT bound to: 4'b1000 
+	Parameter CLR_CYCLES bound to: 4 - type: integer 
+	Parameter INIT_SETTLE_CYCLES bound to: 4 - type: integer 
+	Parameter EXCITE_CYCLES bound to: 8 - type: integer 
+	Parameter LATCH_CYCLES bound to: 8 - type: integer 
+	Parameter HOLD_CYCLES bound to: 4 - type: integer 
+INFO: [Synth 8-226] default block is never used [C:/BTech/Semester_5/DCMOS/Project/rtl/cbdc_puf_ctrl.v:102]
+INFO: [Synth 8-6155] done synthesizing module 'cbdc_puf_ctrl' (0#1) [C:/BTech/Semester_5/DCMOS/Project/rtl/cbdc_puf_ctrl.v:17]
+INFO: [Synth 8-6157] synthesizing module 'cbdc_puf_core' [C:/BTech/Semester_5/DCMOS/Project/rtl/cbdc_puf_core.v:22]
+	Parameter N_STAGES bound to: 16 - type: integer 
+	Parameter GATE_INIT bound to: 4'b1000 
+	Parameter CROSS_COUPLE bound to: 1 - type: integer 
+	Parameter ELEMENT_STYLE bound to: 0 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'cbdc_puf_chain' [C:/BTech/Semester_5/DCMOS/Project/rtl/cbdc_puf_chain.v:17]
+	Parameter N_STAGES bound to: 16 - type: integer 
+	Parameter GATE_INIT bound to: 4'b1000 
+	Parameter ELEMENT_STYLE bound to: 0 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'cbdc_puf_element' [C:/BTech/Semester_5/DCMOS/Project/rtl/cbdc_puf_element.v:22]
+	Parameter ELEMENT_STYLE bound to: 0 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'LUT2' [C:/AMDDesignTools/2025.2/Vivado/scripts/rt/data/unisim_comp.v:95377]
+	Parameter INIT bound to: 4'b1010 
+INFO: [Synth 8-6155] done synthesizing module 'LUT2' (0#1) [C:/AMDDesignTools/2025.2/Vivado/scripts/rt/data/unisim_comp.v:95377]
+INFO: [Synth 8-6157] synthesizing module 'LUT2__parameterized0' [C:/AMDDesignTools/2025.2/Vivado/scripts/rt/data/unisim_comp.v:95377]
+	Parameter INIT bound to: 4'b0101 
+INFO: [Synth 8-6155] done synthesizing module 'LUT2__parameterized0' (0#1) [C:/AMDDesignTools/2025.2/Vivado/scripts/rt/data/unisim_comp.v:95377]
+INFO: [Synth 8-6157] synthesizing module 'LUT3' [C:/AMDDesignTools/2025.2/Vivado/scripts/rt/data/unisim_comp.v:95415]
+	Parameter INIT bound to: 8'b11001010 
+INFO: [Synth 8-6155] done synthesizing module 'LUT3' (0#1) [C:/AMDDesignTools/2025.2/Vivado/scripts/rt/data/unisim_comp.v:95415]
+INFO: [Synth 8-6155] done synthesizing module 'cbdc_puf_element' (0#1) [C:/BTech/Semester_5/DCMOS/Project/rtl/cbdc_puf_element.v:22]
+INFO: [Synth 8-6157] synthesizing module 'LUT2__parameterized1' [C:/AMDDesignTools/2025.2/Vivado/scripts/rt/data/unisim_comp.v:95377]
+	Parameter INIT bound to: 4'b1000 
+INFO: [Synth 8-6155] done synthesizing module 'LUT2__parameterized1' (0#1) [C:/AMDDesignTools/2025.2/Vivado/scripts/rt/data/unisim_comp.v:95377]
+INFO: [Synth 8-6155] done synthesizing module 'cbdc_puf_chain' (0#1) [C:/BTech/Semester_5/DCMOS/Project/rtl/cbdc_puf_chain.v:17]
+INFO: [Synth 8-6157] synthesizing module 'FDCE_1' [C:/AMDDesignTools/2025.2/Vivado/scripts/rt/data/unisim_comp.v:49200]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-6155] done synthesizing module 'FDCE_1' (0#1) [C:/AMDDesignTools/2025.2/Vivado/scripts/rt/data/unisim_comp.v:49200]
+INFO: [Synth 8-6155] done synthesizing module 'cbdc_puf_core' (0#1) [C:/BTech/Semester_5/DCMOS/Project/rtl/cbdc_puf_core.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'cbdc_puf_top' (0#1) [C:/BTech/Semester_5/DCMOS/Project/rtl/cbdc_puf_top.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'cbdc_puf_basys3' (0#1) [C:/BTech/Semester_5/DCMOS/Project/rtl/cbdc_puf_basys3.v:4]
+WARNING: [Synth 8-3917] design cbdc_puf_basys3 has port led[15] driven by constant 0
+WARNING: [Synth 8-3917] design cbdc_puf_basys3 has port led[14] driven by constant 0
+WARNING: [Synth 8-3917] design cbdc_puf_basys3 has port led[13] driven by constant 0
+WARNING: [Synth 8-3917] design cbdc_puf_basys3 has port led[12] driven by constant 0
+WARNING: [Synth 8-3917] design cbdc_puf_basys3 has port led[11] driven by constant 0
+WARNING: [Synth 8-3917] design cbdc_puf_basys3 has port led[10] driven by constant 0
+WARNING: [Synth 8-3917] design cbdc_puf_basys3 has port led[9] driven by constant 0
+WARNING: [Synth 8-3917] design cbdc_puf_basys3 has port led[8] driven by constant 0
+WARNING: [Synth 8-3917] design cbdc_puf_basys3 has port led[7] driven by constant 0
+WARNING: [Synth 8-3917] design cbdc_puf_basys3 has port led[6] driven by constant 0
+WARNING: [Synth 8-3917] design cbdc_puf_basys3 has port led[5] driven by constant 0
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 1381.133 ; gain = 663.199
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 1381.133 ; gain = 663.199
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 1381.133 ; gain = 663.199
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1381.133 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/BTech/Semester_5/DCMOS/Project/constraints/basys3.xdc]
+Finished Parsing XDC File [C:/BTech/Semester_5/DCMOS/Project/constraints/basys3.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/BTech/Semester_5/DCMOS/Project/constraints/basys3.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/cbdc_puf_basys3_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/cbdc_puf_basys3_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1463.824 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1 instances were transformed.
+  FDCE_1 => FDCE (inverted pins: C): 1 instance 
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1463.824 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1463.824 ; gain = 745.891
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1463.824 ; gain = 745.891
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1463.824 ; gain = 745.891
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_r_reg' in module 'cbdc_puf_ctrl'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 ST_IDLE |                              000 |                              000
+             ST_INIT_CLR |                              001 |                              001
+          ST_INIT_SETTLE |                              010 |                              010
+               ST_EXCITE |                              011 |                              011
+                ST_LATCH |                              100 |                              100
+           ST_DROP_LATCH |                              101 |                              101
+          ST_DROP_EXCITE |                              110 |                              110
+                 ST_DONE |                              111 |                              111
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_r_reg' using encoding 'sequential' in module 'cbdc_puf_ctrl'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 1463.824 ; gain = 745.891
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   16 Bit       Adders := 1     
+	   2 Input    5 Bit       Adders := 1     
++---XORs : 
+	               16 Bit    Wide XORs := 1     
++---Registers : 
+	               16 Bit    Registers := 7     
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 21    
++---Muxes : 
+	   8 Input   16 Bit        Muxes := 1     
+	   8 Input    3 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 9     
+	   8 Input    1 Bit        Muxes := 12    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3917] design cbdc_puf_basys3 has port led[15] driven by constant 0
+WARNING: [Synth 8-3917] design cbdc_puf_basys3 has port led[14] driven by constant 0
+WARNING: [Synth 8-3917] design cbdc_puf_basys3 has port led[13] driven by constant 0
+WARNING: [Synth 8-3917] design cbdc_puf_basys3 has port led[12] driven by constant 0
+WARNING: [Synth 8-3917] design cbdc_puf_basys3 has port led[11] driven by constant 0
+WARNING: [Synth 8-3917] design cbdc_puf_basys3 has port led[10] driven by constant 0
+WARNING: [Synth 8-3917] design cbdc_puf_basys3 has port led[9] driven by constant 0
+WARNING: [Synth 8-3917] design cbdc_puf_basys3 has port led[8] driven by constant 0
+WARNING: [Synth 8-3917] design cbdc_puf_basys3 has port led[7] driven by constant 0
+WARNING: [Synth 8-3917] design cbdc_puf_basys3 has port led[6] driven by constant 0
+WARNING: [Synth 8-3917] design cbdc_puf_basys3 has port led[5] driven by constant 0
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 1463.824 ; gain = 745.891
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:37 . Memory (MB): peak = 1575.570 ; gain = 857.637
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+      : u_puf/u_core/u_chain_upper/\gen_elem[15].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[15].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[15].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[15].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[15].u_elem /sig_i
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/out[15]
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/in0[15]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/out[15]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/in0[15]
+      : u_puf/u_core/u_chain_upper/\gen_elem[14].u_elem /sig_o
+      : u_puf/u_core/u_chain_upper/\gen_elem[14].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[14].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[14].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[14].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[14].u_elem /sig_i
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/out[14]
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/in0[14]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/out[14]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/in0[14]
+      : u_puf/u_core/u_chain_upper/\gen_elem[13].u_elem /sig_o
+      : u_puf/u_core/u_chain_upper/\gen_elem[13].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[13].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[13].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[13].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[13].u_elem /sig_i
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/out[13]
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/in0[13]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/out[13]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/in0[13]
+      : u_puf/u_core/u_chain_upper/\gen_elem[12].u_elem /sig_o
+      : u_puf/u_core/u_chain_upper/\gen_elem[12].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[12].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[12].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[12].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[12].u_elem /sig_i
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/out[12]
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/in0[12]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/out[12]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/in0[12]
+      : u_puf/u_core/u_chain_upper/\gen_elem[11].u_elem /sig_o
+      : u_puf/u_core/u_chain_upper/\gen_elem[11].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[11].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[11].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[11].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[11].u_elem /sig_i
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/out[11]
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/in0[11]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/out[11]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/in0[11]
+      : u_puf/u_core/u_chain_upper/\gen_elem[10].u_elem /sig_o
+      : u_puf/u_core/u_chain_upper/\gen_elem[10].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[10].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[10].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[10].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[10].u_elem /sig_i
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/out[10]
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/in0[10]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/out[10]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/in0[10]
+      : u_puf/u_core/u_chain_upper/\gen_elem[9].u_elem /sig_o
+      : u_puf/u_core/u_chain_upper/\gen_elem[9].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[9].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[9].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[9].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[9].u_elem /sig_i
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/out[9]
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/in0[9]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/out[9]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/in0[9]
+      : u_puf/u_core/u_chain_upper/\gen_elem[8].u_elem /sig_o
+      : u_puf/u_core/u_chain_upper/\gen_elem[8].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[8].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[8].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[8].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[8].u_elem /sig_i
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/out[8]
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/in0[8]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/out[8]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/in0[8]
+      : u_puf/u_core/u_chain_upper/\gen_elem[7].u_elem /sig_o
+      : u_puf/u_core/u_chain_upper/\gen_elem[7].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[7].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[7].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[7].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[7].u_elem /sig_i
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/out[7]
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/in0[7]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/out[7]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/in0[7]
+      : u_puf/u_core/u_chain_upper/\gen_elem[6].u_elem /sig_o
+      : u_puf/u_core/u_chain_upper/\gen_elem[6].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[6].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[6].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[6].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[6].u_elem /sig_i
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/out[6]
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/in0[6]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/out[6]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/in0[6]
+      : u_puf/u_core/u_chain_upper/\gen_elem[5].u_elem /sig_o
+      : u_puf/u_core/u_chain_upper/\gen_elem[5].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[5].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[5].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[5].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[5].u_elem /sig_i
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/out[5]
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/in0[5]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/out[5]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/in0[5]
+      : u_puf/u_core/u_chain_upper/\gen_elem[4].u_elem /sig_o
+      : u_puf/u_core/u_chain_upper/\gen_elem[4].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[4].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[4].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[4].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[4].u_elem /sig_i
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/out[4]
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/in0[4]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/out[4]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/in0[4]
+      : u_puf/u_core/u_chain_upper/\gen_elem[3].u_elem /sig_o
+      : u_puf/u_core/u_chain_upper/\gen_elem[3].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[3].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[3].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[3].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[3].u_elem /sig_i
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/out[3]
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/in0[3]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/out[3]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/in0[3]
+      : u_puf/u_core/u_chain_upper/\gen_elem[2].u_elem /sig_o
+      : u_puf/u_core/u_chain_upper/\gen_elem[2].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[2].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[2].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[2].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[2].u_elem /sig_i
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/out[2]
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/in0[2]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/out[2]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/in0[2]
+      : u_puf/u_core/u_chain_upper/\gen_elem[1].u_elem /sig_o
+      : u_puf/u_core/u_chain_upper/\gen_elem[1].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[1].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[1].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[1].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[1].u_elem /sig_i
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/out[1]
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/in0[1]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/out[1]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/in0[1]
+      : u_puf/u_core/u_chain_upper/\gen_elem[0].u_elem /sig_o
+      : u_puf/u_core/u_chain_upper/\gen_elem[0].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[0].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[0].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_upper/\gen_elem[0].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_upper/\gen_elem[0].u_elem /sig_i
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/out[0]
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/in0[0]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/out[0]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/in0[0]
+      : u_puf/u_core/u_chain_upper/feedback_i
+      : u_puf/u_core/qb_w_inferred__0/out
+      : u_puf/u_core/qb_w_inferred__0/in0
+      : u_puf/u_core/qb_w_inferred/out
+      : u_puf/u_core/qb_w_inferred/in0
+      : u_puf/u_core/u_chain_lower/chain_o
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/out[16]
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/in0[16]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/out[16]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/in0[16]
+      : u_puf/u_core/u_chain_lower/\gen_elem[15].u_elem /sig_o
+      : u_puf/u_core/u_chain_lower/\gen_elem[15].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[15].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[15].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[15].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[15].u_elem /sig_i
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/out[15]
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/in0[15]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/out[15]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/in0[15]
+      : u_puf/u_core/u_chain_lower/\gen_elem[14].u_elem /sig_o
+      : u_puf/u_core/u_chain_lower/\gen_elem[14].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[14].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[14].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[14].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[14].u_elem /sig_i
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/out[14]
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/in0[14]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/out[14]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/in0[14]
+      : u_puf/u_core/u_chain_lower/\gen_elem[13].u_elem /sig_o
+      : u_puf/u_core/u_chain_lower/\gen_elem[13].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[13].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[13].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[13].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[13].u_elem /sig_i
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/out[13]
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/in0[13]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/out[13]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/in0[13]
+      : u_puf/u_core/u_chain_lower/\gen_elem[12].u_elem /sig_o
+      : u_puf/u_core/u_chain_lower/\gen_elem[12].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[12].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[12].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[12].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[12].u_elem /sig_i
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/out[12]
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/in0[12]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/out[12]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/in0[12]
+      : u_puf/u_core/u_chain_lower/\gen_elem[11].u_elem /sig_o
+      : u_puf/u_core/u_chain_lower/\gen_elem[11].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[11].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[11].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[11].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[11].u_elem /sig_i
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/out[11]
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/in0[11]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/out[11]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/in0[11]
+      : u_puf/u_core/u_chain_lower/\gen_elem[10].u_elem /sig_o
+      : u_puf/u_core/u_chain_lower/\gen_elem[10].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[10].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[10].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[10].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[10].u_elem /sig_i
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/out[10]
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/in0[10]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/out[10]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/in0[10]
+      : u_puf/u_core/u_chain_lower/\gen_elem[9].u_elem /sig_o
+      : u_puf/u_core/u_chain_lower/\gen_elem[9].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[9].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[9].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[9].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[9].u_elem /sig_i
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/out[9]
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/in0[9]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/out[9]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/in0[9]
+      : u_puf/u_core/u_chain_lower/\gen_elem[8].u_elem /sig_o
+      : u_puf/u_core/u_chain_lower/\gen_elem[8].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[8].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[8].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[8].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[8].u_elem /sig_i
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/out[8]
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/in0[8]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/out[8]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/in0[8]
+      : u_puf/u_core/u_chain_lower/\gen_elem[7].u_elem /sig_o
+      : u_puf/u_core/u_chain_lower/\gen_elem[7].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[7].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[7].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[7].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[7].u_elem /sig_i
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/out[7]
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/in0[7]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/out[7]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/in0[7]
+      : u_puf/u_core/u_chain_lower/\gen_elem[6].u_elem /sig_o
+      : u_puf/u_core/u_chain_lower/\gen_elem[6].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[6].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[6].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[6].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[6].u_elem /sig_i
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/out[6]
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/in0[6]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/out[6]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/in0[6]
+      : u_puf/u_core/u_chain_lower/\gen_elem[5].u_elem /sig_o
+      : u_puf/u_core/u_chain_lower/\gen_elem[5].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[5].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[5].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[5].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[5].u_elem /sig_i
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/out[5]
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/in0[5]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/out[5]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/in0[5]
+      : u_puf/u_core/u_chain_lower/\gen_elem[4].u_elem /sig_o
+      : u_puf/u_core/u_chain_lower/\gen_elem[4].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[4].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[4].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[4].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[4].u_elem /sig_i
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/out[4]
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/in0[4]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/out[4]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/in0[4]
+      : u_puf/u_core/u_chain_lower/\gen_elem[3].u_elem /sig_o
+      : u_puf/u_core/u_chain_lower/\gen_elem[3].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[3].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[3].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[3].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[3].u_elem /sig_i
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/out[3]
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/in0[3]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/out[3]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/in0[3]
+      : u_puf/u_core/u_chain_lower/\gen_elem[2].u_elem /sig_o
+      : u_puf/u_core/u_chain_lower/\gen_elem[2].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[2].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[2].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[2].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[2].u_elem /sig_i
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/out[2]
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/in0[2]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/out[2]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/in0[2]
+      : u_puf/u_core/u_chain_lower/\gen_elem[1].u_elem /sig_o
+      : u_puf/u_core/u_chain_lower/\gen_elem[1].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[1].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[1].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[1].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[1].u_elem /sig_i
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/out[1]
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/in0[1]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/out[1]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/in0[1]
+      : u_puf/u_core/u_chain_lower/\gen_elem[0].u_elem /sig_o
+      : u_puf/u_core/u_chain_lower/\gen_elem[0].u_elem /\gen_style_p.inv_path_w_inferred__0 /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[0].u_elem /\gen_style_p.inv_path_w_inferred__0 /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[0].u_elem /\gen_style_p.inv_path_w_inferred /out
+      : u_puf/u_core/u_chain_lower/\gen_elem[0].u_elem /\gen_style_p.inv_path_w_inferred /in0
+      : u_puf/u_core/u_chain_lower/\gen_elem[0].u_elem /sig_i
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/out[0]
+      : u_puf/u_core/u_chain_lower/node_w_inferred__0/in0[0]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/out[0]
+      : u_puf/u_core/u_chain_lower/node_w_inferred/in0[0]
+      : u_puf/u_core/u_chain_lower/feedback_i
+      : u_puf/u_core/qu_w_inferred__0/out
+      : u_puf/u_core/qu_w_inferred__0/in0
+      : u_puf/u_core/qu_w_inferred/out
+      : u_puf/u_core/qu_w_inferred/in0
+      : u_puf/u_core/u_chain_upper/chain_o
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/out[16]
+      : u_puf/u_core/u_chain_upper/node_w_inferred__0/in0[16]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/out[16]
+      : u_puf/u_core/u_chain_upper/node_w_inferred/in0[16]
+      : u_puf/u_core/u_chain_upper/\gen_elem[15].u_elem /sig_o
+WARNING: [Synth 8-326] inferred exception to break timing loop: 'set_false_path -through u_puf/u_core/u_chain_upper/\gen_elem[15].u_elem /\gen_style_p.u_buf /O'
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:37 . Memory (MB): peak = 1606.223 ; gain = 888.289
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:33 ; elapsed = 00:00:37 . Memory (MB): peak = 1606.223 ; gain = 888.289
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/BTech/Semester_5/DCMOS/Project/rtl/cbdc_puf_core.v:84]
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:36 ; elapsed = 00:00:41 . Memory (MB): peak = 1836.008 ; gain = 1118.074
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:36 ; elapsed = 00:00:41 . Memory (MB): peak = 1836.008 ; gain = 1118.074
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:36 ; elapsed = 00:00:41 . Memory (MB): peak = 1836.008 ; gain = 1118.074
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |    23|
+|3     |LUT1   |     5|
+|4     |LUT2   |    73|
+|5     |LUT3   |    42|
+|6     |LUT4   |    28|
+|7     |LUT5   |    14|
+|8     |LUT6   |    33|
+|9     |FDCE   |     1|
+|10    |FDRE   |   201|
+|11    |IBUF   |    19|
+|12    |OBUF   |    16|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:36 ; elapsed = 00:00:41 . Memory (MB): peak = 1836.008 ; gain = 1118.074
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 13 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:39 . Memory (MB): peak = 1836.008 ; gain = 1035.383
+Synthesis Optimization Complete : Time (s): cpu = 00:00:36 ; elapsed = 00:00:41 . Memory (MB): peak = 1836.008 ; gain = 1118.074
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1836.008 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 24 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1848.746 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1 instances were transformed.
+  FDCE_1 => FDCE (inverted pins: C): 1 instance 
+
+Synth Design complete | Checksum: 2d806211
+INFO: [Common 17-83] Releasing license: Synthesis
+50 Infos, 24 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:41 ; elapsed = 00:00:46 . Memory (MB): peak = 1848.746 ; gain = 1315.688
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1848.746 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/BTech/Semester_5/DCMOS/Project/vivado/cbdc_puf_m1/cbdc_puf_m1.runs/synth_1/cbdc_puf_basys3.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file cbdc_puf_basys3_utilization_synth.rpt -pb cbdc_puf_basys3_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Nov  1 00:18:23 2026...
