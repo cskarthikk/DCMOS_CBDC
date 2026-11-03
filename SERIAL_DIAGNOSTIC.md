@@ -1,5 +1,10 @@
 # USB-UART automated diagnostic build
 
+For the separate runtime capture-timing experiment, use
+`TIMING_DIAGNOSTIC.md`. It has a different top, programming file, packet format
+and collector. The instructions below continue to describe the original fixed
+8/8-cycle serial build.
+
 This is a separate build. Original button/manual bitstream and checkpoint are
 preserved under build_m1/manual_reference; original core behavior defaults to
 DIAGNOSTIC=0. No loaded FPGA or user Vivado project was changed by preparation.

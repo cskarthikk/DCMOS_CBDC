@@ -20,3 +20,14 @@ reduce some systematic differences but do not establish matched routing, pulse
 survival, a usable arbiter capture window, or a working PUF. Do not bypass a clock
 routing failure or other DRC by broad severity changes. Post-route results may
 require changing the placement or routing strategy.
+
+## Subsequent routing experiment (2 November 2026)
+
+The device database later showed that X20 and X21 are different slice positions
+inside one CLBLL_L tile, with different wire access. Being SLICEL on both sides
+was insufficient to establish equivalent routing. A separate experiment now
+uses X21 and X25, copies the 48 internal route patterns, and places the arbiter
+near the chain ends. See `MATCHED_ROUTING_GUIDE.md` for results, boundaries of the
+matching claim, and Vivado viewing/reproduction steps. The original placement
+files and project remain the baseline; do not combine their constraints with
+the exported experimental constraints.

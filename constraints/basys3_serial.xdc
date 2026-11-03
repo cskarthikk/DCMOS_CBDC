@@ -18,6 +18,8 @@ set_property PACKAGE_PIN P3 [get_ports {led[12]}]
 set_property PACKAGE_PIN N3 [get_ports {led[13]}]
 set_property PACKAGE_PIN P1 [get_ports {led[14]}]
 set_property PACKAGE_PIN L1 [get_ports {led[15]}]
+# All LED banks are powered at 3.3 V on Basys 3. Never leave these at DEFAULT.
+set_property IOSTANDARD LVCMOS33 [get_ports {led[*]}]
 set_property -dict {PACKAGE_PIN T18 IOSTANDARD LVCMOS33} [get_ports btnU]
 set_property CONFIG_VOLTAGE 3.3 [current_design]
 set_property CFGBVS VCCO [current_design]
