@@ -5,7 +5,11 @@
 // Testbench: bch_tb
 // Description:
 //   Verification testbench for BCH(31, 16, 3) encoder and decoder modules.
-//   Validates systematic encoding, zero-error decoding, and 1-bit error correction.
+//   Validates systematic encoding and error correction for:
+//     - 0 bit errors
+//     - 1 bit error
+//     - 2 bit errors
+//     - 3 bit errors (full capability per paper Section 4.1)
 //==============================================================================
 module bch_tb;
 
@@ -57,7 +61,7 @@ module bch_tb;
         rx_codeword = 31'd0;
 
         $display("===============================================================");
-        $display("Starting BCH(31, 16, 3) Verification Testbench");
+        $display("Starting BCH(31, 16, 3) Full Verification Testbench (t <= 3)");
         $display("===============================================================");
 
         #20;
@@ -74,7 +78,7 @@ module bch_tb;
         #10;
         start_i     = 1'b0;
         @(posedge valid_out);
-        $display("[TB] Test 1 Result: corrected_data = 0x%04h, err_count = %0d, uncorr = %b",
+        $display("[TB] Test 1 Result (0 errors): corrected_data = 0x%04h, err_count = %0d, uncorr = %b",
                  corrected_data, err_count, uncorrectable);
         if (corrected_data != 16'h1234 || err_count != 0 || uncorrectable) begin
             $display("[ERROR] Test 1 failed!");
@@ -90,7 +94,7 @@ module bch_tb;
         #10;
         start_i     = 1'b0;
         @(posedge valid_out);
-        $display("[TB] Test 2 Result: corrected_data = 0x%04h, err_count = %0d, uncorr = %b",
+        $display("[TB] Test 2 Result (1 error):  corrected_data = 0x%04h, err_count = %0d, uncorr = %b",
                  corrected_data, err_count, uncorrectable);
         if (corrected_data != 16'h1234 || err_count != 1 || uncorrectable) begin
             $display("[ERROR] Test 2 failed to correct 1-bit error!");
@@ -99,22 +103,38 @@ module bch_tb;
 
         #20;
 
-        // Test 3: 1-bit error injection in message bit 20 (data_in bit 5)
-        $display("[TB] Test 3: Injecting 1-bit error in message bit position 20...");
-        rx_codeword = codeword_out ^ (31'd1 << 20);
+        // Test 3: 2-bit error injection at bits 3 and 19
+        $display("[TB] Test 3: Injecting 2-bit errors at bit positions 3 and 19...");
+        rx_codeword = codeword_out ^ (31'd1 << 3) ^ (31'd1 << 19);
         start_i     = 1'b1;
         #10;
         start_i     = 1'b0;
         @(posedge valid_out);
-        $display("[TB] Test 3 Result: corrected_data = 0x%04h, err_count = %0d, uncorr = %b",
+        $display("[TB] Test 3 Result (2 errors): corrected_data = 0x%04h, err_count = %0d, uncorr = %b",
                  corrected_data, err_count, uncorrectable);
-        if (corrected_data != 16'h1234 || err_count != 1 || uncorrectable) begin
-            $display("[ERROR] Test 3 failed to correct message error!");
+        if (corrected_data != 16'h1234 || err_count != 2 || uncorrectable) begin
+            $display("[ERROR] Test 3 failed to correct 2-bit error!");
+            $fatal(1);
+        end
+
+        #20;
+
+        // Test 4: 3-bit error injection at bits 1, 14, and 29
+        $display("[TB] Test 4: Injecting 3-bit errors at bit positions 1, 14, and 29...");
+        rx_codeword = codeword_out ^ (31'd1 << 1) ^ (31'd1 << 14) ^ (31'd1 << 29);
+        start_i     = 1'b1;
+        #10;
+        start_i     = 1'b0;
+        @(posedge valid_out);
+        $display("[TB] Test 4 Result (3 errors): corrected_data = 0x%04h, err_count = %0d, uncorr = %b",
+                 corrected_data, err_count, uncorrectable);
+        if (corrected_data != 16'h1234 || err_count != 3 || uncorrectable) begin
+            $display("[ERROR] Test 4 failed to correct 3-bit error!");
             $fatal(1);
         end
 
         $display("===============================================================");
-        $display("ALL BCH(31, 16, 3) TESTS PASSED SUCCESSFULLY!");
+        $display("ALL BCH(31, 16, 3) TESTS PASSED (0, 1, 2, 3 ERRORS CORRECTED)!");
         $display("===============================================================");
         $finish;
     end

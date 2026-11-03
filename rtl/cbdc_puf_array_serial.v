@@ -290,10 +290,8 @@ module cbdc_puf_array_serial #(
                                 end
                                 6'd5, 6'd6, 6'd7, 6'd8, 6'd9, 6'd10, 6'd11, 6'd12,
                                 6'd13, 6'd14, 6'd15, 6'd16, 6'd17, 6'd18, 6'd19, 6'd20: begin
-                                    reg [7:0] cur_byte;
-                                    cur_byte = tx_resp_buf_r[(tx_index_r - 6'd5)*8 +: 8];
-                                    tx_data_r   <= cur_byte;
-                                    tx_chksum_r <= tx_chksum_r ^ cur_byte;
+                                    tx_data_r   <= tx_resp_buf_r[(tx_index_r - 6'd5)*8 +: 8];
+                                    tx_chksum_r <= tx_chksum_r ^ tx_resp_buf_r[(tx_index_r - 6'd5)*8 +: 8];
                                 end
                                 6'd21: begin
                                     tx_data_r <= tx_chksum_r;
