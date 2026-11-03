@@ -1,0 +1,40 @@
+{
+  "commit": "7cfc392494038a8912acd5ba063709f838920404",
+  "sources": [
+    {
+      "Path": "C:\\BTech\\Semester_5\\DCMOS\\Project\\rtl\\cbdc_uart.v",
+      "Hash": "D73E500A2C62776A57BFA89609CBBD3B0B3673A1B0CFB7BF6F05459F6B83B3CF"
+    },
+    {
+      "Path": "C:\\BTech\\Semester_5\\DCMOS\\Project\\rtl\\cbdc_button.v",
+      "Hash": "B7BF5342968012E1B138E2C92D9F5C9557BC1A4CCD6CB55049D57A86627CEF33"
+    },
+    {
+      "Path": "C:\\BTech\\Semester_5\\DCMOS\\Project\\rtl\\cbdc_puf_element.v",
+      "Hash": "CC1B30AD272D8A1D26072A34B782FBB2B0C488087DCDCF0D3F02B98EBE8D4D36"
+    },
+    {
+      "Path": "C:\\BTech\\Semester_5\\DCMOS\\Project\\rtl\\cbdc_puf_chain.v",
+      "Hash": "30EEC11F5459690A14D95AD71F719787A9F3B8ECFC031E6227FAC98B65B1B870"
+    },
+    {
+      "Path": "C:\\BTech\\Semester_5\\DCMOS\\Project\\rtl\\cbdc_puf_core.v",
+      "Hash": "A0EF497C5772B87C531DA90CB5DED8C92F3373CE88C65509D4B039154D6BB70D"
+    },
+    {
+      "Path": "C:\\BTech\\Semester_5\\DCMOS\\Project\\rtl\\cbdc_puf_ctrl.v",
+      "Hash": "07E190D03692FB6ACB419CD79FD0374DD2F4024BDA6F0DF18D3325F161283CBF"
+    },
+    {
+      "Path": "C:\\BTech\\Semester_5\\DCMOS\\Project\\rtl\\cbdc_puf_serial.v",
+      "Hash": "C74F0B5B44F9139977B4F1313E13C77389A316E0BF03D8A7D19EC3ECC956C80F"
+    }
+  ],
+  "top": "cbdc_puf_serial",
+  "core_instances": 1,
+  "auto_parity": 1,
+  "capture_mode": 1,
+  "dual_arbiter": 1,
+  "excluded": "array,response_assembly,BCH,hash",
+  "placement": "paired only; no fixed matched routes"
+}
