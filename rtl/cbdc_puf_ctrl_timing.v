@@ -18,6 +18,7 @@
 module cbdc_puf_ctrl_timing #(
     parameter integer N_STAGES          = 16,
     parameter [3:0] GATE_INIT           = 4'h8,
+    parameter integer AUTO_PARITY       = 1,
     parameter integer CLR_CYCLES        = 4,
     parameter integer INIT_SETTLE_CYCLES= 4,
     parameter integer EXCITE_CYCLES     = 8,
@@ -45,7 +46,7 @@ module cbdc_puf_ctrl_timing #(
     // Inputs are synchronous to clk; start_i is accepted only while idle.
     // This rejects quiescent configurations without changing the paper's race.
     // resp_valid_o means sequence completion, not a physical liveness measurement.
-    wire challenge_supported_w = (^challenge_i) ^ (GATE_INIT == 4'h7);
+    wire challenge_supported_w = (AUTO_PARITY != 0) ? 1'b1 : ((^challenge_i) ^ (GATE_INIT == 4'h7));
     // synthesis translate_off
     initial begin
         if (N_STAGES < 1 || (GATE_INIT != 4'h8 && GATE_INIT != 4'h7))

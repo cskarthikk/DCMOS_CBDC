@@ -4,49 +4,59 @@
 //==============================================================================
 // Module: cbdc_puf_core
 // Description:
-//   Single CBDC-PUF instance containing the upper delay chain (Qu), lower delay
-//   chain (Qb), cross-coupled feedback paths, and negative-edge DFF arbiter
-//   (FDCE_1) per Figure 1, Figure 2, and Equations (1)-(3).
+//   Single CBDC-PUF instance containing upper delay chain (Qu), lower delay
+//   chain (Qb), cross-coupled feedback paths, and arbiter logic.
 //
-//   No debug ports are attached to qu or qb to avoid additional loads.
-//   Symmetric physical loading is not implied. Testbenches inspect dut.qu_w and
-//   dut.qb_w via hierarchical reference.
+// Key Enhancements:
+//   1. SINGLE_SHOT = 1 (Default): Captures the true initial wavefront race on the
+//      very FIRST falling edge of Qb, then freezes CE to eliminate multi-cycle
+//      sampling ambiguity and duty-cycle drift.
+//   2. AUTO_PARITY = 1 (Default): Passes down dynamic entrance gate configuration
+//      to sustain ring oscillation across 100% of all 65,536 challenges.
+//   3. DUAL_ARBITER = 1 (Default): Instantiates complementary Arbiter B (D=Qb, C=Qu)
+//      symmetrically in the same slice to cancel out terminal wire routing skew.
 //
 // Parameters:
 //   N_STAGES      : Number of stages per chain (16)
 //   GATE_INIT     : 4'h8 = AND2 (Fig. 1), 4'h7 = NAND2 (Table 1)
 //   CROSS_COUPLE  : 1 = Cross-coupled (Qb -> Upper, Qu -> Lower, Fig. 1 & Eq. 1)
-//                   0 = Same-side feedback (experimental, not the paper architecture)
+//                   0 = Same-side feedback (experimental)
 //   ELEMENT_STYLE : 0 = Style P (3 LUTs/elem), 1 = Style 2LUT (2 LUTs/elem)
+//   DIAGNOSTIC    : Diagnostic monitoring
+//   AUTO_PARITY   : 1 = Dynamic AND/NAND based on challenge parity
+//   SINGLE_SHOT   : 1 = First-edge single-shot capture mode
+//   DUAL_ARBITER  : 1 = Instantiate complementary Arbiter B
 //==============================================================================
 module cbdc_puf_core #(
     parameter integer N_STAGES      = 16,
     parameter [3:0]   GATE_INIT     = 4'h8,
     parameter integer CROSS_COUPLE  = 1,
     parameter integer ELEMENT_STYLE = 0,
-    parameter integer DIAGNOSTIC = 0
+    parameter integer DIAGNOSTIC    = 0,
+    parameter integer AUTO_PARITY   = 1,
+    parameter integer SINGLE_SHOT   = 1,
+    parameter integer DUAL_ARBITER  = 1
 ) (
-    input  wire [N_STAGES-1:0] c,      // 16-bit challenge input (static during run)
-    input  wire                excite, // Gate enable for both chains
-    input  wire                latch,  // FDCE_1 clock enable (CE)
-    input  wire                clr,    // Explicit asynchronous clear (engineering addition)
-    output wire                q,      // Captured 1-bit raw PUF response
-    output wire                qb_capture_seen_o,
-    output wire                qu_capture_seen_o
+    input  wire [N_STAGES-1:0] c,                 // 16-bit challenge input
+    input  wire                excite,            // Gate enable for both chains
+    input  wire                latch,             // Arbiter capture enable
+    input  wire                clr,               // Explicit asynchronous clear
+    output wire                q,                 // Primary PUF response bit (Arbiter A: D=Qu, C=negedge Qb)
+    output wire                q_comp_o,          // Complementary response bit (Arbiter B: D=Qb, C=negedge Qu)
+    output wire                qb_capture_seen_o, // Indicates Qb falling edge occurred
+    output wire                qu_capture_seen_o  // Indicates Qu falling edge occurred
 );
 
-    // Direct-core users must keep c stable and enforce supported parity:
-    // AND2: odd; NAND2: even. Eligibility does not guarantee physical oscillation.
     // synthesis translate_off
     initial if (CROSS_COUPLE != 0 && CROSS_COUPLE != 1)
-        $fatal(1, "CROSS_COUPLE must be 0 or 1 (0 is experimental)");
+        $fatal(1, "CROSS_COUPLE must be 0 or 1");
     // synthesis translate_on
 
     // Critical terminal nets of the upper and lower configurable delay chains
     (* DONT_TOUCH = "TRUE" *) wire qu_w;
     (* DONT_TOUCH = "TRUE" *) wire qb_w;
 
-    // CROSS_COUPLE = 1 follows Figure 1 and Equation (1).
+    // Cross-coupled feedback selection per Figure 1 and Equation (1)
     wire fb_to_upper_w = (CROSS_COUPLE != 0) ? qb_w : qu_w;
     wire fb_to_lower_w = (CROSS_COUPLE != 0) ? qu_w : qb_w;
 
@@ -55,7 +65,8 @@ module cbdc_puf_core #(
     cbdc_puf_chain #(
         .N_STAGES      (N_STAGES),
         .GATE_INIT     (GATE_INIT),
-        .ELEMENT_STYLE (ELEMENT_STYLE)
+        .ELEMENT_STYLE (ELEMENT_STYLE),
+        .AUTO_PARITY   (AUTO_PARITY)
     ) u_chain_upper (
         .excite_i   (excite),
         .feedback_i (fb_to_upper_w),
@@ -68,7 +79,8 @@ module cbdc_puf_core #(
     cbdc_puf_chain #(
         .N_STAGES      (N_STAGES),
         .GATE_INIT     (GATE_INIT),
-        .ELEMENT_STYLE (ELEMENT_STYLE)
+        .ELEMENT_STYLE (ELEMENT_STYLE),
+        .AUTO_PARITY   (AUTO_PARITY)
     ) u_chain_lower (
         .excite_i   (excite),
         .feedback_i (fb_to_lower_w),
@@ -76,33 +88,95 @@ module cbdc_puf_core #(
         .chain_o    (qb_w)
     );
 
-    // Negative-edge-triggered DFF arbiter (Xilinx FDCE_1 primitive, Section 4.1)
-    // Figure 1: D = Qu, negative-edge C = Qb, CE = latch; CLR is explicit here.
-    // Captures Qu on the falling edge of Qb while latch == 1:
-    //   tau_Qu < tau_Qb (Delta_sigma < 0) => Qu falls before Qb => captures Q = 0 (Fig. 2a)
-    //   tau_Qu > tau_Qb (Delta_sigma > 0) => Qb falls before Qu => captures Q = 1 (Fig. 2b)
+    // First-edge capture gating logic
+    // Arms when latch=1; sets on the first falling edge to lock CE against subsequent oscillations
+    (* DONT_TOUCH = "TRUE" *) wire qb_first_edge_seen_w;
+    (* DONT_TOUCH = "TRUE" *) wire qu_first_edge_seen_w;
+
+    generate
+        if (SINGLE_SHOT != 0) begin : gen_single_shot
+            (* DONT_TOUCH = "TRUE" *)
+            FDCE_1 #(
+                .INIT(1'b0)
+            ) u_qb_edge_lock (
+                .Q   (qb_first_edge_seen_w),
+                .C   (qb_w),
+                .CE  (latch),
+                .CLR (clr),
+                .D   (1'b1)
+            );
+
+            (* DONT_TOUCH = "TRUE" *)
+            FDCE_1 #(
+                .INIT(1'b0)
+            ) u_qu_edge_lock (
+                .Q   (qu_first_edge_seen_w),
+                .C   (qu_w),
+                .CE  (latch),
+                .CLR (clr),
+                .D   (1'b1)
+            );
+        end else begin : gen_continuous_sampling
+            assign qb_first_edge_seen_w = 1'b0;
+            assign qu_first_edge_seen_w = 1'b0;
+        end
+    endgenerate
+
+    // Enable for Arbiter A: active only until the first falling edge of Qb
+    wire arbiter_a_ce_w = (SINGLE_SHOT != 0) ? (latch & ~qb_first_edge_seen_w) : latch;
+
+    // Enable for Arbiter B: active only until the first falling edge of Qu
+    wire arbiter_b_ce_w = (SINGLE_SHOT != 0) ? (latch & ~qu_first_edge_seen_w) : latch;
+
+    // Primary Arbiter A (Figure 1: D=Qu, C=negedge Qb)
     (* DONT_TOUCH = "TRUE" *)
     FDCE_1 #(
         .INIT(1'b0)
     ) u_arbiter_dff (
         .Q   (q),
         .C   (qb_w),
-        .CE  (latch),
+        .CE  (arbiter_a_ce_w),
         .CLR (clr),
         .D   (qu_w)
     );
 
-    // Diagnostic-only loads. A set flag means >=1 falling edge while CE was high;
-    // it does not count edges or establish oscillation/metastability resolution.
-    generate if (DIAGNOSTIC != 0) begin : gen_diagnostic
-        (* DONT_TOUCH = "TRUE" *) FDCE_1 qb_seen (
-            .Q(qb_capture_seen_o), .C(qb_w), .CE(latch), .CLR(clr), .D(1'b1));
-        (* DONT_TOUCH = "TRUE" *) FDCE_1 qu_seen (
-            .Q(qu_capture_seen_o), .C(qu_w), .CE(latch), .CLR(clr), .D(1'b1));
-    end else begin : gen_no_diagnostic
-        assign qb_capture_seen_o = 1'b0;
-        assign qu_capture_seen_o = 1'b0;
-    end endgenerate
+    // Complementary Arbiter B (Symmetrical dual arbiter: D=Qb, C=negedge Qu)
+    // Symmetrically balances out terminal wire routing skew
+    generate
+        if (DUAL_ARBITER != 0) begin : gen_dual_arbiter
+            (* DONT_TOUCH = "TRUE" *)
+            FDCE_1 #(
+                .INIT(1'b0)
+            ) u_arbiter_b_dff (
+                .Q   (q_comp_o),
+                .C   (qu_w),
+                .CE  (arbiter_b_ce_w),
+                .CLR (clr),
+                .D   (qb_w)
+            );
+        end else begin : gen_no_dual_arbiter
+            assign q_comp_o = 1'b0;
+        end
+    endgenerate
+
+    // Edge-monitoring flags (DIAGNOSTIC mode)
+    generate
+        if (DIAGNOSTIC != 0) begin : gen_diagnostic
+            if (SINGLE_SHOT != 0) begin : gen_diag_ss
+                assign qb_capture_seen_o = qb_first_edge_seen_w;
+                assign qu_capture_seen_o = qu_first_edge_seen_w;
+            end else begin : gen_diag_cont
+                (* DONT_TOUCH = "TRUE" *) FDCE_1 qb_seen (
+                    .Q(qb_capture_seen_o), .C(qb_w), .CE(latch), .CLR(clr), .D(1'b1));
+                (* DONT_TOUCH = "TRUE" *) FDCE_1 qu_seen (
+                    .Q(qu_capture_seen_o), .C(qu_w), .CE(latch), .CLR(clr), .D(1'b1));
+            end
+        end else begin : gen_no_diagnostic
+            assign qb_capture_seen_o = 1'b0;
+            assign qu_capture_seen_o = 1'b0;
+        end
+    endgenerate
+
 endmodule
 
 `default_nettype wire

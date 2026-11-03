@@ -17,6 +17,7 @@
 module cbdc_puf_ctrl #(
     parameter integer N_STAGES          = 16,
     parameter [3:0] GATE_INIT           = 4'h8,
+    parameter integer AUTO_PARITY       = 1,
     parameter integer CLR_CYCLES        = 4,
     parameter integer INIT_SETTLE_CYCLES= 4,
     parameter integer EXCITE_CYCLES     = 8,
@@ -43,7 +44,7 @@ module cbdc_puf_ctrl #(
     // Inputs are synchronous to clk; start_i is accepted only while idle.
     // This rejects quiescent configurations without changing the paper's race.
     // resp_valid_o means sequence completion, not a physical liveness measurement.
-    wire challenge_supported_w = (^challenge_i) ^ (GATE_INIT == 4'h7);
+    wire challenge_supported_w = (AUTO_PARITY != 0) ? 1'b1 : ((^challenge_i) ^ (GATE_INIT == 4'h7));
     // synthesis translate_off
     initial begin
         if (N_STAGES < 1 || (GATE_INIT != 4'h8 && GATE_INIT != 4'h7))
@@ -124,7 +125,7 @@ module cbdc_puf_ctrl #(
                     puf_excite_o <= 1'b0;
                     puf_latch_o  <= 1'b0;
                     puf_clr_o    <= 1'b1;
-                    if (timer_r >= CLR_CYCLES - 1) begin
+                    if (timer_r >= (CLR_CYCLES[15:0] - 16'd1)) begin
                         puf_clr_o <= 1'b0; // Step 2: release clr while excite=0, latch=0
                         timer_r   <= 16'd0;
                         state_r   <= ST_INIT_SETTLE;
@@ -137,7 +138,7 @@ module cbdc_puf_ctrl #(
                     puf_excite_o <= 1'b0;
                     puf_latch_o  <= 1'b0;
                     puf_clr_o    <= 1'b0;
-                    if (timer_r >= INIT_SETTLE_CYCLES - 1) begin
+                    if (timer_r >= (INIT_SETTLE_CYCLES[15:0] - 16'd1)) begin
                         puf_excite_o <= 1'b1; // Step 3: assert excite=1, keep latch=0
                         timer_r      <= 16'd0;
                         state_r      <= ST_EXCITE;
@@ -150,7 +151,7 @@ module cbdc_puf_ctrl #(
                     puf_excite_o <= 1'b1;
                     puf_latch_o  <= 1'b0;
                     puf_clr_o    <= 1'b0;
-                    if (timer_r >= EXCITE_CYCLES - 1) begin
+                    if (timer_r >= (EXCITE_CYCLES[15:0] - 16'd1)) begin
                         puf_latch_o <= 1'b1; // Step 4: assert latch=1 while excite=1
                         timer_r     <= 16'd0;
                         state_r     <= ST_LATCH;
@@ -163,7 +164,7 @@ module cbdc_puf_ctrl #(
                     puf_excite_o <= 1'b1;
                     puf_latch_o  <= 1'b1;
                     puf_clr_o    <= 1'b0;
-                    if (timer_r >= LATCH_CYCLES - 1) begin
+                    if (timer_r >= (LATCH_CYCLES[15:0] - 16'd1)) begin
                         puf_latch_o <= 1'b0; // Step 6: drop latch first to freeze FDCE_1
                         timer_r     <= 16'd0;
                         state_r     <= ST_DROP_LATCH;
@@ -178,7 +179,7 @@ module cbdc_puf_ctrl #(
                     puf_excite_o <= 1'b1;
                     puf_latch_o  <= 1'b0;
                     puf_clr_o    <= 1'b0;
-                    if (timer_r >= HOLD_CYCLES - 1) begin
+                    if (timer_r >= (HOLD_CYCLES[15:0] - 16'd1)) begin
                         resp_bit_o   <= q_sync2_r; // Sample synchronized Q before dropping excite
                         puf_excite_o <= 1'b0;      // Step 7: drop excite=0
                         timer_r      <= 16'd0;

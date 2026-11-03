@@ -31,7 +31,8 @@ module cbdc_puf_top #(
     );
     cbdc_puf_core #(.N_STAGES(N_STAGES), .GATE_INIT(GATE_INIT),
         .CROSS_COUPLE(1), .ELEMENT_STYLE(0)) u_core (
-        .c(challenge), .excite(excite), .latch(latch), .clr(clr), .q(response)
+        .c(challenge), .excite(excite), .latch(latch), .clr(clr), .q(response),
+        .q_comp_o(), .qb_capture_seen_o(), .qu_capture_seen_o()
     );
 endmodule
 `default_nettype wire

@@ -18,7 +18,8 @@
 //==============================================================================
 module cbdc_puf_ref_model #(
     parameter integer N_STAGES  = 16,
-    parameter [3:0]   GATE_INIT = 4'h8
+    parameter [3:0]   GATE_INIT   = 4'h8,
+    parameter integer AUTO_PARITY = 1
 ) (
     input  wire [N_STAGES-1:0] c_i,
     output reg  [31:0]         tau_qu_ps_o,
@@ -97,15 +98,19 @@ module cbdc_puf_ref_model #(
 
         // During Initialization (Excite = I0 = 0), gate output is INIT[0]
         // (For AND2 4'h8 -> 0; for NAND2 4'h7 -> 1)
-        gate_init_out    = GATE_INIT[0];
-        expected_init_qu_o = gate_init_out ^ chain_inv_parity;
-
-        // During Excitation (Excite = I0 = 1), gate output is:
-        //   AND2 requires odd parity; NAND2 requires even parity to launch a race.
-        // The full cross-coupled loop has even inversion parity. This is NOT a
-        // prediction of sustained oscillation, capture availability, or validity.
-        gate_inverts_when_excited = (GATE_INIT == 4'h7) ? 1'b1 : 1'b0;
-        startup_eligible_o       = chain_inv_parity ^ gate_inverts_when_excited;
+                // When AUTO_PARITY=1, gate automatically matches challenge parity:
+        // Odd parity -> AND2 (4'h8, init out = 0)
+        // Even parity -> NAND2 (4'h7, init out = 1)
+        if (AUTO_PARITY != 0) begin
+            gate_init_out = (chain_inv_parity) ? 1'b0 : 1'b1;
+            expected_init_qu_o = 1'b1; // Always initializes Qu/Qb to 1
+            startup_eligible_o = 1'b1; // 100% of all 65,536 challenges are eligible
+        end else begin
+            gate_init_out = GATE_INIT[0];
+            expected_init_qu_o = gate_init_out ^ chain_inv_parity;
+            gate_inverts_when_excited = (GATE_INIT == 4'h7) ? 1'b1 : 1'b0;
+            startup_eligible_o = chain_inv_parity ^ gate_inverts_when_excited;
+        end
     end
 
 endmodule

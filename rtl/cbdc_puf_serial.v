@@ -10,7 +10,7 @@ module cbdc_serial_engine(input wire clk,reset,start,input wire [15:0] challenge
   .busy_o(busy),.resp_valid_o(valid),.resp_bit_o(response),.request_error_o(error),
   .puf_c_o(c),.puf_excite_o(excite),.puf_latch_o(latch),.puf_clr_o(clr),.puf_q_i(q));
  cbdc_puf_core #(.DIAGNOSTIC(1)) u_core(.c(c),.excite(excite),.latch(latch),.clr(clr),.q(q),
-  .qb_capture_seen_o(qb_seen),.qu_capture_seen_o(qu_seen));
+  .qb_capture_seen_o(qb_seen),.qu_capture_seen_o(qu_seen),.q_comp_o());
 endmodule
 // Request: A5 low high xor(previous 3). Reply: 5A low high flags bit xor(previous 5).
 // Flags: bit0=accepted; bit1=Qb falling edge seen; bit2=Qu falling edge seen;

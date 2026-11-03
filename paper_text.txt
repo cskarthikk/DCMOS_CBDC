@@ -1,0 +1,986 @@
+=== PAGE 1 ===
+78
+CBDC-PUF: A Novel Physical Unclonable Function Design
+Framework Utilizing Configurable Butterfly Delay Chain
+Against Modeling Attack
+YANJIANG LIU, JUNWEI LI, TONGZHOU QU, and ZIBIN DAI, Information Engineering
+University
+Physical unclonable function (PUF) is a promising security-based primitive, which provides an extremely
+large number of responses for key generation and authentication applications. Various PUFs have been de-
+veloped as central building blocks in cryptographic protocols and security architectures, however, the existing
+PUFs and their improvements are still vulnerable to modeling attacks (MA) with refined machine learning
+algorithms. In this article, a configurable butterfly delay chain-based PUF design framework is proposed to
+meet the requirements of randomness, reliability, uniqueness, and MA-resistance metrics. A configurable
+butterfly delay chain is introduced to create multiple pairs of symmetric paths and a strong PUF relying on
+the intrinsic delay fluctuations of two identical paths is built. Furthermore, a secure hash function is used
+to insert non-linearities into the PUF, and a BCH-based error correction algorithm is utilized to recover the
+actual responses under noisy environments. The proposed PUF is implemented on Xilinx FPGAs and three
+machine learning algorithms are used to evaluate the resistance against MA. Experimental results show that
+the randomness, reliability, and uniqueness of the proposed PUF are close to the ideal value (49.6%, 99.9%,
+and 49.9%, respectively), and the prediction accuracy reaches 50% that indicating a desirable resilient to MA.
+CCS Concepts: • Security and privacy →Security in hardware; Embedded systems security;
+Additional Key Words and Phrases: Physical unclonable function, modeling attack, machine learning algo-
+rithm, cryptographic hash function
+ACM Reference format:
+Yanjiang Liu, Junwei Li, Tongzhou Qu, and Zibin Dai. 2023. CBDC-PUF: A Novel Physical Unclonable Func-
+tion Design Framework Utilizing Configurable Butterfly Delay Chain Against Modeling Attack. ACM Trans.
+Des. Autom. Electron. Syst. 28, 5, Article 78 (September 2023), 17 pages.
+https://doi.org/10.1145/3588435
+1
+INTRODUCTION
+Since chips are deployed in many critical applications and sensitive fields, their security, privacy,
+and safety aspects are of utmost concern. With developing numerous hardware attack techniques,
+chips are not enough to provide sufficient protection against these attack approaches that have
+become a serious threat to the security of systems. Although several security solutions have been
+Authors’ address: Y. Liu, J. Li, T. Qu, and Z. Dai (corresponding author), Information Engineering University, Shangcheng
+Road No. 12, Zhengzhou, Henan 450000, China; emails: liuyj_1013@126.com, lijunwei3@163.com, qutongzhou@outlook.
+com, daizb2004@126.com.
+Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee
+provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and
+the full citation on the first page. Copyrights for components of this work owned by others than the author(s) must be
+honored. Abstracting with credit is permitted. To copy otherwise, or republish, to post on servers or to redistribute to lists,
+requires prior specific permission and/or a fee. Request permissions from permissions@acm.org.
+© 2023 Copyright held by the owner/author(s). Publication rights licensed to ACM.
+1084-4309/2023/09-ART78 $15.00
+https://doi.org/10.1145/3588435
+ACM Transactions on Design Automation of Electronic Systems, Vol. 28, No. 5, Article 78. Pub. date: September 2023.
+
+=== PAGE 2 ===
+78:2
+Y. Liu et al.
+explored in the literature, such as Trusted Platform Modules (TPMs) [1], those approaches in-
+troduce non-negligible area overhead, power consumption, and computational complexity, which
+make them difficult to be deployed in cost-sensitive systems. A promising approach to protect
+these systems against hardware attacks is physically unclonable functions. The main advantage
+of Physical unclonable functions (PUFs) is that no secret needs to be securely stored and the
+PUF response generation is simple. Therefore, PUFs are increasingly becoming the central building
+blocks in cryptographic protocols and security architectures.
+Since the Arbiter-based PUF first presented by Lim et al. [2], PUF has attracted widely attention
+in the field of hardware security. After that, numerous PUFs, including the Arbiter-based PUF [3, 4],
+RO-based PUF [5–7], SRAM-based PUF [8, 9], Latch-based PUF [10, 11], Flash-based PUF [12, 13],
+and so on, have been proposed to strengthen the security of systems. Although various PUFs are
+explored over decades, only the butterfly PUF and SRAM PUF are widely used as low-cost security
+solutions for cryptographic products [14, 15]. Furthermore, several PUF-based security solutions,
+like the device identification and authentication [16], secure storage of cryptographic secret [17],
+IP protection [18], anti-counterfeiting [19], and so on, are already explored in the literature and
+integrated into the high-security products that circulate in the market. Among all existing PUFs,
+the butterfly PUFs achieve high reliability, randomness, and uniqueness, which have recently re-
+ceived increasing attention from both academics and the industry [20–22]. Therefore, the butterfly
+PUFs have become the most appealing option for establishing trust in resource-constrained em-
+bedded systems. However, the original butterfly PUF is a weak PUF and has a limited number of
+challenge–response pairs. In this case, the butterfly PUF is only used as the secret key, which does
+not scale to the authentication and attestation fields.
+PUFs are based on the intrinsic physical differences caused by the random manufacturing pro-
+cess which are infeasible to predict and reproduce in practice. However, the PUF behavior with
+those differences is easily modeled by machine learning algorithms and the PUF’s response of
+an arbitrary challenge can be predicted accurately by this mathematical model. Several works de-
+scribed in [3], [23], and [24] perform a successful modeling attack (MA) on the existing PUFs.
+Furthermore, several MA resistant PUFs, including the XOR Arbiter-based Physical Unclon-
+able Functions (APUFs) [3, 25, 26], feedforward APUFs [2, 27, 28], lightweight secure PUFs [29],
+and so on, have been explored to resist the modeling attacks. Although several studies enhance the
+resistance against MA, they are still vulnerable under refined machine learning algorithms with
+enhanced power consumption and area cost. Moreover, PUFs are susceptible to the varying supply
+voltage and ambient temperature variations, and PUFs provide slightly different responses when
+queried with the same challenge multiple times, which cannot be used directly as cryptographic
+keys. In summary, the existing PUFs suffer from one or more of the following disadvantages:
+(1) they are vulnerable to modeling attacks with refined machine learning algorithms, (2) they are
+subject to varying operating conditions, and (3) they introduce non-negligible power consumption
+and area overhead to enhance the resistance against MA.
+In this article, we design a high-security and low-overhead butterfly PUF to process security-
+critical and privacy-sensitive data. A path-configurable delay chain is designed to generate
+multiple combinations of two symmetrical paths, a cross-coupled circuit with two delay chains is
+constructed to produce two possible stable states and a flip-flop-based arbiter is used to settle to
+one of the two stable states. Then, the configurable delay chain of arbiter PUF and the nonlinear
+mathematical model of butterfly PUF are combined to form a Configurable Butterfly Delay
+Chain-based Physical Unclonable Function (CBDC-PUF), which produces a large number of
+challenge/response pairs (CRPs) and achieves a high MA-resistance ability. Furthermore, an
+MA-resilience solution based on the secure hash algorithm is introduced to break the linear
+relationship between the challenges and responses, which makes the conventional machine
+ACM Transactions on Design Automation of Electronic Systems, Vol. 28, No. 5, Article 78. Pub. date: September 2023.
+
+=== PAGE 3 ===
+A Novel PUF Design Framework Utilizing Configurable Butterfly Delay Chain
+78:3
+learning algorithms hard to build the mathematical models of the proposed PUF. Besides, an error
+correction scheme based on the Bose–Chaudhuri–Hocquenghen (BCH) code is utilized to
+improve the robustness of PUF. The main contributions are listed as follows:
+— A CBDC-PUF based on the unique differences of two symmetrical paths is proposed to pro-
+duce a large number of CRPs, which can be easily integrated into the hardware security fields.
+There is no need for user to implement the power-up and power-down operations repeat-
+edly, and the space size of CRPs is large enough to meet the requirement of cryptographic
+protocols.
+— The butterfly PUF and a secure hash function are introduced to insert the non-linearity into
+the relationship between the challenges and responses for improving the MA-resistance. The
+prediction accuracy of CBDC-PUF is close to 50%, which shows that the MA are equivalent
+to random guessing.
+The rest of this article is organized as follows. Section 2 introduces an overview of existing
+PUFs. Section 3 presents the structure, working principle, and security analysis of proposed PUF.
+Section 4 describes the experimental setup, analyzes the main performances and MA-resistance of
+proposed PUF. Section 5 concludes this article.
+2
+BACKGROUND
+2.1
+Attack Model
+Recently, various third-party EDA tool vendors, Intellectual Property providers, and foundries
+from different countries and regions are participating in the PUF design and fabrication process.
+We assume that the total PUF design and fabrication stage are trusted, and its toolchain is reliable.
+Therefore, the attack scenario is mainly at the application stage, and adversaries can access the
+PUF-based chips but have little knowledge about the PUFs. Numerous attack approaches, including
+micro probing attack, side-channel attack, fault injection attack, MA, and so on, are exploited by
+adversaries to retrieve the PUF responses in this stage. The actual PUF does not require several
+specific memory cells to store the responses and cannot be accessed through the communication
+interfaces. To evaluate the performance of PUF effectively, we suppose that some CRPs can be
+collected freely via interfaces.
+2.2
+Physical Unclonable Functions
+Considering the security requirements of embedded systems, numerous PUFs have been proposed
+over the past several decades. It can be broadly classified into (1) non-electronic PUFs, (2) analog
+electronic PUFs, (3) delay-based PUFs, and (4) memory-based PUFs. Among all the existing PUF
+instantiations, delay- and memory-based PUFs are the most appealing ones for the embedded
+systems that are used in critical applications and sensitive fields. From [30], arbiter PUF is first
+presented by Lim et al. and its efficacy is evaluated on the application-specific integrated circuits.
+However, its linear additive path delays are also vulnerable to MA. To further improve the MA-
+resistance ability, a feed-forward arbiter PUF is proposed to use the intermediate value of arbiters
+as the parts of the challenge [2]. But References [31] and [32] have successfully implemented
+the MA on the feed-forward arbiter PUF. Majzoobi et al. demonstrate that advanced modeling
+techniques can predict the response of the feed-forward arbiter PUF [5, 33]. After that, Pranesh
+et al. introduce an XOR APUF design scheme [23], Rashid et al. present a reconfigurable arbiter PUF
+[3], Nimesh et al. design a hybrid nonlinear PUF [24], and Durga et al. propose a multiplexer-based
+composition of arbiter PUF design approach [4] to thwart MA. Among them, XOR APUF is the most
+efficient approach to resist MA. Although XOR arbiter PUFs improve the computational complexity
+ACM Transactions on Design Automation of Electronic Systems, Vol. 28, No. 5, Article 78. Pub. date: September 2023.
+
+=== PAGE 4 ===
+78:4
+Y. Liu et al.
+Fig. 1. Structure of CBDC-PUF.
+of MA, the reliability decreases with the increasing number of XORs. Moreover, Ruhrmair et al. can
+model 16-XOR APUF using a combination of MA and side-channel attacks [34].
+Ring oscillator PUF (RO-PUF) is another type of delay-based PUF, which exploit the dif-
+ferences among several ring oscillators to output an unpredictable response. However, the ring
+oscillator is susceptible to the fluctuations of voltage and ambient temperature, and the reliability
+of basic RO-PUF is relatively low. To improve the reliability of RO-PUF, numerous improved RO-
+PUFs, including the ARO-PUF [17], ACRO-PUF [35], CF-ROPUF [36], TERO-PUF [37], frequency
+offset-based RO-PUF [38, 39], and so on, have been developed to reduce the bit error rate of re-
+sponses. Besides, References [6, 7, 40, 41] increase the number of CRPs of traditional RO-PUF.
+However, the tradeoff between the implementation cost, reliability, and MA-resistance is still the
+main challenge of the existing RO-PUFs.
+Due to the existence of manufacturing process variations, the physical properties vary with
+each other. Memory cells have two possible stable states (“0” and “1”), the stable state a cell enters
+depends on the physical properties of its transistors. It is extremely difficult to guess the stable
+state of a specific cell. Memory-based PUFs exploit the instability behavior of the memory cells
+to produce physical unclonable and unpredictable responses. Since the SRAM-PUF first presented
+in [8], various memory cells, including the latches [10, 11], Flash [12, 13], D flip-flops [42, 43],
+and scan flip-flops [44–46], have been explored to design the memory-based PUF. Generally, the
+memory-based PUF is a weak PUF and the CRPs space size depends on the number of memory cells.
+The larger size the CRP space is, the more cells the memory-based PUF needs, and the larger the
+area occupies. Moreover, majority of memory-based PUFs require the power-up behavior to settle
+to a stable state from two possible states. There is no doubt that such memory-based PUFs need a
+dedicated power network to implement multiple power-up operations. In addition, the stable state
+stored in the memory cells can be revealed by various physical attacks (e.g., micro probing attack
+[47], side-channel attack [48], and fault injection attack [49, 50]), which makes the memory-based
+PUFs susceptible to physical attacks.
+3
+CONFIGURABLE BUTTERFLY DELAY CHAIN-BASED PUF DESIGN AND SECURITY
+ANALYSIS
+3.1
+PUF Design
+Figure 1 shows the structure of CBDC-PUF. As shown in Figure 1, a cross-coupled circuit with two
+configurable delay chains is used to produce two possible states, and a D-type flip-flop (DFF) at
+the end of the cross-coupled circuit is used to capture the possible stable state. The configurable
+ACM Transactions on Design Automation of Electronic Systems, Vol. 28, No. 5, Article 78. Pub. date: September 2023.
+
+=== PAGE 5 ===
+A Novel PUF Design Framework Utilizing Configurable Butterfly Delay Chain
+78:5
+delay chain is composed of n configurable delay elements and 1 AND gate. Where Excite is an
+input signal of AND gate and Latch is the clock enable signal of DFF. Each configurable delay
+element includes a buffer and inverter, which provides two optional signal paths according to the
+value of control signal. The ith configurable delay element is used as an example to explain its
+structure. Where C[i] and its complementary value (C[i]) are the control signal of configurable
+delay element, Qi
+u and Qi+1
+u
+are the input and output signal of the ith configurable delay element.
+The logical value of Qi
+u propagates to the output Qi+1
+u
+when the value of input C[i] is logic “0”,
+while the opposite value of Qi
+u transmits to the output Qi+1
+u
+when the C[i] is pulled up to logic “1”.
+The CBDC-PUF response generation process is divided into three stages, which are the initial-
+ization, excitation, and data latching stage. To explain the CBDC-PUF response generation process
+clearly, C[n-1] is set as logic “0” and other bits (e.g., C[0], C[1], . . ., C[n-2]) of C are set as logic
+“1”. The CBDC-PUF enters the initialization stage and all the internal nodes are initialized when
+the Excite and Latch pull down to logic “0”. In this case, Qu and Qb rise to logic “1” and the other
+internal nodes (Q0
+u, Q0
+b and Q) are set to logic “0”. In the excitation stage, Excite is pulled up to
+logic “1” and Latch is remained at the logic “0” at the same time. The logical value of Qu and Qb
+are transmitted to configurable delay elements successively, and the corresponding signal across
+the configurable delay elements is transmitted or reversed according to the value of its control
+signal. The gate delay of the buffer part and inverter part of ith upper configurable delay element
+are denoted as ϕi
+u and ψ i
+u, respectively, and the delay of upper and below AND gate are denoted
+as τu and τb, respectively, while the gate delay of the buffer part and inverter part of ith below
+configurable delay element are denoted as ϕi
+b and ψ i
+b. The total delay τQu along the path Qb →Qu
+and the total delay along the path Qu →Qb can be expressed as
+τQu = n−1
+i=0 ((1 −C[i])ϕi
+u + C[i]ψ i
+u) + τu
+τQb = n−1
+i=0 ((1 −C[i])ϕi
+b + C[i]ψ i
+b) + τb
+(1)
+The upper part and lower part of the configurable delay chain are symmetrically distributed
+by manual placement and the length of the signal wire of two symmetrical paths are ideally
+identical. So, τu = τb, ϕi
+u = ϕi
+b, ψ i
+u = ψ i
+b, and τQu = τQb. Due to randomness over the manufacturing
+process, the main parameters of MOS devices, including the channel length, channel width, oxide
+thickness, and threshold voltage, are deviated from the ideal value. According to the delay calcula-
+tion approach presented in Reference [51], the delay of two MOS devices in the same wafer varied
+with each other. Therefore,τu, ϕi
+u,ψ i
+u, andτQu are not equal toτb, ϕi
+b,ψ i
+b, andτQb, respectively. Δ σ is
+the total delay difference between the upper and below part of the configurable delay chain, which
+is presented in Equation (2). Where Δ ρ is the total delay difference between the upper and below
+configure delay elements, Δ τ is the difference between τu and τb, and both the Δ ρ and Δ τ are not
+equal to 0. Concerning the ϕi
+u  ϕi
+b, ψ i
+u  ψ i
+b, and τu  τb, thus τQu  τQb and Δ σ 0. As shown in
+Figure 1, such cross-coupled structure provides a square wave signal flowing through the
+symmetrical paths. Due to the delay difference between two symmetrical paths, the square wave
+signals flowing through the symmetrical paths cannot flip simultaneously. The DFF judges which
+of the two symmetrical paths is faster and outputs the captured data at the negative edge of C as
+the PUF response.
+Δσ = Δρ + Δτ = τQu −τQb =
+n−1
+
+i=0
+((1 −C[i])(ϕi
+u −ϕi
+b) + C[i](ψ i
+u −ψ i
+b)) + τu −τb
+(2)
+The proposed PUF enters the data latching stage when both the Excite and Latch are pulled up
+to logic “1”. The DFF with a negative-edge clock captures a stable state from two possible states.
+In the data latching stage, the data on the Qu is loaded into the flip-flop on the falling edge of Qu.
+If the Latch is pulled down to logic “0”, the logical value of Q has remained and the falling edge of
+ACM Transactions on Design Automation of Electronic Systems, Vol. 28, No. 5, Article 78. Pub. date: September 2023.
+
+=== PAGE 6 ===
+78:6
+Y. Liu et al.
+Fig. 2. Timming waveform of proposed PUF.
+Qu is ignored. The output response Q of proposed PUF is a step function of Δσ, which is expressed
+as
+Q = siдn(Δσ) =
+⎧⎪⎨⎪⎩
+0.
+τQu ≤τQb,
+1.
+τQu > τQb.
+(3)
+Figure 2 shows the timing waveform of two possible states of the proposed PUF. In the excitation
+stage, the logical value of Qu and Qb is transferred to the Q0
+u and Q0
+b, respectively, when the Excite
+is pulled up to logic “1”, and then the new logical value of Q0
+u and Q0
+b is transmitted or reversed
+through the configurable delay elements and passed to the Qu and Qb, respectively. Regarding
+Figure 2(a), the signal flowing through the upper part of the configurable delay chain is faster than
+the corresponding below part. In other words, τb + τQb is greater than τu + τQu. Therefore, Q0
+b and
+Qb flip later than Q0
+u and Qu, respectively. Specifically, Qb and Qu rise to logic “1” at the same time,
+while Qb delays Δ σ compared to the Qu when Qu goes to logic “0”. Similarly, Q0
+b delays Δ τ at
+the rising edge and Δ ρ at the falling edge compared with the Q0
+u. Figure 2(b) shows another case
+of the CBDC-PUF. In this case, the total delay of the upper part of the configurable delay chain
+is greater than the corresponded below part and τQu < τQb. Thus, Qb and Q0
+b flip earlier than the
+Qu and Q0
+u, respectively, and the corresponding delay time is equal to the case in Figure 2(a). In
+the data latching stage, the logic “0” of Qu is captured when Δ σ is smaller than 0, and thus the
+response Q of proposed PUF is set as logic “0” in Figure 2(a). For the case in Figure 2(b), the logic
+“1” of Qu is captured if Δ σ is greater than 0, and thus the response Q of proposed PUF is logic “1”.
+In summary, Δ σ caused by process variations is the primary source of randomness, which makes
+the proposed PUF unique and secure.
+3.2
+Security Analyses
+Combining Equations (2) and (3), there exists a linear relationship betweenC and Q.C ranges from
+0 to 2n, and there exist 2n possible symmetrical paths and possible responses. Once the proposed
+CBDC-PUF is manufactured, the gate delay of each element in the CBDC-PUF is determined, and
+ψ i
+u, ψ i
+b, ϕi
+u, ϕi
+b, τu, and τb are constant. Thus, Δ σ can be rewritten as Equation (4). Where α0, α1,
+. . ., αn−1 are constant which is related to the fixed gate delay of elements (e.g., αi is the linear
+ACM Transactions on Design Automation of Electronic Systems, Vol. 28, No. 5, Article 78. Pub. date: September 2023.
+
+=== PAGE 7 ===
+A Novel PUF Design Framework Utilizing Configurable Butterfly Delay Chain
+78:7
+relationship between ψ i
+u, ψ i
+b, ϕi
+u, and ϕi
+b).
+Δσ = α0 × C[0] + α1 × C[1] + · · · + αn−1 × C[n −1] + Δτ ∝C
+(4)
+Regarding Equations (4) and (3), Q is linearly correlated with the C. Such a linear relationship
+between the Q and C can be established using the machine learning approaches (e.g., support
+vector machine (SVM), logistic regression, artificial neural network, and evolutionary strategy)
+and the PUF response of an arbitrary challenge is easily guessed by the trained model. Therefore,
+we can conclude that the proposed CBDC-PUF is vulnerable to MA.
+The hash function is a mathematical function that converts an arbitrary length of an input
+value into a fixed length, which is widely applied to password storage, data integrity check, and
+other information security applications. Several hash algorithms, including the Message Digest,
+Secure Hash Function, RIPEMD, and Whirlpool, have been proposed over the past decades. Keccak
+algorithm has efficient performance and good resistance to attacks, which is chose as the new
+SHA-3 standard by NIST in 2012. No successful attacks have yet been reported on the SHA-3 hash
+function. Hash function results in substantially different hash values for two messages that differ
+by even a single bit of data. Based on that, a hash function can increase the complexity of the
+challenge to response mapping in a strong PUF. Several works have demonstrated that the hash
+function can obscure the relationship between the challenges and responses and further improve
+the anti-modeling attack ability of PUF [52–54]. Therefore, a secure hash algorithm is further used
+to eliminate the linear relationship between Q and C in this article. Equation (3) can be re-written
+as Equation (5). Where non-linear function f implements the secure hash algorithm. As shown
+in Equation (5), a nonlinear relationship exists between Q′ and C which shows that the proposed
+CBDC-PUF is resilient to MA approaches.
+Q′ = siдn(Δσ) = siдn 
+
+n−1
+
+i=0
+αi f (C) + Δτ
+	
+∝f (C)
+(5)
+4
+EXPERIMENTAL RESULTS AND ANALYSES
+4.1
+Experiment Setup
+For a CBDC-PUF, the width of the control signal is set as 16-bit. There exist 216 pairs of symmet-
+ric paths for a CBDC-PUF and thus the number of CRPs is 65536. A total of 128 CBDC-PUFs are
+arranged in a matrix and thus the CRPs space of the PUF framework is 65536128. Furthermore, a
+secure hash algorithm-3 (SHA-3) is used to generate 2048-bit hash data that configures 65536128
+pairs of symmetric paths of the PUF framework. To improve the robustness of the proposed PUF,
+several primitives of FPGA, including the LUT2, NAND2, and FDCE_1, are used to build the struc-
+ture of CBDC-PUF. Besides, the placement of CBDC-PUF is adjusted and fixed using the FPGA
+Editor, and the routing of two differential signal paths is modified to be approximately equal. The
+fixed structure of CBDC-PUF is saved as a hard macro and reused to form a 128-bit PUF response.
+The proposed PUF occupies 256 NAND2s, 8192 LUT2s, and 128 FDCE_1s, while the total design
+requires 4406 registers, 9544 LUTs, 4568 slices, 4 bonded IOBs, and 1 BUFG. The utilization of the
+number of slice registers is 3%, the utilization of the number of slice LUTs is 15%, the utilization of
+the bonded IOBs is 1%, and the utilization of the number of the BUFG is 3%. Moreover, we compare
+the FPGA utilization results of the proposed design with the several works (FFXOR [32] and 4-XOR
+APUF [23]) in Table 1. We use the Xilinx XPower Analyzer to calculate the power consumption of
+total design. The dynamic supply power is 0.427 W, and the quiescent supply power is 0.089 W, and
+the total supply power is 0.516 W. We also calculate the computation latency of the total design,
+and the computation latency is 10.627ns and the maximum frequency is 92.799 MHz.
+ACM Transactions on Design Automation of Electronic Systems, Vol. 28, No. 5, Article 78. Pub. date: September 2023.
+
+=== PAGE 8 ===
+78:8
+Y. Liu et al.
+Table 1. The FPGA Resource Usage Results of the PUFs
+PUF Type
+FPGA resource usage
+NAND2
+MUX2
+LUT2
+XOR2
+DFF
+FFXOR [32]
+-
+16384
+-
+896
+128
+4-XOR APUF [23]
+-
+65536
+-
+384
+512
+CDBC-PUF
+256
+-
+8192
+-
+128
+In the actual situation, PUFs are subject to variations of environmental conditions, and the re-
+sponses have several error bits under the same challenge. However, the PUF-based application
+scenarios require an error-free response as the authentication password or cryptographic key. So,
+an error correction code should be considered to correct several bit errors from the PUF response.
+Considering the hardware complexity and error-correcting capability, an error correction algo-
+rithm based on the BCH code is adopted and used to solve the bit-error problem of PUF response.
+In this article, the BCH code is characterized as (31, 16, 3) and 3-bit errors can be corrected from
+the 16-bit response.
+To evaluate the performance of the proposed PUF, an FPGA-based PUF test platform is built
+to acquire the CRPs under varying test conditions. The total project of the PUF framework runs
+on the RISC-V evaluation board (Nuclei MCU200T) [55], and the corresponding FPGA is Xilinx
+XC7A200T-2FGG484. A serial communication interface establishes a communication link between
+the PC and FPGA-based platform. Besides, an automatic PUF response acquisition tool based on
+the LabVIEW is built to obtain responses with the same challenge multiple times and analyze its
+performance results (e.g., robustness, uniqueness, and randomness).
+4.2
+Performance Analysis
+Process variations, including inter-die variations and intra-die variations, are the sources of PUFs.
+In this article, we use an FPGA to validate the efficacy of PUF and only exploit the intra-die varia-
+tions to generate the PUF response. We change the location of the occupied FPGA primitives and
+design 10 macros to emulate 10 PUF implementations. Randomness, stability, and uniqueness are
+the main performance metrics of the PUF, and the detailed calculation methods are presented in
+[56]. A total of 50000 random challenges are generated and applied to the proposed PUF. Figure 3
+shows the randomness results of 50000 responses. As shown in Figure 3, the randomness ranges
+from 27.3% to 61.7% and more than 81.9 percent of responses fall within the range of 40% to 60%. For
+the randomness quantification approaches, the much closer to 50% the results are, the more uni-
+formly the logic “0” and logic “1” distribute, and the better the randomness of results is. To ensure
+the unpredictability characteristic of the PUF, the randomness results of 11202 CRPs range from
+48.4% to 51.6%, which are chosen and used as the candidate for security fields. Figure 4 shows the
+distribution of logic “0” and “1” of those responses. Where the black and white filled box represent
+the logic “0” and “1”, respectively, the horizontal axis of this figure is the value of each response bit,
+and the vertical axis represents the PUF response value of each bit. Regarding the Figure 4, it can be
+observed that the logic “0” and logic “1” are uniformly distributed. More specifically, the averaged
+distribution of logic “0” and logic “1” are 49.4% and 50.6%, which is very close to the ideal value 50%.
+Furthermore, the NIST statistical test suite is used to further quantify the randomness of PUF
+responses. Notice that the NIST SP 800-22 includes 15 test items and each test item outputs the
+p-value to quantify the level of randomness. A larger p-value indicates a higher confidence level
+of randomness. If the p-value of a data exceeds 0.01, this data is considered as random with 99%
+confidence [57]. In this article, nine test items are implemented and the corresponding p-value
+results are shown in Table 2. Where the block frequency, the longest run of ones, discrete Fourier
+ACM Transactions on Design Automation of Electronic Systems, Vol. 28, No. 5, Article 78. Pub. date: September 2023.
+
+=== PAGE 9 ===
+A Novel PUF Design Framework Utilizing Configurable Butterfly Delay Chain
+78:9
+Fig. 3. Randomness results of PUF.
+Fig. 4. The distribution of logic “0” and “1” of PUF responses.
+transform, nonperiodic template matchings, approximate entropy, and cumulative sums are de-
+noted as BF, LRO, FFT, NOT, AppEn, and CumSums, respectively. The width of response is 128-bit
+and thus the bitstream length (denoted as n) is 128, which makes the remaining 6 test items not
+executed. There exist 11202 responses and the number of bitstreams (denoted as m) is 11202. The
+fourth and fifth columns are the averaged p-value (denoted as Avg-p) and ratio (denoted as RPT)
+of pass number to total number, respectively. As shown in Table 2, the p-values of all the test items
+are greater than 0.01, the responses can pass the Frequency, BF, LRO, and CumSums successfully,
+and there exist several failure responses during the Runs, FFT, NOT, Serial, and AppEn tests. Al-
+though a small portion of responses fails to pass the test items, more than 92.7% responses pass
+the test items. In summary, we can conclude that the responses of the proposed PUF are uniformly
+random.
+ACM Transactions on Design Automation of Electronic Systems, Vol. 28, No. 5, Article 78. Pub. date: September 2023.
+
+=== PAGE 10 ===
+78:10
+Y. Liu et al.
+Table 2. The NIST Test Results of PUF Responses
+NIST tests
+Bitstream
+length (n)
+Number of
+bitstreams
+Averaged
+p-value
+Ratio of pass
+number (%)
+Frequency
+128
+11202
+0.85
+100
+BF
+128 (M = 128)
+11202
+0.85
+100
+Runs
+128
+11202
+0.47
+99.6
+LRO
+128
+11202
+0.47
+100
+FFT
+128
+11202
+0.50
+98.4
+NOT
+128 (m = 5)
+11202
+0.64
+92.7
+Serial
+128 (m = 4)
+11202
+0.48
+96.4
+AppEn
+128 (m = 4)
+11202
+0.46
+96.4
+CumSums
+128
+11202
+0.85
+100
+Fig. 5. The stability distribution histogram of total responses.
+In addition, stability is used to evaluate the ability of PUF to produce the same responses under
+noisy operating conditions. Where the stability value is the ratio between the error-free bits and
+total bits of a response. Figure 5 shows the stability distribution of responses. As shown in Figure 5,
+all the stability values range from 97.8% to 100%, which is close to the ideal value (100%). Besides,
+95% stability values of responses are greater than 98.8%, and the mean value of stability is 99.4%.
+The unstable bits are analyzed from 1000 repeated responses and the corresponding map results
+are shown in Figure 6. The whole map consists of 128 small blocks and each block represents one
+bit of responses, which are arranged from left to right. More specifically, the first row corresponds
+to the lower 16-bit of response and the leftmost block of the first row is the lowest bit of response.
+The value floating at the block is the sum of 1000 responses for this bit. If all the responses of
+this bit are logic “1”, the corresponding cumulative value (CV) is 1000; conversely, CV is 0 when
+all the responses of this bit are logic “0”. Otherwise, CV is not equal to 1000 or 0 when there exist
+several errors in PUF responses, and the unstable value is equal to CV if CV is smaller than 500 or
+1000-CV if CV is greater than 500. For the map, the blocks with a red square are used to highlight
+the unstable bits of responses. Figure 6 clearly shows that 11 unstable bits exist, the unstable bits
+are disorderly distributed and the corresponding CV ranges from 1 to 999. More specifically, the
+minimum and maximum error values are 1 and 209, respectively.
+ACM Transactions on Design Automation of Electronic Systems, Vol. 28, No. 5, Article 78. Pub. date: September 2023.
+
+=== PAGE 11 ===
+A Novel PUF Design Framework Utilizing Configurable Butterfly Delay Chain
+78:11
+Fig. 6. Unstable bit map results of responses.
+Fig. 7. Unstable bits distribution of responses under noisy operating conditions.
+The PUFs are tested 10 times repeatedly under different situations and the unstable bit count
+results are shown in Figure 7. A total of 10 test results are denoted as M1, M2, . . ., M10. Regarding
+Figure 7, 11 unstable bits are 1, 3, 4, 6, 8, 40, 43, 49, 73, 79, and 82. Most bit errors are concentrated
+on the 40th, 43th, 49th, 79th, and 82th bit, and the ratio of errors in these five unstable bits to total
+errors is 98.9%. Therefore, we assume that the 40th, 43th, 49th, 79th, and 82th bits are the unstable
+bit of responses. Besides, the remaining bits have only one error in 1000 repeated tests. In this
+case, such bit errors are mainly caused by the noisy operating conditions at runtime. Consequently,
+the bit error problem should be considered and an error correction code is needed to correct the
+unstable bits.
+Uniqueness is an indication that a PUF differs from other PUFs, and the inter-distance value of 3
+PUFs with 10000 challenges is used to quantify the uniqueness metric of PUFs. Figure 8 shows the
+ACM Transactions on Design Automation of Electronic Systems, Vol. 28, No. 5, Article 78. Pub. date: September 2023.
+
+=== PAGE 12 ===
+78:12
+Y. Liu et al.
+Fig. 8. Uniqueness distribution of PUF responses.
+distribution of uniqueness results. Regarding Figure 8, the uniqueness ranges from 44 to 85, and
+the mean and standard deviation of uniqueness are 63.8 and 6.7, which are very close to the ideal
+value of 64. Therefore, each PUF has a unique response and it is infeasible to produce the same
+responses of two PUF instances by applying the same challenge. In summary, the proposed PUF
+has robust, random, and unique properties, which presents an appealing option for a cost-sensitive
+and high-security embedded system.
+4.3
+MA-Resilience Analysis
+To evaluate the MA-resilience ability of the proposed PUF, several popular machine learning algo-
+rithms, including the SVM, generalized regression neural network (GRNN), and radial basis
+function neural network (RBFNN), are used to establish the mathematical model with a set of
+CRPs and predict the PUF responses of arbitrary challenges. However, other empirical machine
+learning methods (e.g., logistic regression, artificial neural network, and naive Bayes) presented
+in References [26, 29, 32] are not used to assess the MA-resistance of proposed PUF because those
+methods have a poor training efficacy. In this article, the mean squared error (MSE) is used to
+represent the quality of the training model. The smaller the MSE is, the more the training model
+matches the real relationship between the challenges and responses. Figure 9 shows the trend of
+training MSE of RBFNN. The horizontal axis is the epoch that represents the iteration process of
+model parameters in the machine learning algorithms, and the vertical axis is the value of MSE.
+Regarding Figure 9, the training MSE decreases dramatically with the increasing of epochs, and
+the training MSE reaches 6.67 e−26 when the epoch is equal to 700. Besides, 70% of CRPs are used
+to train the model and the training accuracy is calculated to further validate the efficacy of the
+training model. The training accuracy with different numbers of CRPs is shown in Table 3. It is
+clear from Table 3 that all the training accuracy of three training models (SVM, GRNN, and RBFNN)
+are approximately equal to the ideal value (100%). In summary, the training model scales well with
+the relationship of CPRs.
+The training model is used to evaluate the resistance against MA and the prediction results are
+shown in Table 3. The ideal prediction accuracy of high MA-resistance PUF is 50%, which shows
+that the machine learning techniques are similar to random guessing. As shown in Table 3, the
+ACM Transactions on Design Automation of Electronic Systems, Vol. 28, No. 5, Article 78. Pub. date: September 2023.
+
+=== PAGE 13 ===
+A Novel PUF Design Framework Utilizing Configurable Butterfly Delay Chain
+78:13
+Fig. 9. The trend of training MSE for training RBFNN model.
+Table 3. Training and Prediction Results of Three Machine Learning Algorithms
+Performance
+Number of CRPs
+100
+500
+1000
+2000
+5000
+10000
+Averaged
+Training Accuracy
+SVM
+100%
+100%
+100%
+100%
+100%
+99.9%
+99.9%
+RBFNN
+100%
+100%
+100%
+100%
+99.5%
+99.8%
+99.8%
+GRNN
+100%
+100%
+100%
+100%
+100%
+100%
+100%
+Prediction Accuracy
+SVM
+49.2%
+49.2%
+51.5%
+50.5%
+50.6%
+50.5%
+50.3%
+RBFNN
+52.5%
+51.7%
+49.1%
+49.8%
+51.9%
+50.5%
+50.9%
+GRNN
+51.1%
+50.5%
+50.2%
+50.9%
+51.1%
+50.9%
+50.8%
+prediction accuracy of the three models ranges from 49% to 51%, which is close to the ideal value
+(50%). Moreover, the trend of prediction accuracy remains stable and there is no increasing trend
+with the increasing number of CRPs. More specifically, the averaged prediction accuracy of SVM,
+GRNN, and RBFNN, respectively, are 50%, 51%, and 50.5%, which proves that the proposed PUF can
+resist machine learning techniques. The prediction process of the established model is similar to
+random guessing, and machine learning algorithms fail to build an efficient PUF model. Therefore,
+we can conclude that the proposed PUF is resilient to MA.
+4.4
+Comparison with Prior Works
+In this subsection, we present the performance comparison of proposed PUF with the state-
+of-the-art studies. The comparison results are listed in Table 4. For the proposed PUF, two
+symmetrical paths of the proposed PUF are switched with the challenges. By using this path
+configurable strategy, the proposed PUF can be configured as various forms and output a large
+set of responses. As mentioned in Section 4.1, the CRP space size of the proposed PUF is 22048,
+which is significantly larger than the remaining works. Moreover, both the randomness and
+uniqueness of all the methods are close to the ideal value (e.g., 50%). Although the response of
+the proposed PUF may flip in a noisy environment, all the unstable bits can be screened out
+ACM Transactions on Design Automation of Electronic Systems, Vol. 28, No. 5, Article 78. Pub. date: September 2023.
+
+=== PAGE 14 ===
+78:14
+Y. Liu et al.
+Table 4. Performance Comparison
+Performance
+PUFs
+MPUF [58]
+5-4 DAPUF [27] SD-PUF [28]
+A-PUF [25]
+CT-PUF [29]
+Proposed PUF
+Configurable
+Yes
+Yes
+No
+Yes
+Yes
+Yes
+Bit length
+-
+64
+-
+128
+128
+128
+CRP space size
+-
+-
+212
+2128
+2256
+22048
+Randomness
+close to 50%*
+49.9%
+49.9%
+-
+close to 50%*
+49.6%
+Reliability
+99.6%
+79%∼88%
+100%
+100%
+close to 100%*
+100%
+Uniqueness
+49.8%
+44.2%
+49.9%
+49.9%
+close to 50%*
+49.8%
+Prediction accuracy
+53.8%
+50%∼57%
+60%
+close to 50%*
+60%
+50%
+MA-resilience ability
+Yes
+Yes
+Yes
+Yes
+Yes
+Yes
+Bit-instability correction
+No
+No
+No
+Yes
+No
+Yes
+*The exact value is not given in this article.
+- The value is not given in this article.
+using the bit-instability correction mechanisms. In summary, the performance of the proposed
+PUF is comparable with the existing methods. Besides, the prediction accuracy of proposed PUF
+fluctuates around 50%, which is comparable with that in Reference [25] and superior to that in the
+other works (References [27–29, 58]). Thus, the proposed PUF demonstrates a high MA-resilience
+ability than the state-of-the-art methods. Considering the trend of prediction accuracy for existing
+PUFs, the traditional machine learning algorithms are hard to establish the PUF model with a set
+of CRPs, and the machine learning-based prediction is equivalent to random guessing. Therefore,
+the proposed PUF is more resilient to MA than other PUFs in the literature. On the whole, the
+advantages of the proposed PUF, including the CRP space size, performance, and MA-resilience,
+are obvious. Consequently, we can conclude that the proposed PUF is superior to the existing
+works.
+5
+CONCLUSION
+In this article, a CBDC-PUF is proposed, which exploits the intrinsic delay differences between two
+symmetrical paths to produce a large set of high responses. Furthermore, a cryptographic hash
+function is presented to obfuscate the linear relationship between the challenges and responses,
+which improves the resistance against MA. Moreover, a bit-instability correction mechanism is
+used to correct unstable bits under noisy operating conditions, which enhances the robustness of
+the proposed PUF. Experimental results show that the main performance and MA-resilience of
+the proposed PUF are closer to the ideal value. The inter-die variations are not considered in this
+article, and we will further purchase more FPGAs to further validate the efficacy of PUFs. In the
+future, several PUF-based security solutions are explored to resist software and hardware attacks
+and ensure the integrity and trustworthiness of embedded systems.
+REFERENCES
+[1] Kang Yang, Liqun Chen, Zhenfeng Zhang, Christopher J. P. Newton, Bo Yang, and Li Xi. 2021. Direct anonymous
+attestation with optimal TPM signing efficiency. IEEE Transactions on Information Forensics and Security 16 (2021),
+2260–2275. DOI:http://dx.doi.org/10.1109/TIFS.2021.3051801
+[2] Daihyun Lim, J. W. Lee, B. Gassend, G. E. Suh, M. van Dijk, and S. Devadas. 2005. Extracting secret keys from integrated
+circuits. IEEE Transactions on Very Large Scale Integration (VLSI) Systems 13, 10 (2005), 1200–1205. DOI:http://dx.doi.
+org/10.1109/TVLSI.2005.859470
+[3] Rashid Ali, Haoyuan Ma, Zhengyi Hou, Deming Zhang, Erya Deng, and You Wang. 2021. A reconfigurable arbiter
+MPUF with high resistance against machine learning attack. IEEE Transactions on Magnetics 57, 10 (2021), 1–7.
+DOI:http://dx.doi.org/10.1109/TMAG.2021.3102838
+[4] Durga Prasad Sahoo, Debdeep Mukhopadhyay, Rajat Subhra Chakraborty, and Phuong Ha Nguyen. 2018. A
+multiplexer-based arbiter PUF composition with enhanced reliability and security. IEEE Transactions on Computers
+67, 3 (2018), 403–417. DOI:http://dx.doi.org/10.1109/TC.2017.2749226
+ACM Transactions on Design Automation of Electronic Systems, Vol. 28, No. 5, Article 78. Pub. date: September 2023.
+
+=== PAGE 15 ===
+A Novel PUF Design Framework Utilizing Configurable Butterfly Delay Chain
+78:15
+[5] Mehrdad Majzoobi, Farinaz Koushanfar, and Miodrag Potkonjak. 2009. Techniques for design and implementation of
+secure reconfigurable PUFs. ACM Transactions on Reconfigurable Technology and Systems 2, 1, Article 5 (2009), 33 pages.
+DOI:http://dx.doi.org/10.1145/1502781.1502786
+[6] Phuong Ha Nguyen, Durga Prasad Sahoo, Rajat Subhra Chakraborty, and Debdeep Mukhopadhyay. 2015. Efficient
+attacks on robust ring oscillator PUF with enhanced challenge-response set. In Proceedings of the 2015 Design, Au-
+tomation & Test in Europe Conference & Exhibition. 641–646.
+[7] Ding Deng, Shen Hou, Zhenyu Wang, and Yang Guo. 2020. Configurable ring oscillator PUF using hybrid logic gates.
+IEEE Access 8 (2020), 161427–161437. DOI:http://dx.doi.org/10.1109/ACCESS.2020.3021205
+[8] Jorge Guajardo, Sandeep S. Kumar, Geert-Jan Schrijen, and Pim Tuyls. 2007. Physical unclonable functions and public-
+key crypto for FPGA IP protection. In Proceedings of the 2007 International Conference on Field Programmable Logic
+and Applications. 189–195. DOI:http://dx.doi.org/10.1109/FPL.2007.4380646
+[9] Fadi Farha, Huansheng Ning, Karim Ali, Liming Chen, and Christopher Nugent. 2021. SRAM-PUF-based entities
+authentication scheme for resource-constrained IoT devices. IEEE Internet of Things Journal 8, 7 (2021), 5904–5913.
+DOI:http://dx.doi.org/10.1109/JIOT.2020.3032518
+[10] Peter Simons, Erik van der Sluis, and Vincent van der Leest. 2012. Buskeeper PUFs, a promising alternative to D
+flip-flop PUFs. In Proceedings of the 2012 IEEE International Symposium on Hardware-Oriented Security and Trust. 7–12.
+DOI:http://dx.doi.org/10.1109/HST.2012.6224311
+[11] Naoya Torii, Dai Yamamoto, and Tsutomu Matsumoto. 2016. Evaluation of latch-based PUFs implemented on 40 nm
+ASICs. In Proceedings of the 2016 4th International Symposium on Computing and Networking. 642–648. DOI:http://
+dx.doi.org/10.1109/CANDAR.2016.0115
+[12] Yinglei Wang, Wing-kei Yu, Shuo Wu, Greg Malysa, G. Edward Suh, and Edwin C. Kan. 2012. Flash memory for
+ubiquitous hardware security functions: True random number generation and device fingerprints. In Proceedings of
+the 2012 IEEE Symposium on Security and Privacy. 33–47. DOI:http://dx.doi.org/10.1109/SP.2012.12
+[13] S. Larimian, M. R. Mahmoodi, and D. B. Strukov. 2020. Lightweight integrated design of PUF and TRNG security
+primitives based on eFlash memory in 55-nm CMOS. IEEE Transactions on Electron Devices 67, 4 (2020), 1586–1592.
+DOI:http://dx.doi.org/10.1109/TED.2020.2976632
+[14] Intrinsic ID 2023. Physical unclonable function IP. Retrieved January 2023 from https://www.intrinsic-id.com.
+[15] Xilinx 2023. Physically unclonable function in Zynq UltraScale+ devices. Retrieved January 2023 from https://www.
+xilinx.com.
+[16] Karim Lounis and Mohammad Zulkernine. 2021. T2T-MAP: A PUF-based thing-to-thing mutual authentication pro-
+tocol for IoT. IEEE Access 9 (2021), 137384–137405. DOI:http://dx.doi.org/10.1109/ACCESS.2021.3117444
+[17] MD. Tauhidur Rahman, Fahim Rahman, Domenic Forte, and Mark Tehranipoor. 2016. An aging-resistant RO-PUF for
+reliable key generation. IEEE Transactions on Emerging Topics in Computing 4, 3 (2016), 335–348. DOI:http://dx.doi.
+org/10.1109/TETC.2015.2474741
+[18] Peiqi Sun and Aijiao Cui. 2019. A new pay-per-use scheme for the protection of FPGA IP. In Proceedings of the 2019
+IEEE International Symposium on Circuits and Systems. 1–5. DOI:http://dx.doi.org/10.1109/ISCAS.2019.8702721
+[19] Yulong Yan, Zhuo Zou, Hui Xie, Yu Gao, and Lirong Zheng. 2021. An IoT-based anti-counterfeiting system using
+visual features on QR code. IEEE Internet of Things Journal 8, 8 (2021), 6789–6799. DOI:http://dx.doi.org/10.1109/JIOT.
+2020.3035697
+[20] Sergey Morozov, Abhranil Maiti, and Patrick Schaumont. 2009. A comparative analysis of delay based PUF implemen-
+tations on FPGA. IACR Cryptology ePrint Archive 2009 (01 2009), 629.
+[21] Xiumin Xu, Huaguo Liang, Zhengfeng Huang, Cuiyun Jiang, Yiming Ouyang, Xiangsheng Fang, Tianming Ni, and
+Maoxiang Yi. 2017. A highly reliable butterfly PUF in SRAM-based FPGAs. IEICE Electronics Express 14, 14 (2017),
+20170551–20170551. DOI:http://dx.doi.org/10.1587/elex.14.20170551
+[22] Sandeep S. Kumar, Jorge Guajardo, Roel Maes, Geert-Jan Schrijen, and Pim Tuyls. 2008. Extended abstract: The but-
+terfly PUF protecting IP on every FPGA. In Proceedings of the 2008 IEEE International Workshop on Hardware-Oriented
+Security and Trust. 67–70. DOI:http://dx.doi.org/10.1109/HST.2008.4559053
+[23] Pranesh Santikellur and Rajat Subhra Chakraborty. 2021. A computationally efficient tensor regression network-based
+modeling attack on XOR arbiter PUF and its variants. IEEE Transactions on Computer-Aided Design of Integrated Cir-
+cuits and Systems 40, 6 (2021), 1197–1206. DOI:http://dx.doi.org/10.1109/TCAD.2020.3032624
+[24] Nimesh Shah, Durba Chatterjee, Brojogopal Sapui, Debdeep Mukhopadhyay, and Arindam Basu. 2021. Introducing
+recurrence in strong PUFs for enhanced machine learning attack resistance. IEEE Journal on Emerging and Selected
+Topics in Circuits and Systems 11, 2 (2021), 319–332. DOI:http://dx.doi.org/10.1109/JETCAS.2021.3075767
+[25] Siarhei S. Zalivaka, Alexander A. Ivaniuk, and Chip-Hong Chang. 2019. Reliable and modeling attack resistant authen-
+tication of arbiter PUF in FPGA implementation with trinary quadruple response. IEEE Transactions on Information
+Forensics and Security 14, 4 (2019), 1109–1123. DOI:http://dx.doi.org/10.1109/TIFS.2018.2870835
+ACM Transactions on Design Automation of Electronic Systems, Vol. 28, No. 5, Article 78. Pub. date: September 2023.
+
+=== PAGE 16 ===
+78:16
+Y. Liu et al.
+[26] Chris H. Kim, Anoop Koyily, Chen Zhou, and Keshab K. Parhi. 2018. Predicting soft-response of MUX PUFs via logistic
+regression of total delay difference. In Proceedings of the 2018 IEEE International Symposium on Circuits and Systems.
+1–5. DOI:http://dx.doi.org/10.1109/ISCAS.2018.8351487
+[27] Urbi Chatterjee, Soumi Chatterjee, Debdeep Mukhopadhyay, and Rajat Subhra Chakraborty. 2020. Machine learn-
+ing assisted PUF calibration for trustworthy proof of sensor data in IoT. ACM Transactions on Design Automation of
+Electronic Systems 25, 4, Article 32 (Jun 2020), 21 pages. DOI:http://dx.doi.org/10.1145/3393628
+[28] Jin Miao, Meng Li, Subhendu Roy, Yuzhe Ma, and Bei Yu. 2018. SD-PUF: Spliced digital physical unclonable function.
+IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems 37, 5 (2018), 927–940. DOI:http://dx.
+doi.org/10.1109/TCAD.2017.2740296
+[29] Zhiyang Guo, Qiang Wu, Jiliang Zhang, Chaoqun Shen, and Wanli Chang. 2021. CT PUF: Configurable tristate PUF
+against machine learning attacks for IoT security. IEEE Internet of Things Journal 9, 16 (2021), 1–1. DOI:http://dx.doi.
+org/10.1109/JIOT.2021.3090475
+[30] Jae W. Lee, Daihyun Lim, Blaise Gassend, G. Edward Suh, Marten van Dijk, and Srinivas Devadas. 2004. A technique
+to build a secret key in integrated circuits for identification and authentication applications. In Proceedings of the 2004
+Symposium on VLSI Circuits. 176–179. DOI:http://dx.doi.org/10.1109/VLSIC.2004.1346548
+[31] Mohammed Saeed Alkatheiri and Yu Zhuang. 2017. Towards fast and accurate machine learning attacks of feed-
+forward arbiter PUFs. In Proceedings of the 2017 IEEE Conference on Dependable and Secure Computing. 181–187. DOI:
+http://dx.doi.org/10.1109/DESEC.2017.8073845
+[32] Ulrich Rührmair, Jan Sölter, Frank Sehnke, Xiaolin Xu, Ahmed Mahmoud, Vera Stoyanova, Gideon Dror, Jürgen
+Schmidhuber, Wayne Burleson, and Srinivas Devadas. 2013. PUF modeling attacks on simulated and silicon data.
+IEEE Transactions on Information Forensics and Security 8, 11 (2013), 1876–1891. DOI:http://dx.doi.org/10.1109/TIFS.
+2013.2279798
+[33] Mehrdad Majzoobi, Farinaz Koushanfar, and Miodrag Potkonjak. 2008. Testing techniques for hardware security. In
+Proceedings of the 2008 IEEE International Test Conference. 1–10. DOI:http://dx.doi.org/10.1109/TEST.2008.4700636
+[34] Ulrich Rührmair, Xiaolin Xu, Jan Sölter, Ahmed Mahmoud, Mehrdad Majzoobi, Farinaz Koushanfar, and Wayne
+Burleson. 2014. Efficient power and timing side channels for physical unclonable functions. In Cryptographic Hardware
+and Embedded Systems – CHES 2014. Lejla Batina and Matthew Robshaw (Eds.), Springer Berlin Heidelberg, Berlin,
+476–492.
+[35] Chao Qun Liu, Yuan Cao, and Chip Hong Chang. 2017. ACRO-PUF: A low-power, reliable and aging-resilient current
+starved inverter-based ring oscillator physical unclonable function. IEEE Transactions on Circuits and Systems I: Regular
+Papers 64, 12 (2017), 3138–3149. DOI:http://dx.doi.org/10.1109/TCSI.2017.2729941
+[36] Fathi Amsaad, Ahmed Oun, Mohammed Y. Niamat, Abdul Razaque, Selcuk Kose, Mohamed Mahmoud, Waleed Alas-
+mary, and Fawaz Alsolami. 2021. Enhancing the performance of lightweight configurable PUF for robust IoT hardware-
+assisted security. IEEE Access 9 (2021), 136792–136810. DOI:http://dx.doi.org/10.1109/ACCESS.2021.3117240
+[37] Abdelkarim Cherkaoui, Lilian Bossuet, and Cédric Marchand. 2016. Design, evaluation, and optimization of physical
+unclonable functions based on transient effect ring oscillators. IEEE Transactions on Information Forensics and Security
+11, 6 (2016), 1291–1305. DOI:http://dx.doi.org/10.1109/TIFS.2016.2524666
+[38] Jiliang Zhang, Xiao Tan, Yuanjing Zhang, Weizheng Wang, and Zheng Qin. 2018. Frequency offset-based ring oscillator
+physical unclonable function. IEEE Transactions on Multi-Scale Computing Systems 4, 4 (2018), 711–721. DOI:http:
+//dx.doi.org/10.1109/TMSCS.2018.2877737
+[39] Bin Tang, Yaping Lin, and Jiliang Zhang. 2014. Improving the reliability of RO PUF using frequency offset. In Proceed-
+ings of the 2014 International Conference on Field-Programmable Technology. 338–341. DOI:http://dx.doi.org/10.1109/
+FPT.2014.7082813
+[40] Mahshid Delavar, Sattar Mirzakuchaki, and Javad Mohajeri. 2016. A ring oscillator-based PUF with enhanced
+challenge-response pairs. Canadian Journal of Electrical and Computer Engineering 39, 2 (2016), 174–180. DOI:http:
+//dx.doi.org/10.1109/CJECE.2016.2521877
+[41] Abhranil Maiti, Inyoung Kim, and Patrick Schaumont. 2012. A robust physical unclonable function with enhanced
+challenge-response set. IEEE Transactions on Information Forensics and Security 7, 1 (2012), 333–345. DOI:http://dx.doi.
+org/10.1109/TIFS.2011.2165540
+[42] Vincent van der Leest, Geert-Jan Schrijen, Helena Handschuh, and Pim Tuyls. 2010. Hardware intrinsic security from
+D flip-flops. In Proceedings of the 5th ACM Workshop on Scalable Trusted Computing . ACM, New York, NY, 53–62. DOI:
+http://dx.doi.org/10.1145/1867635.1867644
+[43] S. Hemavathy and V. S. Kanchana Bhaaskaran. 2021. Double edge-triggered tristate flip-flop physical unclonable func-
+tion for secure IoT ecosystem. In Proceedings of the 2021 IEEE International Symposium on Smart Electronic Systems.
+44–47. DOI:http://dx.doi.org/10.1109/iSES52644.2021.00022
+[44] Dooyoung Kim, Mahammad Adil Ansari, Jihun Jung, and Sungju Park. 2015. Scan-PUF: PUF elements selection
+methods for viable IC identification. In Proceedings of the 2015 IEEE 24th Asian Test Symposium. 121–126. DOI:
+http://dx.doi.org/10.1109/ATS.2015.28
+ACM Transactions on Design Automation of Electronic Systems, Vol. 28, No. 5, Article 78. Pub. date: September 2023.
+
+=== PAGE 17 ===
+A Novel PUF Design Framework Utilizing Configurable Butterfly Delay Chain
+78:17
+[45] Sying-Jyan Wang, Chin-Hung Lien, and Katherine Shu-Min Li. 2018. Register PUF with no power-up restrictions.
+In Proceedings of the 2018 IEEE International Symposium on Circuits and Systems. 1–5. DOI:http://dx.doi.org/10.1109/
+ISCAS.2018.8351052
+[46] Yu Zheng, Aswin Raghav Krishna, and Swarup Bhunia. 2013. ScanPUF: Robust ultralow-overhead PUF using scan
+chain. In Proceedings of the 2013 18th Asia and South Pacific Design Automation Conference. 626–631. DOI:http://dx.doi.
+org/10.1109/ASPDAC.2013.6509668
+[47] Sergei Skorobogatov. 2017. How microprobing can attack encrypted memory. In Proceedings of the 2017 Euromicro
+Conference on Digital System Design. 244–251. DOI:http://dx.doi.org/10.1109/DSD.2017.69
+[48] Jerome Di Battista, Philippe Perdu, Jean-Christophe Courrege, Bruno Rouzeyre, and Lionel Torres. 2009. Validation of
+differential light emission analysis on FPGA. In Proceedings of the 2009 3rd International Conference on Signals, Circuits
+and Systems. 1–5. DOI:http://dx.doi.org/10.1109/ICSCS.2009.5412598
+[49] F. Poucheret, K. Tobich, M. Lisarty, L. Chusseauz, B. Robissonx, and P. Maurine. 2011. Local and direct EM injection
+of power into CMOS integrated circuits. In Proceedings of the 2011 Workshop on Fault Diagnosis and Tolerance in
+Cryptography. 100–104. DOI:http://dx.doi.org/10.1109/FDTC.2011.18
+[50] Feifei Cai, Guoqiang Bai, Huizhi Liu, and Xiaobo Hu. 2016. Optical fault injection attacks for flash memory of smart-
+cards. In Proceedings of the 2016 6th International Conference on Electronics Information and Emergency Communication.
+46–50. DOI:http://dx.doi.org/10.1109/ICEIEC.2016.7589684
+[51] Jose Garcia Gervacio and Victor Champac. 2018. Timing Performance of Nanometer Digital Circuits Under Process
+Variations. Springer International Publishing.
+[52] Chongyao Xu, Jieyun Zhang, Man-Kay Law, Yang Jiang, Xiaojin Zhao, Pui-In Mak, and Rui P. Martins. 2021. Modeling
+attack resistant strong PUF exploiting obfuscated interconnections with <0.83% bit-error rate. In Proceedings of the
+2021 IEEE Asian Solid-State Circuits Conference. 1–3. DOI:http://dx.doi.org/10.1109/A-SSCC53895.2021.9634729
+[53] Blaise Gassend, Marten Van Dijk, Dwaine Clarke, Emina Torlak, Srinivas Devadas, and Pim Tuyls. 2008. Controlled
+physical random functions and applications. ACM Transactions on Information and System Security 10, 4, Article 3 (Jan
+2008), 22 pages. DOI:http://dx.doi.org/10.1145/1284680.1284683
+[54] Mohd Syafiq Mispan, Haibo Su, Mark Zwolinski, and Basel Halak. 2018. Cost-efficient design for modeling attacks
+resistant PUFs. In Proceedings of the 2018 Design, Automation & Test in Europe Conference & Exhibition. 467–472.
+DOI:http://dx.doi.org/10.23919/DATE.2018.8342054
+[55] Nuclei 2022. Nuclei RISC-V evaluation board MCU200T. Retrieved January 2023 from https://www.nucleisys.com.
+[56] Gang Li, Pengjun Wang, Xuejiao Ma, Yijian Shi, Bo Chen, and Yuejun Zhang. 2021. A multimode configurable physi-
+cally unclonable function with bit-instability-screening and power-gating strategies. IEEE Transactions on Very Large
+Scale Integration (VLSI) Systems 29, 1 (2021), 100–111. DOI:http://dx.doi.org/10.1109/TVLSI.2020.3030945
+[57] James Nechvatal, Miles Smid, Elaine Barker, Stefan Leigh, Mark Levenson, Mark Vangel, David Banks, Alan Heckert,
+James Dray, San Vo, Andrew Rukhin, and Juan Soto. 2010. A Statistical Test Suite for Random and Pseudorandom Number
+Generators for Cryptographic Applications (rev. 1a ed.). National Institute of Standards and Technology, Gaithersburg,
+MD, 131.
+[58] Rashid Ali, Deming Zhang, Hao Cai, Weisheng Zhao, and You Wang. 2022. A machine learning attack-resilient strong
+PUF leveraging the process variation of MRAM. IEEE Transactions on Circuits and Systems II: Express Briefs 69, 6 (2022),
+2712–2716. DOI:http://dx.doi.org/10.1109/TCSII.2022.3144497
+Received 15 July 2022; revised 24 January 2023; accepted 4 March 2023
+ACM Transactions on Design Automation of Electronic Systems, Vol. 28, No. 5, Article 78. Pub. date: September 2023.
