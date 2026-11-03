@@ -1,5 +1,88 @@
 # Continuation checkpoint — 3 November 2026
 
+## Latest task: isolate pulled version to ONE PUF
+
+User pulled commits b21076b then 7cfc392 and requested review/build without source
+changes. 7cfc392 fixes syntax/old coordinate overlap but array head wildcard also
+selects u_head_gate_i_1 helpers, causing placement conflicts; that array build
+was stopped. Its BCH TB reports failures for clean and 1/2/3-error examples,
+despite misleading final ALL PASSED. SHA3 is simplified and not integrated into
+UART broadcast path. Do not claim these are working or build them for this task.
+
+User NOW explicitly asks to isolate only one PUF and keep all other files.
+New scripts/build_pulled_single.tcl reads seven original RTL files only, top
+cbdc_puf_serial. No original RTL/constraints edited. Defaults preserved:
+AUTO_PARITY=1 CAPTURE_MODE=1 DUAL_ARBITER=1; this is ONE core with two existing
+arbiters, UART returns primary A only. It arms with excite, not prearmed as in
+our previous experimental variant. Paired placement X21/X25, not matched routes.
+Original array constraints/BCH/hash/experimental modules excluded from build.
+Dedicated collector scripts/collect_pulled_single.ps1 accepts even/zero
+challenges (old collect_crps.ps1 has incompatible zero-rejection control).
+Protocol is old A5/5A, NOT prior experimental A7/5B or array 5C/CA.
+New sim scripts/run_pulled_single_sim.ps1 passed with artificial delays.
+Routed 639/639 nets; 368 total LUTs/290 FF, one core 106 LUTs/4 FF.
+sys_clk WNS/WHS +3.928/+0.128; four TIMING-17 warnings remain.
+Initial bitgen stopped because pulled feedback waiver missed net aliases;
+new build script fixes exact head-output-net acknowledgement, no severity
+override. scripts/finalize_pulled_single.tcl resumes routed checkpoint.
+Target bitstream build_m1/pulled_single/cbdc_pulled_single.bit.
+FINALIZATION SUCCEEDED: bitstream generated, bitgen DRC 0 errors; five DRC
+warnings remain (allowed loop, two gated clocks, two nonoptimal hold connections).
+Source and bitstream hashes are saved alongside the output. Board not programmed.
+See PULLED_SINGLE_GUIDE.md for smoke (8 challenges x3), expected 24 accepted,
+and larger 256x20 collection. No board programmed by agent. Hardware CRPs pending.
+
+## Latest implementation — user resumed and authorized experiments
+
+The user explicitly returned and requested implementation of the corrected
+mentor proposals. The earlier pause below is historical and no longer applies.
+See CORE_EXPERIMENT_GUIDE.md for architecture, limitations and exact commands.
+
+Separate experimental RTL/build/collector now implement runtime single-shot
+capture, automatic AND/NAND entrance parity and a separately located reverse
+arbiter. Raw A/B are reported separately; no XOR correction. Wait=0 shot mode
+arms a full clock before excitation; nonzero wait means first-after-enable.
+This is an experimental derived architecture, not an exact-paper claim.
+Original RTL, bitstreams and datasets remain separate. No board programming
+was performed by the agent during this implementation.
+
+Ready bitstream:
+build_m1/core_experiment/cbdc_core_experiment.bit
+SHA256: 5A2B39DB2CF6B3CFA7156EC1B06674CE4F7627D79E6B73C96B436F2AE3566899
+
+Verified: UART/engine functional regression, exhaustive artificial-delay
+single-shot launch for all 65,536 challenges, both original serial/timing
+regressions, all four routed-core SDF fast/slow min/max tests, and host-only
+protocol/comparison tests. No timing warnings in routed simulation cases.
+96 internal core routes and 120 existing placements preserved and checked;
+input and terminal routing change with the new loads. 745/745 nets routed,
+setup/hold +3.681/+0.058 ns. Four unclocked sequential-cell methodology critical
+warnings remain; this is not full asynchronous signoff or proven improvement.
+
+NEXT: user programs this exact new file in Hardware Manager, presses BTNU,
+then runs collect_core_experiment.ps1 -Port COM5 -Mode 3 -WaitCycles 0
+-CaptureCycles 16 -Repeats 3. Default eight challenges should yield 24 accepted,
+zero rejected; response values are unknown and activity flags need checking.
+Use only the NEW collector (A7/5B protocol). Comparison and analyzer scripts
+are prepared for six runtime settings in the same bitstream. Hardware results
+are still pending. No 128-core array was built.
+
+## Earlier review after returning (historical)
+
+User supplied a mentor remediation plan and requested an honest detailed audit,
+not immediate implementation. See MENTOR_PLAN_REVIEW.md. No RTL, constraints or
+hardware changed for that review. Three of its four diagnostic headings describe
+real limitations (terminal mismatch, capture sensitivity, parity eligibility);
+single versus 128 cores is a scope/comparison gap, not an established bias cause.
+One-shot, dynamic parity and dual arbiters are unproven architecture variants.
+The plan contains six concrete mistakes: independent clocks in one slice,
+XOR/XNOR losing winner direction, FF LOCK_PINS misuse, malformed FIXED_ROUTE,
+omitting 32 LUT3s from core resource arithmetic, and calling same-die diversity
+inter-device uniqueness. First-after-enable is not first-after-excitation at an
+80ns wait. The claimed 5–15ps variation and <15ps requirement are not established.
+Current 3-LUT stage vs authors' unknown physical mapping and diagnostic loads
+remain material gaps. Do not implement all proposed changes as automatic fixes.
+
 User explicitly requested stopping here because credits are running out.
 Resume only when the user returns. Read this file before repeating work.
 
