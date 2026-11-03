@@ -8,12 +8,12 @@
 //   Wraps response_assembly with synchronous top-level control and status ports.
 //
 // Parameters:
-//   N_CORES       : Number of CBDC-PUF cores (default 128)
+//   N_CORES       : Number of CBDC-PUF cores (default 128, scalable)
 //   N_STAGES      : Number of stages per chain (16)
 //   GATE_INIT     : 4'h8 (AND2) / 4'h7 (NAND2)
 //   AUTO_PARITY   : 1 = Dynamic parity selection (100% challenge space)
-//   SINGLE_SHOT   : 1 = First-edge single-shot capture mode
-//   DUAL_ARBITER  : 1 = Instantiate complementary Arbiter B
+//   CAPTURE_MODE  : 0 = Paper Continuous, 1 = True First-Wavefront, 2 = Post-Settle 1st Edge
+//   DUAL_ARBITER  : 1 = Instantiate complementary Arbiter B for validity check
 //==============================================================================
 module cbdc_puf_array_top #(
     parameter integer N_CORES           = 128,
@@ -22,7 +22,7 @@ module cbdc_puf_array_top #(
     parameter integer CROSS_COUPLE      = 1,
     parameter integer ELEMENT_STYLE     = 0,
     parameter integer AUTO_PARITY       = 1,
-    parameter integer SINGLE_SHOT       = 1,
+    parameter integer CAPTURE_MODE      = 1,
     parameter integer DUAL_ARBITER      = 1,
     parameter integer CLR_CYCLES        = 4,
     parameter integer INIT_SETTLE_CYCLES= 4,
@@ -41,7 +41,7 @@ module cbdc_puf_array_top #(
     output wire                               request_error_o,
     output wire [N_CORES-1:0]                 resp_data_o,
     output wire [N_CORES-1:0]                 comp_data_o,
-    output wire [N_CORES-1:0]                 diff_data_o
+    output wire [N_CORES-1:0]                 valid_mask_o
 );
 
     response_assembly #(
@@ -51,7 +51,7 @@ module cbdc_puf_array_top #(
         .CROSS_COUPLE      (CROSS_COUPLE),
         .ELEMENT_STYLE     (ELEMENT_STYLE),
         .AUTO_PARITY       (AUTO_PARITY),
-        .SINGLE_SHOT       (SINGLE_SHOT),
+        .CAPTURE_MODE      (CAPTURE_MODE),
         .DUAL_ARBITER      (DUAL_ARBITER),
         .CLR_CYCLES        (CLR_CYCLES),
         .INIT_SETTLE_CYCLES(INIT_SETTLE_CYCLES),
@@ -70,7 +70,7 @@ module cbdc_puf_array_top #(
         .request_error_o(request_error_o),
         .resp_data_o    (resp_data_o),
         .comp_data_o    (comp_data_o),
-        .diff_data_o    (diff_data_o)
+        .valid_mask_o   (valid_mask_o)
     );
 
 endmodule

@@ -42,3 +42,4 @@ Write-Host "Found Vivado at: $resolvedVivado"
 Write-Host "Launching 128-Core CBDC-PUF Bitstream Build..."
 
 & $resolvedVivado -mode batch -source scripts/build_array_bitstream.tcl
+

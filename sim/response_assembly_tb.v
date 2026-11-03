@@ -27,7 +27,7 @@ module response_assembly_tb;
     wire                             request_error_o;
     wire [N_CORES-1:0]               resp_data_o;
     wire [N_CORES-1:0]               comp_data_o;
-    wire [N_CORES-1:0]               diff_data_o;
+    wire [N_CORES-1:0]               valid_mask_o;
 
     // Unit Under Test
     response_assembly #(
@@ -35,7 +35,7 @@ module response_assembly_tb;
         .N_STAGES          (N_STAGES),
         .GATE_INIT         (4'h8),
         .AUTO_PARITY       (1),
-        .SINGLE_SHOT       (1),
+        .CAPTURE_MODE      (1),   // True First-Wavefront Race
         .DUAL_ARBITER      (1),
         .CLR_CYCLES        (4),
         .INIT_SETTLE_CYCLES(4),
@@ -54,7 +54,7 @@ module response_assembly_tb;
         .request_error_o(request_error_o),
         .resp_data_o    (resp_data_o),
         .comp_data_o    (comp_data_o),
-        .diff_data_o    (diff_data_o)
+        .valid_mask_o   (valid_mask_o)
     );
 
     // Clock generator
@@ -90,9 +90,9 @@ module response_assembly_tb;
         // Wait for evaluation
         @(posedge resp_valid_o);
         $display("[TB] Test 1 Complete! resp_valid asserted.");
-        $display("     Primary Response   : 0x%04h", resp_data_o);
-        $display("     Complementary Resp : 0x%04h", comp_data_o);
-        $display("     Differential Resp  : 0x%04h", diff_data_o);
+        $display("     Primary Response   (QA) : 0x%04h", resp_data_o);
+        $display("     Complementary Resp (QB) : 0x%04h", comp_data_o);
+        $display("     Race Validity Mask (QA!=QB): 0x%04h", valid_mask_o);
 
         if (request_error_o) begin
             $display("[ERROR] Test 1 reported unsupported challenge!");
@@ -111,16 +111,15 @@ module response_assembly_tb;
 
         @(posedge resp_valid_o);
         $display("[TB] Test 2 Complete! resp_valid asserted.");
-        $display("     Primary Response   : 0x%04h", resp_data_o);
-        $display("     Complementary Resp : 0x%04h", comp_data_o);
-        $display("     Differential Resp  : 0x%04h", diff_data_o);
+        $display("     Primary Response   (QA) : 0x%04h", resp_data_o);
+        $display("     Complementary Resp (QB) : 0x%04h", comp_data_o);
+        $display("     Race Validity Mask (QA!=QB): 0x%04h", valid_mask_o);
 
         #(CLK_PERIOD * 5);
 
         // Step 4: Individual Core Configuration Mode
         $display("[TB] Test 3: Individual Per-Core Challenge Configuration Mode...");
         config_mode_i = 1'b1;
-        // Assign distinct challenge per core
         for (test_step = 0; test_step < N_CORES; test_step = test_step + 1) begin
             core_config_i[test_step*16 +: 16] = 16'h1000 + test_step;
         end
@@ -130,9 +129,9 @@ module response_assembly_tb;
 
         @(posedge resp_valid_o);
         $display("[TB] Test 3 Complete! resp_valid asserted.");
-        $display("     Primary Response   : 0x%04h", resp_data_o);
-        $display("     Complementary Resp : 0x%04h", comp_data_o);
-        $display("     Differential Resp  : 0x%04h", diff_data_o);
+        $display("     Primary Response   (QA) : 0x%04h", resp_data_o);
+        $display("     Complementary Resp (QB) : 0x%04h", comp_data_o);
+        $display("     Race Validity Mask (QA!=QB): 0x%04h", valid_mask_o);
 
         $display("===============================================================");
         $display("ALL RESPONSE ASSEMBLY TESTS PASSED SUCCESSFULLY!");

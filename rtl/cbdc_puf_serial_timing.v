@@ -12,7 +12,7 @@ module cbdc_serial_engine_timing(input wire [7:0] wait_cycles,capture_cycles,inp
   .busy_o(busy),.resp_valid_o(valid),.resp_bit_o(response),.request_error_o(error),
   .puf_c_o(c),.puf_excite_o(excite),.puf_latch_o(latch),.puf_clr_o(clr),.puf_q_i(q));
  cbdc_puf_core #(.DIAGNOSTIC(1)) u_core(.c(c),.excite(excite),.latch(latch),.clr(clr),.q(q),
-  .qb_capture_seen_o(qb_seen),.qu_capture_seen_o(qu_seen),.q_comp_o());
+  .qb_capture_seen_o(qb_seen),.qu_capture_seen_o(qu_seen),.q_comp_o(),.race_valid_o());
 endmodule
 // Request: A6 low high wait capture xor(previous 5).
 // Reply: 5A low high wait capture flags bit xor(previous 7).

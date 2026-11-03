@@ -10,27 +10,19 @@
 //    of the PUF framework is 65536^128... The fixed structure of CBDC-PUF is
 //    saved as a hard macro and reused to form a 128-bit PUF response."
 //
-// Key Features:
-//   1. Parameterized core array: defaults to N_CORES = 128 (paper spec),
-//      scalable down to 16, 8, 4, or 1 for fast synthesis/testing.
+// Key Enhancements:
+//   1. Fully parameterized array size: N_CORES (default 128, scalable to 1, 4, 16)
 //   2. Dual Challenge Modes:
-//      - Broadcast Mode (config_mode_i = 0): Broadcasts 16-bit challenge_i
-//        across all N_CORES. Intra-die spatial variation across the 128 macro
-//        sites produces 128 distinct response bits per challenge.
-//      - Individual / SHA-3 Mode (config_mode_i = 1): Feeds N_CORES * 16 bits
-//        (e.g. 2048-bit SHA-3 hash output) so each core receives its own 16-bit
-//        challenge slice.
-//   3. Synchronized Single-Sequence Control:
-//      All cores run under unified excitation, latching, and clear sequencing
-//      driven by cbdc_puf_ctrl.
-//   4. First-Edge Single-Shot Capture:
-//      Each core locks its race outcome on its own initial wavefront arrival.
-//   5. Dual Complementary Readout:
-//      Provides primary (resp_data_o), complementary (comp_data_o), and
-//      differential (diff_data_o) outputs across all 128 bits.
-//   6. Multi-Flop Synchronizer:
-//      Safely transfers all N_CORES asynchronous arbiter outputs into the
-//      system clock domain without metastability.
+//      - Broadcast Mode (config_mode_i = 0): 16-bit challenge broadcast to all cores.
+//      - Individual Mode (config_mode_i = 1): Per-core 16-bit challenge slices.
+//   3. Three Capture Timing Modes:
+//      - CAPTURE_MODE = 0: Paper Continuous Sampling
+//      - CAPTURE_MODE = 1: True First-Wavefront Race Capture (t = 0 of excite)
+//      - CAPTURE_MODE = 2: Post-Settle 1st Edge Capture (t = 80 ns)
+//   4. Rigorous Race Validity Mask:
+//      - Primary response: resp_data_o (QA)
+//      - Diagnostic response: comp_data_o (QB)
+//      - Valid race mask: valid_mask_o = QA ^ QB (flagging clean complementary races)
 //==============================================================================
 module response_assembly #(
     parameter integer N_CORES           = 128,  // Number of CBDC-PUF macro cores
@@ -39,8 +31,8 @@ module response_assembly #(
     parameter integer CROSS_COUPLE      = 1,    // 1 = Cross-coupled ring oscillator
     parameter integer ELEMENT_STYLE     = 0,    // 0 = Style P (3 LUTs), 1 = Style 2LUT
     parameter integer AUTO_PARITY       = 1,    // 1 = Dynamic parity selection
-    parameter integer SINGLE_SHOT       = 1,    // 1 = First-edge single-shot capture
-    parameter integer DUAL_ARBITER      = 1,    // 1 = Complementary arbiter B
+    parameter integer CAPTURE_MODE      = 1,    // 0=Paper Continuous, 1=True First-Wavefront, 2=Post-Settle 1st Edge
+    parameter integer DUAL_ARBITER      = 1,    // 1 = Complementary arbiter B for validity check
     parameter integer CLR_CYCLES        = 4,
     parameter integer INIT_SETTLE_CYCLES= 4,
     parameter integer EXCITE_CYCLES     = 8,
@@ -52,13 +44,13 @@ module response_assembly #(
     input  wire                               start_i,         // Start evaluation pulse
     input  wire [N_STAGES-1:0]                challenge_i,     // Broadcast 16-bit challenge
     input  wire                               config_mode_i,   // 0 = Broadcast challenge_i, 1 = Per-core config
-    input  wire [(N_CORES*N_STAGES)-1:0]      core_config_i,   // Per-core 16-bit challenges (e.g. 2048 bits for 128 cores)
+    input  wire [(N_CORES*N_STAGES)-1:0]      core_config_i,   // Per-core 16-bit challenges
     output wire                               busy_o,          // High while PUF evaluation is active
     output reg                                resp_valid_o,    // Pulses high for 1 cycle when resp_data is ready
     output wire                               request_error_o, // Unsupported challenge indicator
-    output reg  [N_CORES-1:0]                 resp_data_o,     // Primary 128-bit PUF response (Arbiter A: D=Qu, C=Qb)
-    output reg  [N_CORES-1:0]                 comp_data_o,     // Complementary response (Arbiter B: D=Qb, C=Qu)
-    output reg  [N_CORES-1:0]                 diff_data_o      // Skew-cancelled differential response (Q_A ^ ~Q_B)
+    output reg  [N_CORES-1:0]                 resp_data_o,     // Primary PUF response bits (Arbiter A: QA)
+    output reg  [N_CORES-1:0]                 comp_data_o,     // Diagnostic complementary bits (Arbiter B: QB)
+    output reg  [N_CORES-1:0]                 valid_mask_o     // Race validity mask (1 if QA != QB)
 );
 
     // synthesis translate_off
@@ -80,7 +72,7 @@ module response_assembly #(
     assign busy_o          = ctrl_busy_w;
     assign request_error_o = ctrl_error_w;
 
-    // Instantiate Central Control Sequencer
+    // Shared Control Sequencer
     cbdc_puf_ctrl #(
         .N_STAGES          (N_STAGES),
         .GATE_INIT         (GATE_INIT),
@@ -103,7 +95,7 @@ module response_assembly #(
         .puf_excite_o   (ctrl_excite_w),
         .puf_latch_o    (ctrl_latch_w),
         .puf_clr_o      (ctrl_clr_w),
-        .puf_q_i        (raw_q_w[0]) // Feedback core 0 to single-core monitor
+        .puf_q_i        (raw_q_w[0])
     );
 
     // Raw asynchronous outputs from all PUF cores
@@ -114,7 +106,6 @@ module response_assembly #(
     genvar i;
     generate
         for (i = 0; i < N_CORES; i = i + 1) begin : gen_puf_core
-            // Select per-core challenge
             wire [N_STAGES-1:0] core_challenge_w;
             assign core_challenge_w = (config_mode_i != 1'b0) ?
                                       core_config_i[i*N_STAGES +: N_STAGES] :
@@ -128,7 +119,7 @@ module response_assembly #(
                 .ELEMENT_STYLE (ELEMENT_STYLE),
                 .DIAGNOSTIC    (0),
                 .AUTO_PARITY   (AUTO_PARITY),
-                .SINGLE_SHOT   (SINGLE_SHOT),
+                .CAPTURE_MODE  (CAPTURE_MODE),
                 .DUAL_ARBITER  (DUAL_ARBITER)
             ) u_core_inst (
                 .c                 (core_challenge_w),
@@ -137,6 +128,7 @@ module response_assembly #(
                 .clr               (ctrl_clr_w),
                 .q                 (raw_q_w[i]),
                 .q_comp_o          (comp_q_w[i]),
+                .race_valid_o      (),
                 .qb_capture_seen_o (),
                 .qu_capture_seen_o ()
             );
@@ -162,17 +154,16 @@ module response_assembly #(
     end
 
     // Response Assembly Register
-    // Latches the synchronized parallel responses when the control sequence completes
     always @(posedge clk) begin
         if (!rst_n) begin
             resp_data_o  <= {N_CORES{1'b0}};
             comp_data_o  <= {N_CORES{1'b0}};
-            diff_data_o  <= {N_CORES{1'b0}};
+            valid_mask_o <= {N_CORES{1'b0}};
             resp_valid_o <= 1'b0;
         end else if (ctrl_valid_w) begin
             resp_data_o  <= sync_q2_r;
             comp_data_o  <= sync_comp2_r;
-            diff_data_o  <= sync_q2_r ^ ~sync_comp2_r;
+            valid_mask_o <= sync_q2_r ^ sync_comp2_r; // 1 if clean complementary race (QA != QB)
             resp_valid_o <= 1'b1;
         end else begin
             resp_valid_o <= 1'b0;
