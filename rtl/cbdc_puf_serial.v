@@ -1,20 +1,24 @@
 `timescale 1ns/1ps
 `default_nettype none
 module cbdc_serial_engine(input wire clk,reset,start,input wire [15:0] challenge,
- output wire valid,error,busy,response,output wire [1:0] edges);
- wire [15:0] c; wire excite,latch,clr,q; wire qb_seen,qu_seen;
+ output wire valid,error,busy,response,resp_b,output wire [1:0] edges);
+ wire [15:0] c; wire excite,latch,clr,q,q_comp; wire qb_seen,qu_seen;
  (* ASYNC_REG="TRUE", SHREG_EXTRACT="NO" *) reg [1:0] e1=0,e2=0;
- always @(posedge clk) if(reset) begin e1<=0;e2<=0;end else begin e1<={qu_seen,qb_seen};e2<=e1;end
+ (* ASYNC_REG="TRUE", SHREG_EXTRACT="NO" *) reg qb1=0,qb2=0;
+ always @(posedge clk) if(reset) begin e1<=0;e2<=0;qb1<=0;qb2<=0;end
+ else begin e1<={qu_seen,qb_seen};e2<=e1;qb1<=q_comp;qb2<=qb1;end
  assign edges=e2;
+ assign resp_b=qb2;
  cbdc_puf_ctrl u_ctrl(.clk(clk),.rst_n(~reset),.start_i(start),.challenge_i(challenge),
   .busy_o(busy),.resp_valid_o(valid),.resp_bit_o(response),.request_error_o(error),
   .puf_c_o(c),.puf_excite_o(excite),.puf_latch_o(latch),.puf_clr_o(clr),.puf_q_i(q));
  cbdc_puf_core #(.DIAGNOSTIC(1)) u_core(.c(c),.excite(excite),.latch(latch),.clr(clr),.q(q),
-  .qb_capture_seen_o(qb_seen),.qu_capture_seen_o(qu_seen),.q_comp_o(),.race_valid_o());
+  .qb_capture_seen_o(qb_seen),.qu_capture_seen_o(qu_seen),.q_comp_o(q_comp),.race_valid_o());
 endmodule
 // Request: A5 low high xor(previous 3). Reply: 5A low high flags bit xor(previous 5).
 // Flags: bit0=accepted; bit1=Qb falling edge seen; bit2=Qu falling edge seen;
-// bit4=instrumented build; bit7=internal timeout. Reject => bit0=0, bit=0.
+// bit3=Arbiter B response (q_comp); bit4=instrumented build; bit7=internal timeout.
+// Reject => bit0=0, bit=0.
 // Stop-and-wait only: host must await reply before sending another request.
 module cbdc_puf_serial #(parameter integer UART_CLKS=868)(
  input wire clk,btnU,uart_rx,output wire uart_tx,output wire [15:0] led);
@@ -29,10 +33,10 @@ module cbdc_puf_serial #(parameter integer UART_CLKS=868)(
  reg [2:0] parser=0,state=0,index=0;
  reg [15:0] challenge=0;
  reg [31:0] timeout=0,partial_timeout=0;
- reg start=0;wire valid,error,busy,response;wire [1:0] edges;
+ reg start=0;wire valid,error,busy,response,resp_b;wire [1:0] edges;
  reg [7:0] flags=0,bitbyte=0;reg done=0;
  cbdc_serial_engine u_puf(.clk(clk),.reset(reset),.start(start),.challenge(challenge),
-  .valid(valid),.error(error),.busy(busy),.response(response),.edges(edges));
+  .valid(valid),.error(error),.busy(busy),.response(response),.resp_b(resp_b),.edges(edges));
  assign led={11'b0,1'b1,busy,~flags[0]&done,done,bitbyte[0]};
  always @(posedge clk) begin
   if(reset) begin parser<=0;state<=0;index<=0;challenge<=0;timeout<=0;partial_timeout<=0;
@@ -59,7 +63,7 @@ module cbdc_puf_serial #(parameter integer UART_CLKS=868)(
    end else if(state==1) begin
     timeout<=timeout+1;
     if(valid || error || timeout==10000) begin
-     flags<=valid?{3'b0,1'b1,1'b0,edges,1'b1}:(error?8'h10:8'h90);
+     flags<=valid?{3'b0,1'b1,resp_b,edges,1'b1}:(error?8'h10:8'h90);
      bitbyte<=valid?{7'b0,response}:8'b0;
      state<=2;index<=0;done<=1;
     end
