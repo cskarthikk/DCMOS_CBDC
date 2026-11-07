@@ -1,0 +1,3 @@
+"challenge_hex","trials","ones","zeros","mixed","majority","smaller_count"
+"0001","4","2","2","True","tie","2"
+"0002","4","4","0","False","1","0"

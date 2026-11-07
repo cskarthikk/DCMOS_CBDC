@@ -1,0 +1,8 @@
+{
+    "utc":  "2026-11-02T19:24:11.3368611Z",
+    "port":  "COM5",
+    "repeats":  20,
+    "challenges":  "0001,0002,8000,0007,106A,007C",
+    "bitstream_sha256":  "ADE141E894635F7393B0E84178A7E17C4263101BEF9123481EEEAF2FB1EE102F",
+    "note":  "Same runtime timing firmware; operator must keep it programmed. 8/8 references before/after. Wait 1..40, capture 1. Missing activity retained. 10ns resolution, not analog timing."
+}

@@ -1,0 +1,100 @@
+{
+  "input": "paper_array8_candidate_2026-11-07\\measurements\\paper8_ec8e7a6f77b54e168343bb3708740dd6.csv",
+  "sha256": "6BE7B2C364E2FB0A59864DB1597934BBE5EAB6538B239375E33445109A5666C7",
+  "mode": "Sequential",
+  "excite_cycles": 8,
+  "frames": 320,
+  "cores": [
+    {
+      "core": 0,
+      "observations": 320,
+      "ones": 131,
+      "ones_percent": 40.9375,
+      "mixed_patterns": 1,
+      "ties": 0,
+      "smaller_count": 1,
+      "activity_measurements_available": false
+    },
+    {
+      "core": 1,
+      "observations": 320,
+      "ones": 103,
+      "ones_percent": 32.1875,
+      "mixed_patterns": 2,
+      "ties": 0,
+      "smaller_count": 3,
+      "activity_measurements_available": false
+    },
+    {
+      "core": 2,
+      "observations": 320,
+      "ones": 120,
+      "ones_percent": 37.5,
+      "mixed_patterns": 5,
+      "ties": 0,
+      "smaller_count": 14,
+      "activity_measurements_available": false
+    },
+    {
+      "core": 3,
+      "observations": 320,
+      "ones": 119,
+      "ones_percent": 37.1875,
+      "mixed_patterns": 1,
+      "ties": 0,
+      "smaller_count": 1,
+      "activity_measurements_available": false
+    },
+    {
+      "core": 4,
+      "observations": 320,
+      "ones": 126,
+      "ones_percent": 39.375,
+      "mixed_patterns": 4,
+      "ties": 2,
+      "smaller_count": 14,
+      "activity_measurements_available": false
+    },
+    {
+      "core": 5,
+      "observations": 320,
+      "ones": 123,
+      "ones_percent": 38.4375,
+      "mixed_patterns": 2,
+      "ties": 0,
+      "smaller_count": 5,
+      "activity_measurements_available": false
+    },
+    {
+      "core": 6,
+      "observations": 320,
+      "ones": 54,
+      "ones_percent": 16.875,
+      "mixed_patterns": 3,
+      "ties": 0,
+      "smaller_count": 4,
+      "activity_measurements_available": false
+    },
+    {
+      "core": 7,
+      "observations": 320,
+      "ones": 227,
+      "ones_percent": 70.9375,
+      "mixed_patterns": 2,
+      "ties": 0,
+      "smaller_count": 3,
+      "activity_measurements_available": false
+    }
+  ],
+  "word_ones_histogram": {
+    "0": 19,
+    "1": 33,
+    "2": 51,
+    "3": 94,
+    "4": 59,
+    "5": 35,
+    "6": 28,
+    "7": 1
+  },
+  "interpretation": "Finite raw observations; no certified reliability, entropy, uniqueness or equivalence to 128-bit paper metrics."
+}

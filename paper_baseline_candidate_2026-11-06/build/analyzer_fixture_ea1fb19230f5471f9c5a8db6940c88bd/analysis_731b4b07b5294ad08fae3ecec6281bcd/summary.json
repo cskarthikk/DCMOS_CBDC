@@ -1,0 +1,20 @@
+{
+    "input_csv":  "C:\\BTech\\Semester_5\\DCMOS\\Project\\paper_baseline_candidate_2026-11-06\\build\\analyzer_fixture_ea1fb19230f5471f9c5a8db6940c88bd\\ties.csv",
+    "bitstream_sha256":  "SYNTHETIC_FIXTURE_NOT_HARDWARE",
+    "accepted":  8,
+    "challenges":  2,
+    "repeats":  4,
+    "ones":  6,
+    "ones_percent":  75,
+    "constant_challenges":  1,
+    "mixed_challenges":  1,
+    "tied_challenges":  1,
+    "smaller_response_count_sum":  2,
+    "activity_measurements_available":  false,
+    "interpretation":  "Observed sample behavior. Constant means constant in this finite collection; not certified reliability or entropy.",
+    "reference_csv":  "C:\\BTech\\Semester_5\\DCMOS\\Project\\continuation_single_puf_2026-11-06\\reference\\best_so_far_single_puf_2026-11-04\\results\\run_ab2cc0e61c854380a2e9dec91f7b500f.csv",
+    "shared_challenges":  2,
+    "shared_comparable_challenges":  1,
+    "shared_majority_changes":  0,
+    "comparison_note":  "Different architectures and physical implementations; majority changes are not temporal errors. Only shared challenges are compared."
+}

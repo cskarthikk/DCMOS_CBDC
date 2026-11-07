@@ -1,0 +1,135 @@
+{
+  "slow": [
+    {
+      "core": 0,
+      "configuration_count": 256,
+      "positive_delta": 0,
+      "negative_delta": 256,
+      "min_delta_ps": -327.1000000000058,
+      "max_delta_ps": -327.09999999999127
+    },
+    {
+      "core": 1,
+      "configuration_count": 256,
+      "positive_delta": 241,
+      "negative_delta": 15,
+      "min_delta_ps": -174.6999999999971,
+      "max_delta_ps": 693.6999999999971
+    },
+    {
+      "core": 2,
+      "configuration_count": 256,
+      "positive_delta": 256,
+      "negative_delta": 0,
+      "min_delta_ps": 871.8000000000102,
+      "max_delta_ps": 2420.80000000001
+    },
+    {
+      "core": 3,
+      "configuration_count": 256,
+      "positive_delta": 256,
+      "negative_delta": 0,
+      "min_delta_ps": 148.09999999999854,
+      "max_delta_ps": 148.10000000000582
+    },
+    {
+      "core": 4,
+      "configuration_count": 256,
+      "positive_delta": 0,
+      "negative_delta": 256,
+      "min_delta_ps": -230.50000000000728,
+      "max_delta_ps": -230.49999999999272
+    },
+    {
+      "core": 5,
+      "configuration_count": 256,
+      "positive_delta": 0,
+      "negative_delta": 256,
+      "min_delta_ps": -762.3000000000102,
+      "max_delta_ps": -762.2999999999956
+    },
+    {
+      "core": 6,
+      "configuration_count": 256,
+      "positive_delta": 256,
+      "negative_delta": 0,
+      "min_delta_ps": 362.09999999999854,
+      "max_delta_ps": 362.1000000000058
+    },
+    {
+      "core": 7,
+      "configuration_count": 256,
+      "positive_delta": 0,
+      "negative_delta": 256,
+      "min_delta_ps": -2241.5999999999985,
+      "max_delta_ps": -2241.5999999999767
+    }
+  ],
+  "fast": [
+    {
+      "core": 0,
+      "configuration_count": 256,
+      "positive_delta": 0,
+      "negative_delta": 256,
+      "min_delta_ps": -290.1000000000022,
+      "max_delta_ps": -290.09999999999854
+    },
+    {
+      "core": 1,
+      "configuration_count": 256,
+      "positive_delta": 241,
+      "negative_delta": 15,
+      "min_delta_ps": -32.70000000000073,
+      "max_delta_ps": 331.6999999999989
+    },
+    {
+      "core": 2,
+      "configuration_count": 256,
+      "positive_delta": 256,
+      "negative_delta": 0,
+      "min_delta_ps": 571.8000000000011,
+      "max_delta_ps": 1273.7999999999993
+    },
+    {
+      "core": 3,
+      "configuration_count": 256,
+      "positive_delta": 256,
+      "negative_delta": 0,
+      "min_delta_ps": 94.09999999999854,
+      "max_delta_ps": 94.10000000000218
+    },
+    {
+      "core": 4,
+      "configuration_count": 256,
+      "positive_delta": 0,
+      "negative_delta": 256,
+      "min_delta_ps": -142.50000000000182,
+      "max_delta_ps": -142.5
+    },
+    {
+      "core": 5,
+      "configuration_count": 256,
+      "positive_delta": 0,
+      "negative_delta": 256,
+      "min_delta_ps": -771.2999999999938,
+      "max_delta_ps": -771.2999999999902
+    },
+    {
+      "core": 6,
+      "configuration_count": 256,
+      "positive_delta": 256,
+      "negative_delta": 0,
+      "min_delta_ps": 509.09999999999127,
+      "max_delta_ps": 509.0999999999949
+    },
+    {
+      "core": 7,
+      "configuration_count": 256,
+      "positive_delta": 0,
+      "negative_delta": 256,
+      "min_delta_ps": -2184.6000000000004,
+      "max_delta_ps": -2184.5999999999967
+    }
+  ],
+  "limits": "First-wave rising/falling LUT/net max delays at fast/slow corners; not a measured response predictor or BER model. Ignores setup/hold resolution, analog pulse rejection, CE/edge-lock races, coupling, feedback after first wave and environmental conditions."
+}

@@ -1,0 +1,38 @@
+{
+    "reference_csv":  "C:\\BTech\\Semester_5\\DCMOS\\Project\\build_m1\\measurements\\matched_run01.csv",
+    "challenges":  "0001,0000,0002,0003,0004,0005,0008,0009,8000,8001,0007,0006,001F,001E,7FFF,7FFE,8003,8002,800C,800D,800F,800E,FFFE,FFFF,C830,C831,1047,1046,0A76,0A77,48A4,48A5,CC38,CC39,8A3F,8A3E,B179,B178,0698,0699,FC9D,FC9C,7055,7054,8B6E,8B6F,9383,9382,2D76,2D77,5BF6,5BF7,7678,7679,B39C,B39D,23B2,23B3,F4CF,F4CE,16FA,16FB,B286,B287",
+    "repeats":  20,
+    "settings":  [
+                     [
+                         0,
+                         8,
+                         8
+                     ],
+                     [
+                         1,
+                         8,
+                         8
+                     ],
+                     [
+                         1,
+                         0,
+                         8
+                     ],
+                     [
+                         3,
+                         0,
+                         8
+                     ],
+                     [
+                         7,
+                         0,
+                         8
+                     ],
+                     [
+                         0,
+                         8,
+                         8
+                     ]
+                 ],
+    "note":  "First 32 reference odd challenges paired with LSB-toggled even challenges. Same bitstream for all settings; baseline repeated."
+}

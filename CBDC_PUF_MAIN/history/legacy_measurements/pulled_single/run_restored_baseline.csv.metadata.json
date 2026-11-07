@@ -1,0 +1,12 @@
+{
+    "utc":  "2026-11-06T15:36:56.5578277Z",
+    "build":  "pulled_single_7cfc392",
+    "bitstream_sha256":  "AD7427A3D3A2494F3975167B0611073D2E407AF6C83DE12AF41E63593B0B023F",
+    "challenges":  256,
+    "repeats":  20,
+    "port":  "COM5",
+    "auto_parity":  1,
+    "capture_mode":  1,
+    "dual_arbiter":  1,
+    "note":  "Operator must load this exact file. Local hash does not identify active firmware. Raw primary A only; no BCH/hash/array."
+}

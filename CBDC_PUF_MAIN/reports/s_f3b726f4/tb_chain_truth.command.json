@@ -1,0 +1,15 @@
+{
+  "command": [
+    "C:/iverilog/bin/iverilog.exe",
+    "-g2012",
+    "-s",
+    "tb_chain_truth",
+    "-o",
+    "tb_chain_truth.vvp",
+    "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\sim\\sim_unisim_primitives.v",
+    "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\rtl\\cbdc_puf_element.v",
+    "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\rtl\\cbdc_puf_chain.v",
+    "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\sim\\tb_chain_truth.v"
+  ],
+  "cwd": "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\reports\\s_f3b726f4"
+}

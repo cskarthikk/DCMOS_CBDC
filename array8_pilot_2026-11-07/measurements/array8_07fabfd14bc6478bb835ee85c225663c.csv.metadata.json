@@ -1,0 +1,13 @@
+{
+    "utc":  "2026-11-07T11:09:08.7491014Z",
+    "variant":  "array8_preserved_pilot_v1",
+    "bitstream":  "C:\\BTech\\Semester_5\\DCMOS\\Project\\array8_pilot_2026-11-07\\build_v2\\array8.bit",
+    "sha256":  "2C599CF6FE7EF8EAFE34C1546C1877B78C4E9999AE21A9E46DB646A2CFEAB533",
+    "patterns":  4,
+    "repeats":  3,
+    "cores":  8,
+    "seed":  20261107,
+    "port":  "COM5",
+    "operator_confirmed_file":  true,
+    "note":  "Local hash does not identify live firmware. Eight independent raw primary responses; no BCH/hash. Diagnostic edges are observations."
+}

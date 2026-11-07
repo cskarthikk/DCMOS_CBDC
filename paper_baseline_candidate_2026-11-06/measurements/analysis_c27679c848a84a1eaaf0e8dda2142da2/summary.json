@@ -1,0 +1,20 @@
+{
+    "input_csv":  "C:\\BTech\\Semester_5\\DCMOS\\Project\\paper_baseline_candidate_2026-11-06\\measurements\\run_5b97cf3273a1484c8f8a4e6621df6989.csv",
+    "bitstream_sha256":  "EA95455975095342B43FBEDF5592B7CC4592D20A0E328B1E9C795A5C516AB8E6",
+    "accepted":  5120,
+    "challenges":  256,
+    "repeats":  20,
+    "ones":  1204,
+    "ones_percent":  23.515625,
+    "constant_challenges":  245,
+    "mixed_challenges":  11,
+    "tied_challenges":  1,
+    "smaller_response_count_sum":  36,
+    "activity_measurements_available":  false,
+    "interpretation":  "Observed sample behavior. Constant means constant in this finite collection; not certified reliability or entropy.",
+    "reference_csv":  "C:\\BTech\\Semester_5\\DCMOS\\Project\\continuation_single_puf_2026-11-06\\reference\\best_so_far_single_puf_2026-11-04\\results\\run_ab2cc0e61c854380a2e9dec91f7b500f.csv",
+    "shared_challenges":  126,
+    "shared_comparable_challenges":  126,
+    "shared_majority_changes":  53,
+    "comparison_note":  "Different architectures and physical implementations; majority changes are not temporal errors. Only shared challenges are compared."
+}

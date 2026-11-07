@@ -1,0 +1,75 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Sat Nov  7 00:03:15 2026
+| Host         : CsKarthik running 64-bit major release  (build 9200)
+| Command      : report_drc -file C:/BTech/Semester_5/DCMOS/Project/paper_baseline_candidate_2026-11-06/build/drc.rpt
+| Design       : cbdc_puf_serial
+| Device       : xc7a35tcpg236-1
+| Speed File   : -1
+| Design State : Fully Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: cbdc_puf_serial
+          Floorplan: design_1
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max checks: <unlimited>
+             Checks found: 4
++-------------+----------+-------------------------------------------------------------+--------+
+| Rule        | Severity | Description                                                 | Checks |
++-------------+----------+-------------------------------------------------------------+--------+
+| LUTLP-2     | Warning  | Combinatorial Loop Allowed                                  | 1      |
+| PDRC-153    | Warning  | Gated clock check                                           | 1      |
+| PLHOLDVIO-2 | Warning  | Non-Optimal connections which could lead to hold violations | 1      |
+| RTSTAT-10   | Warning  | No routable loads                                           | 1      |
++-------------+----------+-------------------------------------------------------------+--------+
+
+2. REPORT DETAILS
+-----------------
+LUTLP-2#1 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: u_puf/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+u_puf/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+u_puf/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+u_puf/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+u_puf/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+u_puf/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+u_puf/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+u_puf/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+u_puf/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+u_puf/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+u_puf/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+u_puf/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+u_puf/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+u_puf/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+u_puf/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+PDRC-153#1 Warning
+Gated clock check  
+Net u_puf/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin u_puf/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell u_puf/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PLHOLDVIO-2#1 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT u_puf/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+u_puf/u_core/u_arbiter_dff
+Related violations: <none>
+
+RTSTAT-10#1 Warning
+No routable loads  
+2 net(s) have no routable loads. The problem bus(es) and/or net(s) are u_puf/u_core/qb_first_edge_seen_w, u_puf/u_core/qu_first_edge_seen_w.
+Related violations: <none>
+
+
