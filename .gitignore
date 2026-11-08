@@ -7,3 +7,5 @@
 /xsim.dir/
 
 /CBDC_PUF_MAIN/reports/feasibility_128_2026-11-07/model128.vvp
+__pycache__/
+*.pyc
