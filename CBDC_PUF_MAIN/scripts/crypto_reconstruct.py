@@ -12,6 +12,8 @@ import sys
 from pathlib import Path
 from typing import Optional
 
+ROOT = Path(__file__).resolve().parents[1]
+
 # Add script directory to sys.path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from crypto_engine import FuzzyExtractor, SHA3ChallengePreprocessor, BCH31_16_3
@@ -21,13 +23,16 @@ def evaluate_capture(csv_path: Path, model_path: Optional[Path] = None, enrolled
     print(f"Loading capture: {csv_path}")
     
     selected_set = set()
-    if enrolled_only and model_path and model_path.exists():
-        with open(model_path, 'r', encoding='utf-8') as f:
-            m = json.load(f)
-        for b in m.get('bits', []):
-            if b.get('selected', False):
-                selected_set.add((b['pattern'], b['core']))
-        print(f"Loaded enrollment mask: {len(selected_set)} selected positions.")
+    if enrolled_only:
+        if model_path and model_path.exists():
+            with open(model_path, 'r', encoding='utf-8') as f:
+                m = json.load(f)
+            for b in m.get('bits', []):
+                if b.get('selected', False):
+                    selected_set.add((b['pattern'], b['core']))
+            print(f"Loaded enrollment mask: {len(selected_set)} selected positions from {model_path}.")
+        else:
+            raise FileNotFoundError(f"Model file not found for enrollment filter: {model_path}")
 
     frames = collections.defaultdict(dict)
     all_patterns = set()
@@ -124,7 +129,7 @@ def evaluate_capture(csv_path: Path, model_path: Optional[Path] = None, enrolled
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="PUF Cryptographic Key Reconstruction Evaluation")
     parser.add_argument('--input', type=Path, required=True, help="Path to capture CSV file")
-    parser.add_argument('--model', type=Path, default=Path('CBDC_PUF_MAIN/enrollment/baseline/model.json'), help="Path to baseline model.json")
+    parser.add_argument('--model', type=Path, default=ROOT / 'enrollment/baseline/model.json', help="Path to baseline model.json")
     parser.add_argument('--enrolled-only', action='store_true', help="Filter to only enrolled stable positions")
     parser.add_argument('--output', type=Path, default=None, help="Optional output JSON report path")
     args = parser.parse_args()
