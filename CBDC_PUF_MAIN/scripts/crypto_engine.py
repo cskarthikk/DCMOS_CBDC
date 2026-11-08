@@ -110,9 +110,9 @@ class BCH31_16_3:
             return codeword31, 0, True
 
         # 2. Berlekamp-Massey Algorithm to find Error-Locator Polynomial Lambda(x)
-        # Lambda(x) = 1 + C_1 x + C_2 x^2 + C_3 x^3
-        C = [1, 0, 0, 0]
-        B = [1, 0, 0, 0]
+        # Lambda(x) = 1 + C_1 x + C_2 x^2 + C_3 x^3 (sized to 8 to avoid index errors on uncorrectable words)
+        C = [1] + [0] * 7
+        B = [1] + [0] * 7
         L = 0
         m = 1
         b = 1
@@ -120,7 +120,7 @@ class BCH31_16_3:
         for n in range(6):
             # discrepancy d = s[n+1] ^ sum(C[i] * s[n+1-i])
             d = s[n + 1]
-            for i in range(1, L + 1):
+            for i in range(1, min(L + 1, 8)):
                 if n + 1 - i >= 1:
                     d ^= gf.mul(C[i], s[n + 1 - i])
             
@@ -129,7 +129,7 @@ class BCH31_16_3:
             else:
                 scale = gf.mul(d, gf.inv(b))
                 T = list(C)
-                for i in range(4):
+                for i in range(8):
                     if i >= m:
                         C[i] ^= gf.mul(scale, B[i - m])
                 if 2 * L <= n:
