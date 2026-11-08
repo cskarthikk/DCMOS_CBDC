@@ -120,7 +120,8 @@ if __name__ == '__main__':
     parser.add_argument('--output', type=Path, default=None, help="Output summary report JSON")
     args = parser.parse_args()
 
-    with open(args.input, 'r', encoding='utf-8') as f:
+    with open(args.input, 'r', encoding='utf-8-sig') as f:
         data = json.load(f)
 
     analyze_batch(data, args.output)
+
