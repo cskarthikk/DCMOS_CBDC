@@ -140,3 +140,4 @@ Write-Host "Raw sweep data saved to: $Output" -ForegroundColor Green
 # Run comprehensive multi-challenge analysis
 $reportOut = [IO.Path]::ChangeExtension($Output, '.analysis.json')
 & $python (Join-Path $PSScriptRoot 'crypto_batch_analysis.py') --input $Output --output $reportOut
+
