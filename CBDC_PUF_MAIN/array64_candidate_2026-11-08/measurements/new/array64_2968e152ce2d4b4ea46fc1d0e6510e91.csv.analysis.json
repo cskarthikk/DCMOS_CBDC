@@ -1,0 +1,650 @@
+{
+  "source": "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\array64_candidate_2026-11-08\\measurements\\new\\array64_2968e152ce2d4b4ea46fc1d0e6510e91.csv",
+  "frames": 5120,
+  "raw_bits": 327680,
+  "ones": 117795,
+  "ones_percent": 35.94818115234375,
+  "per_core": [
+    {
+      "core": 0,
+      "ones": 306,
+      "observations": 5120,
+      "ones_percent": 5.9765625,
+      "mixed_patterns": 10,
+      "ties": 0,
+      "minority_observations": 38,
+      "constant_across_capture": false
+    },
+    {
+      "core": 1,
+      "ones": 2691,
+      "observations": 5120,
+      "ones_percent": 52.55859375,
+      "mixed_patterns": 22,
+      "ties": 3,
+      "minority_observations": 111,
+      "constant_across_capture": false
+    },
+    {
+      "core": 2,
+      "ones": 2339,
+      "observations": 5120,
+      "ones_percent": 45.68359375,
+      "mixed_patterns": 26,
+      "ties": 1,
+      "minority_observations": 93,
+      "constant_across_capture": false
+    },
+    {
+      "core": 3,
+      "ones": 3284,
+      "observations": 5120,
+      "ones_percent": 64.140625,
+      "mixed_patterns": 24,
+      "ties": 0,
+      "minority_observations": 84,
+      "constant_across_capture": false
+    },
+    {
+      "core": 4,
+      "ones": 1494,
+      "observations": 5120,
+      "ones_percent": 29.1796875,
+      "mixed_patterns": 31,
+      "ties": 0,
+      "minority_observations": 104,
+      "constant_across_capture": false
+    },
+    {
+      "core": 5,
+      "ones": 1409,
+      "observations": 5120,
+      "ones_percent": 27.51953125,
+      "mixed_patterns": 21,
+      "ties": 1,
+      "minority_observations": 81,
+      "constant_across_capture": false
+    },
+    {
+      "core": 6,
+      "ones": 1655,
+      "observations": 5120,
+      "ones_percent": 32.32421875,
+      "mixed_patterns": 21,
+      "ties": 2,
+      "minority_observations": 95,
+      "constant_across_capture": false
+    },
+    {
+      "core": 7,
+      "ones": 374,
+      "observations": 5120,
+      "ones_percent": 7.3046875,
+      "mixed_patterns": 12,
+      "ties": 0,
+      "minority_observations": 56,
+      "constant_across_capture": false
+    },
+    {
+      "core": 8,
+      "ones": 4619,
+      "observations": 5120,
+      "ones_percent": 90.21484375,
+      "mixed_patterns": 15,
+      "ties": 1,
+      "minority_observations": 59,
+      "constant_across_capture": false
+    },
+    {
+      "core": 9,
+      "ones": 4003,
+      "observations": 5120,
+      "ones_percent": 78.18359375,
+      "mixed_patterns": 17,
+      "ties": 1,
+      "minority_observations": 73,
+      "constant_across_capture": false
+    },
+    {
+      "core": 10,
+      "ones": 1031,
+      "observations": 5120,
+      "ones_percent": 20.13671875,
+      "mixed_patterns": 14,
+      "ties": 0,
+      "minority_observations": 57,
+      "constant_across_capture": false
+    },
+    {
+      "core": 11,
+      "ones": 1919,
+      "observations": 5120,
+      "ones_percent": 37.48046875,
+      "mixed_patterns": 14,
+      "ties": 0,
+      "minority_observations": 51,
+      "constant_across_capture": false
+    },
+    {
+      "core": 12,
+      "ones": 959,
+      "observations": 5120,
+      "ones_percent": 18.73046875,
+      "mixed_patterns": 10,
+      "ties": 0,
+      "minority_observations": 29,
+      "constant_across_capture": false
+    },
+    {
+      "core": 13,
+      "ones": 43,
+      "observations": 5120,
+      "ones_percent": 0.83984375,
+      "mixed_patterns": 3,
+      "ties": 0,
+      "minority_observations": 9,
+      "constant_across_capture": false
+    },
+    {
+      "core": 14,
+      "ones": 1735,
+      "observations": 5120,
+      "ones_percent": 33.88671875,
+      "mixed_patterns": 22,
+      "ties": 1,
+      "minority_observations": 89,
+      "constant_across_capture": false
+    },
+    {
+      "core": 15,
+      "ones": 2855,
+      "observations": 5120,
+      "ones_percent": 55.76171875,
+      "mixed_patterns": 18,
+      "ties": 1,
+      "minority_observations": 75,
+      "constant_across_capture": false
+    },
+    {
+      "core": 16,
+      "ones": 753,
+      "observations": 5120,
+      "ones_percent": 14.70703125,
+      "mixed_patterns": 19,
+      "ties": 1,
+      "minority_observations": 77,
+      "constant_across_capture": false
+    },
+    {
+      "core": 17,
+      "ones": 1822,
+      "observations": 5120,
+      "ones_percent": 35.5859375,
+      "mixed_patterns": 24,
+      "ties": 2,
+      "minority_observations": 84,
+      "constant_across_capture": false
+    },
+    {
+      "core": 18,
+      "ones": 1168,
+      "observations": 5120,
+      "ones_percent": 22.8125,
+      "mixed_patterns": 23,
+      "ties": 2,
+      "minority_observations": 82,
+      "constant_across_capture": false
+    },
+    {
+      "core": 19,
+      "ones": 1563,
+      "observations": 5120,
+      "ones_percent": 30.52734375,
+      "mixed_patterns": 18,
+      "ties": 1,
+      "minority_observations": 95,
+      "constant_across_capture": false
+    },
+    {
+      "core": 20,
+      "ones": 1394,
+      "observations": 5120,
+      "ones_percent": 27.2265625,
+      "mixed_patterns": 28,
+      "ties": 2,
+      "minority_observations": 122,
+      "constant_across_capture": false
+    },
+    {
+      "core": 21,
+      "ones": 448,
+      "observations": 5120,
+      "ones_percent": 8.75,
+      "mixed_patterns": 9,
+      "ties": 0,
+      "minority_observations": 64,
+      "constant_across_capture": false
+    },
+    {
+      "core": 22,
+      "ones": 1460,
+      "observations": 5120,
+      "ones_percent": 28.515625,
+      "mixed_patterns": 19,
+      "ties": 0,
+      "minority_observations": 64,
+      "constant_across_capture": false
+    },
+    {
+      "core": 23,
+      "ones": 1661,
+      "observations": 5120,
+      "ones_percent": 32.44140625,
+      "mixed_patterns": 29,
+      "ties": 0,
+      "minority_observations": 103,
+      "constant_across_capture": false
+    },
+    {
+      "core": 24,
+      "ones": 397,
+      "observations": 5120,
+      "ones_percent": 7.75390625,
+      "mixed_patterns": 15,
+      "ties": 0,
+      "minority_observations": 73,
+      "constant_across_capture": false
+    },
+    {
+      "core": 25,
+      "ones": 3140,
+      "observations": 5120,
+      "ones_percent": 61.328125,
+      "mixed_patterns": 37,
+      "ties": 0,
+      "minority_observations": 134,
+      "constant_across_capture": false
+    },
+    {
+      "core": 26,
+      "ones": 3216,
+      "observations": 5120,
+      "ones_percent": 62.8125,
+      "mixed_patterns": 17,
+      "ties": 1,
+      "minority_observations": 82,
+      "constant_across_capture": false
+    },
+    {
+      "core": 27,
+      "ones": 720,
+      "observations": 5120,
+      "ones_percent": 14.0625,
+      "mixed_patterns": 13,
+      "ties": 1,
+      "minority_observations": 52,
+      "constant_across_capture": false
+    },
+    {
+      "core": 28,
+      "ones": 222,
+      "observations": 5120,
+      "ones_percent": 4.3359375,
+      "mixed_patterns": 16,
+      "ties": 0,
+      "minority_observations": 44,
+      "constant_across_capture": false
+    },
+    {
+      "core": 29,
+      "ones": 2383,
+      "observations": 5120,
+      "ones_percent": 46.54296875,
+      "mixed_patterns": 36,
+      "ties": 2,
+      "minority_observations": 137,
+      "constant_across_capture": false
+    },
+    {
+      "core": 30,
+      "ones": 22,
+      "observations": 5120,
+      "ones_percent": 0.4296875,
+      "mixed_patterns": 1,
+      "ties": 0,
+      "minority_observations": 2,
+      "constant_across_capture": false
+    },
+    {
+      "core": 31,
+      "ones": 3972,
+      "observations": 5120,
+      "ones_percent": 77.578125,
+      "mixed_patterns": 31,
+      "ties": 0,
+      "minority_observations": 130,
+      "constant_across_capture": false
+    },
+    {
+      "core": 32,
+      "ones": 142,
+      "observations": 5120,
+      "ones_percent": 2.7734375,
+      "mixed_patterns": 8,
+      "ties": 0,
+      "minority_observations": 40,
+      "constant_across_capture": false
+    },
+    {
+      "core": 33,
+      "ones": 2867,
+      "observations": 5120,
+      "ones_percent": 55.99609375,
+      "mixed_patterns": 18,
+      "ties": 1,
+      "minority_observations": 75,
+      "constant_across_capture": false
+    },
+    {
+      "core": 34,
+      "ones": 1525,
+      "observations": 5120,
+      "ones_percent": 29.78515625,
+      "mixed_patterns": 31,
+      "ties": 1,
+      "minority_observations": 133,
+      "constant_across_capture": false
+    },
+    {
+      "core": 35,
+      "ones": 375,
+      "observations": 5120,
+      "ones_percent": 7.32421875,
+      "mixed_patterns": 12,
+      "ties": 1,
+      "minority_observations": 51,
+      "constant_across_capture": false
+    },
+    {
+      "core": 36,
+      "ones": 2150,
+      "observations": 5120,
+      "ones_percent": 41.9921875,
+      "mixed_patterns": 26,
+      "ties": 2,
+      "minority_observations": 94,
+      "constant_across_capture": false
+    },
+    {
+      "core": 37,
+      "ones": 3400,
+      "observations": 5120,
+      "ones_percent": 66.40625,
+      "mixed_patterns": 17,
+      "ties": 1,
+      "minority_observations": 66,
+      "constant_across_capture": false
+    },
+    {
+      "core": 38,
+      "ones": 1349,
+      "observations": 5120,
+      "ones_percent": 26.34765625,
+      "mixed_patterns": 14,
+      "ties": 0,
+      "minority_observations": 55,
+      "constant_across_capture": false
+    },
+    {
+      "core": 39,
+      "ones": 593,
+      "observations": 5120,
+      "ones_percent": 11.58203125,
+      "mixed_patterns": 13,
+      "ties": 0,
+      "minority_observations": 35,
+      "constant_across_capture": false
+    },
+    {
+      "core": 40,
+      "ones": 2294,
+      "observations": 5120,
+      "ones_percent": 44.8046875,
+      "mixed_patterns": 32,
+      "ties": 0,
+      "minority_observations": 102,
+      "constant_across_capture": false
+    },
+    {
+      "core": 41,
+      "ones": 88,
+      "observations": 5120,
+      "ones_percent": 1.71875,
+      "mixed_patterns": 5,
+      "ties": 0,
+      "minority_observations": 22,
+      "constant_across_capture": false
+    },
+    {
+      "core": 42,
+      "ones": 2254,
+      "observations": 5120,
+      "ones_percent": 44.0234375,
+      "mixed_patterns": 27,
+      "ties": 4,
+      "minority_observations": 142,
+      "constant_across_capture": false
+    },
+    {
+      "core": 43,
+      "ones": 4100,
+      "observations": 5120,
+      "ones_percent": 80.078125,
+      "mixed_patterns": 13,
+      "ties": 0,
+      "minority_observations": 28,
+      "constant_across_capture": false
+    },
+    {
+      "core": 44,
+      "ones": 465,
+      "observations": 5120,
+      "ones_percent": 9.08203125,
+      "mixed_patterns": 6,
+      "ties": 0,
+      "minority_observations": 11,
+      "constant_across_capture": false
+    },
+    {
+      "core": 45,
+      "ones": 2834,
+      "observations": 5120,
+      "ones_percent": 55.3515625,
+      "mixed_patterns": 29,
+      "ties": 3,
+      "minority_observations": 144,
+      "constant_across_capture": false
+    },
+    {
+      "core": 46,
+      "ones": 1909,
+      "observations": 5120,
+      "ones_percent": 37.28515625,
+      "mixed_patterns": 22,
+      "ties": 0,
+      "minority_observations": 91,
+      "constant_across_capture": false
+    },
+    {
+      "core": 47,
+      "ones": 825,
+      "observations": 5120,
+      "ones_percent": 16.11328125,
+      "mixed_patterns": 14,
+      "ties": 0,
+      "minority_observations": 37,
+      "constant_across_capture": false
+    },
+    {
+      "core": 48,
+      "ones": 4724,
+      "observations": 5120,
+      "ones_percent": 92.265625,
+      "mixed_patterns": 17,
+      "ties": 1,
+      "minority_observations": 74,
+      "constant_across_capture": false
+    },
+    {
+      "core": 49,
+      "ones": 1366,
+      "observations": 5120,
+      "ones_percent": 26.6796875,
+      "mixed_patterns": 27,
+      "ties": 0,
+      "minority_observations": 110,
+      "constant_across_capture": false
+    },
+    {
+      "core": 50,
+      "ones": 783,
+      "observations": 5120,
+      "ones_percent": 15.29296875,
+      "mixed_patterns": 8,
+      "ties": 2,
+      "minority_observations": 45,
+      "constant_across_capture": false
+    },
+    {
+      "core": 51,
+      "ones": 4082,
+      "observations": 5120,
+      "ones_percent": 79.7265625,
+      "mixed_patterns": 18,
+      "ties": 1,
+      "minority_observations": 76,
+      "constant_across_capture": false
+    },
+    {
+      "core": 52,
+      "ones": 368,
+      "observations": 5120,
+      "ones_percent": 7.1875,
+      "mixed_patterns": 11,
+      "ties": 0,
+      "minority_observations": 36,
+      "constant_across_capture": false
+    },
+    {
+      "core": 53,
+      "ones": 783,
+      "observations": 5120,
+      "ones_percent": 15.29296875,
+      "mixed_patterns": 10,
+      "ties": 0,
+      "minority_observations": 29,
+      "constant_across_capture": false
+    },
+    {
+      "core": 54,
+      "ones": 4313,
+      "observations": 5120,
+      "ones_percent": 84.23828125,
+      "mixed_patterns": 18,
+      "ties": 0,
+      "minority_observations": 79,
+      "constant_across_capture": false
+    },
+    {
+      "core": 55,
+      "ones": 845,
+      "observations": 5120,
+      "ones_percent": 16.50390625,
+      "mixed_patterns": 19,
+      "ties": 0,
+      "minority_observations": 79,
+      "constant_across_capture": false
+    },
+    {
+      "core": 56,
+      "ones": 256,
+      "observations": 5120,
+      "ones_percent": 5.0,
+      "mixed_patterns": 6,
+      "ties": 0,
+      "minority_observations": 28,
+      "constant_across_capture": false
+    },
+    {
+      "core": 57,
+      "ones": 2782,
+      "observations": 5120,
+      "ones_percent": 54.3359375,
+      "mixed_patterns": 16,
+      "ties": 0,
+      "minority_observations": 44,
+      "constant_across_capture": false
+    },
+    {
+      "core": 58,
+      "ones": 4276,
+      "observations": 5120,
+      "ones_percent": 83.515625,
+      "mixed_patterns": 16,
+      "ties": 0,
+      "minority_observations": 80,
+      "constant_across_capture": false
+    },
+    {
+      "core": 59,
+      "ones": 373,
+      "observations": 5120,
+      "ones_percent": 7.28515625,
+      "mixed_patterns": 17,
+      "ties": 0,
+      "minority_observations": 53,
+      "constant_across_capture": false
+    },
+    {
+      "core": 60,
+      "ones": 1068,
+      "observations": 5120,
+      "ones_percent": 20.859375,
+      "mixed_patterns": 29,
+      "ties": 1,
+      "minority_observations": 112,
+      "constant_across_capture": false
+    },
+    {
+      "core": 61,
+      "ones": 4492,
+      "observations": 5120,
+      "ones_percent": 87.734375,
+      "mixed_patterns": 10,
+      "ties": 0,
+      "minority_observations": 38,
+      "constant_across_capture": false
+    },
+    {
+      "core": 62,
+      "ones": 1672,
+      "observations": 5120,
+      "ones_percent": 32.65625,
+      "mixed_patterns": 22,
+      "ties": 0,
+      "minority_observations": 106,
+      "constant_across_capture": false
+    },
+    {
+      "core": 63,
+      "ones": 3385,
+      "observations": 5120,
+      "ones_percent": 66.11328125,
+      "mixed_patterns": 19,
+      "ties": 1,
+      "minority_observations": 77,
+      "constant_across_capture": false
+    }
+  ],
+  "limitation": "Raw descriptive measurements on one FPGA. Minority counts are within-session variation, not independent-validation BER or certified entropy/uniqueness. No bits filtered or corrected."
+}

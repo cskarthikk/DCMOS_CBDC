@@ -1,0 +1,2022 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Mon Nov  9 00:07:11 2026
+| Host         : CsKarthik running 64-bit major release  (build 9200)
+| Command      : report_drc -file C:/BTech/Semester_5/DCMOS/Project/CBDC_PUF_MAIN/array64_capture_window_trial_2026-11-08/build/drc.rpt
+| Design       : cbdc_array64_serial
+| Device       : xc7a35tcpg236-1
+| Speed File   : -1
+| Design State : Fully Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: checkpoint_synthesized
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max checks: <unlimited>
+             Checks found: 192
++-------------+----------+-------------------------------------------------------------+--------+
+| Rule        | Severity | Description                                                 | Checks |
++-------------+----------+-------------------------------------------------------------+--------+
+| LUTLP-2     | Warning  | Combinatorial Loop Allowed                                  | 64     |
+| PDRC-153    | Warning  | Gated clock check                                           | 64     |
+| PLHOLDVIO-2 | Warning  | Non-Optimal connections which could lead to hold violations | 64     |
++-------------+----------+-------------------------------------------------------------+--------+
+
+2. REPORT DETAILS
+-----------------
+LUTLP-2#1 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[0].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[0].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[0].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[0].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[0].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[0].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[0].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[0].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[0].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[0].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[0].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[0].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[0].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[0].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[0].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#2 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[10].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[10].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[10].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[10].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[10].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[10].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[10].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[10].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[10].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[10].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[10].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[10].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[10].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[10].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[10].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#3 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[11].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[11].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[11].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[11].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[11].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[11].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[11].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[11].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[11].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[11].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[11].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[11].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[11].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[11].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[11].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#4 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[12].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[12].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[12].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[12].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[12].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[12].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[12].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[12].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[12].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[12].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[12].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[12].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[12].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[12].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[12].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#5 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[13].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[13].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[13].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[13].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[13].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[13].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[13].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[13].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[13].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[13].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[13].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[13].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[13].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[13].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[13].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#6 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[14].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[14].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[14].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[14].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[14].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[14].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[14].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[14].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[14].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[14].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[14].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[14].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[14].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[14].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[14].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#7 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[15].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[15].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[15].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[15].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[15].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[15].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[15].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[15].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[15].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[15].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[15].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[15].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[15].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[15].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[15].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#8 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[16].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[16].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[16].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[16].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[16].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[16].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[16].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[16].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[16].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[16].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[16].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[16].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[16].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[16].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[16].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#9 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[17].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[17].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[17].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[17].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[17].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[17].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[17].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[17].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[17].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[17].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[17].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[17].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[17].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[17].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[17].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#10 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[18].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[18].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[18].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[18].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[18].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[18].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[18].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[18].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[18].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[18].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[18].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[18].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[18].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[18].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[18].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#11 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[19].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[19].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[19].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[19].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[19].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[19].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[19].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[19].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[19].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[19].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[19].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[19].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[19].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[19].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[19].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#12 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[1].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[1].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[1].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[1].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[1].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[1].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[1].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[1].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[1].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[1].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[1].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[1].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[1].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[1].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[1].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#13 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[20].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[20].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[20].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[20].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[20].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[20].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[20].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[20].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[20].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[20].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[20].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[20].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[20].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[20].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[20].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#14 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[21].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[21].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[21].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[21].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[21].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[21].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[21].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[21].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[21].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[21].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[21].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[21].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[21].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[21].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[21].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#15 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[22].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[22].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[22].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[22].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[22].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[22].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[22].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[22].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[22].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[22].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[22].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[22].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[22].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[22].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[22].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#16 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[23].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[23].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[23].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[23].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[23].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[23].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[23].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[23].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[23].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[23].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[23].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[23].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[23].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[23].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[23].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#17 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[24].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[24].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[24].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[24].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[24].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[24].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[24].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[24].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[24].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[24].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[24].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[24].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[24].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[24].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[24].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#18 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[25].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[25].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[25].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[25].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[25].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[25].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[25].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[25].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[25].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[25].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[25].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[25].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[25].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[25].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[25].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#19 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[26].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[26].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[26].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[26].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[26].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[26].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[26].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[26].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[26].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[26].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[26].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[26].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[26].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[26].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[26].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#20 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[27].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[27].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[27].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[27].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[27].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[27].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[27].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[27].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[27].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[27].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[27].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[27].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[27].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[27].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[27].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#21 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[28].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[28].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[28].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[28].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[28].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[28].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[28].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[28].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[28].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[28].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[28].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[28].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[28].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[28].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[28].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#22 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[29].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[29].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[29].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[29].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[29].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[29].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[29].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[29].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[29].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[29].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[29].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[29].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[29].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[29].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[29].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#23 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[2].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[2].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[2].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[2].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[2].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[2].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[2].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[2].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[2].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[2].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[2].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[2].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[2].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[2].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[2].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#24 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[30].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[30].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[30].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[30].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[30].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[30].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[30].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[30].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[30].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[30].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[30].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[30].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[30].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[30].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[30].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#25 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[31].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[31].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[31].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[31].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[31].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[31].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[31].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[31].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[31].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[31].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[31].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[31].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[31].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[31].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[31].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#26 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[32].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[32].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[32].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[32].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[32].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[32].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[32].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[32].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[32].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[32].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[32].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[32].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[32].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[32].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[32].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#27 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[33].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[33].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[33].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[33].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[33].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[33].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[33].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[33].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[33].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[33].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[33].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[33].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[33].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[33].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[33].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#28 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[34].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[34].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[34].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[34].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[34].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[34].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[34].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[34].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[34].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[34].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[34].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[34].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[34].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[34].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[34].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#29 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[35].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[35].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[35].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[35].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[35].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[35].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[35].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[35].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[35].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[35].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[35].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[35].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[35].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[35].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[35].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#30 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[36].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[36].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[36].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[36].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[36].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[36].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[36].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[36].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[36].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[36].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[36].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[36].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[36].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[36].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[36].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#31 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[37].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[37].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[37].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[37].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[37].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[37].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[37].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[37].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[37].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[37].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[37].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[37].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[37].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[37].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[37].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#32 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[38].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[38].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[38].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[38].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[38].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[38].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[38].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[38].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[38].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[38].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[38].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[38].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[38].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[38].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[38].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#33 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[39].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[39].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[39].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[39].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[39].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[39].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[39].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[39].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[39].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[39].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[39].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[39].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[39].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[39].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[39].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#34 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[3].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[3].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[3].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[3].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[3].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[3].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[3].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[3].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[3].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[3].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[3].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[3].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[3].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[3].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[3].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#35 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[40].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[40].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[40].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[40].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[40].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[40].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[40].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[40].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[40].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[40].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[40].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[40].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[40].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[40].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[40].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#36 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[41].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[41].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[41].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[41].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[41].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[41].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[41].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[41].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[41].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[41].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[41].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[41].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[41].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[41].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[41].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#37 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[42].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[42].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[42].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[42].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[42].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[42].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[42].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[42].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[42].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[42].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[42].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[42].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[42].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[42].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[42].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#38 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[43].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[43].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[43].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[43].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[43].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[43].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[43].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[43].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[43].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[43].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[43].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[43].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[43].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[43].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[43].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#39 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[44].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[44].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[44].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[44].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[44].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[44].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[44].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[44].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[44].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[44].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[44].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[44].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[44].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[44].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[44].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#40 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[45].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[45].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[45].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[45].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[45].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[45].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[45].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[45].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[45].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[45].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[45].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[45].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[45].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[45].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[45].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#41 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[46].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[46].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[46].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[46].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[46].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[46].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[46].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[46].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[46].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[46].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[46].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[46].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[46].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[46].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[46].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#42 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[47].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[47].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[47].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[47].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[47].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[47].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[47].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[47].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[47].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[47].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[47].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[47].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[47].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[47].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[47].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#43 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[48].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[48].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[48].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[48].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[48].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[48].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[48].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[48].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[48].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[48].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[48].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[48].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[48].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[48].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[48].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#44 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[49].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[49].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[49].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[49].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[49].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[49].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[49].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[49].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[49].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[49].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[49].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[49].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[49].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[49].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[49].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#45 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[4].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[4].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[4].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[4].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[4].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[4].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[4].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[4].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[4].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[4].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[4].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[4].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[4].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[4].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[4].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#46 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[50].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[50].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[50].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[50].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[50].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[50].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[50].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[50].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[50].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[50].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[50].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[50].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[50].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[50].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[50].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#47 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[51].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[51].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[51].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[51].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[51].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[51].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[51].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[51].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[51].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[51].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[51].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[51].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[51].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[51].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[51].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#48 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[52].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[52].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[52].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[52].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[52].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[52].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[52].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[52].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[52].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[52].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[52].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[52].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[52].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[52].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[52].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#49 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[53].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[53].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[53].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[53].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[53].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[53].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[53].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[53].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[53].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[53].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[53].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[53].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[53].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[53].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[53].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#50 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[54].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[54].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[54].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[54].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[54].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[54].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[54].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[54].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[54].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[54].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[54].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[54].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[54].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[54].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[54].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#51 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[55].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[55].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[55].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[55].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[55].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[55].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[55].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[55].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[55].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[55].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[55].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[55].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[55].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[55].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[55].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#52 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[56].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[56].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[56].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[56].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[56].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[56].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[56].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[56].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[56].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[56].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[56].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[56].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[56].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[56].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[56].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#53 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[57].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[57].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[57].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[57].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[57].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[57].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[57].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[57].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[57].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[57].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[57].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[57].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[57].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[57].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[57].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#54 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[58].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[58].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[58].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[58].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[58].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[58].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[58].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[58].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[58].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[58].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[58].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[58].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[58].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[58].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[58].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#55 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[59].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[59].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[59].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[59].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[59].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[59].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[59].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[59].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[59].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[59].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[59].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[59].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[59].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[59].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[59].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#56 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[5].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[5].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[5].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[5].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[5].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[5].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[5].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[5].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[5].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[5].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[5].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[5].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[5].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[5].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[5].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#57 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[60].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[60].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[60].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[60].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[60].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[60].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[60].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[60].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[60].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[60].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[60].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[60].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[60].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[60].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[60].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#58 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[61].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[61].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[61].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[61].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[61].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[61].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[61].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[61].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[61].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[61].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[61].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[61].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[61].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[61].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[61].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#59 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[62].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[62].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[62].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[62].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[62].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[62].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[62].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[62].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[62].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[62].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[62].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[62].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[62].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[62].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[62].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#60 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[63].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[63].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[63].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[63].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[63].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[63].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[63].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[63].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[63].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[63].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[63].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[63].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[63].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[63].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[63].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#61 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[6].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[6].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[6].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[6].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[6].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[6].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[6].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[6].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[6].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[6].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[6].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[6].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[6].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[6].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[6].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#62 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[7].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[7].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[7].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[7].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[7].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[7].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[7].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[7].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[7].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[7].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[7].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[7].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[7].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[7].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[7].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#63 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[8].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[8].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[8].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[8].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[8].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[8].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[8].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[8].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[8].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[8].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[8].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[8].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[8].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[8].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[8].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+LUTLP-2#64 Warning
+Combinatorial Loop Allowed  
+98 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. This loop has been identified in the constraints as being known and understood by use of the ALLOW_COMBINATORIAL_LOOPS property on a net in the loop. The cells in the loop are: gen_core[9].u_engine/u_core/u_chain_lower/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[9].u_engine/u_core/u_chain_lower/gen_elem[10].u_elem/gen_style_p.u_buf,
+gen_core[9].u_engine/u_core/u_chain_lower/gen_elem[11].u_elem/gen_style_p.u_buf,
+gen_core[9].u_engine/u_core/u_chain_lower/gen_elem[12].u_elem/gen_style_p.u_buf,
+gen_core[9].u_engine/u_core/u_chain_lower/gen_elem[13].u_elem/gen_style_p.u_buf,
+gen_core[9].u_engine/u_core/u_chain_lower/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[9].u_engine/u_core/u_chain_lower/gen_elem[6].u_elem/gen_style_p.u_buf,
+gen_core[9].u_engine/u_core/u_chain_lower/gen_elem[7].u_elem/gen_style_p.u_buf,
+gen_core[9].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate,
+gen_core[9].u_engine/u_core/u_chain_upper/gen_elem[0].u_elem/gen_style_p.u_buf,
+gen_core[9].u_engine/u_core/u_chain_upper/gen_elem[1].u_elem/gen_style_p.u_buf,
+gen_core[9].u_engine/u_core/u_chain_upper/gen_elem[3].u_elem/gen_style_p.u_buf,
+gen_core[9].u_engine/u_core/u_chain_upper/gen_elem[4].u_elem/gen_style_p.u_buf,
+gen_core[9].u_engine/u_core/u_chain_upper/gen_elem[5].u_elem/gen_style_p.u_buf,
+gen_core[9].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate
+ (the first 15 of 98 listed).
+Related violations: <none>
+
+PDRC-153#1 Warning
+Gated clock check  
+Net gen_core[0].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[0].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[0].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#2 Warning
+Gated clock check  
+Net gen_core[10].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[10].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[10].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#3 Warning
+Gated clock check  
+Net gen_core[11].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[11].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[11].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#4 Warning
+Gated clock check  
+Net gen_core[12].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[12].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[12].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#5 Warning
+Gated clock check  
+Net gen_core[13].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[13].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[13].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#6 Warning
+Gated clock check  
+Net gen_core[14].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[14].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[14].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#7 Warning
+Gated clock check  
+Net gen_core[15].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[15].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[15].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#8 Warning
+Gated clock check  
+Net gen_core[16].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[16].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[16].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#9 Warning
+Gated clock check  
+Net gen_core[17].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[17].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[17].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#10 Warning
+Gated clock check  
+Net gen_core[18].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[18].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[18].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#11 Warning
+Gated clock check  
+Net gen_core[19].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[19].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[19].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#12 Warning
+Gated clock check  
+Net gen_core[1].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[1].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[1].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#13 Warning
+Gated clock check  
+Net gen_core[20].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[20].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[20].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#14 Warning
+Gated clock check  
+Net gen_core[21].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[21].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[21].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#15 Warning
+Gated clock check  
+Net gen_core[22].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[22].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[22].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#16 Warning
+Gated clock check  
+Net gen_core[23].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[23].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[23].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#17 Warning
+Gated clock check  
+Net gen_core[24].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[24].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[24].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#18 Warning
+Gated clock check  
+Net gen_core[25].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[25].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[25].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#19 Warning
+Gated clock check  
+Net gen_core[26].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[26].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[26].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#20 Warning
+Gated clock check  
+Net gen_core[27].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[27].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[27].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#21 Warning
+Gated clock check  
+Net gen_core[28].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[28].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[28].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#22 Warning
+Gated clock check  
+Net gen_core[29].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[29].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[29].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#23 Warning
+Gated clock check  
+Net gen_core[2].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[2].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[2].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#24 Warning
+Gated clock check  
+Net gen_core[30].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[30].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[30].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#25 Warning
+Gated clock check  
+Net gen_core[31].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[31].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[31].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#26 Warning
+Gated clock check  
+Net gen_core[32].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[32].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[32].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#27 Warning
+Gated clock check  
+Net gen_core[33].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[33].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[33].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#28 Warning
+Gated clock check  
+Net gen_core[34].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[34].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[34].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#29 Warning
+Gated clock check  
+Net gen_core[35].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[35].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[35].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#30 Warning
+Gated clock check  
+Net gen_core[36].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[36].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[36].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#31 Warning
+Gated clock check  
+Net gen_core[37].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[37].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[37].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#32 Warning
+Gated clock check  
+Net gen_core[38].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[38].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[38].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#33 Warning
+Gated clock check  
+Net gen_core[39].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[39].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[39].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#34 Warning
+Gated clock check  
+Net gen_core[3].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[3].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[3].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#35 Warning
+Gated clock check  
+Net gen_core[40].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[40].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[40].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#36 Warning
+Gated clock check  
+Net gen_core[41].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[41].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[41].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#37 Warning
+Gated clock check  
+Net gen_core[42].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[42].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[42].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#38 Warning
+Gated clock check  
+Net gen_core[43].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[43].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[43].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#39 Warning
+Gated clock check  
+Net gen_core[44].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[44].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[44].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#40 Warning
+Gated clock check  
+Net gen_core[45].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[45].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[45].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#41 Warning
+Gated clock check  
+Net gen_core[46].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[46].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[46].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#42 Warning
+Gated clock check  
+Net gen_core[47].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[47].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[47].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#43 Warning
+Gated clock check  
+Net gen_core[48].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[48].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[48].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#44 Warning
+Gated clock check  
+Net gen_core[49].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[49].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[49].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#45 Warning
+Gated clock check  
+Net gen_core[4].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[4].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[4].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#46 Warning
+Gated clock check  
+Net gen_core[50].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[50].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[50].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#47 Warning
+Gated clock check  
+Net gen_core[51].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[51].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[51].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#48 Warning
+Gated clock check  
+Net gen_core[52].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[52].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[52].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#49 Warning
+Gated clock check  
+Net gen_core[53].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[53].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[53].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#50 Warning
+Gated clock check  
+Net gen_core[54].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[54].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[54].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#51 Warning
+Gated clock check  
+Net gen_core[55].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[55].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[55].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#52 Warning
+Gated clock check  
+Net gen_core[56].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[56].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[56].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#53 Warning
+Gated clock check  
+Net gen_core[57].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[57].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[57].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#54 Warning
+Gated clock check  
+Net gen_core[58].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[58].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[58].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#55 Warning
+Gated clock check  
+Net gen_core[59].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[59].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[59].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#56 Warning
+Gated clock check  
+Net gen_core[5].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[5].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[5].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#57 Warning
+Gated clock check  
+Net gen_core[60].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[60].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[60].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#58 Warning
+Gated clock check  
+Net gen_core[61].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[61].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[61].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#59 Warning
+Gated clock check  
+Net gen_core[62].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[62].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[62].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#60 Warning
+Gated clock check  
+Net gen_core[63].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[63].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[63].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#61 Warning
+Gated clock check  
+Net gen_core[6].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[6].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[6].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#62 Warning
+Gated clock check  
+Net gen_core[7].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[7].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[7].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#63 Warning
+Gated clock check  
+Net gen_core[8].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[8].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[8].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#64 Warning
+Gated clock check  
+Net gen_core[9].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o is a gated clock net sourced by a combinational pin gen_core[9].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O, cell gen_core[9].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PLHOLDVIO-2#1 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[0].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[0].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#2 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[10].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[10].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#3 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[11].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[11].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#4 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[12].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[12].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#5 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[13].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[13].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#6 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[14].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[14].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#7 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[15].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[15].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#8 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[16].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[16].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#9 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[17].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[17].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#10 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[18].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[18].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#11 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[19].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[19].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#12 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[1].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[1].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#13 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[20].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[20].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#14 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[21].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[21].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#15 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[22].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[22].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#16 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[23].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[23].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#17 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[24].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[24].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#18 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[25].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[25].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#19 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[26].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[26].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#20 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[27].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[27].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#21 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[28].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[28].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#22 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[29].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[29].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#23 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[2].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[2].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#24 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[30].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[30].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#25 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[31].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[31].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#26 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[32].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[32].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#27 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[33].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[33].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#28 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[34].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[34].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#29 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[35].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[35].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#30 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[36].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[36].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#31 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[37].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[37].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#32 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[38].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[38].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#33 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[39].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[39].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#34 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[3].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[3].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#35 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[40].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[40].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#36 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[41].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[41].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#37 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[42].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[42].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#38 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[43].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[43].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#39 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[44].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[44].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#40 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[45].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[45].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#41 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[46].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[46].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#42 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[47].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[47].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#43 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[48].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[48].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#44 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[49].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[49].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#45 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[4].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[4].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#46 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[50].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[50].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#47 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[51].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[51].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#48 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[52].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[52].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#49 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[53].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[53].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#50 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[54].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[54].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#51 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[55].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[55].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#52 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[56].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[56].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#53 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[57].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[57].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#54 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[58].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[58].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#55 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[59].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[59].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#56 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[5].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[5].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#57 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[60].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[60].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#58 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[61].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[61].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#59 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[62].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[62].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#60 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[63].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[63].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#61 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[6].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[6].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#62 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[7].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[7].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#63 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[8].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[8].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+PLHOLDVIO-2#64 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT gen_core[9].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux is driving clock pin of 1 cells. This could lead to large hold time violations. Involved cells are:
+gen_core[9].u_engine/u_core/u_arbiter_dff
+Related violations: <none>
+
+

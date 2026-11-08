@@ -1,0 +1,3 @@
+CONFIRMED: with D=1 and a falling clock 100ns after Latch opens, the 80ns window reports completion/zero; the 640ns window captures one.
+LIMIT: this demonstrates a possible missed-capture mechanism, not that the hardware PUF has this waveform or that a longer window fixes its bias.
+tb_capture_window.v:30: $finish called at 920000 (1ps)

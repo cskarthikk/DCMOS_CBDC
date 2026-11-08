@@ -1,0 +1,5 @@
+*.vvp
+/.Xil/
+*.jou
+!sim/result.log
+!sim/host_result.log

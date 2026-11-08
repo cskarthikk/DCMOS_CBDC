@@ -1,0 +1,133 @@
+{
+  "conditions": [
+    {
+      "label": "baseline_before_wait8",
+      "wait": 8,
+      "window": 8,
+      "close_cycle": 16,
+      "ones": 30120,
+      "ones_percent": 36.767578125,
+      "minority_percent": 1.37939453125,
+      "source": "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\array64_capture_window_trial_2026-11-08\\experiments\\run_8ca2f2a5986c46808aa476759f9fa56c\\baseline_before_wait8.csv",
+      "file_sha256": "d791fc482edb768b30c870cc6274be50928d20bf3a7c22b352f9a10198b559be"
+    },
+    {
+      "label": "trial_step0_wait8",
+      "wait": 8,
+      "window": 64,
+      "close_cycle": 72,
+      "ones": 48927,
+      "ones_percent": 59.725341796875,
+      "minority_percent": 1.068115234375,
+      "source": "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\array64_capture_window_trial_2026-11-08\\experiments\\run_8ca2f2a5986c46808aa476759f9fa56c\\trial_step0_wait8.csv",
+      "file_sha256": "22ffa8c43b57d2ef88ccab5951c4f0e058d4bc506bb15f79e7df2b471853e51c"
+    },
+    {
+      "label": "trial_step1_wait32",
+      "wait": 32,
+      "window": 64,
+      "close_cycle": 96,
+      "ones": 50223,
+      "ones_percent": 61.307373046875,
+      "minority_percent": 1.011962890625,
+      "source": "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\array64_capture_window_trial_2026-11-08\\experiments\\run_8ca2f2a5986c46808aa476759f9fa56c\\trial_step1_wait32.csv",
+      "file_sha256": "e218a8f27f957ca76627197bf0788fc1d12fe08bc8ccce12316f34b8e1d75f9a"
+    },
+    {
+      "label": "trial_step2_wait71",
+      "wait": 71,
+      "window": 64,
+      "close_cycle": 135,
+      "ones": 51154,
+      "ones_percent": 62.44384765624999,
+      "minority_percent": 1.07666015625,
+      "source": "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\array64_capture_window_trial_2026-11-08\\experiments\\run_8ca2f2a5986c46808aa476759f9fa56c\\trial_step2_wait71.csv",
+      "file_sha256": "6eafd847b0b66a3e4b97f422cc14dc15c287e53850445309ca5298bed37d3714"
+    },
+    {
+      "label": "trial_step3_wait127",
+      "wait": 127,
+      "window": 64,
+      "close_cycle": 191,
+      "ones": 52011,
+      "ones_percent": 63.48999023437501,
+      "minority_percent": 1.138916015625,
+      "source": "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\array64_capture_window_trial_2026-11-08\\experiments\\run_8ca2f2a5986c46808aa476759f9fa56c\\trial_step3_wait127.csv",
+      "file_sha256": "99f9edf9c614c56c0340ec6aa70d6d64b6ffd45e4b1e089bad59dfb15e604afc"
+    },
+    {
+      "label": "trial_step4_wait8",
+      "wait": 8,
+      "window": 64,
+      "close_cycle": 72,
+      "ones": 48829,
+      "ones_percent": 59.60571289062499,
+      "minority_percent": 1.014404296875,
+      "source": "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\array64_capture_window_trial_2026-11-08\\experiments\\run_8ca2f2a5986c46808aa476759f9fa56c\\trial_step4_wait8.csv",
+      "file_sha256": "3f68bdaaecc94c633f35ba0e1e0a57087393fa9fde4016c3a66e720954c4bbaf"
+    },
+    {
+      "label": "baseline_after_wait8",
+      "wait": 8,
+      "window": 8,
+      "close_cycle": 16,
+      "ones": 30243,
+      "ones_percent": 36.917724609375,
+      "minority_percent": 1.475830078125,
+      "source": "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\array64_capture_window_trial_2026-11-08\\experiments\\run_8ca2f2a5986c46808aa476759f9fa56c\\baseline_after_wait8.csv",
+      "file_sha256": "770a475636ee0868f64bcaaec3b1f096e0b1cae2023aea74c314a5c1dbc25d66"
+    }
+  ],
+  "comparisons": {
+    "baseline_repeat": {
+      "comparable": 4079,
+      "majority_changes": 26,
+      "change_percent": 0.6374111301789654,
+      "zero_to_one": 17,
+      "one_to_zero": 9
+    },
+    "trial_repeat": {
+      "comparable": 4087,
+      "majority_changes": 38,
+      "change_percent": 0.9297773427942256,
+      "zero_to_one": 17,
+      "one_to_zero": 21
+    },
+    "trial_wait8_vs127": {
+      "comparable": 4087,
+      "majority_changes": 163,
+      "change_percent": 3.9882554440910205,
+      "zero_to_one": 155,
+      "one_to_zero": 8
+    },
+    "baseline8_vs_trial8": {
+      "comparable": 4087,
+      "majority_changes": 1038,
+      "change_percent": 25.397602153168584,
+      "zero_to_one": 988,
+      "one_to_zero": 50
+    },
+    "equal_close_old_wait64_window8_vs_trial_step0_wait8": {
+      "comparable": 4082,
+      "majority_changes": 54,
+      "change_percent": 1.3228809407153355,
+      "zero_to_one": 24,
+      "one_to_zero": 30,
+      "old_ones_percent": 59.879150390625
+    },
+    "equal_close_old_wait127_window8_vs_trial_step2_wait71": {
+      "comparable": 4078,
+      "majority_changes": 58,
+      "change_percent": 1.4222658165767532,
+      "zero_to_one": 24,
+      "one_to_zero": 34,
+      "old_ones_percent": 62.579345703125
+    }
+  },
+  "complete": true,
+  "limitations": [
+    "Ordinary excitation/CE routing changes are quantified in build/boundary_comparison.json.",
+    "Equal-close reference captures are from the earlier same-board session, not interleaved; bracketed baseline runs quantify session variation.",
+    "Majority differences between timing profiles are not BER against a known noiseless response."
+  ]
+}

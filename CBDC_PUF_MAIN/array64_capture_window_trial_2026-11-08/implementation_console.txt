@@ -1,0 +1,878 @@
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Mon Nov  9 00:03:11 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source scripts/implement.tcl -notrace
+Command: open_checkpoint C:/BTech/Semester_5/DCMOS/Project/CBDC_PUF_MAIN/array64_capture_window_trial_2026-11-08/build/synthesized.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.038 . Memory (MB): peak = 321.355 ; gain = 5.461
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.450 . Memory (MB): peak = 746.434 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 612 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2025.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.042 . Memory (MB): peak = 860.402 ; gain = 0.652
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1379.883 ; gain = 0.000
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1379.883 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1379.883 ; gain = 0.000
+Read placeStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1379.883 ; gain = 0.000
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1379.883 ; gain = 0.000
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1379.883 ; gain = 0.000
+Read Physdb Files: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.024 . Memory (MB): peak = 1379.883 ; gain = 0.000
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.075 . Memory (MB): peak = 1379.883 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1379.883 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2025.2 (64-bit) build 6299465
+open_checkpoint: Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1379.883 ; gain = 1074.699
+WARNING: [Place 30-8517] Pblock ranges must include all sites of a tile. The ranges of pblock puf_sites have been updated to align to tile boundaries.
+WARNING: [Vivado 12-25895] EXCLUDE_PLACEMENT is mutually exclusive with IS_SOFT, IS_SOFT property for pblock puf_sites has been changed to false in order to set EXCLUDE_PLACEMENT to true.
+Command: read_checkpoint -incremental C:/BTech/Semester_5/DCMOS/Project/CBDC_PUF_MAIN/array64_capture_window_trial_2026-11-08/../array64_candidate_2026-11-08/build/routed.dcp
+INFO: [Vivado 12-9151] Incremental flow is being run with directive 'RuntimeOptimized'. This will override place_design, post-place phys_opt_design and route_design directives.
+
+Starting Incremental read checkpoint Task
+
+Phase 1 Process Reference Checkpoint Netlist
+INFO: [Netlist 29-17] Analyzing 612 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1441.602 ; gain = 60.199
+
+Phase 2 Initialization
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1441.602 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1441.602 ; gain = 0.000
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1441.602 ; gain = 60.199
+
+Phase 3 Replay Physical Synthesis Transforms
+INFO: [Vivado_Tcl 4-521] iPhys_opt_design summary: tried 0 changes and 0 changes are successfully applied
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1441.602 ; gain = 60.199
+
+Phase 4 Build Reuse DB
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 2 CPUs
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.052 . Memory (MB): peak = 1547.473 ; gain = 0.000
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1556.766 ; gain = 0.000
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1556.766 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1556.766 ; gain = 0.000
+Read placeStorage: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.964 . Memory (MB): peak = 1556.766 ; gain = 0.000
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1556.766 ; gain = 0.000
+Read Physdb Files: Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1556.766 ; gain = 0.000
+Finished XDEF File Restore: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1556.766 ; gain = 0.000
+INFO: [Designutils 20-2297] Reference Design: C:/BTech/Semester_5/DCMOS/Project/CBDC_PUF_MAIN/array64_candidate_2026-11-08/build/routed.dcp, Summary | WNS = 0.438 | WHS = 0.028 | State = POST_ROUTE |
+
+Time (s): cpu = 00:00:16 ; elapsed = 00:00:15 . Memory (MB): peak = 1556.766 ; gain = 175.363
+
+Phase 5 Checking legality
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 1573.727 ; gain = 4.441
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 1574.723 ; gain = 0.996
+Read RouteStorage: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.918 . Memory (MB): peak = 1585.977 ; gain = 11.160
+Read Physdb Files: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.997 . Memory (MB): peak = 1585.977 ; gain = 16.691
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.999 . Memory (MB): peak = 1585.977 ; gain = 16.691
+Phase 5 Checking legality | Checksum: 13f4f112a
+
+Time (s): cpu = 00:00:37 ; elapsed = 00:00:32 . Memory (MB): peak = 1610.805 ; gain = 229.402
+
+Phase 6 Reporting
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Mon Nov  9 00:04:39 2026
+| Host         : CsKarthik running 64-bit major release  (build 9200)
+| Design       : cbdc_array64_serial
+| Device       : xc7a35t
+| Design State : Unknown
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Incremental Implementation Information
+
+Table of Contents
+-----------------
+1. Incremental Flow Summary
+2. Reuse Summary
+3. Reference Checkpoint Information
+4. Comparison with Reference Run
+5. Optimization Comparison With Reference Run
+5.1 iphys_opt_replay Optimizations
+5.2 QoR Suggestion Optimizations
+6. Command Comparison with Reference Run
+6.1 Reference:
+6.2 Incremental:
+7. Non Reuse Information
+
+1. Incremental Flow Summary
+---------------------------
+
++-----------------------+------------------+
+|    Flow Information   |       Value      |
++-----------------------+------------------+
+| Synthesis Flow        |          Default |
+| Auto Incremental      |               No |
+| Incremental Directive | RuntimeOptimized |
+| Target WNS            |              0.0 |
+| QoR Suggestions       |                0 |
++-----------------------+------------------+
+
+
+2. Reuse Summary
+----------------
+
++-------+----------------------+----------------------------+--------------------+-------+
+|  Type | Matched % (of Total) | Current Reuse % (of Total) | Fixed % (of Total) | Total |
++-------+----------------------+----------------------------+--------------------+-------+
+| Cells |                87.52 |                      83.61 |              37.19 | 17951 |
+| Nets  |                89.72 |                      60.04 |              19.14 | 10695 |
+| Pins  |                    - |                      60.05 |                  - | 60316 |
+| Ports |               100.00 |                     100.00 |             100.00 |    20 |
++-------+----------------------+----------------------------+--------------------+-------+
+
+
+3. Reference Checkpoint Information
+-----------------------------------
+
++----------------+-----------------------------------------------------------------------------------------------+
+| DCP Location:  | C:/BTech/Semester_5/DCMOS/Project/CBDC_PUF_MAIN/array64_candidate_2026-11-08/build/routed.dcp |
++----------------+-----------------------------------------------------------------------------------------------+
+
+
++--------------------------------+----------------------------+
+|         DCP Information        |            Value           |
++--------------------------------+----------------------------+
+| Vivado Version                 |                     2025.2 |
+| DCP State                      |                 POST_ROUTE |
+| Recorded WNS                   |                      0.438 |
+| Recorded WHS                   |                      0.028 |
+| Reference Speed File Version   | PRODUCTION 1.23 2018-06-13 |
+| Incremental Speed File Version | PRODUCTION 1.23 2018-06-13 |
++--------------------------------+----------------------------+
+* Recorded WNS/WHS timing numbers are estimated timing numbers. They may vary slightly from sign-off timing numbers.
+
+
+4. Comparison with Reference Run
+--------------------------------
+
++-----------------+---------------------------+---------------------------+---------------------------+
+|                 |          WNS(ns)          |  Runtime(elapsed)(hh:mm)  |    Runtime(cpu)(hh:mm)    |
++-----------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|      Stage      |  Reference  | Incremental |  Reference  | Incremental |  Reference  | Incremental |
++-----------------+-------------+-------------+-------------+-------------+-------------+-------------+
+| synth_design    |             |             |       00:07 |       00:04 |       00:05 |       00:04 |
+| opt_design      |             |             |     < 1 min |     < 1 min |     < 1 min |     < 1 min |
+| read_checkpoint |             |             |             |             |             |             |
+| place_design    |       0.504 |             |       00:01 |             |       00:02 |             |
+| route_design    |       0.438 |             |       00:02 |             |       00:02 |             |
+| route_design    |             |             |             |             |             |             |
+| route_design    |       0.438 |             |     < 1 min |             |     < 1 min |             |
++-----------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+
+5. Optimization Comparison With Reference Run
+---------------------------------------------
+
+5.1 iphys_opt_replay Optimizations
+----------------------------------
+
++-------------------------+--------+------------+
+| iphys_opt_design replay | Reused | Not Reused |
++-------------------------+--------+------------+
+
+
+5.2 QoR Suggestion Optimizations
+--------------------------------
+
++-----------------+-------+
+| QoR Suggestions | Value |
++-----------------+-------+
+
+
+6. Command Comparison with Reference Run
+----------------------------------------
+
+6.1 Reference:
+--------------
+synth_design-flatten_hierarchy none -define default::[not_specified] -verilog_define default::[not_specified] -vhdl_define default::[not_specified] -top  cbdc_array64_serial -part  xc7a35tcpg236-1 
+opt_design
+place_design
+route_design
+route_design -unroute -nets
+route_design
+
+6.2 Incremental:
+----------------
+synth_design-flatten_hierarchy none -define default::[not_specified] -verilog_define default::[not_specified] -vhdl_define default::[not_specified] -top  cbdc_array64_serial -part  xc7a35tcpg236-1 
+opt_design
+read_checkpoint -directive RuntimeOptimized  -incremental C:/BTech/Semester_5/DCMOS/Project/CBDC_PUF_MAIN/array64_candidate_2026-11-08/build/routed.dcp
+
+7. Non Reuse Information
+------------------------
+
++------------------------------------------------------+-------+
+|                         Type                         |   %   |
++------------------------------------------------------+-------+
+| Non-Reused Cells                                     | 16.38 |
+|   New                                                |  8.28 |
+|   Discarded illegal placement due to netlist changes |  8.09 |
+| Partially reused nets                                | 12.10 |
+| Non-Reused nets                                      | 27.84 |
+| Non-Reused Ports                                     |  0.00 |
++------------------------------------------------------+-------+
+
+
+
+Time (s): cpu = 00:00:37 ; elapsed = 00:00:32 . Memory (MB): peak = 1610.805 ; gain = 229.402
+
+Time (s): cpu = 00:00:37 ; elapsed = 00:00:33 . Memory (MB): peak = 1610.805 ; gain = 229.402
+read_checkpoint: Time (s): cpu = 00:00:37 ; elapsed = 00:00:33 . Memory (MB): peak = 1610.805 ; gain = 230.922
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-83] Releasing license: Implementation
+
+Starting Incremental Placer Task
+INFO: [Vivado_Tcl 4-24] Running Incremental Placer flow for unplaced cells using reference design-checkpoint 'C:/BTech/Semester_5/DCMOS/Project/CBDC_PUF_MAIN/array64_candidate_2026-11-08/build/routed.dcp'.
+INFO: [Place 46-44] place_design is using directive Default with target WNS of 0 ns.
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1624.387 ; gain = 0.000
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 13f4f112a
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.200 . Memory (MB): peak = 1624.387 ; gain = 13.582
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+WARNING: [Place 30-568] A LUT 'gen_core[25].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[25].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[24].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[24].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[0].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[0].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[15].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[15].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[60].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[60].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[18].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[18].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[63].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[63].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[21].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[21].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[22].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[22].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[62].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[62].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[61].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[61].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[52].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[52].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[54].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[54].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[50].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[50].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[51].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[51].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[57].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[57].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[58].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[58].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[39].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[39].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[40].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[40].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[43].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[43].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[17].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[17].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[35].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[35].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[36].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[36].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[37].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[37].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[38].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[38].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[41].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[41].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[42].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[42].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[30].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[30].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[31].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[31].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[32].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[32].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[33].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[33].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[16].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[16].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[34].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[34].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[59].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[59].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[26].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[26].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[27].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[27].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[28].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[28].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[29].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[29].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[55].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[55].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[56].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[56].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[53].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[53].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[49].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[49].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[48].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[48].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[47].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[47].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[46].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[46].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[45].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[45].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[44].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[44].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[19].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[19].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[14].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[14].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[13].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[13].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[12].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[12].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[11].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[11].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[8].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[8].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[10].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[10].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[9].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[9].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[4].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[4].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[3].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[3].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[7].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[7].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[6].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[6].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[5].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[5].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[20].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[20].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[2].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[2].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[1].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[1].u_engine/u_core/u_arbiter_dff {FDCE}
+WARNING: [Place 30-568] A LUT 'gen_core[23].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux' is driving clock pin of 1 registers. This could lead to large hold time violations. First few involved registers are:
+	gen_core[23].u_engine/u_core/u_arbiter_dff {FDCE}
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 17cc6cf38
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1662.266 ; gain = 51.461
+
+Phase 1.3 Build Placer Netlist Model
+Phase 1.3 Build Placer Netlist Model | Checksum: 21d88bf6b
+
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:10 . Memory (MB): peak = 1662.266 ; gain = 51.461
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: 21d88bf6b
+
+Time (s): cpu = 00:00:15 ; elapsed = 00:00:11 . Memory (MB): peak = 1662.266 ; gain = 51.461
+Phase 1 Placer Initialization | Checksum: 21d88bf6b
+
+Time (s): cpu = 00:00:15 ; elapsed = 00:00:11 . Memory (MB): peak = 1662.266 ; gain = 51.461
+
+Phase 2 Global Placement
+
+Phase 2.1 Floorplanning
+
+Phase 2.1.1 Partition Driven Placement
+
+Phase 2.1.1.1 PBP: Partition Driven Placement
+Phase 2.1.1.1 PBP: Partition Driven Placement | Checksum: 1a590aea6
+
+Time (s): cpu = 00:00:27 ; elapsed = 00:00:18 . Memory (MB): peak = 1662.266 ; gain = 51.461
+
+Phase 2.1.1.2 PBP: Clock Region Placement
+Phase 2.1.1.2 PBP: Clock Region Placement | Checksum: 214c08fff
+
+Time (s): cpu = 00:00:28 ; elapsed = 00:00:19 . Memory (MB): peak = 1662.266 ; gain = 51.461
+
+Phase 2.1.1.3 PBP: Compute Congestion
+Phase 2.1.1.3 PBP: Compute Congestion | Checksum: 214c08fff
+
+Time (s): cpu = 00:00:28 ; elapsed = 00:00:20 . Memory (MB): peak = 1662.266 ; gain = 51.461
+
+Phase 2.1.1.4 PBP: UpdateTiming
+Phase 2.1.1.4 PBP: UpdateTiming | Checksum: 1eb8a2ecf
+
+Time (s): cpu = 00:00:33 ; elapsed = 00:00:22 . Memory (MB): peak = 1662.266 ; gain = 51.461
+
+Phase 2.1.1.5 PBP: Add part constraints
+Phase 2.1.1.5 PBP: Add part constraints | Checksum: 1eb8a2ecf
+
+Time (s): cpu = 00:00:33 ; elapsed = 00:00:22 . Memory (MB): peak = 1662.266 ; gain = 51.461
+Phase 2.1.1 Partition Driven Placement | Checksum: 1eb8a2ecf
+
+Time (s): cpu = 00:00:33 ; elapsed = 00:00:23 . Memory (MB): peak = 1662.266 ; gain = 51.461
+Phase 2.1 Floorplanning | Checksum: 1eb8a2ecf
+
+Time (s): cpu = 00:00:33 ; elapsed = 00:00:23 . Memory (MB): peak = 1662.266 ; gain = 51.461
+
+Phase 2.2 Update Timing before SLR Path Opt
+Phase 2.2 Update Timing before SLR Path Opt | Checksum: 1eb8a2ecf
+
+Time (s): cpu = 00:00:34 ; elapsed = 00:00:23 . Memory (MB): peak = 1662.266 ; gain = 51.461
+
+Phase 2.3 Post-Processing in Floorplanning
+Phase 2.3 Post-Processing in Floorplanning | Checksum: 276951ddf
+
+Time (s): cpu = 00:00:34 ; elapsed = 00:00:23 . Memory (MB): peak = 1662.266 ; gain = 51.461
+
+Phase 2.4 Global Place Phase1
+Phase 2.4 Global Place Phase1 | Checksum: 18a390db3
+
+Time (s): cpu = 00:00:56 ; elapsed = 00:00:38 . Memory (MB): peak = 1662.266 ; gain = 51.461
+
+Phase 2.5 Global Place Phase2
+Phase 2.5 Global Place Phase2 | Checksum: 207ffcdfb
+
+Time (s): cpu = 00:00:59 ; elapsed = 00:00:39 . Memory (MB): peak = 1662.266 ; gain = 51.461
+Phase 2 Global Placement | Checksum: 207ffcdfb
+
+Time (s): cpu = 00:00:59 ; elapsed = 00:00:40 . Memory (MB): peak = 1662.266 ; gain = 51.461
+
+Phase 3 Detail Placement
+
+Phase 3.1 Commit Multi Column Macros
+Phase 3.1 Commit Multi Column Macros | Checksum: 244402518
+
+Time (s): cpu = 00:01:01 ; elapsed = 00:00:41 . Memory (MB): peak = 1662.266 ; gain = 51.461
+
+Phase 3.2 Commit Most Macros & LUTRAMs
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 1ce7510d1
+
+Time (s): cpu = 00:01:03 ; elapsed = 00:00:43 . Memory (MB): peak = 1662.266 ; gain = 51.461
+
+Phase 3.3 Place Remaining
+Phase 3.3 Place Remaining | Checksum: 23f6322da
+
+Time (s): cpu = 00:01:18 ; elapsed = 00:00:59 . Memory (MB): peak = 1662.266 ; gain = 51.461
+Phase 3 Detail Placement | Checksum: 1841b341e
+
+Time (s): cpu = 00:01:24 ; elapsed = 00:01:01 . Memory (MB): peak = 1667.254 ; gain = 56.449
+
+Phase 4 Post Placement Optimization and Clean-Up
+
+Phase 4.1 Post Commit Optimization
+
+Phase 4.1.1 Post Placement Optimization
+Post Placement Optimization Initialization | Checksum: 258cb5161
+
+Phase 4.1.1.1 BUFG Insertion
+
+Starting Physical Synthesis Task
+
+Phase 1 Physical Synthesis Initialization
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 2 CPUs
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.187 | TNS=-0.187 |
+Phase 1 Physical Synthesis Initialization | Checksum: 17648621d
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.209 . Memory (MB): peak = 1667.254 ; gain = 0.000
+INFO: [Place 46-33] Processed net gen_core[15].u_engine_i_1_n_0, BUFG insertion was skipped due to placement/routing conflicts.
+INFO: [Place 46-56] BUFG insertion identified 1 candidate nets. Inserted BUFG: 0, Replicated BUFG Driver: 0, Skipped due to Placement/Routing Conflicts: 1, Skipped due to Timing Degradation: 0, Skipped due to netlist editing failed: 0.
+Ending Physical Synthesis Task | Checksum: 1babbac49
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.641 . Memory (MB): peak = 1667.254 ; gain = 0.000
+Phase 4.1.1.1 BUFG Insertion | Checksum: 258cb5161
+
+Time (s): cpu = 00:01:29 ; elapsed = 00:01:05 . Memory (MB): peak = 1667.254 ; gain = 56.449
+
+Phase 4.1.1.2 Post Placement Timing Optimization
+INFO: [Place 30-746] Post Placement Timing Summary WNS=-0.046. For the most accurate timing information please run report_timing.
+Phase 4.1.1.2 Post Placement Timing Optimization | Checksum: 221750369
+
+Time (s): cpu = 00:01:37 ; elapsed = 00:01:10 . Memory (MB): peak = 1667.254 ; gain = 56.449
+
+Time (s): cpu = 00:01:37 ; elapsed = 00:01:10 . Memory (MB): peak = 1667.254 ; gain = 56.449
+Phase 4.1 Post Commit Optimization | Checksum: 221750369
+
+Time (s): cpu = 00:01:37 ; elapsed = 00:01:10 . Memory (MB): peak = 1667.254 ; gain = 56.449
+
+Phase 4.2 Sweep Clock Roots: Post-Placement
+Phase 4.2 Sweep Clock Roots: Post-Placement | Checksum: 221750369
+
+Time (s): cpu = 00:01:37 ; elapsed = 00:01:10 . Memory (MB): peak = 1667.254 ; gain = 56.449
+
+Phase 4.3 Placer Reporting
+
+Phase 4.3.1 Print Estimated Congestion
+INFO: [Place 30-612] Post-Placement Estimated Congestion 
+ ____________________________________________________
+|           | Global Congestion | Short Congestion  |
+| Direction | Region Size       | Region Size       |
+|___________|___________________|___________________|
+|      North|                2x2|                4x4|
+|___________|___________________|___________________|
+|      South|                2x2|                4x4|
+|___________|___________________|___________________|
+|       East|                2x2|                2x2|
+|___________|___________________|___________________|
+|       West|                2x2|                2x2|
+|___________|___________________|___________________|
+
+Phase 4.3.1 Print Estimated Congestion | Checksum: 1dd8b13a5
+
+Time (s): cpu = 00:01:43 ; elapsed = 00:01:13 . Memory (MB): peak = 1703.188 ; gain = 92.383
+Phase 4.3 Placer Reporting | Checksum: 1dd8b13a5
+
+Time (s): cpu = 00:01:43 ; elapsed = 00:01:13 . Memory (MB): peak = 1703.188 ; gain = 92.383
+
+Phase 4.4 Post Placement Cleanup
+Phase 4.4 Post Placement Cleanup | Checksum: 1dd8b13a5
+
+Time (s): cpu = 00:01:43 ; elapsed = 00:01:13 . Memory (MB): peak = 1703.188 ; gain = 92.383
+
+Phase 4.5 Final Placement Cleanup
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1703.188 ; gain = 0.000
+
+Time (s): cpu = 00:01:43 ; elapsed = 00:01:13 . Memory (MB): peak = 1703.188 ; gain = 92.383
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 181002426
+
+Time (s): cpu = 00:01:44 ; elapsed = 00:01:13 . Memory (MB): peak = 1703.188 ; gain = 92.383
+INFO: [Place 46-3] During incremental compilation, routing data from the original checkpoint is applied during place_design. As a result, dangling route segments and route conflicts may appear in the post place_design implementation due to changes between the original and incremental netlists. These routes can be ignored as they will be subsequently resolved by route_design. This issue will be cleaned up automatically in place_design in a future software release.
+
++-------------------------------------------------------------------------------+
+|Incremental Placement Summary                                                  |
++-------------------------------------------------------------------------------+
+|                          Type                           | Count  | Percentage |
++-------------------------------------------------------------------------------+
+|  Total instances                                        |  17951 |     100.00 |
+|  Reused instances                                       |  14757 |      82.20 |
+|  Non-reused instances                                   |   3194 |      17.79 |
+|    New                                                  |   1487 |       8.28 |
+|    Discarded illegal placement due to netlist changes   |   1257 |       7.00 |
+|    Discarded to improve timing                          |    450 |       2.50 |
++-------------------------------------------------------------------------------+
+|Incremental Placement Runtime Summary                                          |
++-------------------------------------------------------------------------------+
+|  Initialization time(elapsed secs)                                   |  10.94 |
+|  Incremental Placer time(elapsed secs)                               |  62.62 |
++-------------------------------------------------------------------------------+
+
+Reference - Incremental Comparison Summary
+
+1. Comparison with Reference Run
+--------------------------------
+
++-----------------+---------------------------+---------------------------+---------------------------+
+|                 |          WNS(ns)          |  Runtime(elapsed)(hh:mm)  |    Runtime(cpu)(hh:mm)    |
++-----------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|      Stage      |  Reference  | Incremental |  Reference  | Incremental |  Reference  | Incremental |
++-----------------+-------------+-------------+-------------+-------------+-------------+-------------+
+| synth_design    |             |             |       00:07 |       00:04 |       00:05 |       00:04 |
+| opt_design      |             |             |     < 1 min |     < 1 min |     < 1 min |     < 1 min |
+| read_checkpoint |             |             |             |     < 1 min |             |     < 1 min |
+| place_design    |       0.504 |       0.259 |       00:01 |       00:01 |       00:02 |       00:01 |
+| route_design    |       0.438 |             |       00:02 |             |       00:02 |             |
+| route_design    |             |             |             |             |             |             |
+| route_design    |       0.438 |             |     < 1 min |             |     < 1 min |             |
++-----------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+
+Ending Incremental Placer Task | Checksum: c7c89001
+
+Time (s): cpu = 00:01:44 ; elapsed = 00:01:14 . Memory (MB): peak = 1703.188 ; gain = 92.383
+32 Infos, 66 Warnings, 0 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+place_design: Time (s): cpu = 00:01:44 ; elapsed = 00:01:14 . Memory (MB): peak = 1703.188 ; gain = 92.383
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Wrote PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1715.480 ; gain = 0.000
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1715.480 ; gain = 0.000
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.024 . Memory (MB): peak = 1715.480 ; gain = 0.117
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.176 . Memory (MB): peak = 1716.887 ; gain = 1.406
+Wrote PlaceStorage: Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 1717.473 ; gain = 0.586
+Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.025 . Memory (MB): peak = 1717.473 ; gain = 0.000
+Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1717.473 ; gain = 0.000
+Write Physdb Complete: Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 1717.473 ; gain = 1.992
+INFO: [Common 17-1381] The checkpoint 'C:/BTech/Semester_5/DCMOS/Project/CBDC_PUF_MAIN/array64_capture_window_trial_2026-11-08/build/placed.dcp' has been generated.
+Command: route_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
+cleanRouteStorageTime (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 1717.473 ; gain = 0.000
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 2 CPUs
+
+Starting Incremental Route Task
+
+Phase 1 Build RT Design
+Checksum: PlaceDB: 2fe38014 ConstDB: 0 ShapeSum: 16c7babe RouteDB: c6d7dfe7
+Phase 1 Build RT Design | Checksum: 2986d46a3
+
+Time (s): cpu = 00:00:28 ; elapsed = 00:00:23 . Memory (MB): peak = 1790.398 ; gain = 61.727
+Post Restoration Checksum: NetGraph: 316fa157 | NumContArr: 50e8c42e | Constraints: c2a8fa9d | Timing: c2a8fa9d
+
+Phase 2 Router Initialization
+
+Phase 2.1 Fix Topology Constraints
+Phase 2.1 Fix Topology Constraints | Checksum: 207aa5abf
+
+Time (s): cpu = 00:00:29 ; elapsed = 00:00:24 . Memory (MB): peak = 1797.438 ; gain = 68.766
+
+Phase 2.2 Pre Route Cleanup
+Phase 2.2 Pre Route Cleanup | Checksum: 27748070e
+
+Time (s): cpu = 00:00:29 ; elapsed = 00:00:24 . Memory (MB): peak = 1797.438 ; gain = 68.766
+--------------------------------------------------------
+|Incremental Routing Reuse Summary                      |
+--------------------------------------------------------
+|Type                     | Count    | Percentage       |
+--------------------------------------------------------
+|Fully reused nets        |     10354|            68.87 |
+|Partially reused nets    |      1303|             8.67 |
+|Non-reused nets          |      3378|            22.47 |
+--------------------------------------------------------
+ Number of Nodes with overlaps = 0
+
+Phase 2.3 Update Timing
+Phase 2.3 Update Timing | Checksum: 31514076e
+
+Time (s): cpu = 00:00:40 ; elapsed = 00:00:30 . Memory (MB): peak = 1858.762 ; gain = 130.090
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.361  | TNS=0.000  | WHS=-0.146 | THS=-70.525|
+
+
+Phase 2.4 Soft Constraint Pins - Fast Budgeting
+Phase 2.4 Soft Constraint Pins - Fast Budgeting | Checksum: 2a5f5f9f3
+
+Time (s): cpu = 00:00:42 ; elapsed = 00:00:31 . Memory (MB): peak = 1885.949 ; gain = 157.277
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0 %
+  Global Horizontal Routing Utilization  = 0.000390422 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 4681
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 3377
+  Number of Partially Routed Nets     = 1304
+  Number of Node Overlaps             = 0
+
+Phase 2 Router Initialization | Checksum: 27a4c6a7c
+
+Time (s): cpu = 00:00:43 ; elapsed = 00:00:32 . Memory (MB): peak = 1885.949 ; gain = 157.277
+
+Phase 3 Global Routing
+Phase 3 Global Routing | Checksum: 27a4c6a7c
+
+Time (s): cpu = 00:00:43 ; elapsed = 00:00:32 . Memory (MB): peak = 1885.949 ; gain = 157.277
+
+Phase 4 Initial Routing
+
+Phase 4.1 Initial Net Routing Pass
+Phase 4.1 Initial Net Routing Pass | Checksum: 275902466
+
+Time (s): cpu = 00:00:45 ; elapsed = 00:00:33 . Memory (MB): peak = 1885.949 ; gain = 157.277
+Phase 4 Initial Routing | Checksum: 275902466
+
+Time (s): cpu = 00:00:45 ; elapsed = 00:00:33 . Memory (MB): peak = 1885.949 ; gain = 157.277
+
+Phase 5 Initial Route for Timing
+
+Phase 5.1 Update Timing
+Phase 5.1 Update Timing | Checksum: 2c026b52d
+
+Time (s): cpu = 00:00:46 ; elapsed = 00:00:34 . Memory (MB): peak = 1885.949 ; gain = 157.277
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.453  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 5 Initial Route for Timing | Checksum: 2c026b52d
+
+Time (s): cpu = 00:00:46 ; elapsed = 00:00:34 . Memory (MB): peak = 1885.949 ; gain = 157.277
+
+Phase 6 Rip-up And Reroute
+
+Phase 6.1 Global Iteration 0
+ Number of Nodes with overlaps = 1028
+ Number of Nodes with overlaps = 60
+ Number of Nodes with overlaps = 15
+ Number of Nodes with overlaps = 4
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.676  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 6.1 Global Iteration 0 | Checksum: 2d79cc6ae
+
+Time (s): cpu = 00:00:58 ; elapsed = 00:00:43 . Memory (MB): peak = 1885.949 ; gain = 157.277
+Phase 6 Rip-up And Reroute | Checksum: 2d79cc6ae
+
+Time (s): cpu = 00:00:58 ; elapsed = 00:00:43 . Memory (MB): peak = 1885.949 ; gain = 157.277
+
+Phase 7 Delay and Skew Optimization
+
+Phase 7.1 Delay CleanUp
+Phase 7.1 Delay CleanUp | Checksum: 2d79cc6ae
+
+Time (s): cpu = 00:00:58 ; elapsed = 00:00:43 . Memory (MB): peak = 1885.949 ; gain = 157.277
+
+Phase 7.2 Clock Skew Optimization
+Phase 7.2 Clock Skew Optimization | Checksum: 2d79cc6ae
+
+Time (s): cpu = 00:00:58 ; elapsed = 00:00:43 . Memory (MB): peak = 1885.949 ; gain = 157.277
+Phase 7 Delay and Skew Optimization | Checksum: 2d79cc6ae
+
+Time (s): cpu = 00:00:58 ; elapsed = 00:00:43 . Memory (MB): peak = 1885.949 ; gain = 157.277
+
+Phase 8 Post Hold Fix
+
+Phase 8.1 Hold Fix Iter
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.676  | TNS=0.000  | WHS=0.028  | THS=0.000  |
+
+Phase 8.1 Hold Fix Iter | Checksum: 275344b8e
+
+Time (s): cpu = 00:01:00 ; elapsed = 00:00:44 . Memory (MB): peak = 1885.949 ; gain = 157.277
+Phase 8 Post Hold Fix | Checksum: 275344b8e
+
+Time (s): cpu = 00:01:00 ; elapsed = 00:00:44 . Memory (MB): peak = 1885.949 ; gain = 157.277
+
+Phase 9 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 7.10404 %
+  Global Horizontal Routing Utilization  = 6.51171 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Phase 9 Route finalize | Checksum: 275344b8e
+
+Time (s): cpu = 00:01:00 ; elapsed = 00:00:44 . Memory (MB): peak = 1885.949 ; gain = 157.277
+
+Phase 10 Verifying routed nets
+
+ Verification completed successfully
+Phase 10 Verifying routed nets | Checksum: 275344b8e
+
+Time (s): cpu = 00:01:00 ; elapsed = 00:00:44 . Memory (MB): peak = 1885.949 ; gain = 157.277
+
+Phase 11 Depositing Routes
+Phase 11 Depositing Routes | Checksum: 2532b91c5
+
+Time (s): cpu = 00:01:03 ; elapsed = 00:00:47 . Memory (MB): peak = 1885.949 ; gain = 157.277
+
+Phase 12 Post Router Timing
+INFO: [Route 35-57] Estimated Timing Summary | WNS=0.676  | TNS=0.000  | WHS=0.028  | THS=0.000  |
+
+INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
+Phase 12 Post Router Timing | Checksum: 2532b91c5
+
+Time (s): cpu = 00:01:04 ; elapsed = 00:00:47 . Memory (MB): peak = 1885.949 ; gain = 157.277
+--------------------------------------------------------
+|Incremental Routing Reuse Summary                      |
+--------------------------------------------------------
+|Type                     | Count    | Percentage       |
+--------------------------------------------------------
+|Fully reused nets        |      9216|            61.30 |
+|Partially reused nets    |         0|             0.00 |
+|Non-reused nets          |      5819|            38.70 |
+--------------------------------------------------------
+INFO: [Route 35-16] Router Completed Successfully
+------------------------------------
+Incremental Router Runtime Summary: 
+------------------------------------
+   Initialization time: 48.146 Secs
+   Incremental Router time: 0 Secs
+Ending Incremental Route Task | Checksum: 1994eae72
+
+Time (s): cpu = 00:01:06 ; elapsed = 00:00:48 . Memory (MB): peak = 1885.949 ; gain = 157.277
+antenna Cleanup:Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1885.949 ; gain = 0.000
+
+Reference - Incremental Comparison Summary
+
+1. Comparison with Reference Run
+--------------------------------
+
++-----------------+---------------------------+---------------------------+---------------------------+
+|                 |          WNS(ns)          |  Runtime(elapsed)(hh:mm)  |    Runtime(cpu)(hh:mm)    |
++-----------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|      Stage      |  Reference  | Incremental |  Reference  | Incremental |  Reference  | Incremental |
++-----------------+-------------+-------------+-------------+-------------+-------------+-------------+
+| synth_design    |             |             |       00:07 |       00:04 |       00:05 |       00:04 |
+| opt_design      |             |             |     < 1 min |     < 1 min |     < 1 min |     < 1 min |
+| read_checkpoint |             |             |             |     < 1 min |             |     < 1 min |
+| place_design    |       0.504 |       0.259 |       00:01 |       00:01 |       00:02 |       00:01 |
+| route_design    |       0.438 |       0.676 |       00:02 |       00:01 |       00:02 |       00:01 |
+| route_design    |             |             |             |             |             |             |
+| route_design    |       0.438 |             |     < 1 min |             |     < 1 min |             |
++-----------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+
+INFO: [Common 17-83] Releasing license: Implementation
+44 Infos, 66 Warnings, 0 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:01:11 ; elapsed = 00:00:52 . Memory (MB): peak = 1885.949 ; gain = 168.477
+Wrote PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1885.949 ; gain = 0.000
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1885.949 ; gain = 0.000
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Write ShapeDB Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.034 . Memory (MB): peak = 1885.949 ; gain = 0.000
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.251 . Memory (MB): peak = 1885.949 ; gain = 0.000
+Wrote PlaceStorage: Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1885.949 ; gain = 0.000
+Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.030 . Memory (MB): peak = 1885.949 ; gain = 0.000
+Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1885.949 ; gain = 0.000
+Write Physdb Complete: Time (s): cpu = 00:00:05 ; elapsed = 00:00:02 . Memory (MB): peak = 1885.949 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/BTech/Semester_5/DCMOS/Project/CBDC_PUF_MAIN/array64_capture_window_trial_2026-11-08/build/routed.dcp' has been generated.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+report_timing_summary: Time (s): cpu = 00:00:10 ; elapsed = 00:00:05 . Memory (MB): peak = 1885.949 ; gain = 0.000
+Command: report_drc -file C:/BTech/Semester_5/DCMOS/Project/CBDC_PUF_MAIN/array64_capture_window_trial_2026-11-08/build/drc.rpt
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/AMDDesignTools/2025.2/Vivado/data/ip'.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file C:/BTech/Semester_5/DCMOS/Project/CBDC_PUF_MAIN/array64_capture_window_trial_2026-11-08/build/drc.rpt.
+report_drc completed successfully
+report_drc: Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 1905.160 ; gain = 19.211
+Command: report_methodology -file C:/BTech/Semester_5/DCMOS/Project/CBDC_PUF_MAIN/array64_capture_window_trial_2026-11-08/build/methodology.rpt
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [DRC 23-133] Running Methodology with 2 threads
+INFO: [Vivado_Tcl 2-1520] The results of Report Methodology are in file C:/BTech/Semester_5/DCMOS/Project/CBDC_PUF_MAIN/array64_capture_window_trial_2026-11-08/build/methodology.rpt.
+report_methodology completed successfully
+LONG_CAPTURE_IMPLEMENTED
+INFO: [Common 17-206] Exiting Vivado at Mon Nov  9 00:07:32 2026...
