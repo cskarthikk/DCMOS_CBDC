@@ -1,2 +1,0 @@
-PASS:640ns capture window and late-edge capture across64 cores, 1024-bit configuration readback, 64 raw bits, sequential exclusion, parallel activation, timing modes, parity rejection, checksums and recovery
-sim/tb_long_capture.v:67: $finish called at 2118135000 (1ps)

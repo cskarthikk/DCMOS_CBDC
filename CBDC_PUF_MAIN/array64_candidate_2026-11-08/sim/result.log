@@ -1,2 +1,0 @@
-PASS: real Latch-controlled capture, 1024-bit configuration readback, 64 raw bits, sequential exclusion, parallel activation, timing modes, parity rejection, checksums and recovery
-sim/tb_array64.v:66: $finish called at 2008935000 (1ps)

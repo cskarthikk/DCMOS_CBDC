@@ -12,21 +12,46 @@ Based on the research paper:
 
 ## 📌 Project Architecture & Navigation
 
-The primary active workspace is located in **[`CBDC_PUF_MAIN`](CBDC_PUF_MAIN/)**:
+The repository is organized into a clean, flat top-level structure:
 
 ```
 .
-├── CBDC_PUF_MAIN/
-│   ├── array64_candidate_2026-11-08/   # Active 64-core bitstream, layout & placement constraints
-│   ├── array64_clock_profile_2026-11-09/ # Calibrated operating profile & physical silicon datasets
-│   ├── docs/                           # Paper specs, architectural guides & technical audits
-│   ├── reports/                        # Comprehensive replication report & publication plots
-│   │   ├── CBDC_PUF_REPLICATION_REPORT.md # Full academic report with replication tables
-│   │   └── figures/                    # High-res charts (ML attack, NIST, core stability)
-│   ├── rtl/                            # Verilog HDL core modules & UART serial engines
-│   ├── runtime/python/                 # Bundled self-contained Python 3.12 runtime environment
-│   └── scripts/                        # Verification, ML attacks, NIST tests, and demo CLI
-├── CBDC_PUF_PROJECT_SPEC.md            # Course project specifications & academic guidelines
+├── bitstream/                          # Synthesized & placed 64-core FPGA bitstream (Basys 3)
+│   ├── paper_array64.bit               # Hardware bitstream for Artix-7 xc7a35t
+│   └── BUILD_RECORD.json               # Silicon build provenance and timing records
+├── constraints/                        # Physical constraints and pin mapping
+│   └── basys3_serial.xdc               # Placement LOCs, clocking, and UART pin assignments
+├── docs/                               # Course project specifications & research paper
+│   ├── CBDC_PUF_PROJECT_SPEC.md        # Course project specifications & academic guidelines
+│   └── ResearchPaper.pdf               # Liu et al. reference paper
+├── measurements/                       # Authentic physical silicon datasets from Basys 3
+│   ├── validation_1.csv                # 327,680-bit silicon measurement capture
+│   ├── validation_2.csv                # Independent repeat capture
+│   ├── validation_matrix.json          # 256-vector physical challenge matrix
+│   └── batch_sweep_*.json              # Live multi-challenge evaluation sweeps
+├── reports/                            # Comprehensive academic reports & publication plots
+│   ├── CBDC_PUF_REPLICATION_REPORT.md  # Detailed paper replication report & comparison tables
+│   └── figures/                        # High-resolution charts (ML attack, NIST, core stability)
+├── rtl/                                # Synthesizable Verilog HDL modules
+│   ├── cbdc_array64_serial.v           # 64-core top-level serial interface
+│   ├── cbdc_puf_core.v                 # 16-stage butterfly delay chain PUF core
+│   ├── cbdc_puf_chain.v                # Configurable delay elements & cross-coupled latch
+│   ├── cbdc_puf_element.v              # Single configurable delay element (CDE)
+│   ├── cbdc_puf_ctrl.v                 # Excitation & latch timing state machine
+│   ├── cbdc_uart.v                     # 115200 baud UART transmitter/receiver
+│   └── cbdc_serial_engine.v            # Command interpreter & response packager
+├── runtime/python/                     # Bundled self-contained Python 3.12 environment
+├── scripts/                            # Verification, ML attacks, NIST tests, and demo CLI
+│   ├── crypto_engine.py                # Multi-block BCH(31,16,3) + SHAKE-256 preprocessor
+│   ├── crypto_ml_attack.py             # Table 3 & Fig 9: SVM, RBFNN, GRNN modeling attacks
+│   ├── crypto_nist_test.py             # Table 2: NIST SP 800-22 9-test statistical suite
+│   ├── crypto_unstable_bits.py         # Fig 5, 6, 7: Unstable bit map & noise analyzer
+│   ├── crypto_demo.ps1                 # Live hardware end-to-end enrollment demo
+│   ├── crypto_batch_sweep.ps1          # Live 50-challenge batch evaluation
+│   ├── crypto_batch_analysis.py        # Statistical analyzer for batch captures
+│   ├── generate_presentation_plots.py  # Presentation figure generator
+│   └── program.tcl                     # Vivado hardware programming script
+├── CBDC_PUF_PROJECT_SPEC.md            # Course project specifications & guidelines
 ├── ResearchPaper.pdf                   # Liu et al. reference paper
 └── README.md                           # Main repository overview (this document)
 ```
@@ -54,7 +79,6 @@ All commands run self-contained out-of-the-box using the bundled Python 3.12 run
 
 ### 1. Test Cryptographic Engine & BCH Codec
 ```powershell
-cd CBDC_PUF_MAIN
 .\runtime\python\python.exe scripts\crypto_engine.py
 ```
 
@@ -77,13 +101,13 @@ Analyzes bit flip concentration across repeated trials:
 ```
 
 ### 5. Generate Presentation Visuals & Publication Charts
-Generates high-resolution PNG plots in `CBDC_PUF_MAIN/reports/figures/`:
+Generates high-resolution PNG plots in `reports/figures/`:
 ```powershell
 .\runtime\python\python.exe scripts\generate_presentation_plots.py
 ```
 
 ### 6. Live Hardware Demo (Basys 3 on COM5)
-If connected to a physical Basys 3 board loaded with the 64-core bitstream (`array64_candidate_2026-11-08/build/paper_array64.bit`):
+If connected to a physical Basys 3 board loaded with the 64-core bitstream (`bitstream/paper_array64.bit`):
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\crypto_demo.ps1 -Port COM5
 ```
@@ -92,9 +116,8 @@ powershell -ExecutionPolicy Bypass -File scripts\crypto_demo.ps1 -Port COM5
 
 ## 📊 Documentation & Reports
 
-- **Detailed Academic Replication Report:** [`CBDC_PUF_MAIN/reports/CBDC_PUF_REPLICATION_REPORT.md`](CBDC_PUF_MAIN/reports/CBDC_PUF_REPLICATION_REPORT.md)
+- **Detailed Academic Replication Report:** [`reports/CBDC_PUF_REPLICATION_REPORT.md`](reports/CBDC_PUF_REPLICATION_REPORT.md)
 - **Publication Figures:**
-  - [ML Attack Resistance (Table 3 & Fig 9)](CBDC_PUF_MAIN/reports/figures/Fig_Table3_ML_Attack_Comparison.png)
-  - [NIST Randomness Suite Pass Rates (Table 2)](CBDC_PUF_MAIN/reports/figures/Fig_Table2_NIST_Pass_Rates.png)
-  - [Silicon Core Stability & Noise Concentration (Fig 5, 6, 7)](CBDC_PUF_MAIN/reports/figures/Fig_Core_Stability_Noise.png)
-- **Operating Profile & Silicon Measurements:** [`CBDC_PUF_MAIN/array64_clock_profile_2026-11-09/REPORT.md`](CBDC_PUF_MAIN/array64_clock_profile_2026-11-09/REPORT.md)
+  - [ML Attack Resistance (Table 3 & Fig 9)](reports/figures/Fig_Table3_ML_Attack_Comparison.png)
+  - [NIST Randomness Suite Pass Rates (Table 2)](reports/figures/Fig_Table2_NIST_Pass_Rates.png)
+  - [Silicon Core Stability & Noise Concentration (Fig 5, 6, 7)](reports/figures/Fig_Core_Stability_Noise.png)

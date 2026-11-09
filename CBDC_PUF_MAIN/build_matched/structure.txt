@@ -1,8 +1,0 @@
-Core 0 PASS: one falling-edge FF; D/clock/Latch/clear wiring; fixed AND; stage truth tables, sites/BELs/pins; all configuration selects.
-Core 1 PASS: one falling-edge FF; D/clock/Latch/clear wiring; fixed AND; stage truth tables, sites/BELs/pins; all configuration selects.
-Core 2 PASS: one falling-edge FF; D/clock/Latch/clear wiring; fixed AND; stage truth tables, sites/BELs/pins; all configuration selects.
-Core 3 PASS: one falling-edge FF; D/clock/Latch/clear wiring; fixed AND; stage truth tables, sites/BELs/pins; all configuration selects.
-Core 4 PASS: one falling-edge FF; D/clock/Latch/clear wiring; fixed AND; stage truth tables, sites/BELs/pins; all configuration selects.
-Core 5 PASS: one falling-edge FF; D/clock/Latch/clear wiring; fixed AND; stage truth tables, sites/BELs/pins; all configuration selects.
-Core 6 PASS: one falling-edge FF; D/clock/Latch/clear wiring; fixed AND; stage truth tables, sites/BELs/pins; all configuration selects.
-Core 7 PASS: one falling-edge FF; D/clock/Latch/clear wiring; fixed AND; stage truth tables, sites/BELs/pins; all configuration selects.
