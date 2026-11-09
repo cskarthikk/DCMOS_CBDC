@@ -272,6 +272,34 @@ def generate_theoretical_crps(num_crps: int = 5000, seed: int = 2026):
     return X_ext_list, X_raw_list, y_list
 
 
+def generate_end_to_end_crps(num_crps: int = 5000, seed: int = 2026):
+    """Generates end-to-end CRPs: External Challenge (64 bits) -> SHA-3/SHAKE-256 -> Delay Response."""
+    rng = random.Random(seed)
+    alpha = [rng.gauss(0.0, 0.6) for _ in range(16)]
+    tau = rng.gauss(0.0, 0.15)
+
+    X_ext = []
+    y_list = []
+
+    for _ in range(num_crps):
+        ch_int = rng.getrandbits(64)
+        ch_bytes = ch_int.to_bytes(8, byteorder='big')
+        cfgs = SHA3ChallengePreprocessor.hash_challenge(ch_bytes, num_cores=1)
+        cfg16 = cfgs[0]
+
+        ext_bits = [float((ch_int >> b) & 1) for b in range(64)]
+        X_ext.append(ext_bits)
+
+        raw_bits = [(cfg16 >> b) & 1 for b in range(16)]
+        c_bipolar = [1 if b == 1 else -1 for b in raw_bits]
+        delta_sigma = sum(a * c for a, c in zip(alpha, c_bipolar)) + tau
+        noise = rng.gauss(0.0, 0.08)
+        resp = 1 if (delta_sigma + noise) >= 0 else 0
+        y_list.append(resp)
+
+    return X_ext, y_list
+
+
 def compute_accuracy(y_true, y_pred) -> float:
     correct = sum(1 for yt, yp in zip(y_true, y_pred) if yt == yp)
     return (correct / len(y_true)) * 100.0
@@ -436,13 +464,49 @@ def run_modeling_attack(source: str = 'both', mode: str = 'both', csv_path: Path
 
         final_report['simulation_table3'] = sim_report
 
+    # -------------------------------------------------------------------------
+    # PART 3: PROTECTED END-TO-END EXTERNAL CHALLENGE ML ATTACK (Full Pipeline)
+    # -------------------------------------------------------------------------
+    if source in ('end-to-end', 'all'):
+        print("\n" + "=" * 82, flush=True)
+        print("   EVALUATION 3: END-TO-END PROTECTED WORKFLOW ATTACK (External Challenge -> Response)", flush=True)
+        print("   Methodology: External 64-bit challenge hashed by SHAKE-256 into odd-parity configs", flush=True)
+        print("   Evaluates attacker capability to learn PUF response directly from external challenges", flush=True)
+        print("=" * 82, flush=True)
+
+        e2e_counts = [500, 1000, 2000, 5000]
+        X_e2e, y_e2e = generate_end_to_end_crps(num_crps=max(e2e_counts), seed=2026)
+        print(f"Feature Dimension: {len(X_e2e[0])} bits (External Challenge) | Target Ones Ratio: {(sum(y_e2e)/len(y_e2e))*100:.2f}% (Ideal: 50%)", flush=True)
+
+        e2e_results = {}
+        for n in e2e_counts:
+            t0 = time.time()
+            res, _ = evaluate_models(X_e2e, y_e2e, n_samples=n)
+            dt = time.time() - t0
+            e2e_results[n] = res
+            print(f"  N = {n:>5} External CRPs ({dt:.2f}s) -> SVM: {res['SVM']['pred_accuracy']:>5.1f}% | RBFNN: {res['RBFNN']['pred_accuracy']:>5.1f}% | GRNN: {res['GRNN']['pred_accuracy']:>5.1f}%", flush=True)
+
+        final_report['end_to_end_attack'] = e2e_results
+
+        print("-" * 82, flush=True)
+        print("   END-TO-END EXTERNAL CHALLENGE PREDICTION ACCURACY (Ideal: 50.0%)", flush=True)
+        print("-" * 82, flush=True)
+        header = f"{'Model':<10} | " + " | ".join(f"{n:>6}" for n in e2e_counts) + " | Averaged"
+        print(header, flush=True)
+        print("-" * len(header), flush=True)
+        for m in ['SVM', 'RBFNN', 'GRNN']:
+            vals = [e2e_results[n][m]['pred_accuracy'] for n in e2e_counts]
+            avg_v = sum(vals) / len(vals)
+            print(f"{m:<10} | " + " | ".join(f"{v:>5.1f}%" for v in vals) + f" | {avg_v:>6.1f}%", flush=True)
+        print("=" * 82, flush=True)
+
     return final_report
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="CBDC-PUF Machine Learning Modeling Attack Suite")
-    parser.add_argument('--source', choices=['both', 'hardware', 'simulation'], default='both',
-                        help="Data source: 'hardware' (real FPGA CRPs), 'simulation' (Eq. 4 delay model), 'both'")
+    parser.add_argument('--source', choices=['both', 'hardware', 'simulation', 'end-to-end', 'all'], default='both',
+                        help="Data source: 'hardware', 'simulation', 'end-to-end', 'both' (hw+sim), or 'all' (all 3)")
     parser.add_argument('--mode', choices=['both', 'sha3', 'raw'], default='both',
                         help="Simulation mode: 'sha3' (Table 3 protected), 'raw' (unprotected ablation), 'both'")
     parser.add_argument('--csv', type=Path, default=None,

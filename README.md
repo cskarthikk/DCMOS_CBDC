@@ -55,6 +55,7 @@ The repository is organized into a clean, flat top-level structure:
 │   └── nist_test_results.json          # NIST SP 800-22 test scores across 9 tests
 ├── reports/                            # Comprehensive academic reports & publication plots
 │   ├── CBDC_PUF_REPLICATION_REPORT.md  # Detailed paper replication report & comparison tables
+│   ├── HARDWARE_CHECKS_2026-11-09.md   # Hardware assessment, power, timing & latency report
 │   ├── IMPLEMENTATION_REVIEW.md        # Implementation fidelity & architecture audit
 │   ├── REPORT_CLOCK_PROFILE.md         # Clock profile analysis (20 vs 22 vs 24 cycles)
 │   └── figures/                        # High-resolution charts (ML attack, NIST, core stability)
@@ -71,13 +72,18 @@ The repository is organized into a clean, flat top-level structure:
 ├── scripts/                            # Verification, ML attacks, NIST tests, and demo CLI
 │   ├── collect.ps1                     # Authentic 64-core physical data collector
 │   ├── analyze.py                      # 64-core multi-metric silicon analyzer
-│   ├── crypto_engine.py                # Multi-block BCH(31,16,3) + SHAKE-256 preprocessor
-│   ├── crypto_ml_attack.py             # Dual ML attack suite: Real Basys 3 silicon + Eq. 4 model
+│   ├── rebuild.ps1                     # End-to-end Vivado synthesis, placement, route & bitstream
+│   ├── measure_uart_latency.ps1        # Real-time hardware UART latency benchmark
+│   ├── audit_silicon_entropy.py        # NIST SP 800-90B Most Common Value min-entropy assessor
+│   ├── audit_uniqueness_filtering.py   # Spatial inter-core uniqueness & 50k filtering analysis
+│   ├── audit_helper_leakage.py         # Helper data leakage auditor (kernel dimension proof)
+│   ├── crypto_engine.py                # Multi-block BCH(31,16,3) + Dodis Code-Offset + SHAKE-256
+│   ├── crypto_ml_attack.py             # ML attack suite: Hardware, End-to-End, and Eq. 4 model
 │   ├── crypto_nist_test.py             # Table 2: NIST SP 800-22 9-test statistical suite
 │   ├── crypto_unstable_bits.py         # Fig 5, 6, 7: Unstable bit map & noise analyzer
 │   ├── crypto_demo.ps1                 # Live hardware end-to-end enrollment demo
 │   ├── crypto_batch_sweep.ps1          # Live 50-challenge batch evaluation
-│   ├── crypto_batch_analysis.py        # Statistical analyzer for batch captures
+│   ├── crypto_batch_analysis.py        # Statistical analyzer for batch captures & validation CSVs
 │   ├── generate_presentation_plots.py  # Presentation figure generator
 │   ├── program_board.ps1               # Automated Vivado bitstream programmer
 │   ├── program.tcl                     # Vivado hardware programming script
@@ -102,13 +108,18 @@ The repository is organized into a clean, flat top-level structure:
 | Evaluation Dimension | Paper Baseline (Liu et al. 2023) | Our Basys 3 Hardware Result | Verification Status |
 |---|---|---|---|
 | **Array Architecture** | 16 stages/core, CDE cross-coupled | 64 parallel cores (1,024 CDEs) | Verified on Silicon (`xc7a35t`) |
-| **Bit Uniformity** | 50.00% (Ideal) | **49.56%** (Batch) / **48.64%** (Profile) | Near-ideal physical balance |
-| **Raw Silicon BER** | ~1.5% – 2.0% | **1.875%** (Live) / **1.453%** (64k bits) | Matches physical silicon noise |
+| **Bit Uniformity** | 50.00% (Ideal) | **49.56%** (Batch) / **48.83%** (Unfiltered) | Near-ideal physical balance |
+| **Spatial Uniqueness (HD)** | 49.80% (Inter-device) | **50.23%** (Across 2,016 core pairs) | Ideal spatial decorrelation |
+| **Silicon Min-Entropy** | 1.000 bit/core (Assumed ideal) | **0.575 bits/core** (NIST SP 800-90B) | Measured physical lower bound |
+| **Total On-Chip Power** | 0.516 W (Estimated on XC7A200T) | **0.116 W** (0.044W dyn, 0.072W static) | Vivado `report_power` verified |
+| **Controller Core Latency** | Not isolated | **440 ns (44 cycles @ 100 MHz)** | 220ns excite + 80ns latch |
+| **Raw Silicon BER** | ~1.5% – 2.0% | **1.11%** (Voted) / **2.28%** (Single-shot)| Matches physical silicon noise |
 | **Mean Silicon Stability** | 99.4% (Fig 5) | **98.55%** (64,000 physical bits) | Section 4.2 replicated |
-| **Post-BCH WER** | 0.00% (Reliable Key Agreement) | **0.0000% (100.0000% Key Agreement)** | 1,000/1,000 blocks recovered |
-| **Unprotected ML Attack** | 98.4% SVM / 97.2% RBFNN | **97.6% SVM / 97.8% RBFNN** | Section 4.3.1 replicated |
-| **Protected ML Attack (SHA-3)** | ~50.0% (Random Guess) | **50.8% SVM / 50.4% RBFNN / 47.7% GRNN** | Table 3 & Fig 9 replicated |
-| **NIST SP 800-22 Suite** | 9/9 Tests Pass ($P > 0.01$) | **9/9 Tests Pass (Pass Rate 96.1%–100.0%)** | Table 2 replicated |
+| **Post-BCH WER** | 0.00% (Reliable Key Agreement) | **0.0000% (100.0000% Key Agreement)** | 256/256 64-bit patterns recovered |
+| **Dodis Code-Offset WER** | Not implemented (Legacy parity) | **0.0000% (100.0000% Key Agreement)** | Zero leakage, 256-bit secure key |
+| **Unprotected ML Attack** | 98.4% SVM / 97.2% RBFNN | **96.7% SVM / 97.9% RBFNN** | Section 4.3.1 replicated |
+| **Protected ML Attack (SHA-3)** | ~50.0% (Random Guess) | **50.2% SVM / 51.9% RBFNN / 46.8% GRNN**| Table 3 & Fig 9 replicated |
+| **NIST SP 800-22 Suite** | 9/9 Tests Pass (With 77.6% filter)| **9/9 Tests Pass (100% Unfiltered Silicon)**| Table 2 replicated |
 
 ---
 
@@ -146,12 +157,30 @@ Empirically proves that naive 15-bit parity helper data collapses the 64-bit sea
 .\runtime\python\python.exe scripts\audit_helper_leakage.py
 ```
 
-### 5. Run Machine Learning Modeling Attack Suite (Table 3 & Figure 9)
-Evaluates Support Vector Machine (SVM), Radial Basis Function Neural Network (RBFNN), and General Regression Neural Network (GRNN). Supports three operational modes:
+### 6. Audit NIST SP 800-90B Silicon Min-Entropy & Secrecy Retention
+Computes the empirical Most Common Value (MCV) min-entropy across all 64 physical cores from `validation_1.csv` and derives exact challenge accumulation requirements under Dodis helper data leakage:
+```powershell
+.\runtime\python\python.exe scripts\audit_silicon_entropy.py
+```
 
-- **Dual Mode (Hardware + Theoretical Simulation):**
+### 7. Audit Spatial Inter-Core Uniqueness & Candidate-Filtering
+Evaluates spatial Hamming Distance across all 2,016 physical core pairs (50.23% mean HD) and contrasts our 100% unfiltered natural silicon (passing 9/9 NIST tests) with the paper's 77.6% pre-selection filtering:
+```powershell
+.\runtime\python\python.exe scripts\audit_uniqueness_filtering.py
+```
+
+### 8. Full 64-Core Hardware Validation Sweep (Legacy vs Dodis Code-Offset)
+Evaluates 16,384 physical bits across independent captures (`validation_1.csv` vs `validation_2.csv`), verifying 100.0000% key agreement (0.0000% WER) with 20-trial voting:
+```powershell
+.\runtime\python\python.exe scripts\crypto_batch_analysis.py
+```
+
+### 9. Run Machine Learning Modeling Attack Suite (Table 3 & Figure 9)
+Evaluates Support Vector Machine (SVM), Radial Basis Function Neural Network (RBFNN), and General Regression Neural Network (GRNN). Supports four operational modes:
+
+- **End-to-End External Challenge Attack (SHA-3 Protected Workflow):**
   ```powershell
-  .\runtime\python\python.exe scripts\crypto_ml_attack.py --source both
+  .\runtime\python\python.exe scripts\crypto_ml_attack.py --source end-to-end
   ```
 - **Real FPGA Silicon Attack (16,384 Authentic CRPs across 64 cores):**
   ```powershell
@@ -161,26 +190,36 @@ Evaluates Support Vector Machine (SVM), Radial Basis Function Neural Network (RB
   ```powershell
   .\runtime\python\python.exe scripts\crypto_ml_attack.py --source simulation --mode both
   ```
+- **All Evaluations Combined:**
+  ```powershell
+  .\runtime\python\python.exe scripts\crypto_ml_attack.py --source all
+  ```
 
-### 6. Run NIST SP 800-22 Randomness Tests (Table 2)
+### 10. Run NIST SP 800-22 Randomness Tests (Table 2)
 Evaluates 128 independent physical bitstreams (16,384 silicon bits) across all 9 statistical tests:
 ```powershell
 .\runtime\python\python.exe scripts\crypto_nist_test.py
 ```
 
-### 7. Run Unstable Bit Mapping & Core Noise Analysis (Figures 5, 6, 7)
+### 11. Run Unstable Bit Mapping & Core Noise Analysis (Figures 5, 6, 7)
 Analyzes bit flip concentration across repeated physical trials:
 ```powershell
 .\runtime\python\python.exe scripts\crypto_unstable_bits.py
 ```
 
-### 8. Generate Presentation Visuals & Publication Charts
+### 12. Full Hardware Rebuild & Implementation Pipeline
+Rebuilds the complete 64-core FPGA design through Vivado synthesis, placement, routing, route refinement, DRC, and bitstream generation:
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\rebuild.ps1
+```
+
+### 13. Generate Presentation Visuals & Publication Charts
 Generates high-resolution PNG plots in `reports/figures/`:
 ```powershell
 .\runtime\python\python.exe scripts\generate_presentation_plots.py
 ```
 
-### 9. Live Hardware Demo (Basys 3 on COM5)
+### 14. Live Hardware Demo (Basys 3 on COM5)
 If connected to a physical Basys 3 board loaded with the 64-core bitstream (`bitstream/paper_array64.bit`):
 ```powershell
 # Optional: Program board via Vivado
