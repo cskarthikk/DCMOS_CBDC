@@ -1,4 +1,4 @@
-"""Machine Learning Modeling Attack Evaluation for CBDC-PUF.
+con"""Machine Learning Modeling Attack Evaluation for CBDC-PUF.
 Replicates Section 3.2, Section 4.3, Figure 9, and Table 3 of:
   Yanjiang Liu et al., "CBDC-PUF: A Novel Physical Unclonable Function Design
   Framework Utilizing Configurable Butterfly Delay Chain Against Modeling Attack,"
@@ -378,14 +378,16 @@ def run_modeling_attack(source: str = 'both', mode: str = 'both', csv_path: Path
     # -------------------------------------------------------------------------
     # PART 1: AUTHENTIC BASYS 3 HARDWARE SILICON EVALUATION
     # -------------------------------------------------------------------------
-    if source in ('hardware', 'both'):
+    if source in ('hardware', 'both', 'all'):
         if csv_path is None:
             csv_path = Path(__file__).resolve().parents[1] / 'measurements/validation_1.csv'
         
         if csv_path.exists():
-            print("\n" + "=" * 82, flush=True)
-            print("   EVALUATION 1: AUTHENTIC BASYS 3 SILICON CRP ATTACK (Real Hardware)", flush=True)
-            print("=" * 82, flush=True)
+            print("\n" + "=" * 84, flush=True)
+            print("   EVALUATION 1: AUTHENTIC BASYS 3 SILICON CRP ATTACK (Internal Config -> Silicon)", flush=True)
+            print("   Data Source: measurements/validation_1.csv (16,384 Real FPGA CRPs across 64 Cores)", flush=True)
+            print("   Tests attacker ability to model physical delay race when internal configs are known", flush=True)
+            print("=" * 84, flush=True)
             X_hw, y_hw, info = load_hardware_crps(csv_path)
             print(info, flush=True)
             ones_pct = (sum(y_hw) / len(y_hw)) * 100.0
@@ -401,9 +403,9 @@ def run_modeling_attack(source: str = 'both', mode: str = 'both', csv_path: Path
                 print(f"  N = {n:>5} Real CRPs ({dt:.2f}s) -> SVM: {res['SVM']['pred_accuracy']:>5.1f}% | RBFNN: {res['RBFNN']['pred_accuracy']:>5.1f}% | GRNN: {res['GRNN']['pred_accuracy']:>5.1f}%", flush=True)
 
             final_report['hardware_silicon'] = hw_results
-            print("-" * 82, flush=True)
-            print("   REAL HARDWARE MODELING ATTACK PREDICTION ACCURACY (Ideal: 50.0%)", flush=True)
-            print("-" * 82, flush=True)
+            print("-" * 84, flush=True)
+            print("   AUTHENTIC HARDWARE MODELING ATTACK PREDICTION ACCURACY (Ideal: 50.0%)", flush=True)
+            print("-" * 84, flush=True)
             header = f"{'Model':<10} | " + " | ".join(f"{n:>6}" for n in hw_counts) + " | Averaged"
             print(header, flush=True)
             print("-" * len(header), flush=True)
@@ -411,18 +413,18 @@ def run_modeling_attack(source: str = 'both', mode: str = 'both', csv_path: Path
                 vals = [hw_results[n][m]['pred_accuracy'] for n in hw_counts]
                 avg_v = sum(vals) / len(vals)
                 print(f"{m:<10} | " + " | ".join(f"{v:>5.1f}%" for v in vals) + f" | {avg_v:>6.1f}%", flush=True)
-            print("=" * 82, flush=True)
+            print("=" * 84, flush=True)
         else:
             print(f"Hardware dataset not found at {csv_path}, skipping hardware evaluation.", flush=True)
 
     # -------------------------------------------------------------------------
-    # PART 2: THEORETICAL DELAY-CHAIN SIMULATION (Liu et al. Section 4.3, Table 3)
+    # PART 2: THEORETICAL DELAY-CHAIN ABLATION STUDY (Liu et al. Section 4.3, Table 3)
     # -------------------------------------------------------------------------
-    if source in ('simulation', 'both'):
-        print("\n" + "=" * 82, flush=True)
+    if source in ('simulation', 'both', 'all'):
+        print("\n" + "=" * 84, flush=True)
         print("   EVALUATION 2: THEORETICAL SILICON DELAY SIMULATION (Liu et al. Section 4.3 / Table 3)", flush=True)
-        print("   Methodology: Delay differences modeled per Eq. 4 to test SHA-3 anti-modeling immunity", flush=True)
-        print("=" * 82, flush=True)
+        print("   Methodology: Eq. 4 delay race simulation comparing unprotected raw lines vs SHA-3", flush=True)
+        print("=" * 84, flush=True)
 
         crp_counts = [100, 500, 1000, 2000, 5000]
         X_sha3, X_raw, y = generate_theoretical_crps(num_crps=max(crp_counts), seed=2026)
@@ -465,14 +467,15 @@ def run_modeling_attack(source: str = 'both', mode: str = 'both', csv_path: Path
         final_report['simulation_table3'] = sim_report
 
     # -------------------------------------------------------------------------
-    # PART 3: PROTECTED END-TO-END EXTERNAL CHALLENGE ML ATTACK (Full Pipeline)
+    # PART 3: ARCHITECTURAL END-TO-END WORKFLOW SIMULATION (External Challenge -> Response)
     # -------------------------------------------------------------------------
     if source in ('end-to-end', 'all'):
-        print("\n" + "=" * 82, flush=True)
-        print("   EVALUATION 3: END-TO-END PROTECTED WORKFLOW ATTACK (External Challenge -> Response)", flush=True)
-        print("   Methodology: External 64-bit challenge hashed by SHAKE-256 into odd-parity configs", flush=True)
-        print("   Evaluates attacker capability to learn PUF response directly from external challenges", flush=True)
-        print("=" * 82, flush=True)
+        print("\n" + "=" * 84, flush=True)
+        print("   EVALUATION 3: ARCHITECTURAL END-TO-END WORKFLOW SIMULATION (External Ch -> Response)", flush=True)
+        print("   Methodology: 64-bit external challenge hashed by SHAKE-256 into odd-parity configs,", flush=True)
+        print("   coupled to simulated delay race (Eq. 4). Demonstrates cryptographic avalanche immunity.", flush=True)
+        print("   NOTE: Real hardware responses are evaluated in Evaluation 1 on 16,384 silicon CRPs.", flush=True)
+        print("=" * 84, flush=True)
 
         e2e_counts = [500, 1000, 2000, 5000]
         X_e2e, y_e2e = generate_end_to_end_crps(num_crps=max(e2e_counts), seed=2026)
@@ -488,9 +491,9 @@ def run_modeling_attack(source: str = 'both', mode: str = 'both', csv_path: Path
 
         final_report['end_to_end_attack'] = e2e_results
 
-        print("-" * 82, flush=True)
-        print("   END-TO-END EXTERNAL CHALLENGE PREDICTION ACCURACY (Ideal: 50.0%)", flush=True)
-        print("-" * 82, flush=True)
+        print("-" * 84, flush=True)
+        print("   END-TO-END WORKFLOW SIMULATION PREDICTION ACCURACY (Ideal: 50.0%)", flush=True)
+        print("-" * 84, flush=True)
         header = f"{'Model':<10} | " + " | ".join(f"{n:>6}" for n in e2e_counts) + " | Averaged"
         print(header, flush=True)
         print("-" * len(header), flush=True)
@@ -498,7 +501,7 @@ def run_modeling_attack(source: str = 'both', mode: str = 'both', csv_path: Path
             vals = [e2e_results[n][m]['pred_accuracy'] for n in e2e_counts]
             avg_v = sum(vals) / len(vals)
             print(f"{m:<10} | " + " | ".join(f"{v:>5.1f}%" for v in vals) + f" | {avg_v:>6.1f}%", flush=True)
-        print("=" * 82, flush=True)
+        print("=" * 84, flush=True)
 
     return final_report
 

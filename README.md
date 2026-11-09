@@ -107,19 +107,20 @@ The repository is organized into a clean, flat top-level structure:
 
 | Evaluation Dimension | Paper Baseline (Liu et al. 2023) | Our Basys 3 Hardware Result | Verification Status |
 |---|---|---|---|
-| **Array Architecture** | 16 stages/core, CDE cross-coupled | 64 parallel cores (1,024 CDEs) | Verified on Silicon (`xc7a35t`) |
+| **Array Architecture** | 16 stages/core, CDE cross-coupled | 64 parallel cores (1,024 CDEs) | Scaled to XC7A35T |
+| **Core LUT Utilization** | 32 LUTs/core (delay line) | 32 LUTs (delay) / ~147 LUTs (engine)| 11,008 LUTs total chip (52.9%)|
 | **Bit Uniformity** | 50.00% (Ideal) | **49.56%** (Batch) / **48.83%** (Unfiltered) | Near-ideal physical balance |
-| **Spatial Uniqueness (HD)** | 49.80% (Inter-device) | **50.23%** (Across 2,016 core pairs) | Ideal spatial decorrelation |
-| **Silicon Min-Entropy** | 1.000 bit/core (Assumed ideal) | **0.575 bits/core** (NIST SP 800-90B) | Measured physical lower bound |
-| **Total On-Chip Power** | 0.516 W (Estimated on XC7A200T) | **0.116 W** (0.044W dyn, 0.072W static) | Vivado `report_power` verified |
+| **Cross-Core Distance (HD)**| 49.80% (Inter-device) | **50.23%** (Across 2,016 core pairs) | Independent challenges |
+| **Silicon Min-Entropy** | 1.000 bit/core (Assumed ideal) | **0.423 bits/core** (NIST 99% CI) | Measured physical lower bound |
+| **Total On-Chip Power** | 0.516 W (Estimated on XC7A200T) | **0.116 W** (Vivado Vectorless Est.)| 0.044W dyn, 0.072W static |
 | **Controller Core Latency** | Not isolated | **440 ns (44 cycles @ 100 MHz)** | 220ns excite + 80ns latch |
 | **Raw Silicon BER** | ~1.5% – 2.0% | **1.11%** (Voted) / **2.28%** (Single-shot)| Matches physical silicon noise |
 | **Mean Silicon Stability** | 99.4% (Fig 5) | **98.55%** (64,000 physical bits) | Section 4.2 replicated |
-| **Post-BCH WER** | 0.00% (Reliable Key Agreement) | **0.0000% (100.0000% Key Agreement)** | 256/256 64-bit patterns recovered |
-| **Dodis Code-Offset WER** | Not implemented (Legacy parity) | **0.0000% (100.0000% Key Agreement)** | Zero leakage, 256-bit secure key |
-| **Unprotected ML Attack** | 98.4% SVM / 97.2% RBFNN | **96.7% SVM / 97.9% RBFNN** | Section 4.3.1 replicated |
-| **Protected ML Attack (SHA-3)** | ~50.0% (Random Guess) | **50.2% SVM / 51.9% RBFNN / 46.8% GRNN**| Table 3 & Fig 9 replicated |
-| **NIST SP 800-22 Suite** | 9/9 Tests Pass (With 77.6% filter)| **9/9 Tests Pass (100% Unfiltered Silicon)**| Table 2 replicated |
+| **Post-BCH WER** | 0.00% (Reliable Key Agreement) | **0.0000% (100.0000% Key Agreement)** | 256/256 64-bit patterns (Voted) |
+| **Dodis Code-Offset Recovery**| Not implemented in Paper | **100.0000% (Voted) / 98.44% (Raw)** | Eliminates helper data leakage |
+| **Unprotected ML Attack** | 98.4% SVM / 97.2% RBFNN | **96.7% SVM / 97.9% RBFNN** | Section 4.3.1 ablation proved |
+| **Protected ML Attack (SHA-3)**| ~50.0% (Random Guess) | **50.2% SVM / 51.9% RBFNN / 46.8% GRNN**| Table 3 & Fig 9 replicated |
+| **NIST SP 800-22 Suite** | 9/9 Tests Pass (With 77.6% filter)| **9/9 Tests Pass (100% Unfiltered Silicon)**| Table 2 replicated (FFT: 98.4%) |
 
 ---
 

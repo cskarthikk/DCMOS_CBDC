@@ -4,62 +4,62 @@
     "pass_ratio": 98.4375,
     "passes": 126,
     "total": 128,
-    "execution_time_sec": 0.0060024261474609375
+    "execution_time_sec": 0.007025003433227539
   },
   "Block Frequency (BF, M=16)": {
     "avg_p_value": 0.5466995226643724,
     "pass_ratio": 100.0,
     "passes": 128,
     "total": 128,
-    "execution_time_sec": 0.0005049705505371094
+    "execution_time_sec": 0.0006558895111083984
   },
   "Runs": {
     "avg_p_value": 0.46348070895717425,
     "pass_ratio": 98.4375,
     "passes": 126,
     "total": 128,
-    "execution_time_sec": 0.00116729736328125
+    "execution_time_sec": 0.0007464885711669922
   },
   "Longest Run of Ones (LRO)": {
     "avg_p_value": 0.530589271484258,
     "pass_ratio": 100.0,
     "passes": 128,
     "total": 128,
-    "execution_time_sec": 0.00066375732421875
+    "execution_time_sec": 0.000774383544921875
   },
   "Discrete Fourier (FFT)": {
-    "avg_p_value": 0.5729761973203281,
-    "pass_ratio": 100.0,
-    "passes": 128,
+    "avg_p_value": 0.4614779654567527,
+    "pass_ratio": 98.4375,
+    "passes": 126,
     "total": 128,
-    "execution_time_sec": 0.3001542091369629
+    "execution_time_sec": 0.3066854476928711
   },
   "Non-overlapping Template (NOT, m=5)": {
     "avg_p_value": 0.4930082287365812,
     "pass_ratio": 98.4375,
     "passes": 126,
     "total": 128,
-    "execution_time_sec": 0.0011951923370361328
+    "execution_time_sec": 0.002610921859741211
   },
   "Serial (m=4)": {
     "avg_p_value": 0.4576190340320069,
     "pass_ratio": 99.21875,
     "passes": 127,
     "total": 128,
-    "execution_time_sec": 0.005068540573120117
+    "execution_time_sec": 0.00513768196105957
   },
   "Approximate Entropy (AppEn, m=4)": {
     "avg_p_value": 0.3934038534585785,
     "pass_ratio": 96.09375,
     "passes": 123,
     "total": 128,
-    "execution_time_sec": 0.006229877471923828
+    "execution_time_sec": 0.00627589225769043
   },
   "Cumulative Sums (CumSums)": {
     "avg_p_value": 0.5581405763359498,
     "pass_ratio": 98.4375,
     "passes": 126,
     "total": 128,
-    "execution_time_sec": 0.0022406578063964844
+    "execution_time_sec": 0.002162456512451172
   }
 }

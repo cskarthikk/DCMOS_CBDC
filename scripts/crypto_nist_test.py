@@ -171,11 +171,14 @@ def test_spectral_fft(bits: List[int]) -> float:
         mags.append(math.sqrt(real_part * real_part + imag_part * imag_part))
         
     # 95% threshold: T = sqrt(ln(1/0.05) * n) = sqrt(2.995732274 * n)
+    # NIST SP 800-22 Rev 1a Section 2.6.4
     t_thresh = math.sqrt(2.995732274 * n)
     n0 = 0.95 * half_n
     n1 = sum(1 for m_val in mags if m_val < t_thresh)
     
-    d = (n1 - n0) / math.sqrt(half_n * 0.95 * 0.05)
+    # NIST SP 800-22 Section 2.6.4: sigma^2 = (n * 0.95 * 0.05) / 4
+    sigma_d = math.sqrt((n * 0.95 * 0.05) / 4.0)
+    d = (n1 - n0) / sigma_d
     p_val = math.erfc(abs(d) / math.sqrt(2.0))
     return p_val
 
