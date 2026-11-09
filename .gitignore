@@ -10,6 +10,8 @@ __pycache__/
 *.dmp
 .Xil/
 xsim.dir/
+/rebuilds/
+dfx_runtime.txt
 
 # Hardware simulation temporary builds
 *.vvp

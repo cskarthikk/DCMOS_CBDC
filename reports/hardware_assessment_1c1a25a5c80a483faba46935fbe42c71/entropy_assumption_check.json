@@ -1,0 +1,6 @@
+{
+  "test": "Illustration of why a code-offset security claim requires entropy assumptions",
+  "puf_response_case": "Constant zero, illustrative, not a measurement of this board",
+  "public_helper_alone_decodes_secret": true,
+  "interpretation": "A random software secret does not guarantee secrecy after publishing its offset against predictable PUF data. This counterexample does not prove actual device entropy is zero."
+}

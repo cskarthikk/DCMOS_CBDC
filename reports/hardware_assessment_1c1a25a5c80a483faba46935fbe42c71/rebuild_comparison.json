@@ -1,0 +1,12 @@
+{
+  "selected_bitstream_sha256": "98266A06F5CA5EAE25EAFC507E1B4D81EC55CD21B48980969AF0A7CFF23C1517",
+  "rebuilt_bitstream_sha256": "E68231950ED335EFDBF496DD0EBD79B13BDD70255E9C75044C95E250E13BA54B",
+  "selected_sync_offset": 179,
+  "rebuilt_sync_offset": 179,
+  "configuration_bytes_after_sync_identical": true,
+  "rebuild_stage": "C:\\BTech\\Semester_5\\DCMOS\\Project\\rebuilds\\run_3a0da09a099046f5b2de0823904d2849",
+  "assessment_directory": "C:\\BTech\\Semester_5\\DCMOS\\Project\\reports\\hardware_assessment_1c1a25a5c80a483faba46935fbe42c71",
+  "modeled_arcs_compared": 8960,
+  "all_original_arc_keys_present": true,
+  "modeled_arcs_with_different_delays": 0
+}

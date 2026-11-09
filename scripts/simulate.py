@@ -12,7 +12,7 @@ if not compiler.is_file() or not runner.is_file():raise SystemExit('Icarus missi
 if args.refresh_stage_evidence and (root/'BUILD_RECORD.json').exists():raise SystemExit('Cannot refresh frozen release evidence; use an isolated rebuild stage')
 out=root/'reports'/('s_'+uuid.uuid4().hex[:8]);out.mkdir(parents=True)
 primitives=root/'sim/sim_unisim_primitives.v'
-tests=[('tb_paper_array8',[primitives,*sorted((root/'rtl').glob('*.v')),root/'sim/tb_paper_array8.v']),
+tests=[('tb_array64',[primitives,*sorted((root/'rtl').glob('*.v')),root/'sim/tb_array64.v']),
        ('tb_chain_truth',[primitives,root/'rtl/cbdc_puf_element.v',root/'rtl/cbdc_puf_chain.v',root/'sim/tb_chain_truth.v'])]
 for top,files in tests:
     binary=out/(top+'.vvp')
@@ -28,6 +28,6 @@ for top,files in tests:
     if b.returncode or 'PASS:' not in b.stdout:raise SystemExit(b.stdout+b.stderr)
     print(b.stdout.splitlines()[0])
     if args.refresh_stage_evidence:
-        target='result.log' if top=='tb_paper_array8' else 'chain_truth.log'
+        target='result.log' if top=='tb_array64' else 'chain_truth.log'
         (root/'sim'/target).write_text(b.stdout+b.stderr,encoding='utf-8')
 print('Simulation reports:',out)

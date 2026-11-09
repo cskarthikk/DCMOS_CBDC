@@ -1,0 +1,8 @@
+{
+    "bitstream":  "build/paper_array64.bit",
+    "sha256":  "E68231950ED335EFDBF496DD0EBD79B13BDD70255E9C75044C95E250E13BA54B",
+    "cores":  64,
+    "source_revision":  "be56b6eda99461cfe7acf4d7848480e505642c65",
+    "status":  "Rebuilt candidate only; characterize hardware before enrollment",
+    "matched_internal_pairs":  4096
+}

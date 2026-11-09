@@ -1,0 +1,23 @@
+================================================================================
+  TEST 1: BCH(31, 16, 3) PARITY KERNEL DIMENSION & GENERATOR SPAN
+================================================================================
+BCH Generator Polynomial g(x) = 0x8FAF
+Parity of g(x): 0x0000 (Must be 0x0000 for null space)
+[PASS] Verified across 50 random 16-bit words:
+       For ANY message m, Parity(m) == Parity(m ^ 0x8FAF)
+       dim(ker(Parity)) = 16 - 15 = 1 => Exactly 2 candidates per 16-bit block.
+
+================================================================================
+  TEST 2: LIVE ATTACK ON 64-BIT NAIVE HELPER DATA (4 BLOCKS)
+================================================================================
+Victim Secret PUF Response : 0x11EF2BEE550680F1
+Public Helper Values (4x15): ['0x190E', '0x7013', '0x1A43', '0x6779']
+
+[ATTACK RESULT]
+Total Candidate Keys Found : 16 (Out of 2^64 = 18,446,744,073,709,551,616)
+Remaining Min-Entropy      : log2(16) = 4.00 bits (60 bits LEAKED!)
+Time Taken to Crack Space  : 37989.50 microseconds
+Victim Key in Candidates?  : True
+Candidate Set: ['0x11EF2BEE55060F5E', '0x9E402BEE55060F5E', '0x11EFA44155060F5E', '0x9E40A44155060F5E'] ... (16 total)
+================================================================================
+

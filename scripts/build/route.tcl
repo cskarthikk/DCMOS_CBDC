@@ -30,7 +30,8 @@ report_utilization -hierarchical -file $out/utilization.rpt
 report_timing_summary -report_unconstrained -file $out/timing.rpt
 report_drc -file $out/drc.rpt
 report_methodology -file $out/methodology.rpt
-source $root/scripts/audit.tcl
+source $root/scripts/audit_structure.tcl
+# Complete delay extraction runs in four final-checkpoint audit shards.
 write_verilog $out/implemented.v
 # Bitstream is created only by finalize.tcl after reviewing all implementation evidence.
 puts "CANDIDATE64_IMPLEMENTATION_COMPLETE"
