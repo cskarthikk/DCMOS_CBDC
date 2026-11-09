@@ -149,7 +149,7 @@ Evaluated across **100 to 5,000 physical CRPs** with a **70% Training / 30% Held
 
 | Task | PowerShell Script | Description |
 | :--- | :--- | :--- |
-| **Program FPGA** | `array64_clock_profile_2026-11-09\run.ps1 -Action Program` | Loads verified `paper_array64.bit` bitstream on Basys 3 |
+| **Program FPGA** | `scripts\program_board.ps1` | Loads verified `bitstream\paper_array64.bit` bitstream on Basys 3 |
 | **Live Crypto Demo** | `scripts\crypto_demo.ps1 -Port COM5` | Queries 64 cores, enrolls BCH, fixes noise, derives AES-256 key |
 | **Multi-Challenge Sweep**| `scripts\crypto_batch_sweep.ps1 -Port COM5 -NumChallenges 50` | Sweeps 50 SHA-3 challenges $\times$ 5 live queries; generates report |
 | **ML Modeling Attack** | `.\runtime\python\python.exe scripts\crypto_ml_attack.py --mode both` | Replicates Table 3: trains SVM, RBFNN, GRNN on 100–5,000 CRPs |

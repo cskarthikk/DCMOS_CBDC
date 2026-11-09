@@ -58,3 +58,4 @@ if ($LASTEXITCODE -ne 0) {
     Write-Host "Programming succeeded! Board is configured and ready." -ForegroundColor Green
     if (Test-Path $logFile) { Remove-Item $logFile -Force }
 }
+
