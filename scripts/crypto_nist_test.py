@@ -397,8 +397,8 @@ def print_table_2_comparison(results: Dict, n_len: int = 128, num_streams: int =
             print(f"{test_name:<35} | {n_len:<10} | {meas_p:<14.4f} | {meas_pass:>14.1f}% | {target_pass:>11.1f}%", flush=True)
             
     print("=" * 96, flush=True)
-    print("Note: In NIST SP 800-22, bitstreams with p-value >= 0.01 pass with 99% confidence.", flush=True)
-    print("All 9 test items exhibit high p-values and pass rates > 90%, proving uniform silicon randomness.\n", flush=True)
+    print("Per-stream threshold: p-value >= 0.01. A pass is not a 99% probability of randomness or a security certificate.", flush=True)
+    print("These are custom-suite descriptive results; validate test prerequisites and reference implementations before claiming NIST compliance.\n", flush=True)
 
 
 if __name__ == '__main__':

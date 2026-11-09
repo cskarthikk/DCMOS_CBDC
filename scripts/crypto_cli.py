@@ -24,7 +24,7 @@ def main():
     p_sha.add_argument('--challenge', type=str, required=True)
     p_sha.add_argument('--cores', type=int, default=64)
     
-    # 2. Cryptographically Secure Dodis Code-Offset Fuzzy Extractor (128-bit / 256-bit key)
+    # 2. Dodis Code-Offset Fuzzy Extractor (128-bit / 256-bit key)
     p_sec_gen = sub.add_parser('enroll_secure')
     p_sec_gen.add_argument('--responses64', type=lambda x: [int(v, 0) for v in x.split(',')], required=True,
                            help="Comma-separated 64-bit physical responses (e.g. 8 challenges for 256-bit key)")
@@ -62,7 +62,8 @@ def main():
         print(json.dumps({
             'mode': 'Dodis_Code_Offset_Secure_Fuzzy_Extractor',
             'key_bits': args.bits,
-            'entropy_bits': args.bits,
+            'output_bits': args.bits,
+            'entropy_assessment': 'not_established',
             'master_key_hex': master_key.hex(),
             'helpers_count': len(helpers),
             'helpers31_hex': [f"0x{h:08X}" for h in helpers],

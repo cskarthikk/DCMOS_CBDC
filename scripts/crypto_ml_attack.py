@@ -1,4 +1,4 @@
-con"""Machine Learning Modeling Attack Evaluation for CBDC-PUF.
+"""Machine Learning Modeling Attack Evaluation for CBDC-PUF.
 Replicates Section 3.2, Section 4.3, Figure 9, and Table 3 of:
   Yanjiang Liu et al., "CBDC-PUF: A Novel Physical Unclonable Function Design
   Framework Utilizing Configurable Butterfly Delay Chain Against Modeling Attack,"

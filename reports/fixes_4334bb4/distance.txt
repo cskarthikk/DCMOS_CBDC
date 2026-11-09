@@ -1,0 +1,32 @@
+====================================================================================
+   PART 1: CROSS-CORE OUTPUT DISTANCE & CHALLENGE MATCH AUDIT (BASYS 3)
+====================================================================================
+Total Physical Cores Evaluated : 64 parallel cores
+Total Core Pairs Evaluated     : 2,016 combinations (C(64, 2))
+Total Pairwise Bit Comparisons : 516,096 bit evaluations
+Pairs with Matching Challenges : 17 / 516096 (0.0033%)
+Mean Cross-Core Hamming Dist.  : 50.23% (Range: [14.45% .. 85.16%])
+------------------------------------------------------------------------------------
+   CRITICAL METHODOLOGICAL DISTINCTION (UNIQUENESS VS CROSS-CORE DISTANCE)
+------------------------------------------------------------------------------------
+1. NOT SAME-CHALLENGE UNIQUENESS: In `validation_1.csv`, each core received an
+   independently randomized 16-bit challenge per pattern. Therefore, only 17
+   comparisons shared identical inputs. The 50.23% HD reflects cross-core
+   and inter-challenge decorrelation, NOT same-challenge physical uniqueness.
+2. TRUE INTER-DEVICE UNIQUENESS: Requires measuring multiple physical FPGA boards
+   under the exact same challenges. On a single development board, true inter-chip
+   uniqueness cannot be directly evaluated.
+3. INTER-CHALLENGE DISTANCE: On this single chip, evaluating distinct 64-bit response
+   words across different challenges yields a mean HD of 41.16% (range 21.9%..60.9%).
+------------------------------------------------------------------------------------
+   PART 2: CANDIDATE FILTERING vs UNFILTERED NATURAL SILICON
+------------------------------------------------------------------------------------
+Paper Selection Procedure      : In Section 4.2, Liu et al. generated 50,000 CRPs, but
+                                 selected 11,202 CRPs (22.4% yield) having ones
+                                 ratios between 48.4% and 51.6% for candidate use (Section 4.2).
+Our Basys 3 Raw Implementation : Evaluated 100% UNFILTERED natural silicon captures.
+Unfiltered Global Ones Ratio   : 48.83% (Natural physical balance without filtering)
+Patterns Naturally in [48..52%]: 77 / 256 patterns (30.1%)
+NIST scope: this script does not run randomness tests or establish security.
+Candidate yield is descriptive; choose enrollment candidates before independent validation.
+====================================================================================

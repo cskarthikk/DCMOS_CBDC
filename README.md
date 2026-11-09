@@ -1,6 +1,6 @@
 # CBDC-PUF: Configurable Butterfly Delay Chain Physical Unclonable Function
 
-An authentic, fully verified silicon implementation and academic replication of the **CBDC-PUF** on the **Digilent Basys 3** FPGA (`xc7a35tcpg236-1`, AMD/Xilinx Artix-7) using **Vivado 2025.2**.
+A tested 64-core FPGA adaptation and software evaluation of the **CBDC-PUF** on the **Digilent Basys 3** FPGA (`xc7a35tcpg236-1`, AMD/Xilinx Artix-7) using **Vivado 2025.2**.
 
 Based on the research paper:
 > **Yanjiang Liu, Junwei Li, Tongzhou Qu, Zibin Dai**,  
@@ -105,28 +105,24 @@ The repository is organized into a clean, flat top-level structure:
 
 ## 🔬 Key Results & Replication Highlights
 
-| Evaluation Dimension | Paper Baseline (Liu et al. 2023) | Our Basys 3 Hardware Result | Verification Status |
-|---|---|---|---|
-| **Array Architecture** | 16 stages/core, CDE cross-coupled | 64 parallel cores (1,024 CDEs) | Scaled to XC7A35T |
-| **Core LUT Utilization** | 32 LUTs/core (delay line) | 32 LUTs (delay) / ~147 LUTs (engine)| 11,008 LUTs total chip (52.9%)|
-| **Bit Uniformity** | 50.00% (Ideal) | **49.56%** (Batch) / **48.83%** (Unfiltered) | Near-ideal physical balance |
-| **Cross-Core Distance (HD)**| 49.80% (Inter-device) | **50.23%** (Across 2,016 core pairs) | Independent challenges |
-| **Silicon Min-Entropy** | 1.000 bit/core (Assumed ideal) | **0.423 bits/core** (NIST 99% CI) | Measured physical lower bound |
-| **Total On-Chip Power** | 0.516 W (Estimated on XC7A200T) | **0.116 W** (Vivado Vectorless Est.)| 0.044W dyn, 0.072W static |
-| **Controller Core Latency** | Not isolated | **440 ns (44 cycles @ 100 MHz)** | 220ns excite + 80ns latch |
-| **Raw Silicon BER** | ~1.5% – 2.0% | **1.11%** (Voted) / **2.28%** (Single-shot)| Matches physical silicon noise |
-| **Mean Silicon Stability** | 99.4% (Fig 5) | **98.55%** (64,000 physical bits) | Section 4.2 replicated |
-| **Post-BCH WER** | 0.00% (Reliable Key Agreement) | **0.0000% (100.0000% Key Agreement)** | 256/256 64-bit patterns (Voted) |
-| **Dodis Code-Offset Recovery**| Not implemented in Paper | **100.0000% (Voted) / 98.44% (Raw)** | Eliminates helper data leakage |
-| **Unprotected ML Attack** | 98.4% SVM / 97.2% RBFNN | **96.7% SVM / 97.9% RBFNN** | Section 4.3.1 ablation proved |
-| **Protected ML Attack (SHA-3)**| ~50.0% (Random Guess) | **50.2% SVM / 51.9% RBFNN / 46.8% GRNN**| Table 3 & Fig 9 replicated |
-| **NIST SP 800-22 Suite** | 9/9 Tests Pass (With 77.6% filter)| **9/9 Tests Pass (100% Unfiltered Silicon)**| Table 2 replicated (FFT: 98.4%) |
+| Metric | Current evidence | Qualification |
+|---|---|---|
+| Array | 64 cores, 32 chain elements/core | 96 stage LUT sites plus 2 entrance LUTs/core |
+| Total resources | 11,008 LUTs; 4,356 registers | Whole FPGA design, including control/UART |
+| Raw ones | 48.6435% / 48.6441% | Frozen full captures |
+| Recovery | 100% with 20-reading voting; 98.44% code-offset single-trial | 256 tested responses; not universal or secret-key security |
+| Mean hardware ML prediction | 59.82% SVM / 50.54% RBFNN-labelled / 52.85% GRNN | Known internal configurations; separate from simulation |
+| Power | 0.116 W | Vectorless estimate, not measured board power |
+| Latency | 440 ns controller / 32.25 ms host average | Simulation / live UART benchmark |
+| Entropy / uniqueness | Exploratory scores and cross-core distance | Conditional secrecy and inter-device uniqueness remain unestablished |
+
+See [the detailed report](reports/CBDC_PUF_REPLICATION_REPORT.md) for exact scopes, sources and limitations. NIST results are custom-suite outputs, not a compliance or security certificate.
 
 ---
 
 ## 🚀 Quick Start & Verification Guide
 
-All commands run self-contained out-of-the-box using the bundled Python 3.12 runtime and standard PowerShell scripts (zero pip dependencies or external tools required).
+Collection and analysis use bundled Python and PowerShell. FPGA programming/rebuilding requires Vivado; digital simulation requires Icarus Verilog.
 
 ### 1. Verify 64-Core Hardware Design & Timing Profile
 Verifies bitstream presence, SHA-256 checksums, and timing profile parameters (Excite=22, Latch=8 cycles):
@@ -147,13 +143,13 @@ Analyzes 327,680 real physical bits across all 64 parallel cores from the Basys 
 ```
 
 ### 4. Test Cryptographic Engine & Code-Offset Fuzzy Extractor
-Validates both the **Cryptographically Secure Dodis Code-Offset Fuzzy Extractor** (256-bit entropy) and the legacy BCH(31,16,3) channel ECC codec across 1,000 randomized test vectors:
+Checks code-offset reconstruction with 256-bit output and the legacy BCH codec on randomized test vectors. These tests do not assess physical entropy or secure-key strength:
 ```powershell
 .\runtime\python\python.exe scripts\crypto_engine.py
 ```
 
 ### 5. Audit Helper Data Information Leakage (Vulnerability Demonstration)
-Empirically proves that naive 15-bit parity helper data collapses the 64-bit search space to only 16 candidate keys, demonstrating why the Dodis Code-Offset construction is required for cryptographic security:
+Empirically proves that naive 15-bit parity helper data collapses the 64-bit search space to only 16 candidate keys, demonstrating the old implementation weakness; the replacement still needs entropy assessment:
 ```powershell
 .\runtime\python\python.exe scripts\audit_helper_leakage.py
 ```
@@ -226,7 +222,7 @@ If connected to a physical Basys 3 board loaded with the 64-core bitstream (`bit
 # Optional: Program board via Vivado
 powershell -ExecutionPolicy Bypass -File scripts\program_board.ps1
 
-# Run live enrollment & reconstruction demo (Cryptographically Secure Dodis Code-Offset, 256-bit key)
+# Run live enrollment & reconstruction demo (code-offset reconstruction with a 256-bit output; secrecy not established)
 powershell -ExecutionPolicy Bypass -File scripts\crypto_demo.ps1 -Port COM5 -Mode secure -KeyBits 256
 
 # Optional: Run live enrollment in legacy Paper Channel ECC benchmark mode
@@ -242,3 +238,7 @@ powershell -ExecutionPolicy Bypass -File scripts\crypto_demo.ps1 -Port COM5 -Mod
   - [ML Attack Resistance (Table 3 & Fig 9)](reports/figures/Fig_Table3_ML_Attack_Comparison.png)
   - [NIST Randomness Suite Pass Rates (Table 2)](reports/figures/Fig_Table2_NIST_Pass_Rates.png)
   - [Silicon Core Stability & Noise Concentration (Fig 5, 6, 7)](reports/figures/Fig_Core_Stability_Noise.png)
+
+### Reconstruction demo scope
+
+The historical CLI/mode name `secure` is retained for compatibility. It denotes code-offset reconstruction, not certified secret-key strength. Enrollment JSON reports `output_bits` and `entropy_assessment: not_established`; the misleading `entropy_bits` field has been removed. The 31-bit public offset per block differs from the BCH code redundancy of 15 bits.

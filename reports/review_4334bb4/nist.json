@@ -1,0 +1,65 @@
+{
+  "Frequency (Monobit)": {
+    "avg_p_value": 0.5236288428360861,
+    "pass_ratio": 98.4375,
+    "passes": 126,
+    "total": 128,
+    "execution_time_sec": 0.0009844303131103516
+  },
+  "Block Frequency (BF, M=16)": {
+    "avg_p_value": 0.5466995226643724,
+    "pass_ratio": 100.0,
+    "passes": 128,
+    "total": 128,
+    "execution_time_sec": 0.0
+  },
+  "Runs": {
+    "avg_p_value": 0.46348070895717425,
+    "pass_ratio": 98.4375,
+    "passes": 126,
+    "total": 128,
+    "execution_time_sec": 0.0009996891021728516
+  },
+  "Longest Run of Ones (LRO)": {
+    "avg_p_value": 0.530589271484258,
+    "pass_ratio": 100.0,
+    "passes": 128,
+    "total": 128,
+    "execution_time_sec": 0.0009996891021728516
+  },
+  "Discrete Fourier (FFT)": {
+    "avg_p_value": 0.4614779654567527,
+    "pass_ratio": 98.4375,
+    "passes": 126,
+    "total": 128,
+    "execution_time_sec": 0.29840731620788574
+  },
+  "Non-overlapping Template (NOT, m=5)": {
+    "avg_p_value": 0.4930082287365812,
+    "pass_ratio": 98.4375,
+    "passes": 126,
+    "total": 128,
+    "execution_time_sec": 0.0010004043579101562
+  },
+  "Serial (m=4)": {
+    "avg_p_value": 0.4576190340320069,
+    "pass_ratio": 99.21875,
+    "passes": 127,
+    "total": 128,
+    "execution_time_sec": 0.0050008296966552734
+  },
+  "Approximate Entropy (AppEn, m=4)": {
+    "avg_p_value": 0.3934038534585785,
+    "pass_ratio": 96.09375,
+    "passes": 123,
+    "total": 128,
+    "execution_time_sec": 0.006511688232421875
+  },
+  "Cumulative Sums (CumSums)": {
+    "avg_p_value": 0.5581405763359498,
+    "pass_ratio": 98.4375,
+    "passes": 126,
+    "total": 128,
+    "execution_time_sec": 0.002004861831665039
+  }
+}

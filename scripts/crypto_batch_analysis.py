@@ -155,15 +155,34 @@ def analyze_validation_csvs(csv1_path: Path, csv2_path: Path, output_path: Path 
     import csv
 
     def load_words(path):
+        meta = json.loads(Path(str(path)+'.metadata.json').read_text(encoding='utf-8-sig'))
+        matrix = json.loads(Path(str(path)+'.challenges.json').read_text(encoding='utf-8-sig'))
+        if meta.get('cores') != 64 or meta.get('variant') != 'paper_array64_and_ce':
+            raise ValueError('Expected complete 64-core raw capture')
+        patterns, repeats = meta['patterns'], meta['repeats']
+        if repeats < 1 or len(matrix) != patterns:
+            raise ValueError('Invalid capture dimensions')
         words = collections.defaultdict(lambda: collections.defaultdict(dict))
-        with open(path, 'r', encoding='utf-8-sig') as f:
-            reader = csv.DictReader(f)
-            for r in reader:
-                p = int(r['pattern'])
-                t = int(r['trial'])
-                c = int(r['core'])
-                b = int(r['response'])
+        frame_words = {}
+        count = 0
+        with path.open(newline='', encoding='utf-8-sig') as f:
+            for r in csv.DictReader(f):
+                p,t,c,b = (int(r[k]) for k in ('pattern','trial','core','response'))
+                if not (0<=p<patterns and 1<=t<=repeats and 0<=c<64 and b in (0,1)):
+                    raise ValueError('Invalid observation index or response')
+                if c in words[p][t]: raise ValueError('Duplicate observation')
+                if r['flags_hex'] != '61' or r['variant'] != meta['variant'] or r['mode'] != meta['mode'] or int(r['excite_cycles']) != meta['excite_cycles']:
+                    raise ValueError('Capture status/profile mismatch')
+                if int(r['challenge_hex'],16) != matrix[p]['challenges'][c]:
+                    raise ValueError('Configuration differs from frozen matrix')
+                w = int(r['response_word_hex'],16)
+                if not (0<=w<2**64) or ((w>>c)&1)!=b or frame_words.setdefault((p,t),w)!=w:
+                    raise ValueError('Inconsistent response word')
                 words[p][t][c] = b
+                count += 1
+        if count != patterns*repeats*64:
+            raise ValueError('Incomplete capture')
+        metadata.append((meta,matrix))
         t1_map = {}
         maj_map = {}
         for p in words:
@@ -178,8 +197,11 @@ def analyze_validation_csvs(csv1_path: Path, csv2_path: Path, output_path: Path 
         return t1_map, maj_map
 
     print("\nLoading physical validation captures...")
+    metadata = []
     t1_1, maj_1 = load_words(csv1_path)
     t1_2, maj_2 = load_words(csv2_path)
+    if metadata[0][1] != metadata[1][1] or any(metadata[0][0][k] != metadata[1][0][k] for k in ('sha256','mode','excite_cycles','patterns','repeats')):
+        raise ValueError('Enrollment and evaluation use different matrices or profiles')
     num_patterns = len(t1_1)
 
     # 1. Single Trial Evaluation (No Majority Voting)
@@ -257,9 +279,9 @@ def analyze_validation_csvs(csv1_path: Path, csv2_path: Path, output_path: Path 
     print(f"  Legacy Parity Scheme       : Key Agreement = {(num_patterns - maj_legacy_fails)/num_patterns*100:.4f}% (WER = {maj_legacy_fails/num_patterns*100:.4f}%)")
     print(f"  Dodis Code-Offset Extractor: Key Agreement = {(num_patterns - maj_co_fails)/num_patterns*100:.4f}% (WER = {maj_co_fails/num_patterns*100:.4f}%)")
     print("-" * 82)
-    print("   CONCLUSION: With majority voting, Dodis Code-Offset achieves 100.0000% key")
-    print("   agreement across all 256 physical 64-bit challenges, exactly matching the")
-    print("   paper's zero-WER requirement while eliminating helper data leakage.")
+    print(f"Observed voted code-offset recovery: {num_patterns-maj_co_fails}/{num_patterns} ({100*(1-maj_co_fails/num_patterns):.4f}%).")
+    print("Scope: two 31-bit response blocks; cores 62 and 63 excluded. Ties vote one.")
+    print("This measures reconstruction, not conditional entropy or complete master-key security.")
     print("=" * 82)
 
     report = {

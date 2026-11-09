@@ -1,4 +1,4 @@
-# CBDC-PUF: Comprehensive Research Paper Replication Report
+# CBDC-PUF: 64-Core Adaptation: Results and Limitations
 
 **Paper Reference:**  
 Yanjiang Liu, Junwei Li, Tongzhou Qu, Zibin Dai,  
@@ -16,30 +16,23 @@ DOI: [10.1145/3588435](https://doi.org/10.1145/3588435)
 
 ## 1. Executive Summary
 
-This project presents a rigorous physical implementation, hardware assessment, and end-to-end cryptographic replication of the **CBDC-PUF** framework on physical silicon.
+This project presents a physical implementation, hardware assessment, and software reconstruction demonstration of the **CBDC-PUF** framework on physical silicon.
 
-```
-+-------------------------------------------------------------------------------------------------------------+
-|                                           KEY EXPERIMENTAL RESULTS                                          |
-+------------------------------------+-----------------------------+-----------------------+------------------+
-| Metric                             | Measured Silicon Value      | Paper / Target Target | Status           |
-+------------------------------------+-----------------------------+-----------------------+------------------+
-| Array Architecture                 | 64 Cores (1,024 CDEs)       | 128 Cores (2,048 CDEs)| Scaled to XC7A35T|
-| Bit Uniformity (Ones Ratio)        | **49.56%** (Batch) / 48.83% | 49.60% (Ideal: 50.0%) | Verified         |
-| Cross-Core Output Distance (HD)    | **50.23%** (2,016 core pairs)| 49.80% (Inter-device) | Decorrelated     |
-| Silicon Min-Entropy (SP 800-90B)   | **0.423 bits/core** (99% CI)| 1.000 (Assumed ideal) | Measured Lower Bnd|
-| Total On-Chip Power (Vivado Est.)  | **0.116 W** (0.044W dyn)    | 0.516 W (XC7A200T)    | Energy Efficient |
-| Controller Core Latency            | **440 ns** (44 cycles @ 100M)| Not isolated          | Verified         |
-| Raw Silicon Bit Error Rate (BER)   | **1.11%** (Voted) / 2.28%   | 1.0% – 3.0% (Natural) | Verified         |
-| Mean Silicon Stability             | **98.55%** (64,000 bits)    | 99.40% (Ideal: 100%)  | Verified         |
-| Post-BCH(31, 16, 3) Reconstruction | **100.0000% (0.00% WER)**   | 100.0000%             | 20-Trial Voted   |
-| Dodis Code-Offset Key Agreement    | **100.0000% (98.44% raw)**  | Not in Paper          | Verified Secure  |
-| NIST SP 800-22 Tests (Table 2)     | **9 / 9 Passed (96.1-100%)**| 9 / 9 Passed (>92.7%) | 100% Unfiltered  |
-| Protected ML Attack (Table 3)      | **~50.2% (Immune)**         | 50.3% (Ideal: 50.0%)  | Table 3 Match    |
-| End-to-End ML Attack (Simulation)  | **~50.2% (Immune)**         | Not evaluated         | Algorithmic Proof|
-| ML Attack on Raw Chain (No SHA-3)  | **96.7% – 97.9% (Broken)**  | Vulnerable (>85%-99%) | Ablation Proved  |
-+------------------------------------+-----------------------------+-----------------------+------------------+
-```
+| Metric | Observed result | Scope |
+|---|---:|---|
+| Array | 64 cores / 64 response bits | 16 stages per chain; two chains/core |
+| Raw ones | 48.6435% / 48.6441% | Two 256-vector, 20-reading captures |
+| Independent raw bit agreement | 97.6776% | Aligned trials across the captures |
+| Voted reconstruction | 256/256 for legacy and code-offset | 20 readings/capture; finite offline test |
+| Single-trial code-offset reconstruction | 252/256 = 98.4375% | Two 31-bit blocks; not 256-bit master-key reliability |
+| Cross-core HD | 50.23% | Different inputs; not inter-PUF uniqueness |
+| Mean confidence-adjusted marginal MCV score | 0.4234 bits/core | Exploratory; not a joint secrecy bound |
+| FPGA on-chip power | 0.116 W | Vectorless estimate; default activity assumptions |
+| Controller / host response | 440 ns / 32.25 ms average | Simulation / live UART round trip |
+| ML hardware mean scores | SVM 59.82%, RBFNN-labelled 50.54%, GRNN 52.85% | Saved known-configuration experiment; not proof of immunity |
+
+Neither secure key strength nor full paper replication is established by these results.
+
 
 ---
 
@@ -53,7 +46,7 @@ flowchart TD
     
     subgraph Basys3 ["Basys 3 FPGA Hardware Fabric (Artix-7 XC7A35T)"]
         UARTTx --> UARTRx["CBDC Controller (100 MHz)\nExcite=22 cycles (220ns), Latch=8 cycles (80ns)"]
-        UARTRx --> Cores["64 Parallel CBDC Cores (32 delay LUTs/core)"]
+        UARTRx --> Cores["64 Parallel CBDC Cores (32 chain elements/core; 98 fixed LUT sites)"]
         Cores --> Arbiters["64 Negative-Edge FDCE_1 Flip-Flops\n(D = Qu, C = Qb, CE = Latch)"]
         Arbiters --> ResponseReg["64-Bit Raw Silicon Response Register"]
     end
@@ -66,13 +59,13 @@ flowchart TD
 ```
 
 ### A. Architectural Fidelity to Liu et al. (Figure 1)
-1. **16-Stage Configurable Delay Chain:** Each core consists of 16 cascaded symmetric delay elements (32 LUTs per core for the delay line) forming cross-coupled butterfly routing paths.
+1. **16-Stage Configurable Delay Chain:** Each core consists of 16 cascaded symmetric delay elements (32 chain elements per core, each using three LUTs) forming cross-coupled butterfly routing paths.
 2. **Fixed-AND Entrance Gates:** Symmetrical race launching triggered by active-high excitation pulses.
 3. **Single Negative-Edge Arbiter Flip-Flop (`FDCE_1`):** Whichever wavefront arrives at $D$ ($Q_u$) vs $C$ ($Q_b$) first determines the captured bit, enabled strictly during the Latch phase.
 4. **Physical Placement & Route Refinement:** Slices and BELs are locked across all 64 cores (`layout/placement.csv`, `layout/sites.csv`). Route refinement (`scripts/build/refine_routes.tcl`) ensures symmetric internal routing arcs.
 5. **Detailed Resource Footprint (XC7A35T):**
-   - The delay line itself uses 32 LUTs per core.
-   - The complete synthesizable core engine (`cbdc_serial_engine` including excitation controller `cbdc_puf_ctrl` and configuration registers) uses **~147 LUTs and 45 FFs per core**.
+   - The two chains contain 32 configurable elements: 32 buffer LUTs, 32 inverter LUTs and 32 selector LUTs, plus two entrance LUTs: **98 fixed LUT sites/core**, or 6,272 across 64 cores.
+   - The whole-design totals below also include controllers, configuration storage and UART; do not infer per-engine cost by dividing the total by 64.
    - Top-level chip utilization:
      - Slice LUTs: 11,008 / 20,800 (52.92%)
      - Slice Registers (FFs): 4,356 / 41,600 (10.47%)
@@ -82,26 +75,26 @@ flowchart TD
 Executed Vivado `report_power` on `build/routed.dcp` for the Artix-7 `xc7a35tcpg236-1`:
 - **Total On-Chip Power (Estimated):** **0.116 W** (116 mW)
 - **Dynamic Power:** **0.044 W** (44 mW, 38%)
-  - Clocks: 0.009 W
-  - Logic: 0.016 W
-  - Signals: 0.017 W
-  - I/O: 0.002 W
+  - Clocks: 0.020 W
+  - Logic: 0.010 W
+  - Signals: 0.009 W
+  - I/O: 0.005 W
 - **Device Static Power:** **0.072 W** (72 mW, 62%)
 - **Junction Temperature:** 25.6°C (Thermal Margin: 59.4°C, ambient 25.0°C)
-- **Comparison with Paper:** The paper reports **0.516 W** estimated total power on the larger Artix/Kintex XC7A200T FPGA. Our Vivado vectorless estimate of 0.116 W reflects the targeted implementation on the Basys 3 (XC7A35T), achieving an energy-efficient footprint suitable for embedded edge devices.
+- **Comparison with Paper:** The paper reports **0.516 W** estimated total power on the larger Artix-7 XC7A200T FPGA. Our Vivado vectorless estimate of 0.116 W reflects the targeted implementation on the Basys 3 (XC7A35T), but different FPGA sizes, activity assumptions and implementation scopes prevent a power-efficiency conclusion. No physical board power was measured; Vivado issued an activity warning.
 
 ### C. Timing, Latency & Frequency Analysis
 - **Controller Clock:** 100 MHz internal system clock ($T_{clk} = 10.0 \text{ ns}$).
 - **Excitation Duration:** 22 clock cycles ($220 \text{ ns}$).
 - **Capture Window (Latch Duration):** 8 clock cycles ($80 \text{ ns}$).
-- **Controller Core Latency:** **440 ns (44 clock cycles @ 100 MHz)** total from UART command trigger to response register capture (measured in `sim/tb_latency64.v`).
+- **Controller Core Latency:** **440 ns (44 clock cycles @ 100 MHz)** from accepted start to response-valid in controlled RTL simulation; the testbench and log are in `reports/hardware_assessment_1c1a25a5c80a483faba46935fbe42c71/`. This is not measured intrinsic PUF propagation latency.
 - **Host UART Latency:** At 115,200 baud, transmitting the 131-byte request frame takes $\approx 11.4 \text{ ms}$, and receiving the 140-byte response frame takes $\approx 12.2 \text{ ms}$. Total host round-trip latency measured in `scripts/measure_uart_latency.ps1` is **32.25 ms**.
 
 ### D. Bitstream Rebuild & DRC Provenance
 The full rebuild pipeline (`scripts/rebuild.ps1`) executes non-project mode synthesis, placement, routing, and route refinement. Rebuild verification results:
-- Design Rule Checks (DRC): **0 Violations** (`reports/rebuilt_drc_final.rpt`)
-- Route Status: **100% Routed, 0 Unrouted Nets** (`reports/rebuilt_route_status_final.rpt`)
-- Bitstream Hash: Byte-identical with verified working bitstream.
+- Design Rule Checks (DRC): **0 Errors**, with documented asynchronous warnings (`reports/hardware_assessment_1c1a25a5c80a483faba46935fbe42c71/rebuilt_drc_final.rpt`)
+- Route Status: **100% Routed, 0 Unrouted Nets** (`reports/hardware_assessment_1c1a25a5c80a483faba46935fbe42c71/rebuilt_route_status_final.rpt`)
+- Configuration bytes from the sync word onward are identical to the working image. Whole-file hashes differ because header bytes differ; see the saved rebuild comparison.
 
 ---
 
@@ -127,8 +120,8 @@ In PUF engineering, there is a fundamental distinction between **Channel Error C
 - **Security Audit & Helper Data Information Leakage:**  
   If the 15-bit systematic BCH parities are published directly as public helper data, the linear parity operator $P: \mathbb{F}_2^{16} \to \mathbb{F}_2^{15}$ has kernel dimension $\dim(\ker(P)) = 16 - 15 = 1$. The null space is spanned by $g(x) = \mathtt{0x8FAF}$. Consequently, for each 16-bit block, there are exactly two messages with that parity: $\{m, m \oplus \mathtt{0x8FAF}\}$. Across four blocks, only $2^4 = \mathbf{16 \text{ candidate 64-bit keys}}$ remain. An attacker who intercepts the helper data can brute-force the secret in $< 1 \text{ ms}$ (`scripts/audit_helper_leakage.py`).
 
-#### 2. Cryptographically Secure Mode: Dodis et al. Code-Offset Fuzzy Extractor (Eurocrypt 2004 / SIAM 2008)
-To prevent helper leakage and ensure full cryptographic strength:
+#### 2. Code-Offset Demonstration (CLI mode name: secure): Dodis et al. Code-Offset Fuzzy Extractor (Eurocrypt 2004 / SIAM 2008)
+Code-offset reconstruction reduces the old direct parity-helper exposure; secrecy still depends on conditional PUF entropy:
 - **Code-Offset Secure Sketch:**  
   The 64 physical cores provide two 31-bit physical response blocks ($2 \times 31 = 62$ bits):
   $$\text{Block}_0 = R[0..30], \quad \text{Block}_1 = R[31..61]$$
@@ -139,7 +132,7 @@ To prevent helper leakage and ensure full cryptographic strength:
   $$C' = R'_{31} \oplus W = C \oplus e \quad \xrightarrow{\text{BCH Decode}} \quad S$$
 - **Hardware Verification Across 256 Physical Challenges (`scripts/crypto_batch_analysis.py`):**
   - *Single Trial (No Majority Voting):* Raw BER = 2.2827% (374 bit flips), Key Agreement = **98.44%** (WER = 1.56%).
-  - *20-Trial Majority Voting:* Raw BER = 1.1108% (182 residual bit flips), Key Agreement = **100.0000% (WER = 0.0000%)**, correcting all physical bit flips and matching the paper's zero-WER requirement without leaking the secret.
+  - *20-Trial Majority Voting:* Raw BER = 1.1108% (182 residual bit flips), Key Agreement = **100.0000% (WER = 0.0000%)**, correcting all physical bit flips and an observed reconstruction result, not proof of secret-key entropy.
 
 ### C. NIST SP 800-90B Physical Silicon Min-Entropy & Secrecy Bounds
 Using the Most Common Value (MCV) min-entropy estimator defined in NIST SP 800-90B Section 6.3.1 on `measurements/validation_1.csv` across all 64 physical cores:
@@ -147,14 +140,14 @@ $$H_\infty = -\log_2(p_u), \quad \text{where } p_u = \min\left(1, \hat{p} + 2.57
 - **Raw Sample Min-Entropy:** Mean = **0.5748 bits/core** (Median: 0.6077 bits/core).
 - **NIST 99% Confidence Min-Entropy:** Mean = **0.4234 bits/core** (Median: 0.4484 bits/core).
 - **Per-Core Range (NIST 99%):** $[0.0468 \text{ bits (Core 61)} .. 0.7746 \text{ bits (Core 62)}]$.
-- **Block-Level Min-Entropy (Under Independence Assumption):**
+- **Block-level model estimates (assuming independence; not proven joint bounds):**
   - $\text{Block}_0$ (Cores 0..30): Raw Sum = $19.22 \text{ bits}$, NIST 99% Sum = $14.31 \text{ bits}$ (Ideal: 31.0).
   - $\text{Block}_1$ (Cores 31..61): Raw Sum = $15.91 \text{ bits}$, NIST 99% Sum = $11.52 \text{ bits}$ (Ideal: 31.0).
 - **Dodis Helper Data Leakage Bound (Lemma 1):**  
-  Each 31-bit block publishes 15 parity bits of helper data $W$. The lower bound on retained min-entropy is:
+  Each block publishes a **31-bit code-offset helper** $W$, not 15 parity bits. The secure-sketch entropy-loss parameter is 15 bits under the required source/threat-model assumptions. The conditional bound requires actual joint entropy, not an unverified sum of marginal scores:
   $$\tilde{H}_\infty(R | W) \ge H_\infty(R) - (n - k) = H_\infty(R) - 15$$
   - Under raw sample estimates: Block 0 retains 4.22 bits, Block 1 retains 0.91 bits (total 5.14 bits/challenge).
-  - Under conservative NIST 99% confidence bounds: single-block marginal entropy is below 15 bits, so positive min-entropy cannot be proven on a single challenge alone without multi-challenge accumulation.
+  - Under conservative NIST 99% confidence bounds: the independence-model block sums are below 15 bits. This calculation supplies no positive secrecy guarantee; neither it nor accumulating more challenges establishes actual joint conditional entropy.
 
 > [!NOTE] Academic Qualification & Presentation Phrasing
 > *"We identified helper-data leakage in our initial ECC software and investigated code-offset extraction. The live demo (`crypto_demo.ps1`) uses 8 challenges ($8 \times 32 = 256$ nominal secret bits) to demonstrate the Dodis protocol operational flow. However, summing marginal core entropies assumes spatial independence. Because FPGA cores share power rails and substrate, rigorous quantification of retained joint entropy and cross-challenge correlation remains future work."*
@@ -164,7 +157,7 @@ $$H_\infty = -\log_2(p_u), \quad \text{where } p_u = \min\left(1, \hat{p} + 2.57
 ## 4. Replicated Paper Tables & Physical Evaluations
 
 ### Table 2: NIST SP 800-22 Randomness Statistical Suite (Section 4.1)
-Evaluated on **128 physical bitstreams ($n=128$)** extracted from Basys 3 silicon captures (Passing threshold: $p \ge 0.01$):
+Evaluated on **128 concatenated statistical streams ($n=128$)** from first-trial silicon responses; each stream combines two native 64-bit words (per-stream threshold: $p \ge 0.01$). These custom-suite outputs are not independent certification of standard compliance or cryptographic security:
 
 | NIST Test Item | Bitstream Length ($n$) | Measured Avg $p$-value | **Measured Pass Rate** | **Paper Table 2 Pass Rate** | Status |
 | :--- | :---: | :---: | :---: | :---: | :---: |
@@ -180,47 +173,53 @@ Evaluated on **128 physical bitstreams ($n=128$)** extracted from Basys 3 silico
 
 *Note on FFT:* Implements exact variance normalization $\sigma^2 = \frac{n \times 0.95 \times 0.05}{4}$ per NIST SP 800-22 Rev 1a Section 2.6.4, achieving 98.4% pass rate exactly matching the paper's Table 2 result.
 
-#### Candidate Pre-Selection Analysis: Natural Silicon vs Paper Cherry-Picking
-In Section 4.2, Liu et al. generated a candidate pool of **50,000 CRPs** and selected only **11,202 CRPs (22.4% yield)** whose ones ratio fell within $[48.4\%, 51.6\%]$ to pass Table 2. In contrast, our Basys 3 implementation evaluated **100% UNFILTERED natural silicon captures** (global ones ratio = **48.83%**), proving that symmetric physical routing achieves natural balance that passes all 9 NIST tests directly out-of-the-box (`scripts/audit_uniqueness_filtering.py`).
+#### Candidate Selection: Different Evaluation Protocols
+In Section 4.2, Liu et al. generated a candidate pool of **50,000 CRPs** and selected only **11,202 CRPs (22.4% yield)** whose ones ratio fell within $[48.4\%, 51.6\%]$ for candidate use. In contrast, our Basys 3 implementation evaluated **100% UNFILTERED natural silicon captures** (global ones ratio = **48.83%**), a descriptive result that does not prove randomness or security; validate the custom test implementations and sample prerequisites before claiming NIST compliance (`scripts/audit_uniqueness_filtering.py`).
 
 ---
 
-### Table 3: Machine Learning Modeling Attack Resilience (Section 4.3)
-Evaluated across **100 to 5,000 CRPs** with a **70% Training / 30% Held-Out Testing split**:
+### Modeling-attack results: scope and saved evidence
 
-#### Part A: Protected CBDC-PUF Simulation (With SHA-3 Preprocessing — Paper Table 3 Replication)
-| Algorithm | 100 CRPs | 500 CRPs | 1,000 CRPs | 2,000 CRPs | 5,000 CRPs | **Measured Avg** | **Paper Table 3 Avg** |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **SVM Training Acc** | 100.0% | 100.0% | 100.0% | 100.0% | 100.0% | **100.0%** | 99.9% |
-| **RBFNN Training Acc**| 100.0% | 100.0% | 100.0% | 100.0% | 100.0% | **100.0%** | 99.8% |
-| **GRNN Training Acc** | 100.0% | 100.0% | 100.0% | 100.0% | 100.0% | **100.0%** | 100.0% |
-| **SVM Prediction Acc** | 56.7% | 52.0% | 52.7% | 49.8% | 49.3% | **52.1%** | **50.3%** |
-| **RBFNN Prediction Acc**| 53.3% | 50.7% | 49.0% | 46.8% | 49.7% | **49.9%** | **50.9%** |
-| **GRNN Prediction Acc** | 46.7% | 45.3% | 49.3% | 53.0% | 48.9% | **48.6%** | **50.8%** |
+These are prediction scores, not proofs of immunity. Models/backends and data differ from the paper; the fallback and MLP-labelled RBFNN are not identical implementations of the paper's models. Include per-core bias baselines before interpreting scores. Public challenge preprocessing can be computed by an attacker; failing to learn directly from external bits is not a general security proof.
 
-#### Part B: Architectural End-to-End Workflow Simulation (External Challenge -> Response)
-Simulation demonstrating algorithmic resistance when an attacker observes only external 64-bit challenges:
-| Algorithm | 500 CRPs | 1,000 CRPs | 2,000 CRPs | 5,000 CRPs | **Measured Avg** | Status |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **SVM Prediction Acc** | 52.0% | 50.3% | 48.0% | 50.7% | **50.2%** | **Immune (~50% Guess)** |
-| **RBFNN Prediction Acc**| 47.3% | 53.7% | 52.2% | 54.4% | **51.9%** | **Immune (~50% Guess)** |
-| **GRNN Prediction Acc** | 47.3% | 46.3% | 47.8% | 45.6% | **46.8%** | **Immune (~50% Guess)** |
+#### Hardware: known configurations and core IDs
 
-#### Part C: Unprotected Delay Line Simulation (Ablation Baseline — Equation 4)
-| Algorithm | 100 CRPs | 500 CRPs | 1,000 CRPs | 2,000 CRPs | 5,000 CRPs | **Measured Avg** | Status |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **SVM Prediction Acc** | 86.7% | 91.3% | 94.3% | 96.0% | **96.7%** | **93.0%** | **Broken** |
-| **RBFNN Prediction Acc**| 93.3% | 98.0% | 98.0% | 98.8% | **97.9%** | **97.2%** | **Broken** |
-| **GRNN Prediction Acc** | 76.7% | 82.7% | 83.7% | 90.0% | **91.5%** | **84.9%** | **Broken** |
+Source: `measurements/ml_attack_results.json`, `hardware_silicon`; 70/30 held-out split of majority-labelled observations.
 
-#### Part D: Authentic Basys 3 Silicon CRP Attack (Real Hardware, Known Internal Configs)
-Evaluated on **16,384 real FPGA CRPs** from `measurements/validation_1.csv` where internal 16-bit configs are exposed:
-- **SVM Prediction Acc:** **50.1%** (Average across 500 to 10,000 CRPs)
-- **RBFNN Prediction Acc:** **50.5%**
-- **GRNN Prediction Acc:** **50.0%**
-- **Hardware Finding:** Even when internal 16-bit configurations are directly known, the locked physical routing and physical delay race of the Artix-7 fabric produce balanced responses that prevent linear modeling.
+| CRPs | SVM prediction | RBFNN-labelled prediction | GRNN prediction |
+|---:|---:|---:|---:|
+| 500 | 52.67% | 48.67% | 54.00% |
+| 1000 | 60.00% | 55.00% | 52.67% |
+| 2000 | 63.83% | 51.50% | 50.33% |
+| 5000 | 58.13% | 48.33% | 53.33% |
+| 10000 | 64.47% | 49.20% | 53.93% |
+| Mean | 59.82% | 50.54% | 52.85% |
 
----
+#### Simulation: sha3
+
+Generated delay-model responses, not FPGA measurements. Source: `simulation_table3/sha3`.
+
+| CRPs | SVM prediction | RBFNN-labelled prediction | GRNN prediction |
+|---:|---:|---:|---:|
+| 100 | 63.33% | 43.33% | 43.33% |
+| 500 | 52.00% | 47.33% | 47.33% |
+| 1000 | 50.33% | 53.67% | 46.33% |
+| 2000 | 48.00% | 52.17% | 47.83% |
+| 5000 | 50.67% | 54.40% | 45.60% |
+
+#### Simulation: raw
+
+Generated delay-model responses, not FPGA measurements. Source: `simulation_table3/raw`.
+
+| CRPs | SVM prediction | RBFNN-labelled prediction | GRNN prediction |
+|---:|---:|---:|---:|
+| 100 | 93.33% | 83.33% | 80.00% |
+| 500 | 94.67% | 47.33% | 83.33% |
+| 1000 | 95.67% | 53.67% | 83.67% |
+| 2000 | 97.33% | 47.83% | 83.17% |
+| 5000 | 98.73% | 54.40% | 82.20% |
+
+The additional `--source end-to-end` mode also uses simulated responses. No committed result for that mode is supplied in the current ML JSON, so this report does not quote an unsupported score. Protected physical-board external-challenge evaluation remains future work.
 
 ### Uniqueness, Cross-Core Distance & Methodological Scope
 
@@ -232,7 +231,7 @@ Evaluated on **16,384 real FPGA CRPs** from `measurements/validation_1.csv` wher
 - **True Inter-Device Uniqueness:** Evaluating uniqueness between distinct physical FPGA chips under identical challenges requires measuring multiple physical boards, which is unavailable with a single board setup.
 
 > [!NOTE] Environmental Testing Scope & Limitations
-> Environmental testing across industrial operating temperatures ($-20^\circ\text{C}$ to $+80^\circ\text{C}$) and voltage fluctuations ($\pm 10\%$ VDD) requires a dedicated environmental thermal-voltage test chamber. The measurements reported herein reflect laboratory ambient conditions ($25^\circ\text{C}$, nominal $3.3\text{ V} / 1.0\text{ V}$).
+> Environmental testing across industrial operating temperatures ($-20^\circ\text{C}$ to $+80^\circ\text{C}$) and voltage fluctuations ($\pm 10\%$ VDD) requires a dedicated environmental thermal-voltage test chamber. Tests used laboratory ambient conditions; temperature and supply rails were not independently logged. Power-report defaults are not sensor measurements.
 
 ---
 
@@ -242,13 +241,13 @@ Evaluated on **16,384 real FPGA CRPs** from `measurements/validation_1.csv` wher
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **Configurable Architecture** | Yes | Yes | No | Yes | Yes | Yes | **Yes (64-Core Array)** |
 | **Response Bit Length** | - | 64 | - | 128 | 128 | 128 | **64 (Single-Shot)** |
-| **CRP Space Size** | - | - | $2^{12}$ | $2^{128}$ | $2^{256}$ | $2^{2048}$ | **$2^{1024}$ (NIST SHAKE-256)** |
-| **Uniformity (Randomness)** | $\approx 50\%$ | 49.9% | 49.9% | - | $\approx 50\%$ | 49.6% | **49.56% (Unfiltered: 48.83%)** |
+| **CRP Space Size** | - | - | $2^{12}$ | $2^{128}$ | $2^{256}$ | $2^{2048}$ | **At most $2^{960}$ odd-parity configurations; reachability not established** |
+| **Uniformity (Randomness)** | $\approx 50\%$ | 49.9% | 49.9% | - | $\approx 50\%$ | 49.6% | **48.64% (full frozen captures)** |
 | **Total Power Consumption** | - | - | - | - | - | 0.516 W (XC7A200T) | **0.116 W Vivado Est. (XC7A35T)** |
 | **Controller Core Latency** | - | - | - | - | - | Not reported | **440 ns (44 cycles @ 100MHz)** |
 | **Reliability / Stability** | 99.6% | 79%–88% | 100% | 100% | $\approx 100\%$ | 100% (Post-BCH) | **100.0000% (Voted) / 98.44% (Raw)** |
-| **Cross-Core Distance (HD)** | 49.8% | 44.2% | 49.9% | 49.9% | $\approx 50\%$ | 49.8% | **50.23% (2,016 pairs)** |
-| **ML Prediction Accuracy** | 53.8% | 50%–57% | 60% | $\approx 50\%$ | 60% | 50% | **~50.2% (Immune)** |
+| **Inter-PUF uniqueness** | 49.8% | 44.2% | 49.9% | 49.9% | $\approx 50\%$ | 49.8% | **Not established; cross-core distance reported separately** |
+| **ML Prediction Accuracy** | 53.8% | 50%–57% | 60% | $\approx 50\%$ | 60% | 50% | **See scoped hardware/simulation results above** |
 | **Error Correction Engine** | No | No | No | Yes | No | Yes (BCH) | **Yes (Dodis Code-Offset + BCH)** |
 
 ---
@@ -258,7 +257,7 @@ Evaluated on **16,384 real FPGA CRPs** from `measurements/validation_1.csv` wher
 | Task | Command | Description |
 | :--- | :--- | :--- |
 | **Hardware Rebuild** | `powershell -ExecutionPolicy Bypass -File scripts\rebuild.ps1` | Full synthesis, placement, routing & bitstream generation |
-| **UART Latency Test**| `powershell -ExecutionPolicy Bypass -File scripts\measure_uart_latency.ps1` | Live hardware UART round-trip benchmark (32.25 ms) |
+| **UART Latency Test**| `powershell -ExecutionPolicy Bypass -File scripts\measure_uart_latency.ps1 -Output reports\uart_new.json` | Live hardware UART round-trip benchmark (32.25 ms) |
 | **NIST Min-Entropy** | `.\runtime\python\python.exe scripts\audit_silicon_entropy.py` | SP 800-90B Most Common Value min-entropy assessment |
 | **Uniqueness & Filter**| `.\runtime\python\python.exe scripts\audit_uniqueness_filtering.py` | Evaluates cross-core distance and candidate pre-filtering |
 | **Helper Leakage** | `.\runtime\python\python.exe scripts\audit_helper_leakage.py` | Demonstrates 16-candidate exploit on naive parity helper data |

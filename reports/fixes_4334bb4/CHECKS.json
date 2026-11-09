@@ -1,0 +1,11 @@
+{
+  "all_python_syntax": "PASS",
+  "powershell_syntax": "PASS",
+  "codec_operations_unchanged": "PASS",
+  "cli_metadata_and_reconstruction": "PASS",
+  "duplicate_status_incomplete_configuration_rejection": "PASS",
+  "full_hardware_ml_scores_match_saved": true,
+  "nist_scores_match_saved": true,
+  "selected_bitstream_unchanged": true,
+  "hardware_programming_performed": false
+}

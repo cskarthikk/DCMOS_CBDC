@@ -1,0 +1,18 @@
+usage: crypto_ml_attack.py [-h]
+                           [--source {both,hardware,simulation,end-to-end,all}]
+                           [--mode {both,sha3,raw}] [--csv CSV]
+                           [--output OUTPUT]
+
+CBDC-PUF Machine Learning Modeling Attack Suite
+
+options:
+  -h, --help            show this help message and exit
+  --source {both,hardware,simulation,end-to-end,all}
+                        Data source: 'hardware', 'simulation', 'end-to-end',
+                        'both' (hw+sim), or 'all' (all 3)
+  --mode {both,sha3,raw}
+                        Simulation mode: 'sha3' (Table 3 protected), 'raw'
+                        (unprotected ablation), 'both'
+  --csv CSV             Path to hardware validation CSV (default:
+                        measurements/validation_1.csv)
+  --output OUTPUT       Optional output path for JSON report

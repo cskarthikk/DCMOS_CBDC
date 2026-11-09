@@ -1,0 +1,13 @@
+{
+  "num_patterns": 256,
+  "single_trial": {
+    "raw_ber_pct": 2.28271484375,
+    "legacy_key_agreement_pct": 99.609375,
+    "code_offset_key_agreement_pct": 98.4375
+  },
+  "majority_voting": {
+    "raw_ber_pct": 1.11083984375,
+    "legacy_key_agreement_pct": 100.0,
+    "code_offset_key_agreement_pct": 100.0
+  }
+}

@@ -1,0 +1,6 @@
+Testing BCH(31, 16, 3) Codec and 64-core Multi-Block Fuzzy Extractor...
+PASS: 500 / 500 64-bit multi-block BCH(31, 16, 3) tests passed 100%!
+Testing code-offset enrollment/reconstruction...
+PASS: 500 / 500 code-offset reconstruction tests passed (256-bit output; entropy not assessed)!
+PASS: SHA-3 generated 64 odd-parity configurations (first 4: ['0xbf71', '0xa02c', '0x3057', '0x723e'])
+Reconstruction and configuration self-tests passed for 64 cores; secrecy not assessed.

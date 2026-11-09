@@ -1,0 +1,25 @@
+
+Loading physical validation captures...
+==================================================================================
+   64-CORE HARDWARE VALIDATION SWEEP: LEGACY ECC vs DODIS CODE-OFFSET
+==================================================================================
+Dataset 1 (Enrollment)       : validation_1.csv (256 patterns x 64 cores x 20 trials)
+Dataset 2 (Verification)     : validation_2.csv (256 patterns x 64 cores x 20 trials)
+Total Physical Patterns      : 256 patterns (16,384 physical bits per capture)
+----------------------------------------------------------------------------------
+   ERROR-CORRECTION PERFORMANCE COMPARISON
+----------------------------------------------------------------------------------
+Mode 1: Single Trial Raw (No Majority Voting)
+  Raw Silicon BER            : 2.2827% (374 bit flips / 16384)
+  Legacy Parity Scheme       : Key Agreement = 99.61% (WER = 0.39%)
+  Dodis Code-Offset Extractor: Key Agreement = 98.44% (WER = 1.56%)
+Mode 2: 20-Trial Majority Voting (Temporal Filtered)
+  Raw Silicon BER            : 1.1108% (182 residual bit flips)
+  Legacy Parity Scheme       : Key Agreement = 100.0000% (WER = 0.0000%)
+  Dodis Code-Offset Extractor: Key Agreement = 100.0000% (WER = 0.0000%)
+----------------------------------------------------------------------------------
+Observed voted code-offset recovery: 256/256 (100.0000%).
+Scope: two 31-bit response blocks; cores 62 and 63 excluded. Ties vote one.
+This measures reconstruction, not conditional entropy or complete master-key security.
+==================================================================================
+Saved JSON report to: reports\fixes_4334bb4\correction.json

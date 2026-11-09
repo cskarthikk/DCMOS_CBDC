@@ -1,0 +1,27 @@
+==================================================================================
+   NIST SP 800-90B PHYSICAL SILICON MIN-ENTROPY ASSESSMENT (BASYS 3)
+==================================================================================
+Dataset Analyzed             : validation_1.csv (Trial 1, 256 distinct challenges)
+Total Physical Cores         : 64 Artix-7 CBDC-PUF cores
+Mean Per-Core Min-Entropy    : 0.5748 bits/bit (Ideal: 1.0000)
+Median Per-Core Min-Entropy  : 0.6077 bits/bit
+Entropy Range across Cores   : [0.1113 bits (Core 61) .. 0.9888 bits (Core 62)]
+----------------------------------------------------------------------------------
+   31-BIT PUF BLOCK ENTROPY & DODIS HELPER LEAKAGE BOUNDS
+----------------------------------------------------------------------------------
+Block 0 (Cores 0..30) Min-Entropy  : 19.22 bits (Ideal: 31.00 bits)
+Block 1 (Cores 31..61) Min-Entropy : 15.91 bits (Ideal: 31.00 bits)
+BCH(31, 16, 3) Helper Parity Size  : 15.00 bits per block
+Retained Secrecy (Block 0)         : 4.22 bits after public helper data
+Retained Secrecy (Block 1)         : 0.91 bits after public helper data
+Effective Secrecy Per Challenge    : 5.14 bits per 64-bit response
+----------------------------------------------------------------------------------
+   CRYPTOGRAPHIC KEY ACCUMULATION REQUIREMENTS (LEFTOVER HASH LEMMA)
+----------------------------------------------------------------------------------
+Challenges Needed for 128-bit Key  : 25 challenges (1600 physical bits)
+Challenges Needed for 256-bit Key  : 50 challenges (3200 physical bits)
+Academic Takeaway                  : Because physical silicon exhibits bias (Core 61 = 92% ones),
+                                     individual cores do not yield 1.0 bit/bit. Retaining a true
+                                     256-bit cryptographic security margin requires accumulating
+                                     across 50 independent challenges through SHA-3 / SHAKE-256.
+==================================================================================

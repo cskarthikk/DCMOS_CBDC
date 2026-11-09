@@ -1,0 +1,31 @@
+====================================================================================
+   NIST SP 800-90B PHYSICAL SILICON MIN-ENTROPY ASSESSMENT (BASYS 3)
+====================================================================================
+Dataset Analyzed             : validation_1.csv (Trial 1, 256 distinct challenges)
+Total Physical Cores         : 64 Artix-7 CBDC-PUF cores
+Raw Sample Min-Entropy       : Mean = 0.5748 bits/core (Median: 0.6077)
+NIST 99% Conf. Min-Entropy   : Mean = 0.4234 bits/core (Median: 0.4484)
+Per-Core Range (NIST 99%)    : [0.0468 bits (Core 61) .. 0.7746 bits (Core 62)]
+------------------------------------------------------------------------------------
+   31-BIT BLOCK ENTROPY & DODIS HELPER LEAKAGE (UNDER INDEPENDENCE ASSUMPTION)
+------------------------------------------------------------------------------------
+Block 0 (Cores 0..30)  : Raw Sum = 19.22 bits | NIST 99% Sum = 14.31 bits (Ideal: 31.0)
+Block 1 (Cores 31..61) : Raw Sum = 15.91 bits | NIST 99% Sum = 11.52 bits (Ideal: 31.0)
+BCH(31, 16, 3) Helper Parity : 15.00 bits published per block (Dodis Lemma 1 leakage)
+Model residual (Raw) : Block 0 = 4.22 bits | Block 1 = 0.91 bits -> Total: 5.14 bits/ch
+Model residual (MCV): Block 0 = 0.00 bits | Block 1 = 0.00 bits -> Total: 0.00 bits/ch
+------------------------------------------------------------------------------------
+   SCIENTIFIC EVALUATION & CRYPTOGRAPHIC LIMITATIONS
+------------------------------------------------------------------------------------
+1. INDEPENDENCE CAVEAT: Summing marginal core entropies assumes spatial independence.
+   Because real FPGA cores share power distribution networks and die substrate,
+   joint min-entropy cannot be inferred by simply adding marginal estimates.
+2. LIVE DEMO REALITY: The live demo (`crypto_demo.ps1`) uses 8 challenges,
+   accumulating 16 nominal 16-bit random secrets (256 nominal key bits).
+   This serves as an operational proof-of-concept for the Dodis code-offset
+   protocol, but does NOT mathematically prove 256 bits of independent physical
+   silicon entropy.
+3. CONCLUSION: The code-offset scheme eliminates the direct 16-candidate exploit
+   present in the legacy parity scheme. However, rigorous quantification of retained
+   physical entropy and inter-challenge correlation remains an open research topic.
+====================================================================================

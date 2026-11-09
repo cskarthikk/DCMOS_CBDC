@@ -1,0 +1,25 @@
+ML Engine: Pure-Python Standard Library Engine
+
+====================================================================================
+   EVALUATION 1: AUTHENTIC BASYS 3 SILICON CRP ATTACK (Internal Config -> Silicon)
+   Data Source: measurements/validation_1.csv (16,384 Real FPGA CRPs across 64 Cores)
+   Tests attacker ability to model physical delay race when internal configs are known
+====================================================================================
+Loaded 16384 real FPGA CRPs across 64 physical cores (80-bit feature vector: 16 challenge + 64 core ID)
+Aggregate Silicon Ones Ratio: 48.78% (Ideal: 50.0%)
+  N =   500 Real CRPs (3.00s) -> SVM:  52.7% | RBFNN:  48.7% | GRNN:  54.0%
+  N =  1000 Real CRPs (6.17s) -> SVM:  60.0% | RBFNN:  55.0% | GRNN:  52.7%
+  N =  2000 Real CRPs (13.07s) -> SVM:  63.8% | RBFNN:  51.5% | GRNN:  50.3%
+  N =  5000 Real CRPs (34.27s) -> SVM:  58.1% | RBFNN:  48.3% | GRNN:  53.3%
+  N = 10000 Real CRPs (65.21s) -> SVM:  64.5% | RBFNN:  49.2% | GRNN:  53.9%
+------------------------------------------------------------------------------------
+   AUTHENTIC HARDWARE MODELING ATTACK PREDICTION ACCURACY (Ideal: 50.0%)
+------------------------------------------------------------------------------------
+Model      |    500 |   1000 |   2000 |   5000 |  10000 | Averaged
+------------------------------------------------------------------
+SVM        |  52.7% |  60.0% |  63.8% |  58.1% |  64.5% |   59.8%
+RBFNN      |  48.7% |  55.0% |  51.5% |  48.3% |  49.2% |   50.5%
+GRNN       |  54.0% |  52.7% |  50.3% |  53.3% |  53.9% |   52.9%
+====================================================================================
+
+Report successfully saved to: reports\fixes_4334bb4\ml_hardware.json

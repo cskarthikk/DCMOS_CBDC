@@ -1,0 +1,38 @@
+Reading physical silicon data from: validation_1.csv (Trial 1 distinct challenges)...
+Loaded 16,384 physical bits -> Partitioned into 128 bitstreams of length n=128
+
+========================================================================================
+   NIST SP 800-22 STATISTICAL TEST SUITE (Liu et al. Section 4.1 & Table 2)
+   Evaluating 128 Physical Silicon Bitstreams (Bitstream Length n = 128)
+   Passing Threshold: p-value >= 0.01 (99% Statistical Confidence)
+========================================================================================
+
+  [PASS] Frequency (Monobit)                  | Avg p: 0.5236 | Pass Rate:  98.4% (0.00s)
+  [PASS] Block Frequency (BF, M=16)           | Avg p: 0.5467 | Pass Rate: 100.0% (0.00s)
+  [PASS] Runs                                 | Avg p: 0.4635 | Pass Rate:  98.4% (0.00s)
+  [PASS] Longest Run of Ones (LRO)            | Avg p: 0.5306 | Pass Rate: 100.0% (0.00s)
+  [PASS] Discrete Fourier (FFT)               | Avg p: 0.4615 | Pass Rate:  98.4% (0.30s)
+  [PASS] Non-overlapping Template (NOT, m=5)  | Avg p: 0.4930 | Pass Rate:  98.4% (0.00s)
+  [PASS] Serial (m=4)                         | Avg p: 0.4576 | Pass Rate:  99.2% (0.00s)
+  [PASS] Approximate Entropy (AppEn, m=4)     | Avg p: 0.3934 | Pass Rate:  96.1% (0.01s)
+  [PASS] Cumulative Sums (CumSums)            | Avg p: 0.5581 | Pass Rate:  98.4% (0.00s)
+
+================================================================================================
+      REPLICATION RESULTS: TABLE 2 (NIST Test Results of PUF Responses)
+================================================================================================
+NIST Test Item                      | Length (n) | Measured Avg-p | Measured Pass % | Paper Pass %
+--------------------------------------------------------------------------------------------------
+Frequency (Monobit)                 | 128        | 0.5236         |           98.4% |       100.0%
+Block Frequency (BF, M=16)          | 128        | 0.5467         |          100.0% |       100.0%
+Runs                                | 128        | 0.4635         |           98.4% |        99.6%
+Longest Run of Ones (LRO)           | 128        | 0.5306         |          100.0% |       100.0%
+Discrete Fourier (FFT)              | 128        | 0.4615         |           98.4% |        98.4%
+Non-overlapping Template (NOT, m=5) | 128        | 0.4930         |           98.4% |        92.7%
+Serial (m=4)                        | 128        | 0.4576         |           99.2% |        96.4%
+Approximate Entropy (AppEn, m=4)    | 128        | 0.3934         |           96.1% |        96.4%
+Cumulative Sums (CumSums)           | 128        | 0.5581         |           98.4% |       100.0%
+================================================================================================
+Per-stream threshold: p-value >= 0.01. A pass is not a 99% probability of randomness or a security certificate.
+These are custom-suite descriptive results; validate test prerequisites and reference implementations before claiming NIST compliance.
+
+NIST report saved to: reports\fixes_4334bb4\nist.json

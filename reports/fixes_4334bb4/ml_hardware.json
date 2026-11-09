@@ -1,0 +1,74 @@
+{
+  "hardware_silicon": {
+    "500": {
+      "SVM": {
+        "train_accuracy": 74.0,
+        "pred_accuracy": 52.666666666666664
+      },
+      "RBFNN": {
+        "train_accuracy": 48.857142857142854,
+        "pred_accuracy": 48.66666666666667
+      },
+      "GRNN": {
+        "train_accuracy": 100.0,
+        "pred_accuracy": 54.0
+      }
+    },
+    "1000": {
+      "SVM": {
+        "train_accuracy": 64.71428571428571,
+        "pred_accuracy": 60.0
+      },
+      "RBFNN": {
+        "train_accuracy": 51.0,
+        "pred_accuracy": 55.00000000000001
+      },
+      "GRNN": {
+        "train_accuracy": 79.42857142857143,
+        "pred_accuracy": 52.666666666666664
+      }
+    },
+    "2000": {
+      "SVM": {
+        "train_accuracy": 67.35714285714286,
+        "pred_accuracy": 63.83333333333333
+      },
+      "RBFNN": {
+        "train_accuracy": 47.42857142857143,
+        "pred_accuracy": 51.5
+      },
+      "GRNN": {
+        "train_accuracy": 64.64285714285715,
+        "pred_accuracy": 50.33333333333333
+      }
+    },
+    "5000": {
+      "SVM": {
+        "train_accuracy": 63.51428571428571,
+        "pred_accuracy": 58.13333333333334
+      },
+      "RBFNN": {
+        "train_accuracy": 49.08571428571429,
+        "pred_accuracy": 48.333333333333336
+      },
+      "GRNN": {
+        "train_accuracy": 57.885714285714286,
+        "pred_accuracy": 53.333333333333336
+      }
+    },
+    "10000": {
+      "SVM": {
+        "train_accuracy": 65.04285714285714,
+        "pred_accuracy": 64.46666666666667
+      },
+      "RBFNN": {
+        "train_accuracy": 48.528571428571425,
+        "pred_accuracy": 49.2
+      },
+      "GRNN": {
+        "train_accuracy": 54.82857142857143,
+        "pred_accuracy": 53.93333333333333
+      }
+    }
+  }
+}

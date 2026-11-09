@@ -139,10 +139,10 @@ try {
             $enrollData = $enrollRaw | ConvertFrom-Json
             
             Write-Host "  Master Key Length       : $($enrollData.key_bits) bits"
-            Write-Host "  Guaranteed Min-Entropy  : $($enrollData.entropy_bits) bits (Full Cryptographic Strength)" -ForegroundColor Green
+            Write-Host "  Output Length          : $($enrollData.output_bits) bits; retained entropy not established" -ForegroundColor Green
             Write-Host "  Master Secret Key (Hex) : $($enrollData.master_key_hex)"
             Write-Host "  Helper Data Blocks (31b): $($enrollData.helpers_count) published helper values"
-            Write-Host "  Attack Space Complexity : 2^$($enrollData.entropy_bits) search space (Immune to helper leakage)" -ForegroundColor Green
+            Write-Host "  Security Scope         : Proof of operation; conditional PUF entropy remains unmeasured" -ForegroundColor Green
             Write-Host ""
             
             Write-Host "[STEP 4] Live Hardware Authentication Query (Independent Read)" -ForegroundColor Yellow
@@ -173,9 +173,9 @@ try {
             if ($recData.success -and $recData.reconstructed_key_hex -eq $enrollData.master_key_hex) {
                 Write-Host ""
                 Write-Host "========================================================================" -ForegroundColor Green
-                Write-Host "  AUTHENTICATION SUCCESSFUL: 100% BIT-ACCURATE $KeyBits-BIT MASTER KEY!      " -ForegroundColor Green
+                Write-Host "  RECONSTRUCTION SUCCESSFUL: MATCHED $KeyBits-BIT MASTER KEY!      " -ForegroundColor Green
                 Write-Host "  Security Model : Dodis et al. Code-Offset Fuzzy Extractor             " -ForegroundColor Green
-                Write-Host "  Min-Entropy    : $KeyBits bits (Cryptographically Provable Secrecy)    " -ForegroundColor Green
+                Write-Host "  Retained entropy: Not established by this reconstruction test       " -ForegroundColor Green
                 Write-Host "  Session Key    : $($recData.reconstructed_key_hex)                    " -ForegroundColor Green
                 Write-Host "========================================================================" -ForegroundColor Green
             } else {
@@ -312,11 +312,11 @@ try {
         if ($recData.reconstruction_success -and $recData.reconstructed_key_hex -eq $enrollData.reference_key_hex) {
             Write-Host ""
             Write-Host "========================================================================" -ForegroundColor Green
-            Write-Host "  AUTHENTICATION SUCCESSFUL: 100% BIT-ACCURATE KEY RECONSTRUCTED!       " -ForegroundColor Green
+            Write-Host "  RECONSTRUCTION SUCCESSFUL: MATCHED KEY RECONSTRUCTED!       " -ForegroundColor Green
             $hasher = [System.Security.Cryptography.SHA256]::Create()
             $keyBytes = [System.BitConverter]::GetBytes([uint16]$ref16)
             $sessionKey = [System.BitConverter]::ToString($hasher.ComputeHash($keyBytes)).Replace('-', '')
-            Write-Host "  Derived 256-bit AES Master Key : $sessionKey" -ForegroundColor Green
+            Write-Host "  Derived 256-bit hash output : $sessionKey" -ForegroundColor Green
             Write-Host "========================================================================" -ForegroundColor Green
         } else {
             Write-Host ""

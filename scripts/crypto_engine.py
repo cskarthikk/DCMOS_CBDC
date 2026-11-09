@@ -156,28 +156,14 @@ class BCH31_16_3:
 
 
 class DodisCodeOffsetFuzzyExtractor:
-    """Cryptographically Secure Code-Offset Fuzzy Extractor (Dodis et al. 2004/2008).
-    
-    In the Code-Offset construction:
-      Enrollment:
-        1. A uniform random secret S in {0, 1}^16 is chosen.
-        2. A BCH(31, 16, 3) codeword C = Encode(S) in {0, 1}^31 is computed.
-        3. The 31-bit PUF response R from silicon is masked with C:
-             Helper Data W = R ^ C (length 31 bits).
-        4. W is published publicly. S remains confidential with full 16-bit min-entropy.
-        
-      Reconstruction:
-        1. Silicon produces noisy response R' = R ^ e, where wt(e) <= 3.
-        2. Receiver computes C' = R' ^ W = (R ^ e) ^ (R ^ C) = C ^ e.
-        3. Berlekamp-Massey + Chien search decodes C' to recover the exact secret S.
-        
-    Min-Entropy Security Guarantee:
-      By Dodis et al. Lemma 1 (Secure Sketch):
-        H_inf(R | W) >= H_inf(R) - (n - k) = 31 - (31 - 16) = 16 bits.
-      The helper data W reveals at most 15 bits of information about R, leaving
-      the secret S with full 16 bits of independent min-entropy (2^16 = 65,536 states).
+    """BCH code-offset reconstruction of a random 16-bit enrollment secret.
+
+    Helper W = R XOR Encode(S) permits reconstruction from a noisy 31-bit R.
+    Secrecy depends on the conditional entropy of R given public information
+    and W; choosing S randomly does not guarantee secrecy after W is public.
+    Codec success is not an entropy or secure-key-strength assessment.
     """
-    
+
     @staticmethod
     def generate(puf_response31: int, secret16: Optional[int] = None) -> Tuple[int, int]:
         """Generate (secret16, helper_data31) from a 31-bit PUF response.
@@ -214,23 +200,15 @@ class DodisCodeOffsetFuzzyExtractor:
 
 
 class SecureFuzzyExtractor:
-    """Multi-Challenge Secure Key Extractor for 64-core Basys 3 PUF Array.
-    
-    Partitions each 64-bit Basys 3 physical challenge response into two 31-bit blocks:
-      - Block 0: Cores 0..30 (31 bits) -> 16-bit secret S_0
-      - Block 1: Cores 31..61 (31 bits) -> 16-bit secret S_1
-      - Cores 62..63: Reserved / Silicon parity
-      
-    Entropy Scaling:
-      - 1 Challenge (64 cores) :  32 bits secret entropy (2^32 search space)
-      - 4 Challenges (64 cores): 128 bits secret entropy (2^128, NIST AES-128 security)
-      - 8 Challenges (64 cores): 256 bits secret entropy (2^256, AES-256 / SHA-256 security)
-      
-    Randomness Extraction:
-      Applies SHA-256 / SHAKE-256 over concatenated secrets S_0 || S_1 || ... || S_{2k-1}
-      to produce an information-theoretically secure, uniform cryptographic key.
+    """Multi-challenge code-offset reconstruction and hash-output demonstration.
+
+    Two 31-bit blocks use cores 0..61; cores 62..63 are excluded.
+    The output-bit setting determines a nominal secret budget and output length,
+    not measured physical min-entropy. Joint/core/challenge dependence and public
+    helper leakage must be assessed before assigning cryptographic strength.
+    Class and CLI names are retained for compatibility.
     """
-    
+
     @staticmethod
     def extract_blocks64(response64: int) -> Tuple[int, int]:
         """Extract two 31-bit blocks from a 64-bit response."""
@@ -273,7 +251,7 @@ class SecureFuzzyExtractor:
                     secrets_list.append(s_val)
                     sec_idx += 1
                     
-        # Cryptographic Randomness Extraction (Leftover Hash Lemma)
+        # Hash-based derivation; no information-theoretic extraction claim
         secret_bytes = bytearray()
         for s in secrets_list:
             secret_bytes.extend(s.to_bytes(2, 'big'))
@@ -333,10 +311,10 @@ class LegacyParityFuzzyExtractor:
     
     WARNING: In this legacy scheme, publishing the 15-bit parity reveals all but 1 bit
     of uncertainty per 16-bit block (dim(ker) = 1). Across 4 blocks, only 16 candidate
-    keys remain (4 bits of min-entropy).
+    candidates remain (at most 4 bits of uncertainty).
     
     Use this class ONLY for verifying the raw channel error-correction capability
-    (WER = 0%) matching Liu et al. Section 4.1. For secure key agreement, use SecureFuzzyExtractor.
+    (WER = 0%) matching Liu et al. Section 4.1. Code-offset reconstruction is available in SecureFuzzyExtractor; assess entropy separately.
     """
     
     @staticmethod
@@ -440,10 +418,10 @@ if __name__ == '__main__':
         
     print('PASS: 500 / 500 64-bit multi-block BCH(31, 16, 3) tests passed 100%!')
     
-    # Test Cryptographically Secure Dodis Code-Offset Extractor (500 trials)
-    print('Testing Cryptographically Secure Dodis Code-Offset Fuzzy Extractor...')
+    # Test code-offset reconstruction (500 trials)
+    print('Testing code-offset enrollment/reconstruction...')
     for _ in range(500):
-        # 8 challenges (16 blocks of 31 bits = 256 bits of true secret entropy)
+        # 8 challenges (16 nominal 16-bit secrets; actual retained entropy unmeasured)
         ref_responses = [random.getrandbits(64) for _ in range(8)]
         master_key, helpers, secrets_list = SecureFuzzyExtractor.generate(ref_responses, target_key_bits=256)
         
@@ -463,7 +441,7 @@ if __name__ == '__main__':
         assert ok, "Secure reconstruction failed!"
         assert rec_key == master_key, "Reconstructed key does not match master key!"
         
-    print('PASS: 500 / 500 256-bit Secure Code-Offset Fuzzy Extractor tests passed (100% agreement, 256-bit entropy)!')
+    print('PASS: 500 / 500 code-offset reconstruction tests passed (256-bit output; entropy not assessed)!')
     
     # Test 64-core SHA-3 challenge generator
     cfgs = SHA3ChallengePreprocessor.hash_challenge(b'Basys3_64Core_Experiment', num_cores=64)
@@ -471,4 +449,4 @@ if __name__ == '__main__':
     for c in cfgs:
         assert bin(c).count('1') % 2 == 1, 'All 64 configurations must have odd parity!'
     print(f'PASS: SHA-3 generated 64 odd-parity configurations (first 4: {[hex(c) for c in cfgs[:4]]})')
-    print('All cryptographic modules verified successfully for 64 cores.')
+    print('Reconstruction and configuration self-tests passed for 64 cores; secrecy not assessed.')

@@ -9,8 +9,8 @@ Methodology:
      Evaluates both the raw sample estimate H_inf and the NIST 99% confidence
      upper-bound adjusted estimate H_inf,99%.
   2. Block Min-Entropy for 31-bit PUF segments (Blocks 0 and 1).
-     CRITICAL ACADEMIC NOTE: Summing marginal entropies across cores represents
-     an upper bound that assumes mutual spatial independence among cores.
+     CRITICAL ACADEMIC NOTE: Summing marginal entropies across cores is an
+     independence-model estimate, not a proven joint entropy bound.
   3. Secrecy Retention after publishing 15-bit BCH(31, 16, 3) helper data (Dodis Lemma 1).
   4. Analysis of live demo key derivation vs theoretical joint entropy bounds.
 
@@ -70,7 +70,7 @@ def audit_silicon_entropy(csv_path: Path = None):
         nist_h = -math.log2(p_u) if p_u > 0 else 0.0
         nist_entropies.append(nist_h)
 
-    # 3. Block-Level Min-Entropy under Independence Assumption (Upper Bound)
+    # 3. Block-level independence-model estimates (not proven joint bounds)
     block0_raw = sum(raw_entropies[0:31])
     block1_raw = sum(raw_entropies[31:62])
     block0_nist = sum(nist_entropies[0:31])
@@ -100,15 +100,15 @@ def audit_silicon_entropy(csv_path: Path = None):
     print("-" * 84)
     print(f"Block 0 (Cores 0..30)  : Raw Sum = {block0_raw:.2f} bits | NIST 99% Sum = {block0_nist:.2f} bits (Ideal: 31.0)")
     print(f"Block 1 (Cores 31..61) : Raw Sum = {block1_raw:.2f} bits | NIST 99% Sum = {block1_nist:.2f} bits (Ideal: 31.0)")
-    print(f"BCH(31, 16, 3) Helper Parity : 15.00 bits published per block (Dodis Lemma 1 leakage)")
-    print(f"Retained Secrecy (Raw) : Block 0 = {retained_b0_raw:.2f} bits | Block 1 = {retained_b1_raw:.2f} bits -> Total: {retained_raw_per_ch:.2f} bits/ch")
-    print(f"Retained Secrecy (NIST): Block 0 = {retained_b0_nist:.2f} bits | Block 1 = {retained_b1_nist:.2f} bits -> Total: {retained_nist_per_ch:.2f} bits/ch")
+    print(f"BCH redundancy: 15 bits/block; the public code-offset helper itself is 31 bits.")
+    print(f"Model residual (Raw) : Block 0 = {retained_b0_raw:.2f} bits | Block 1 = {retained_b1_raw:.2f} bits -> Total: {retained_raw_per_ch:.2f} bits/ch")
+    print(f"Model residual (MCV): Block 0 = {retained_b0_nist:.2f} bits | Block 1 = {retained_b1_nist:.2f} bits -> Total: {retained_nist_per_ch:.2f} bits/ch")
     print("-" * 84)
     print("   SCIENTIFIC EVALUATION & CRYPTOGRAPHIC LIMITATIONS")
     print("-" * 84)
     print("1. INDEPENDENCE CAVEAT: Summing marginal core entropies assumes spatial independence.")
     print("   Because real FPGA cores share power distribution networks and die substrate,")
-    print("   true joint min-entropy H_inf(C0..C30) may be less than the marginal sum.")
+    print("   joint min-entropy cannot be inferred by simply adding marginal estimates.")
     print("2. LIVE DEMO REALITY: The live demo (`crypto_demo.ps1`) uses 8 challenges,")
     print("   accumulating 16 nominal 16-bit random secrets (256 nominal key bits).")
     print("   This serves as an operational proof-of-concept for the Dodis code-offset")
