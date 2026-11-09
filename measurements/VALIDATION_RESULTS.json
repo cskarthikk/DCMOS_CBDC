@@ -22,12 +22,12 @@
   ],
   "source_captures": [
     {
-      "path": "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\array64_clock_profile_2026-11-09\\runs\\run_5f39ce9b7e164e1ca23263e278aa4265\\validation_1.csv",
-      "sha256": "0877d724c8b480f5cd8774cbe3e1e8c89d1b58fa9cabf0ed7aa33478ad1a07d4"
+      "path": "measurements/validation_1.csv",
+      "sha256": "e40ad1888270a57d181c1f86be19cc05d822b38faa7880d0d46e5ca616e717ce"
     },
     {
-      "path": "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\array64_clock_profile_2026-11-09\\runs\\run_5f39ce9b7e164e1ca23263e278aa4265\\validation_2.csv",
-      "sha256": "f4ce7c425520610e56431fc6f9eb529b8a0c12ecc1d0fd880e9f8eda83c2a083"
+      "path": "measurements/validation_2.csv",
+      "sha256": "e2d35ca992defbf98cdcaa2b3079410e04e65e937ddb1f2a324a261f9bbc8306"
     }
   ],
   "limitation": "All raw bits, no mask or error correction. Majority agreement is measured across these two captures only; bit balance is not entropy or security certification."

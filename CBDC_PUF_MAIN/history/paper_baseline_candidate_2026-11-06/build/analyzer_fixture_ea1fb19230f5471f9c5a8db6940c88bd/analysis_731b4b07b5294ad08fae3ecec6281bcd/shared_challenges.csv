@@ -1,3 +1,0 @@
-"challenge_hex","reference_trials","reference_ones","reference_majority","candidate_trials","candidate_ones","candidate_majority","comparable","majority_changed"
-"0001","20","20","1","4","2","tie","False",""
-"0002","20","20","1","4","4","1","True","False"

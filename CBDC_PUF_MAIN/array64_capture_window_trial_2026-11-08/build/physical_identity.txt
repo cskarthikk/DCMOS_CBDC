@@ -1,4 +1,0 @@
-Checked constrained primitives: 6656
-Checked PUF signal routes: 6272
-Changed endpoint/PIP fingerprints: 0
-Routes without external PIPs checked by route text: 0

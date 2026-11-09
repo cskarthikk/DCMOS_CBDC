@@ -1,7 +1,0 @@
-{
-    "utc":  "2026-11-06T18:13:26.9936889Z",
-    "operator_confirmed_loaded_file":  "C:\\BTech\\Semester_5\\DCMOS\\Project\\continuation_single_puf_2026-11-06\\reference\\best_so_far_single_puf_2026-11-04\\build_m1\\pulled_single\\cbdc_pulled_single.bit",
-    "note":  "Operator confirmation only; not independent FPGA firmware identification.",
-    "port":  "COM5",
-    "conditions":  "Power-cycle history, ambient temperature and supply conditions not recorded."
-}
