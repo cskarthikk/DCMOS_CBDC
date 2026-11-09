@@ -1,0 +1,11 @@
+# Set default behavior to automatically normalize line endings
+* text=auto eol=lf
+
+# Explicitly declare binary files that must not be modified
+*.bit binary
+*.dcp binary
+*.pdf binary
+*.png binary
+*.zip binary
+*.pyc binary
+

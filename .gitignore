@@ -1,11 +1,19 @@
-/build_sim/
-/build_m1/
-/.Xil/
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Vivado / EDA temporary and journal files
 *.jou
 *.log
 *.pb
-/xsim.dir/
+*.dmp
+.Xil/
+xsim.dir/
 
+# Hardware simulation temporary builds
 /CBDC_PUF_MAIN/reports/feasibility_128_2026-11-07/model128.vvp
-__pycache__/
-*.pyc
+
+# OS generated files
+.DS_Store
+Thumbs.db

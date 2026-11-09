@@ -1,8 +1,0 @@
-{
-  "change": "Resolve default output path after parameter binding; add offline VerifyOnly",
-  "file": "scripts/collect_candidate.ps1",
-  "previous_sha256": "f25c1abb1643fda7cfe5f5eaa18cfa90b89326d340f731ed70c35a9ac5d91667",
-  "current_sha256": "0CFCBB4017901FAF049DF9C544DEC67EFF03C5E1D8D29FB8A22B7CF8451D285F",
-  "validation": "Windows PowerShell: default and explicit output paths passed VerifyOnly; no serial access",
-  "bitstream_changed": false
-}

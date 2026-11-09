@@ -155,3 +155,4 @@ Evaluated across **100 to 5,000 physical CRPs** with a **70% Training / 30% Held
 | **ML Modeling Attack** | `.\runtime\python\python.exe scripts\crypto_ml_attack.py --mode both` | Replicates Table 3: trains SVM, RBFNN, GRNN on 100–5,000 CRPs |
 | **NIST Test Suite** | `.\runtime\python\python.exe scripts\crypto_nist_test.py` | Replicates Table 2: runs 9 NIST SP 800-22 tests on silicon bitstream |
 | **Unstable Core Map** | `.\runtime\python\python.exe scripts\crypto_unstable_bits.py` | Replicates Figures 5, 6, 7: identifies noisy cores and stability rate |
+

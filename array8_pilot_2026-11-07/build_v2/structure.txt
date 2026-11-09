@@ -1,8 +1,0 @@
-Core 0: 4 FFs (2 arbiters and 2 edge locks).
-Core 1: 4 FFs (2 arbiters and 2 edge locks).
-Core 2: 4 FFs (2 arbiters and 2 edge locks).
-Core 3: 4 FFs (2 arbiters and 2 edge locks).
-Core 4: 4 FFs (2 arbiters and 2 edge locks).
-Core 5: 4 FFs (2 arbiters and 2 edge locks).
-Core 6: 4 FFs (2 arbiters and 2 edge locks).
-Core 7: 4 FFs (2 arbiters and 2 edge locks).
