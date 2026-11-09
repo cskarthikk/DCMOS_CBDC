@@ -1,0 +1,66 @@
+{
+  "paired_internal_arcs": 64,
+  "unpaired_internal_arcs": [],
+  "nonzero_slow_max_skew_arcs": 0,
+  "nonzero_fast_min_skew_arcs": 0,
+  "largest_absolute_slow_max_skew_ps": 0.0,
+  "launch_and_arbiter_arcs": [
+    {
+      "net": "u_puf/clr",
+      "from_pin": "u_puf/u_ctrl/puf_clr_o_reg/Q",
+      "to_pin": "u_puf/u_core/u_arbiter_dff/CLR",
+      "slow_max_ps": "1019",
+      "fast_min_ps": "371"
+    },
+    {
+      "net": "u_puf/excite",
+      "from_pin": "u_puf/u_ctrl/puf_excite_o_reg/Q",
+      "to_pin": "u_puf/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+      "slow_max_ps": "1480",
+      "fast_min_ps": "549"
+    },
+    {
+      "net": "u_puf/excite",
+      "from_pin": "u_puf/u_ctrl/puf_excite_o_reg/Q",
+      "to_pin": "u_puf/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+      "slow_max_ps": "1313",
+      "fast_min_ps": "495"
+    },
+    {
+      "net": "u_puf/latch",
+      "from_pin": "u_puf/u_ctrl/puf_latch_o_reg/Q",
+      "to_pin": "u_puf/u_core/u_arbiter_dff/CE",
+      "slow_max_ps": "906",
+      "fast_min_ps": "323"
+    },
+    {
+      "net": "u_puf/u_core/qb_w",
+      "from_pin": "u_puf/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "to_pin": "u_puf/u_core/u_arbiter_dff/C",
+      "slow_max_ps": "833",
+      "fast_min_ps": "304"
+    },
+    {
+      "net": "u_puf/u_core/qb_w",
+      "from_pin": "u_puf/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "to_pin": "u_puf/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+      "slow_max_ps": "1476",
+      "fast_min_ps": "538"
+    },
+    {
+      "net": "u_puf/u_core/qu_w",
+      "from_pin": "u_puf/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "to_pin": "u_puf/u_core/u_arbiter_dff/D",
+      "slow_max_ps": "769",
+      "fast_min_ps": "256"
+    },
+    {
+      "net": "u_puf/u_core/qu_w",
+      "from_pin": "u_puf/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "to_pin": "u_puf/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+      "slow_max_ps": "1625",
+      "fast_min_ps": "614"
+    }
+  ],
+  "interpretation": "Modeled net delays only. No LUT-arc matching, analog equivalence, or hardware bias conclusion follows from these values alone."
+}

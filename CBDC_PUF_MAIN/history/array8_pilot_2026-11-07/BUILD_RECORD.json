@@ -1,0 +1,149 @@
+{
+  "status": "8-core pilot; hardware validation pending",
+  "bitstream": "build_v2/array8.bit",
+  "sha256": "2C599CF6FE7EF8EAFE34C1546C1877B78C4E9999AE21A9E46DB646A2CFEAB533",
+  "cores": 8,
+  "core_ffs": 32,
+  "fully_routed_nets": 2182,
+  "source_checkpoint_sha256": "5DCC2151205DE1C92A79DC5EAFF657A57885A6715FD1DEAA62ECA8B8A497F111",
+  "internal_net_audit": [
+    {
+      "core": 0,
+      "paired_internal_arcs": 64,
+      "slow_max_ps": {
+        "max_skew": 11.0,
+        "nonzero_pairs": 10
+      },
+      "fast_min_ps": {
+        "max_skew": 28.0,
+        "nonzero_pairs": 10
+      }
+    },
+    {
+      "core": 1,
+      "paired_internal_arcs": 64,
+      "slow_max_ps": {
+        "max_skew": 298.0,
+        "nonzero_pairs": 21
+      },
+      "fast_min_ps": {
+        "max_skew": 122.0,
+        "nonzero_pairs": 21
+      }
+    },
+    {
+      "core": 2,
+      "paired_internal_arcs": 64,
+      "slow_max_ps": {
+        "max_skew": 333.0,
+        "nonzero_pairs": 37
+      },
+      "fast_min_ps": {
+        "max_skew": 245.0,
+        "nonzero_pairs": 37
+      }
+    },
+    {
+      "core": 3,
+      "paired_internal_arcs": 64,
+      "slow_max_ps": {
+        "max_skew": 20.0,
+        "nonzero_pairs": 4
+      },
+      "fast_min_ps": {
+        "max_skew": 3.0,
+        "nonzero_pairs": 4
+      }
+    },
+    {
+      "core": 4,
+      "paired_internal_arcs": 64,
+      "slow_max_ps": {
+        "max_skew": 11.0,
+        "nonzero_pairs": 2
+      },
+      "fast_min_ps": {
+        "max_skew": 28.0,
+        "nonzero_pairs": 2
+      }
+    },
+    {
+      "core": 5,
+      "paired_internal_arcs": 64,
+      "slow_max_ps": {
+        "max_skew": 36.0,
+        "nonzero_pairs": 30
+      },
+      "fast_min_ps": {
+        "max_skew": 36.0,
+        "nonzero_pairs": 30
+      }
+    },
+    {
+      "core": 6,
+      "paired_internal_arcs": 64,
+      "slow_max_ps": {
+        "max_skew": 49.0,
+        "nonzero_pairs": 30
+      },
+      "fast_min_ps": {
+        "max_skew": 49.0,
+        "nonzero_pairs": 30
+      }
+    },
+    {
+      "core": 7,
+      "paired_internal_arcs": 64,
+      "slow_max_ps": {
+        "max_skew": 143.0,
+        "nonzero_pairs": 30
+      },
+      "fast_min_ps": {
+        "max_skew": 143.0,
+        "nonzero_pairs": 30
+      }
+    }
+  ],
+  "layout_sha256": "3ADA4C1271A0F057A04093DFFB1E004E245C4831EF02DB9233650E80D305AD71",
+  "site_inventory_sha256": "B9E1D6B9D09C1FD10FCB48CB2F1A84DC7A665E0D75495E39F9A8E1E6B3C38F32",
+  "placement": "Paired relative geometry from saved core; independently routed. Not an exact routed hard-macro copy.",
+  "limitations": "Preserved experimental architecture; not exact paper Figure 1. Async warnings remain. No measured pilot responses yet.",
+  "files": {
+    "rtl/cbdc_array8_serial.v": "B94C29CA7A669BCB43672A664D38F3B07864F0668983945D0C674C2531B0F7BC",
+    "rtl/cbdc_button.v": "B7BF5342968012E1B138E2C92D9F5C9557BC1A4CCD6CB55049D57A86627CEF33",
+    "rtl/cbdc_puf_chain.v": "30EEC11F5459690A14D95AD71F719787A9F3B8ECFC031E6227FAC98B65B1B870",
+    "rtl/cbdc_puf_core.v": "A0EF497C5772B87C531DA90CB5DED8C92F3373CE88C65509D4B039154D6BB70D",
+    "rtl/cbdc_puf_ctrl.v": "07E190D03692FB6ACB419CD79FD0374DD2F4024BDA6F0DF18D3325F161283CBF",
+    "rtl/cbdc_puf_element.v": "CC1B30AD272D8A1D26072A34B782FBB2B0C488087DCDCF0D3F02B98EBE8D4D36",
+    "rtl/cbdc_serial_engine.v": "07ECC9B91D1495D1F45E6933A2B5F20530402B9D5CFA44B62FC059EB4D590E24",
+    "rtl/cbdc_uart.v": "D73E500A2C62776A57BFA89609CBBD3B0B3673A1B0CFB7BF6F05459F6B83B3CF",
+    "constraints/basys3_serial.xdc": "9BC4125641B69A03C9B094DCE18FB307E383A83B8AC6F7CAF0F61BFDBC976548",
+    "scripts/analyze.py": "B0B6F57BF3AC44F0E263DEBDF51B605DB345A512CC9D1C5AEA8E454486F29D8A",
+    "scripts/audit.tcl": "0AC8F004241D298D17C8D3D9FC642A72306BFC7A9AFC14FF5E1DAE2DCD1791BD",
+    "scripts/build.tcl": "91844DEFD0B7FE1FD7840457A156725EC1F47D6079617F49CA653463BF6698B4",
+    "scripts/collect.ps1": "C582E0C50BF899432FE3A4763B246285CBCA71F633A0349C0044A5AC07A932E8",
+    "scripts/plan_layout.py": "67C3C393B36FAE9E6E43C12232FBD1A652A8E19FCDFA8FC792B0E2547E24814A",
+    "scripts/record_build.py": "A6A020268233959F3E21085AA197053D7A6E809315553B7453D5F46875E14591",
+    "scripts/refine.tcl": "7D148D38F3305FDDADCCE73F58E28DDAC40A2965E676DCEC6FB61D8FF8D87B11",
+    "scripts/sites.tcl": "CA317F7D4B2EC0FC0CCBE69156F8BD89E4D61736FF0742A4E84D44450213CD36",
+    "scripts/verify_placement.tcl": "55D03BBD6F6FCB115C5991E3BB3D0E1BE79B497BE4D0487315134A5D12C77D5D",
+    "sim/result.log": "89BE8B92DACE93E48038E99E24F69B5FB6A185E1BE54E55D3DCFD0E20C624955",
+    "sim/sim_unisim_primitives.v": "141564C348DC0E7FCFF1D6890EC363053BE5DEE4CA4067B01A60905372B7C6C0",
+    "sim/tb_array8.v": "86F335FFDE5DECD97560AF212EDF9B673528FCFCD277C046045ACFBA8614E001"
+  },
+  "evidence": {
+    "array8.bit": "2C599CF6FE7EF8EAFE34C1546C1877B78C4E9999AE21A9E46DB646A2CFEAB533",
+    "drc.rpt": "DDCA26466169DB1BBEF3B30C5F6C40F1054EA53CF2304AEA9D2442DEAFA4FDFC",
+    "methodology.rpt": "37A2B63317E57FBAB755EEFB2F5E59268B413C1E1AA3F15A479071EAC377A208",
+    "net_delays.csv": "1DE0EEB8B817B75282BA013D3EF5AC4FB053E8730D1358654D8653F094BEA881",
+    "optimized.dcp": "079FEB56B72198FB668A62119782C70DD2AEF363C9E954CA695BDA7AAD9167B0",
+    "placement.csv": "EA9FCB825A1BC95DFCC636E9F6F882E1696E1DA2CC6B1A53E980E11C8B0E56FA",
+    "placement_verified.txt": "CBD0D60781F8EA3E77FD6C957BF1B76F9CBD681ACE21F4C911A23FCA364A3238",
+    "routed.dcp": "27BD913E335B575A6D802E55369C26BCFAB9D3D66E4E5FC2133D8B624B776903",
+    "route_status.rpt": "4929D4A87007016E3B0798F8127138FFE411DDF256E4D07FEBCBFA91BC55C265",
+    "structure.txt": "1BC5A625DB9D5D0190126653260AEF8AEA2F400F6A9ECB1961380691E6E5DD2B",
+    "synthesized.dcp": "F6E3A90925AEB26365B52061415A792FCC634B3665105446A6042B07E9AFB1DB",
+    "timing.rpt": "BC94ACED8FAB179A76C0F0BD66BC9D4B76DF002578C019C5C511E0C3C736F727",
+    "utilization.rpt": "8B3CEE77D8DA2E58443D87D005A61AE51A8880C192676DDD403CBA94DF25A7B5"
+  }
+}

@@ -1,0 +1,650 @@
+{
+  "source": "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\array64_clock_profile_2026-11-09\\measurements\\raw_72228b2d658c4c9fbb9f948061008e2e.csv",
+  "frames": 12,
+  "raw_bits": 768,
+  "ones": 405,
+  "ones_percent": 52.734375,
+  "per_core": [
+    {
+      "core": 0,
+      "ones": 0,
+      "observations": 12,
+      "ones_percent": 0.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": true
+    },
+    {
+      "core": 1,
+      "ones": 12,
+      "observations": 12,
+      "ones_percent": 100.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": true
+    },
+    {
+      "core": 2,
+      "ones": 9,
+      "observations": 12,
+      "ones_percent": 75.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 3,
+      "ones": 6,
+      "observations": 12,
+      "ones_percent": 50.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 4,
+      "ones": 3,
+      "observations": 12,
+      "ones_percent": 25.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 5,
+      "ones": 6,
+      "observations": 12,
+      "ones_percent": 50.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 6,
+      "ones": 3,
+      "observations": 12,
+      "ones_percent": 25.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 7,
+      "ones": 2,
+      "observations": 12,
+      "ones_percent": 16.666666666666668,
+      "mixed_patterns": 1,
+      "ties": 0,
+      "minority_observations": 1,
+      "constant_across_capture": false
+    },
+    {
+      "core": 8,
+      "ones": 12,
+      "observations": 12,
+      "ones_percent": 100.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": true
+    },
+    {
+      "core": 9,
+      "ones": 10,
+      "observations": 12,
+      "ones_percent": 83.33333333333333,
+      "mixed_patterns": 1,
+      "ties": 0,
+      "minority_observations": 1,
+      "constant_across_capture": false
+    },
+    {
+      "core": 10,
+      "ones": 9,
+      "observations": 12,
+      "ones_percent": 75.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 11,
+      "ones": 9,
+      "observations": 12,
+      "ones_percent": 75.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 12,
+      "ones": 6,
+      "observations": 12,
+      "ones_percent": 50.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 13,
+      "ones": 0,
+      "observations": 12,
+      "ones_percent": 0.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": true
+    },
+    {
+      "core": 14,
+      "ones": 6,
+      "observations": 12,
+      "ones_percent": 50.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 15,
+      "ones": 6,
+      "observations": 12,
+      "ones_percent": 50.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 16,
+      "ones": 3,
+      "observations": 12,
+      "ones_percent": 25.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 17,
+      "ones": 3,
+      "observations": 12,
+      "ones_percent": 25.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 18,
+      "ones": 6,
+      "observations": 12,
+      "ones_percent": 50.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 19,
+      "ones": 6,
+      "observations": 12,
+      "ones_percent": 50.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 20,
+      "ones": 3,
+      "observations": 12,
+      "ones_percent": 25.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 21,
+      "ones": 0,
+      "observations": 12,
+      "ones_percent": 0.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": true
+    },
+    {
+      "core": 22,
+      "ones": 9,
+      "observations": 12,
+      "ones_percent": 75.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 23,
+      "ones": 9,
+      "observations": 12,
+      "ones_percent": 75.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 24,
+      "ones": 6,
+      "observations": 12,
+      "ones_percent": 50.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 25,
+      "ones": 12,
+      "observations": 12,
+      "ones_percent": 100.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": true
+    },
+    {
+      "core": 26,
+      "ones": 9,
+      "observations": 12,
+      "ones_percent": 75.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 27,
+      "ones": 6,
+      "observations": 12,
+      "ones_percent": 50.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 28,
+      "ones": 6,
+      "observations": 12,
+      "ones_percent": 50.0,
+      "mixed_patterns": 2,
+      "ties": 0,
+      "minority_observations": 2,
+      "constant_across_capture": false
+    },
+    {
+      "core": 29,
+      "ones": 6,
+      "observations": 12,
+      "ones_percent": 50.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 30,
+      "ones": 0,
+      "observations": 12,
+      "ones_percent": 0.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": true
+    },
+    {
+      "core": 31,
+      "ones": 6,
+      "observations": 12,
+      "ones_percent": 50.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 32,
+      "ones": 6,
+      "observations": 12,
+      "ones_percent": 50.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 33,
+      "ones": 9,
+      "observations": 12,
+      "ones_percent": 75.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 34,
+      "ones": 12,
+      "observations": 12,
+      "ones_percent": 100.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": true
+    },
+    {
+      "core": 35,
+      "ones": 0,
+      "observations": 12,
+      "ones_percent": 0.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": true
+    },
+    {
+      "core": 36,
+      "ones": 9,
+      "observations": 12,
+      "ones_percent": 75.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 37,
+      "ones": 9,
+      "observations": 12,
+      "ones_percent": 75.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 38,
+      "ones": 6,
+      "observations": 12,
+      "ones_percent": 50.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 39,
+      "ones": 9,
+      "observations": 12,
+      "ones_percent": 75.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 40,
+      "ones": 10,
+      "observations": 12,
+      "ones_percent": 83.33333333333333,
+      "mixed_patterns": 1,
+      "ties": 0,
+      "minority_observations": 1,
+      "constant_across_capture": false
+    },
+    {
+      "core": 41,
+      "ones": 0,
+      "observations": 12,
+      "ones_percent": 0.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": true
+    },
+    {
+      "core": 42,
+      "ones": 3,
+      "observations": 12,
+      "ones_percent": 25.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 43,
+      "ones": 9,
+      "observations": 12,
+      "ones_percent": 75.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 44,
+      "ones": 6,
+      "observations": 12,
+      "ones_percent": 50.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 45,
+      "ones": 9,
+      "observations": 12,
+      "ones_percent": 75.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 46,
+      "ones": 9,
+      "observations": 12,
+      "ones_percent": 75.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 47,
+      "ones": 4,
+      "observations": 12,
+      "ones_percent": 33.333333333333336,
+      "mixed_patterns": 1,
+      "ties": 0,
+      "minority_observations": 1,
+      "constant_across_capture": false
+    },
+    {
+      "core": 48,
+      "ones": 9,
+      "observations": 12,
+      "ones_percent": 75.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 49,
+      "ones": 3,
+      "observations": 12,
+      "ones_percent": 25.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 50,
+      "ones": 6,
+      "observations": 12,
+      "ones_percent": 50.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 51,
+      "ones": 9,
+      "observations": 12,
+      "ones_percent": 75.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 52,
+      "ones": 5,
+      "observations": 12,
+      "ones_percent": 41.666666666666664,
+      "mixed_patterns": 1,
+      "ties": 0,
+      "minority_observations": 1,
+      "constant_across_capture": false
+    },
+    {
+      "core": 53,
+      "ones": 9,
+      "observations": 12,
+      "ones_percent": 75.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 54,
+      "ones": 6,
+      "observations": 12,
+      "ones_percent": 50.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 55,
+      "ones": 9,
+      "observations": 12,
+      "ones_percent": 75.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 56,
+      "ones": 3,
+      "observations": 12,
+      "ones_percent": 25.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 57,
+      "ones": 6,
+      "observations": 12,
+      "ones_percent": 50.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 58,
+      "ones": 12,
+      "observations": 12,
+      "ones_percent": 100.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": true
+    },
+    {
+      "core": 59,
+      "ones": 4,
+      "observations": 12,
+      "ones_percent": 33.333333333333336,
+      "mixed_patterns": 1,
+      "ties": 0,
+      "minority_observations": 1,
+      "constant_across_capture": false
+    },
+    {
+      "core": 60,
+      "ones": 3,
+      "observations": 12,
+      "ones_percent": 25.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 61,
+      "ones": 10,
+      "observations": 12,
+      "ones_percent": 83.33333333333333,
+      "mixed_patterns": 1,
+      "ties": 0,
+      "minority_observations": 1,
+      "constant_across_capture": false
+    },
+    {
+      "core": 62,
+      "ones": 6,
+      "observations": 12,
+      "ones_percent": 50.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    },
+    {
+      "core": 63,
+      "ones": 6,
+      "observations": 12,
+      "ones_percent": 50.0,
+      "mixed_patterns": 0,
+      "ties": 0,
+      "minority_observations": 0,
+      "constant_across_capture": false
+    }
+  ],
+  "limitation": "Raw descriptive measurements on one FPGA. Minority counts are within-session variation, not independent-validation BER or certified entropy/uniqueness. No bits filtered or corrected."
+}

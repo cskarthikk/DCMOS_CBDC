@@ -1,0 +1,9 @@
+{
+    "source_project":  "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\array64_candidate_2026-11-08",
+    "bitstream":  "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\array64_candidate_2026-11-08\\build\\paper_array64.bit",
+    "bitstream_sha256":  "98266A06F5CA5EAE25EAFC507E1B4D81EC55CD21B48980969AF0A7CFF23C1517",
+    "excite_cycles":  22,
+    "latch_cycles":  8,
+    "cores":  64,
+    "raw_only":  true
+}

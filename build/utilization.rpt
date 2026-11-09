@@ -1,0 +1,119 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Sun Nov  8 22:01:49 2026
+| Host         : CsKarthik running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file C:/BTech/Semester_5/DCMOS/Project/CBDC_PUF_MAIN/array64_candidate_2026-11-08/build/utilization.rpt
+| Design       : cbdc_array64_serial
+| Device       : xc7a35tcpg236-1
+| Speed File   : -1
+| Design State : Routed
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-------------------------+------------------------+------------+------------+---------+------+------+--------+--------+------------+
+|         Instance        |         Module         | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++-------------------------+------------------------+------------+------------+---------+------+------+--------+--------+------------+
+| cbdc_array64_serial     |                  (top) |      11008 |      11008 |       0 |    0 | 4356 |      0 |      0 |          0 |
+|   (cbdc_array64_serial) |                  (top) |       1489 |       1489 |       0 |    0 | 1349 |      0 |      0 |          0 |
+|   gen_core[0].u_engine  |     cbdc_serial_engine |        146 |        146 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[10].u_engine | cbdc_serial_engine__54 |        147 |        147 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[11].u_engine | cbdc_serial_engine__53 |        147 |        147 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[12].u_engine | cbdc_serial_engine__52 |        148 |        148 |       0 |    0 |   45 |      0 |      0 |          0 |
+|     u_ctrl              |      cbdc_puf_ctrl__52 |         50 |         50 |       0 |    0 |   44 |      0 |      0 |          0 |
+|   gen_core[13].u_engine | cbdc_serial_engine__51 |        148 |        148 |       0 |    0 |   45 |      0 |      0 |          0 |
+|     u_ctrl              |      cbdc_puf_ctrl__51 |         50 |         50 |       0 |    0 |   44 |      0 |      0 |          0 |
+|   gen_core[14].u_engine | cbdc_serial_engine__50 |        147 |        147 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[15].u_engine |  cbdc_serial_engine__1 |        147 |        147 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[16].u_engine |  cbdc_serial_engine__2 |        148 |        148 |       0 |    0 |   45 |      0 |      0 |          0 |
+|     u_ctrl              |       cbdc_puf_ctrl__2 |         50 |         50 |       0 |    0 |   44 |      0 |      0 |          0 |
+|   gen_core[17].u_engine |  cbdc_serial_engine__3 |        147 |        147 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[18].u_engine |  cbdc_serial_engine__4 |        148 |        148 |       0 |    0 |   45 |      0 |      0 |          0 |
+|     u_ctrl              |       cbdc_puf_ctrl__4 |         50 |         50 |       0 |    0 |   44 |      0 |      0 |          0 |
+|   gen_core[19].u_engine |  cbdc_serial_engine__5 |        147 |        147 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[1].u_engine  | cbdc_serial_engine__63 |        148 |        148 |       0 |    0 |   45 |      0 |      0 |          0 |
+|     u_ctrl              |      cbdc_puf_ctrl__63 |         50 |         50 |       0 |    0 |   44 |      0 |      0 |          0 |
+|   gen_core[20].u_engine |  cbdc_serial_engine__6 |        148 |        148 |       0 |    0 |   45 |      0 |      0 |          0 |
+|     u_ctrl              |       cbdc_puf_ctrl__6 |         50 |         50 |       0 |    0 |   44 |      0 |      0 |          0 |
+|   gen_core[21].u_engine |  cbdc_serial_engine__7 |        147 |        147 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[22].u_engine |  cbdc_serial_engine__8 |        147 |        147 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[23].u_engine |  cbdc_serial_engine__9 |        147 |        147 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[24].u_engine | cbdc_serial_engine__10 |        148 |        148 |       0 |    0 |   45 |      0 |      0 |          0 |
+|     u_ctrl              |      cbdc_puf_ctrl__10 |         50 |         50 |       0 |    0 |   44 |      0 |      0 |          0 |
+|   gen_core[25].u_engine | cbdc_serial_engine__11 |        146 |        146 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[26].u_engine | cbdc_serial_engine__12 |        147 |        147 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[27].u_engine | cbdc_serial_engine__13 |        148 |        148 |       0 |    0 |   45 |      0 |      0 |          0 |
+|     u_ctrl              |      cbdc_puf_ctrl__13 |         50 |         50 |       0 |    0 |   44 |      0 |      0 |          0 |
+|   gen_core[28].u_engine | cbdc_serial_engine__14 |        146 |        146 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[29].u_engine | cbdc_serial_engine__15 |        147 |        147 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[2].u_engine  | cbdc_serial_engine__62 |        148 |        148 |       0 |    0 |   45 |      0 |      0 |          0 |
+|     u_ctrl              |      cbdc_puf_ctrl__62 |         50 |         50 |       0 |    0 |   44 |      0 |      0 |          0 |
+|   gen_core[30].u_engine | cbdc_serial_engine__16 |        147 |        147 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[31].u_engine | cbdc_serial_engine__17 |        147 |        147 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[32].u_engine | cbdc_serial_engine__18 |        146 |        146 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[33].u_engine | cbdc_serial_engine__19 |        148 |        148 |       0 |    0 |   45 |      0 |      0 |          0 |
+|     u_ctrl              |      cbdc_puf_ctrl__19 |         50 |         50 |       0 |    0 |   44 |      0 |      0 |          0 |
+|   gen_core[34].u_engine | cbdc_serial_engine__20 |        147 |        147 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[35].u_engine | cbdc_serial_engine__21 |        148 |        148 |       0 |    0 |   45 |      0 |      0 |          0 |
+|     u_ctrl              |      cbdc_puf_ctrl__21 |         50 |         50 |       0 |    0 |   44 |      0 |      0 |          0 |
+|   gen_core[36].u_engine | cbdc_serial_engine__22 |        148 |        148 |       0 |    0 |   45 |      0 |      0 |          0 |
+|     u_ctrl              |      cbdc_puf_ctrl__22 |         50 |         50 |       0 |    0 |   44 |      0 |      0 |          0 |
+|   gen_core[37].u_engine | cbdc_serial_engine__23 |        147 |        147 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[38].u_engine | cbdc_serial_engine__24 |        148 |        148 |       0 |    0 |   45 |      0 |      0 |          0 |
+|     u_ctrl              |      cbdc_puf_ctrl__24 |         50 |         50 |       0 |    0 |   44 |      0 |      0 |          0 |
+|   gen_core[39].u_engine | cbdc_serial_engine__25 |        148 |        148 |       0 |    0 |   45 |      0 |      0 |          0 |
+|     u_ctrl              |      cbdc_puf_ctrl__25 |         50 |         50 |       0 |    0 |   44 |      0 |      0 |          0 |
+|   gen_core[3].u_engine  | cbdc_serial_engine__61 |        146 |        146 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[40].u_engine | cbdc_serial_engine__26 |        146 |        146 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[41].u_engine | cbdc_serial_engine__27 |        147 |        147 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[42].u_engine | cbdc_serial_engine__28 |        147 |        147 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[43].u_engine | cbdc_serial_engine__29 |        148 |        148 |       0 |    0 |   45 |      0 |      0 |          0 |
+|     u_ctrl              |      cbdc_puf_ctrl__29 |         50 |         50 |       0 |    0 |   44 |      0 |      0 |          0 |
+|   gen_core[44].u_engine | cbdc_serial_engine__49 |        146 |        146 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[45].u_engine | cbdc_serial_engine__48 |        146 |        146 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[46].u_engine | cbdc_serial_engine__47 |        148 |        148 |       0 |    0 |   45 |      0 |      0 |          0 |
+|     u_ctrl              |      cbdc_puf_ctrl__47 |         50 |         50 |       0 |    0 |   44 |      0 |      0 |          0 |
+|   gen_core[47].u_engine | cbdc_serial_engine__46 |        147 |        147 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[48].u_engine | cbdc_serial_engine__45 |        147 |        147 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[49].u_engine | cbdc_serial_engine__44 |        148 |        148 |       0 |    0 |   45 |      0 |      0 |          0 |
+|     u_ctrl              |      cbdc_puf_ctrl__44 |         50 |         50 |       0 |    0 |   44 |      0 |      0 |          0 |
+|   gen_core[4].u_engine  | cbdc_serial_engine__60 |        147 |        147 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[50].u_engine | cbdc_serial_engine__30 |        148 |        148 |       0 |    0 |   45 |      0 |      0 |          0 |
+|     u_ctrl              |      cbdc_puf_ctrl__30 |         50 |         50 |       0 |    0 |   44 |      0 |      0 |          0 |
+|   gen_core[51].u_engine | cbdc_serial_engine__31 |        147 |        147 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[52].u_engine | cbdc_serial_engine__32 |        146 |        146 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[53].u_engine | cbdc_serial_engine__43 |        147 |        147 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[54].u_engine | cbdc_serial_engine__33 |        148 |        148 |       0 |    0 |   45 |      0 |      0 |          0 |
+|     u_ctrl              |      cbdc_puf_ctrl__33 |         50 |         50 |       0 |    0 |   44 |      0 |      0 |          0 |
+|   gen_core[55].u_engine | cbdc_serial_engine__34 |        146 |        146 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[56].u_engine | cbdc_serial_engine__35 |        146 |        146 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[57].u_engine | cbdc_serial_engine__36 |        148 |        148 |       0 |    0 |   45 |      0 |      0 |          0 |
+|     u_ctrl              |      cbdc_puf_ctrl__36 |         50 |         50 |       0 |    0 |   44 |      0 |      0 |          0 |
+|   gen_core[58].u_engine | cbdc_serial_engine__37 |        147 |        147 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[59].u_engine | cbdc_serial_engine__38 |        147 |        147 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[5].u_engine  | cbdc_serial_engine__59 |        147 |        147 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[60].u_engine | cbdc_serial_engine__39 |        147 |        147 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[61].u_engine | cbdc_serial_engine__42 |        146 |        146 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[62].u_engine | cbdc_serial_engine__41 |        148 |        148 |       0 |    0 |   45 |      0 |      0 |          0 |
+|     u_ctrl              |      cbdc_puf_ctrl__41 |         50 |         50 |       0 |    0 |   44 |      0 |      0 |          0 |
+|   gen_core[63].u_engine | cbdc_serial_engine__40 |        148 |        148 |       0 |    0 |   45 |      0 |      0 |          0 |
+|     u_ctrl              |      cbdc_puf_ctrl__40 |         50 |         50 |       0 |    0 |   44 |      0 |      0 |          0 |
+|   gen_core[6].u_engine  | cbdc_serial_engine__58 |        147 |        147 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   gen_core[7].u_engine  | cbdc_serial_engine__57 |        148 |        148 |       0 |    0 |   45 |      0 |      0 |          0 |
+|     u_ctrl              |      cbdc_puf_ctrl__57 |         50 |         50 |       0 |    0 |   44 |      0 |      0 |          0 |
+|   gen_core[8].u_engine  | cbdc_serial_engine__56 |        148 |        148 |       0 |    0 |   45 |      0 |      0 |          0 |
+|     u_ctrl              |      cbdc_puf_ctrl__56 |         50 |         50 |       0 |    0 |   44 |      0 |      0 |          0 |
+|   gen_core[9].u_engine  | cbdc_serial_engine__55 |        147 |        147 |       0 |    0 |   45 |      0 |      0 |          0 |
+|   uart                  |              cbdc_uart |        123 |        123 |       0 |    0 |  104 |      0 |      0 |          0 |
++-------------------------+------------------------+------------+------------+---------+------+------+--------+--------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

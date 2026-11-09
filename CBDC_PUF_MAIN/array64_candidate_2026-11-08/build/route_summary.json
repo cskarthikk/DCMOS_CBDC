@@ -1,0 +1,4620 @@
+{
+  "paired_internal_arcs": 4096,
+  "nonzero_slow": 0,
+  "nonzero_fast": 0,
+  "max_slow_skew_ps": 0.0,
+  "max_fast_skew_ps": 0.0,
+  "boundaries": {
+    "0": [
+      {
+        "net": "gen_core[0].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[0].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[0].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "771",
+        "fast_min_ps": "293"
+      },
+      {
+        "net": "gen_core[0].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[0].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[0].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1557",
+        "fast_min_ps": "601"
+      },
+      {
+        "net": "gen_core[0].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[0].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[0].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "573",
+        "fast_min_ps": "179"
+      },
+      {
+        "net": "gen_core[0].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[0].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[0].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1555",
+        "fast_min_ps": "598"
+      },
+      {
+        "net": "gen_core[0].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[0].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[0].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "2406",
+        "fast_min_ps": "1117"
+      },
+      {
+        "net": "gen_core[0].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[0].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[0].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "991",
+        "fast_min_ps": "359"
+      },
+      {
+        "net": "gen_core[0].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[0].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[0].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "979",
+        "fast_min_ps": "344"
+      },
+      {
+        "net": "gen_core[0].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[0].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[0].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "2338",
+        "fast_min_ps": "1058"
+      }
+    ],
+    "10": [
+      {
+        "net": "gen_core[10].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[10].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[10].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "771",
+        "fast_min_ps": "293"
+      },
+      {
+        "net": "gen_core[10].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[10].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[10].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1557",
+        "fast_min_ps": "601"
+      },
+      {
+        "net": "gen_core[10].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[10].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[10].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "570",
+        "fast_min_ps": "176"
+      },
+      {
+        "net": "gen_core[10].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[10].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[10].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1692",
+        "fast_min_ps": "623"
+      },
+      {
+        "net": "gen_core[10].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[10].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[10].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1232",
+        "fast_min_ps": "536"
+      },
+      {
+        "net": "gen_core[10].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[10].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[10].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "991",
+        "fast_min_ps": "359"
+      },
+      {
+        "net": "gen_core[10].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[10].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[10].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "979",
+        "fast_min_ps": "344"
+      },
+      {
+        "net": "gen_core[10].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[10].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[10].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1472",
+        "fast_min_ps": "574"
+      }
+    ],
+    "11": [
+      {
+        "net": "gen_core[11].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[11].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[11].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "755",
+        "fast_min_ps": "277"
+      },
+      {
+        "net": "gen_core[11].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[11].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[11].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1557",
+        "fast_min_ps": "601"
+      },
+      {
+        "net": "gen_core[11].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[11].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[11].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "586",
+        "fast_min_ps": "192"
+      },
+      {
+        "net": "gen_core[11].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[11].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[11].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1871",
+        "fast_min_ps": "802"
+      },
+      {
+        "net": "gen_core[11].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[11].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[11].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1276",
+        "fast_min_ps": "564"
+      },
+      {
+        "net": "gen_core[11].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[11].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[11].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "962",
+        "fast_min_ps": "330"
+      },
+      {
+        "net": "gen_core[11].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[11].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[11].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "994",
+        "fast_min_ps": "359"
+      },
+      {
+        "net": "gen_core[11].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[11].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[11].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1790",
+        "fast_min_ps": "763"
+      }
+    ],
+    "12": [
+      {
+        "net": "gen_core[12].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[12].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[12].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "773",
+        "fast_min_ps": "295"
+      },
+      {
+        "net": "gen_core[12].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[12].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[12].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1650",
+        "fast_min_ps": "658"
+      },
+      {
+        "net": "gen_core[12].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[12].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[12].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "570",
+        "fast_min_ps": "176"
+      },
+      {
+        "net": "gen_core[12].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[12].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[12].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1721",
+        "fast_min_ps": "652"
+      },
+      {
+        "net": "gen_core[12].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[12].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[12].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1152",
+        "fast_min_ps": "553"
+      },
+      {
+        "net": "gen_core[12].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[12].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[12].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "988",
+        "fast_min_ps": "356"
+      },
+      {
+        "net": "gen_core[12].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[12].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[12].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "965",
+        "fast_min_ps": "330"
+      },
+      {
+        "net": "gen_core[12].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[12].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[12].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1239",
+        "fast_min_ps": "562"
+      }
+    ],
+    "13": [
+      {
+        "net": "gen_core[13].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[13].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[13].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "940",
+        "fast_min_ps": "388"
+      },
+      {
+        "net": "gen_core[13].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[13].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[13].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1575",
+        "fast_min_ps": "652"
+      },
+      {
+        "net": "gen_core[13].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[13].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[13].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "725",
+        "fast_min_ps": "277"
+      },
+      {
+        "net": "gen_core[13].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[13].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[13].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1718",
+        "fast_min_ps": "717"
+      },
+      {
+        "net": "gen_core[13].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[13].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[13].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1146",
+        "fast_min_ps": "564"
+      },
+      {
+        "net": "gen_core[13].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[13].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[13].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1204",
+        "fast_min_ps": "498"
+      },
+      {
+        "net": "gen_core[13].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[13].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[13].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1111",
+        "fast_min_ps": "403"
+      },
+      {
+        "net": "gen_core[13].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[13].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[13].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1526",
+        "fast_min_ps": "676"
+      }
+    ],
+    "14": [
+      {
+        "net": "gen_core[14].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[14].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[14].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "836",
+        "fast_min_ps": "310"
+      },
+      {
+        "net": "gen_core[14].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[14].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[14].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1709",
+        "fast_min_ps": "671"
+      },
+      {
+        "net": "gen_core[14].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[14].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[14].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "814",
+        "fast_min_ps": "336"
+      },
+      {
+        "net": "gen_core[14].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[14].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[14].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "2049",
+        "fast_min_ps": "839"
+      },
+      {
+        "net": "gen_core[14].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[14].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[14].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1225",
+        "fast_min_ps": "518"
+      },
+      {
+        "net": "gen_core[14].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[14].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[14].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1138",
+        "fast_min_ps": "417"
+      },
+      {
+        "net": "gen_core[14].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[14].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[14].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1217",
+        "fast_min_ps": "474"
+      },
+      {
+        "net": "gen_core[14].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[14].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[14].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1328",
+        "fast_min_ps": "553"
+      }
+    ],
+    "15": [
+      {
+        "net": "gen_core[15].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[15].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[15].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "704",
+        "fast_min_ps": "260"
+      },
+      {
+        "net": "gen_core[15].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[15].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[15].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1694",
+        "fast_min_ps": "659"
+      },
+      {
+        "net": "gen_core[15].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[15].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[15].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "732",
+        "fast_min_ps": "284"
+      },
+      {
+        "net": "gen_core[15].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[15].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[15].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1694",
+        "fast_min_ps": "654"
+      },
+      {
+        "net": "gen_core[15].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[15].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[15].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1287",
+        "fast_min_ps": "553"
+      },
+      {
+        "net": "gen_core[15].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[15].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[15].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "971",
+        "fast_min_ps": "354"
+      },
+      {
+        "net": "gen_core[15].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[15].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[15].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1263",
+        "fast_min_ps": "467"
+      },
+      {
+        "net": "gen_core[15].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[15].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[15].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1371",
+        "fast_min_ps": "585"
+      }
+    ],
+    "1": [
+      {
+        "net": "gen_core[1].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[1].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[1].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "940",
+        "fast_min_ps": "388"
+      },
+      {
+        "net": "gen_core[1].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[1].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[1].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1542",
+        "fast_min_ps": "619"
+      },
+      {
+        "net": "gen_core[1].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[1].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[1].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "723",
+        "fast_min_ps": "275"
+      },
+      {
+        "net": "gen_core[1].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[1].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[1].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1798",
+        "fast_min_ps": "732"
+      },
+      {
+        "net": "gen_core[1].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[1].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[1].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "2063",
+        "fast_min_ps": "988"
+      },
+      {
+        "net": "gen_core[1].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[1].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[1].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1068",
+        "fast_min_ps": "451"
+      },
+      {
+        "net": "gen_core[1].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[1].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[1].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "989",
+        "fast_min_ps": "370"
+      },
+      {
+        "net": "gen_core[1].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[1].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[1].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "2111",
+        "fast_min_ps": "970"
+      }
+    ],
+    "2": [
+      {
+        "net": "gen_core[2].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[2].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[2].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "838",
+        "fast_min_ps": "312"
+      },
+      {
+        "net": "gen_core[2].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[2].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[2].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1724",
+        "fast_min_ps": "738"
+      },
+      {
+        "net": "gen_core[2].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[2].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[2].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "814",
+        "fast_min_ps": "336"
+      },
+      {
+        "net": "gen_core[2].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[2].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[2].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1857",
+        "fast_min_ps": "784"
+      },
+      {
+        "net": "gen_core[2].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[2].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[2].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1764",
+        "fast_min_ps": "804"
+      },
+      {
+        "net": "gen_core[2].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[2].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[2].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1141",
+        "fast_min_ps": "420"
+      },
+      {
+        "net": "gen_core[2].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[2].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[2].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1231",
+        "fast_min_ps": "488"
+      },
+      {
+        "net": "gen_core[2].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[2].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[2].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "2012",
+        "fast_min_ps": "855"
+      }
+    ],
+    "3": [
+      {
+        "net": "gen_core[3].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[3].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[3].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "704",
+        "fast_min_ps": "260"
+      },
+      {
+        "net": "gen_core[3].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[3].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[3].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1577",
+        "fast_min_ps": "621"
+      },
+      {
+        "net": "gen_core[3].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[3].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[3].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "737",
+        "fast_min_ps": "289"
+      },
+      {
+        "net": "gen_core[3].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[3].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[3].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1576",
+        "fast_min_ps": "619"
+      },
+      {
+        "net": "gen_core[3].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[3].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[3].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1653",
+        "fast_min_ps": "722"
+      },
+      {
+        "net": "gen_core[3].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[3].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[3].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "833",
+        "fast_min_ps": "305"
+      },
+      {
+        "net": "gen_core[3].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[3].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[3].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1000",
+        "fast_min_ps": "382"
+      },
+      {
+        "net": "gen_core[3].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[3].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[3].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "2003",
+        "fast_min_ps": "868"
+      }
+    ],
+    "4": [
+      {
+        "net": "gen_core[4].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[4].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[4].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "755",
+        "fast_min_ps": "277"
+      },
+      {
+        "net": "gen_core[4].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[4].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[4].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1557",
+        "fast_min_ps": "601"
+      },
+      {
+        "net": "gen_core[4].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[4].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[4].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "586",
+        "fast_min_ps": "192"
+      },
+      {
+        "net": "gen_core[4].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[4].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[4].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1724",
+        "fast_min_ps": "655"
+      },
+      {
+        "net": "gen_core[4].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[4].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[4].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1591",
+        "fast_min_ps": "609"
+      },
+      {
+        "net": "gen_core[4].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[4].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[4].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "976",
+        "fast_min_ps": "344"
+      },
+      {
+        "net": "gen_core[4].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[4].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[4].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "995",
+        "fast_min_ps": "360"
+      },
+      {
+        "net": "gen_core[4].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[4].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[4].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1746",
+        "fast_min_ps": "689"
+      }
+    ],
+    "5": [
+      {
+        "net": "gen_core[5].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[5].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[5].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "771",
+        "fast_min_ps": "293"
+      },
+      {
+        "net": "gen_core[5].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[5].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[5].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1557",
+        "fast_min_ps": "601"
+      },
+      {
+        "net": "gen_core[5].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[5].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[5].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "570",
+        "fast_min_ps": "176"
+      },
+      {
+        "net": "gen_core[5].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[5].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[5].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1692",
+        "fast_min_ps": "623"
+      },
+      {
+        "net": "gen_core[5].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[5].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[5].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1658",
+        "fast_min_ps": "654"
+      },
+      {
+        "net": "gen_core[5].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[5].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[5].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "991",
+        "fast_min_ps": "359"
+      },
+      {
+        "net": "gen_core[5].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[5].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[5].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "979",
+        "fast_min_ps": "344"
+      },
+      {
+        "net": "gen_core[5].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[5].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[5].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1436",
+        "fast_min_ps": "536"
+      }
+    ],
+    "6": [
+      {
+        "net": "gen_core[6].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[6].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[6].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "755",
+        "fast_min_ps": "277"
+      },
+      {
+        "net": "gen_core[6].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[6].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[6].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1559",
+        "fast_min_ps": "603"
+      },
+      {
+        "net": "gen_core[6].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[6].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[6].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "588",
+        "fast_min_ps": "194"
+      },
+      {
+        "net": "gen_core[6].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[6].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[6].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1726",
+        "fast_min_ps": "657"
+      },
+      {
+        "net": "gen_core[6].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[6].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[6].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1938",
+        "fast_min_ps": "823"
+      },
+      {
+        "net": "gen_core[6].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[6].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[6].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "974",
+        "fast_min_ps": "342"
+      },
+      {
+        "net": "gen_core[6].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[6].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[6].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "983",
+        "fast_min_ps": "348"
+      },
+      {
+        "net": "gen_core[6].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[6].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[6].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "2007",
+        "fast_min_ps": "837"
+      }
+    ],
+    "7": [
+      {
+        "net": "gen_core[7].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[7].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[7].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "771",
+        "fast_min_ps": "293"
+      },
+      {
+        "net": "gen_core[7].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[7].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[7].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1557",
+        "fast_min_ps": "601"
+      },
+      {
+        "net": "gen_core[7].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[7].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[7].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "570",
+        "fast_min_ps": "176"
+      },
+      {
+        "net": "gen_core[7].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[7].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[7].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1692",
+        "fast_min_ps": "623"
+      },
+      {
+        "net": "gen_core[7].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[7].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[7].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1724",
+        "fast_min_ps": "679"
+      },
+      {
+        "net": "gen_core[7].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[7].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[7].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "990",
+        "fast_min_ps": "358"
+      },
+      {
+        "net": "gen_core[7].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[7].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[7].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "965",
+        "fast_min_ps": "330"
+      },
+      {
+        "net": "gen_core[7].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[7].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[7].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "2071",
+        "fast_min_ps": "876"
+      }
+    ],
+    "8": [
+      {
+        "net": "gen_core[8].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[8].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[8].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "800",
+        "fast_min_ps": "294"
+      },
+      {
+        "net": "gen_core[8].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[8].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[8].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1603",
+        "fast_min_ps": "656"
+      },
+      {
+        "net": "gen_core[8].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[8].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[8].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "949",
+        "fast_min_ps": "432"
+      },
+      {
+        "net": "gen_core[8].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[8].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[8].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1783",
+        "fast_min_ps": "743"
+      },
+      {
+        "net": "gen_core[8].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[8].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[8].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1527",
+        "fast_min_ps": "668"
+      },
+      {
+        "net": "gen_core[8].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[8].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[8].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "961",
+        "fast_min_ps": "329"
+      },
+      {
+        "net": "gen_core[8].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[8].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[8].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1239",
+        "fast_min_ps": "498"
+      },
+      {
+        "net": "gen_core[8].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[8].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[8].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1634",
+        "fast_min_ps": "670"
+      }
+    ],
+    "9": [
+      {
+        "net": "gen_core[9].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[9].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[9].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "814",
+        "fast_min_ps": "308"
+      },
+      {
+        "net": "gen_core[9].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[9].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[9].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1467",
+        "fast_min_ps": "544"
+      },
+      {
+        "net": "gen_core[9].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[9].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[9].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "869",
+        "fast_min_ps": "352"
+      },
+      {
+        "net": "gen_core[9].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[9].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[9].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1713",
+        "fast_min_ps": "672"
+      },
+      {
+        "net": "gen_core[9].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[9].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[9].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1241",
+        "fast_min_ps": "498"
+      },
+      {
+        "net": "gen_core[9].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[9].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[9].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "992",
+        "fast_min_ps": "360"
+      },
+      {
+        "net": "gen_core[9].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[9].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[9].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1187",
+        "fast_min_ps": "446"
+      },
+      {
+        "net": "gen_core[9].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[9].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[9].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1311",
+        "fast_min_ps": "504"
+      }
+    ],
+    "16": [
+      {
+        "net": "gen_core[16].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[16].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[16].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "916",
+        "fast_min_ps": "329"
+      },
+      {
+        "net": "gen_core[16].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[16].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[16].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1627",
+        "fast_min_ps": "629"
+      },
+      {
+        "net": "gen_core[16].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[16].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[16].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "573",
+        "fast_min_ps": "179"
+      },
+      {
+        "net": "gen_core[16].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[16].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[16].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1727",
+        "fast_min_ps": "662"
+      },
+      {
+        "net": "gen_core[16].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[16].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[16].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "794",
+        "fast_min_ps": "285"
+      },
+      {
+        "net": "gen_core[16].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[16].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[16].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "988",
+        "fast_min_ps": "356"
+      },
+      {
+        "net": "gen_core[16].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[16].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[16].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "968",
+        "fast_min_ps": "332"
+      },
+      {
+        "net": "gen_core[16].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[16].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[16].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1018",
+        "fast_min_ps": "355"
+      }
+    ],
+    "17": [
+      {
+        "net": "gen_core[17].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[17].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[17].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "752",
+        "fast_min_ps": "274"
+      },
+      {
+        "net": "gen_core[17].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[17].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[17].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1989",
+        "fast_min_ps": "771"
+      },
+      {
+        "net": "gen_core[17].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[17].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[17].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "709",
+        "fast_min_ps": "245"
+      },
+      {
+        "net": "gen_core[17].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[17].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[17].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1685",
+        "fast_min_ps": "645"
+      },
+      {
+        "net": "gen_core[17].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[17].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[17].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "796",
+        "fast_min_ps": "281"
+      },
+      {
+        "net": "gen_core[17].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[17].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[17].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "972",
+        "fast_min_ps": "340"
+      },
+      {
+        "net": "gen_core[17].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[17].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[17].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "983",
+        "fast_min_ps": "348"
+      },
+      {
+        "net": "gen_core[17].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[17].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[17].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "718",
+        "fast_min_ps": "234"
+      }
+    ],
+    "18": [
+      {
+        "net": "gen_core[18].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[18].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[18].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "771",
+        "fast_min_ps": "293"
+      },
+      {
+        "net": "gen_core[18].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[18].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[18].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1632",
+        "fast_min_ps": "634"
+      },
+      {
+        "net": "gen_core[18].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[18].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[18].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "570",
+        "fast_min_ps": "176"
+      },
+      {
+        "net": "gen_core[18].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[18].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[18].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1721",
+        "fast_min_ps": "652"
+      },
+      {
+        "net": "gen_core[18].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[18].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[18].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "830",
+        "fast_min_ps": "296"
+      },
+      {
+        "net": "gen_core[18].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[18].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[18].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "990",
+        "fast_min_ps": "358"
+      },
+      {
+        "net": "gen_core[18].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[18].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[18].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "965",
+        "fast_min_ps": "330"
+      },
+      {
+        "net": "gen_core[18].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[18].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[18].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1201",
+        "fast_min_ps": "496"
+      }
+    ],
+    "19": [
+      {
+        "net": "gen_core[19].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[19].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[19].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "854",
+        "fast_min_ps": "313"
+      },
+      {
+        "net": "gen_core[19].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[19].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[19].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1641",
+        "fast_min_ps": "690"
+      },
+      {
+        "net": "gen_core[19].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[19].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[19].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "955",
+        "fast_min_ps": "433"
+      },
+      {
+        "net": "gen_core[19].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[19].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[19].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1722",
+        "fast_min_ps": "726"
+      },
+      {
+        "net": "gen_core[19].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[19].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[19].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "822",
+        "fast_min_ps": "292"
+      },
+      {
+        "net": "gen_core[19].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[19].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[19].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "975",
+        "fast_min_ps": "343"
+      },
+      {
+        "net": "gen_core[19].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[19].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[19].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1234",
+        "fast_min_ps": "493"
+      },
+      {
+        "net": "gen_core[19].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[19].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[19].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "815",
+        "fast_min_ps": "280"
+      }
+    ],
+    "20": [
+      {
+        "net": "gen_core[20].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[20].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[20].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "959",
+        "fast_min_ps": "344"
+      },
+      {
+        "net": "gen_core[20].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[20].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[20].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1497",
+        "fast_min_ps": "574"
+      },
+      {
+        "net": "gen_core[20].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[20].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[20].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "870",
+        "fast_min_ps": "354"
+      },
+      {
+        "net": "gen_core[20].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[20].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[20].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1656",
+        "fast_min_ps": "655"
+      },
+      {
+        "net": "gen_core[20].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[20].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[20].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "819",
+        "fast_min_ps": "286"
+      },
+      {
+        "net": "gen_core[20].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[20].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[20].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "991",
+        "fast_min_ps": "359"
+      },
+      {
+        "net": "gen_core[20].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[20].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[20].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1186",
+        "fast_min_ps": "445"
+      },
+      {
+        "net": "gen_core[20].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[20].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[20].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "726",
+        "fast_min_ps": "225"
+      }
+    ],
+    "21": [
+      {
+        "net": "gen_core[21].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[21].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[21].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "773",
+        "fast_min_ps": "295"
+      },
+      {
+        "net": "gen_core[21].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[21].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[21].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1650",
+        "fast_min_ps": "658"
+      },
+      {
+        "net": "gen_core[21].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[21].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[21].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "570",
+        "fast_min_ps": "176"
+      },
+      {
+        "net": "gen_core[21].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[21].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[21].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1721",
+        "fast_min_ps": "652"
+      },
+      {
+        "net": "gen_core[21].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[21].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[21].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "852",
+        "fast_min_ps": "347"
+      },
+      {
+        "net": "gen_core[21].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[21].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[21].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "977",
+        "fast_min_ps": "345"
+      },
+      {
+        "net": "gen_core[21].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[21].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[21].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "977",
+        "fast_min_ps": "342"
+      },
+      {
+        "net": "gen_core[21].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[21].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[21].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "866",
+        "fast_min_ps": "279"
+      }
+    ],
+    "22": [
+      {
+        "net": "gen_core[22].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[22].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[22].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "755",
+        "fast_min_ps": "277"
+      },
+      {
+        "net": "gen_core[22].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[22].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[22].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1597",
+        "fast_min_ps": "599"
+      },
+      {
+        "net": "gen_core[22].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[22].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[22].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "586",
+        "fast_min_ps": "192"
+      },
+      {
+        "net": "gen_core[22].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[22].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[22].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1900",
+        "fast_min_ps": "831"
+      },
+      {
+        "net": "gen_core[22].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[22].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[22].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "595",
+        "fast_min_ps": "212"
+      },
+      {
+        "net": "gen_core[22].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[22].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[22].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "976",
+        "fast_min_ps": "344"
+      },
+      {
+        "net": "gen_core[22].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[22].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[22].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "995",
+        "fast_min_ps": "360"
+      },
+      {
+        "net": "gen_core[22].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[22].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[22].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "922",
+        "fast_min_ps": "313"
+      }
+    ],
+    "23": [
+      {
+        "net": "gen_core[23].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[23].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[23].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "826",
+        "fast_min_ps": "313"
+      },
+      {
+        "net": "gen_core[23].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[23].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[23].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1574",
+        "fast_min_ps": "547"
+      },
+      {
+        "net": "gen_core[23].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[23].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[23].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "570",
+        "fast_min_ps": "176"
+      },
+      {
+        "net": "gen_core[23].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[23].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[23].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1692",
+        "fast_min_ps": "623"
+      },
+      {
+        "net": "gen_core[23].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[23].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[23].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "893",
+        "fast_min_ps": "364"
+      },
+      {
+        "net": "gen_core[23].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[23].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[23].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "990",
+        "fast_min_ps": "358"
+      },
+      {
+        "net": "gen_core[23].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[23].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[23].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "965",
+        "fast_min_ps": "330"
+      },
+      {
+        "net": "gen_core[23].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[23].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[23].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "907",
+        "fast_min_ps": "359"
+      }
+    ],
+    "24": [
+      {
+        "net": "gen_core[24].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[24].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[24].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "940",
+        "fast_min_ps": "388"
+      },
+      {
+        "net": "gen_core[24].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[24].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[24].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1542",
+        "fast_min_ps": "619"
+      },
+      {
+        "net": "gen_core[24].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[24].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[24].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "725",
+        "fast_min_ps": "277"
+      },
+      {
+        "net": "gen_core[24].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[24].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[24].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1689",
+        "fast_min_ps": "688"
+      },
+      {
+        "net": "gen_core[24].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[24].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[24].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "731",
+        "fast_min_ps": "306"
+      },
+      {
+        "net": "gen_core[24].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[24].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[24].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1192",
+        "fast_min_ps": "486"
+      },
+      {
+        "net": "gen_core[24].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[24].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[24].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1123",
+        "fast_min_ps": "415"
+      },
+      {
+        "net": "gen_core[24].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[24].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[24].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "529",
+        "fast_min_ps": "164"
+      }
+    ],
+    "25": [
+      {
+        "net": "gen_core[25].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[25].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[25].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "836",
+        "fast_min_ps": "310"
+      },
+      {
+        "net": "gen_core[25].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[25].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[25].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1690",
+        "fast_min_ps": "664"
+      },
+      {
+        "net": "gen_core[25].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[25].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[25].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "814",
+        "fast_min_ps": "336"
+      },
+      {
+        "net": "gen_core[25].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[25].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[25].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "2020",
+        "fast_min_ps": "810"
+      },
+      {
+        "net": "gen_core[25].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[25].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[25].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "645",
+        "fast_min_ps": "244"
+      },
+      {
+        "net": "gen_core[25].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[25].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[25].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1137",
+        "fast_min_ps": "416"
+      },
+      {
+        "net": "gen_core[25].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[25].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[25].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1217",
+        "fast_min_ps": "474"
+      },
+      {
+        "net": "gen_core[25].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[25].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[25].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "920",
+        "fast_min_ps": "314"
+      }
+    ],
+    "26": [
+      {
+        "net": "gen_core[26].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[26].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[26].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "702",
+        "fast_min_ps": "258"
+      },
+      {
+        "net": "gen_core[26].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[26].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[26].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1607",
+        "fast_min_ps": "609"
+      },
+      {
+        "net": "gen_core[26].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[26].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[26].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "733",
+        "fast_min_ps": "285"
+      },
+      {
+        "net": "gen_core[26].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[26].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[26].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1806",
+        "fast_min_ps": "686"
+      },
+      {
+        "net": "gen_core[26].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[26].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[26].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1021",
+        "fast_min_ps": "375"
+      },
+      {
+        "net": "gen_core[26].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[26].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[26].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "970",
+        "fast_min_ps": "354"
+      },
+      {
+        "net": "gen_core[26].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[26].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[26].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1262",
+        "fast_min_ps": "467"
+      },
+      {
+        "net": "gen_core[26].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[26].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[26].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1073",
+        "fast_min_ps": "412"
+      }
+    ],
+    "27": [
+      {
+        "net": "gen_core[27].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[27].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[27].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "755",
+        "fast_min_ps": "277"
+      },
+      {
+        "net": "gen_core[27].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[27].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[27].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1569",
+        "fast_min_ps": "571"
+      },
+      {
+        "net": "gen_core[27].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[27].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[27].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "586",
+        "fast_min_ps": "192"
+      },
+      {
+        "net": "gen_core[27].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[27].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[27].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1724",
+        "fast_min_ps": "655"
+      },
+      {
+        "net": "gen_core[27].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[27].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[27].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "782",
+        "fast_min_ps": "288"
+      },
+      {
+        "net": "gen_core[27].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[27].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[27].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "972",
+        "fast_min_ps": "340"
+      },
+      {
+        "net": "gen_core[27].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[27].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[27].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "981",
+        "fast_min_ps": "346"
+      },
+      {
+        "net": "gen_core[27].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[27].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[27].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "927",
+        "fast_min_ps": "314"
+      }
+    ],
+    "28": [
+      {
+        "net": "gen_core[28].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[28].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[28].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "771",
+        "fast_min_ps": "293"
+      },
+      {
+        "net": "gen_core[28].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[28].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[28].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1599",
+        "fast_min_ps": "601"
+      },
+      {
+        "net": "gen_core[28].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[28].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[28].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "570",
+        "fast_min_ps": "176"
+      },
+      {
+        "net": "gen_core[28].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[28].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[28].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1692",
+        "fast_min_ps": "623"
+      },
+      {
+        "net": "gen_core[28].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[28].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[28].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "836",
+        "fast_min_ps": "308"
+      },
+      {
+        "net": "gen_core[28].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[28].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[28].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "990",
+        "fast_min_ps": "358"
+      },
+      {
+        "net": "gen_core[28].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[28].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[28].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "965",
+        "fast_min_ps": "330"
+      },
+      {
+        "net": "gen_core[28].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[28].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[28].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "852",
+        "fast_min_ps": "291"
+      }
+    ],
+    "29": [
+      {
+        "net": "gen_core[29].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[29].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[29].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "755",
+        "fast_min_ps": "277"
+      },
+      {
+        "net": "gen_core[29].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[29].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[29].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1572",
+        "fast_min_ps": "574"
+      },
+      {
+        "net": "gen_core[29].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[29].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[29].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "588",
+        "fast_min_ps": "194"
+      },
+      {
+        "net": "gen_core[29].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[29].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[29].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1726",
+        "fast_min_ps": "657"
+      },
+      {
+        "net": "gen_core[29].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[29].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[29].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1306",
+        "fast_min_ps": "548"
+      },
+      {
+        "net": "gen_core[29].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[29].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[29].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "972",
+        "fast_min_ps": "340"
+      },
+      {
+        "net": "gen_core[29].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[29].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[29].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "983",
+        "fast_min_ps": "348"
+      },
+      {
+        "net": "gen_core[29].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[29].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[29].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1744",
+        "fast_min_ps": "715"
+      }
+    ],
+    "30": [
+      {
+        "net": "gen_core[30].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[30].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[30].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "1087",
+        "fast_min_ps": "498"
+      },
+      {
+        "net": "gen_core[30].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[30].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[30].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1604",
+        "fast_min_ps": "606"
+      },
+      {
+        "net": "gen_core[30].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[30].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[30].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "570",
+        "fast_min_ps": "176"
+      },
+      {
+        "net": "gen_core[30].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[30].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[30].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1692",
+        "fast_min_ps": "623"
+      },
+      {
+        "net": "gen_core[30].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[30].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[30].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1238",
+        "fast_min_ps": "529"
+      },
+      {
+        "net": "gen_core[30].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[30].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[30].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "990",
+        "fast_min_ps": "358"
+      },
+      {
+        "net": "gen_core[30].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[30].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[30].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "965",
+        "fast_min_ps": "330"
+      },
+      {
+        "net": "gen_core[30].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[30].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[30].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1245",
+        "fast_min_ps": "532"
+      }
+    ],
+    "31": [
+      {
+        "net": "gen_core[31].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[31].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[31].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "798",
+        "fast_min_ps": "292"
+      },
+      {
+        "net": "gen_core[31].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[31].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[31].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1525",
+        "fast_min_ps": "602"
+      },
+      {
+        "net": "gen_core[31].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[31].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[31].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "949",
+        "fast_min_ps": "433"
+      },
+      {
+        "net": "gen_core[31].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[31].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[31].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1693",
+        "fast_min_ps": "697"
+      },
+      {
+        "net": "gen_core[31].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[31].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[31].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "811",
+        "fast_min_ps": "314"
+      },
+      {
+        "net": "gen_core[31].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[31].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[31].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "973",
+        "fast_min_ps": "341"
+      },
+      {
+        "net": "gen_core[31].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[31].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[31].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1232",
+        "fast_min_ps": "491"
+      },
+      {
+        "net": "gen_core[31].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[31].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[31].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1439",
+        "fast_min_ps": "546"
+      }
+    ],
+    "32": [
+      {
+        "net": "gen_core[32].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[32].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[32].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "773",
+        "fast_min_ps": "295"
+      },
+      {
+        "net": "gen_core[32].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[32].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[32].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1621",
+        "fast_min_ps": "629"
+      },
+      {
+        "net": "gen_core[32].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[32].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[32].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "570",
+        "fast_min_ps": "176"
+      },
+      {
+        "net": "gen_core[32].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[32].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[32].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1692",
+        "fast_min_ps": "623"
+      },
+      {
+        "net": "gen_core[32].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[32].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[32].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "681",
+        "fast_min_ps": "219"
+      },
+      {
+        "net": "gen_core[32].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[32].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[32].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "990",
+        "fast_min_ps": "358"
+      },
+      {
+        "net": "gen_core[32].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[32].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[32].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "965",
+        "fast_min_ps": "330"
+      },
+      {
+        "net": "gen_core[32].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[32].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[32].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "543",
+        "fast_min_ps": "172"
+      }
+    ],
+    "33": [
+      {
+        "net": "gen_core[33].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[33].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[33].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "755",
+        "fast_min_ps": "277"
+      },
+      {
+        "net": "gen_core[33].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[33].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[33].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1569",
+        "fast_min_ps": "571"
+      },
+      {
+        "net": "gen_core[33].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[33].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[33].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "586",
+        "fast_min_ps": "192"
+      },
+      {
+        "net": "gen_core[33].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[33].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[33].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1871",
+        "fast_min_ps": "802"
+      },
+      {
+        "net": "gen_core[33].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[33].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[33].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "894",
+        "fast_min_ps": "370"
+      },
+      {
+        "net": "gen_core[33].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[33].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[33].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "962",
+        "fast_min_ps": "330"
+      },
+      {
+        "net": "gen_core[33].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[33].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[33].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "994",
+        "fast_min_ps": "359"
+      },
+      {
+        "net": "gen_core[33].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[33].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[33].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "978",
+        "fast_min_ps": "391"
+      }
+    ],
+    "34": [
+      {
+        "net": "gen_core[34].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[34].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[34].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "773",
+        "fast_min_ps": "295"
+      },
+      {
+        "net": "gen_core[34].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[34].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[34].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1650",
+        "fast_min_ps": "658"
+      },
+      {
+        "net": "gen_core[34].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[34].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[34].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "570",
+        "fast_min_ps": "176"
+      },
+      {
+        "net": "gen_core[34].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[34].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[34].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1721",
+        "fast_min_ps": "652"
+      },
+      {
+        "net": "gen_core[34].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[34].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[34].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "641",
+        "fast_min_ps": "219"
+      },
+      {
+        "net": "gen_core[34].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[34].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[34].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "977",
+        "fast_min_ps": "345"
+      },
+      {
+        "net": "gen_core[34].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[34].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[34].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "977",
+        "fast_min_ps": "342"
+      },
+      {
+        "net": "gen_core[34].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[34].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[34].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "680",
+        "fast_min_ps": "221"
+      }
+    ],
+    "35": [
+      {
+        "net": "gen_core[35].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[35].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[35].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "940",
+        "fast_min_ps": "388"
+      },
+      {
+        "net": "gen_core[35].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[35].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[35].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1575",
+        "fast_min_ps": "652"
+      },
+      {
+        "net": "gen_core[35].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[35].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[35].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "725",
+        "fast_min_ps": "277"
+      },
+      {
+        "net": "gen_core[35].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[35].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[35].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1718",
+        "fast_min_ps": "717"
+      },
+      {
+        "net": "gen_core[35].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[35].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[35].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1344",
+        "fast_min_ps": "566"
+      },
+      {
+        "net": "gen_core[35].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[35].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[35].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1202",
+        "fast_min_ps": "496"
+      },
+      {
+        "net": "gen_core[35].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[35].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[35].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1111",
+        "fast_min_ps": "403"
+      },
+      {
+        "net": "gen_core[35].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[35].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[35].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1296",
+        "fast_min_ps": "529"
+      }
+    ],
+    "36": [
+      {
+        "net": "gen_core[36].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[36].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[36].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "836",
+        "fast_min_ps": "310"
+      },
+      {
+        "net": "gen_core[36].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[36].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[36].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1709",
+        "fast_min_ps": "671"
+      },
+      {
+        "net": "gen_core[36].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[36].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[36].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "814",
+        "fast_min_ps": "336"
+      },
+      {
+        "net": "gen_core[36].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[36].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[36].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "2049",
+        "fast_min_ps": "839"
+      },
+      {
+        "net": "gen_core[36].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[36].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[36].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "641",
+        "fast_min_ps": "220"
+      },
+      {
+        "net": "gen_core[36].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[36].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[36].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1127",
+        "fast_min_ps": "406"
+      },
+      {
+        "net": "gen_core[36].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[36].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[36].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1231",
+        "fast_min_ps": "488"
+      },
+      {
+        "net": "gen_core[36].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[36].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[36].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "885",
+        "fast_min_ps": "287"
+      }
+    ],
+    "37": [
+      {
+        "net": "gen_core[37].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[37].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[37].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "702",
+        "fast_min_ps": "258"
+      },
+      {
+        "net": "gen_core[37].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[37].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[37].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1636",
+        "fast_min_ps": "638"
+      },
+      {
+        "net": "gen_core[37].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[37].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[37].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "733",
+        "fast_min_ps": "285"
+      },
+      {
+        "net": "gen_core[37].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[37].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[37].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1834",
+        "fast_min_ps": "714"
+      },
+      {
+        "net": "gen_core[37].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[37].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[37].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "612",
+        "fast_min_ps": "231"
+      },
+      {
+        "net": "gen_core[37].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[37].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[37].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "967",
+        "fast_min_ps": "350"
+      },
+      {
+        "net": "gen_core[37].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[37].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[37].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1259",
+        "fast_min_ps": "463"
+      },
+      {
+        "net": "gen_core[37].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[37].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[37].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "717",
+        "fast_min_ps": "222"
+      }
+    ],
+    "38": [
+      {
+        "net": "gen_core[38].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[38].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[38].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "755",
+        "fast_min_ps": "277"
+      },
+      {
+        "net": "gen_core[38].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[38].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[38].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1597",
+        "fast_min_ps": "599"
+      },
+      {
+        "net": "gen_core[38].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[38].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[38].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "586",
+        "fast_min_ps": "192"
+      },
+      {
+        "net": "gen_core[38].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[38].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[38].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1752",
+        "fast_min_ps": "683"
+      },
+      {
+        "net": "gen_core[38].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[38].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[38].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "740",
+        "fast_min_ps": "269"
+      },
+      {
+        "net": "gen_core[38].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[38].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[38].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "974",
+        "fast_min_ps": "342"
+      },
+      {
+        "net": "gen_core[38].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[38].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[38].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "981",
+        "fast_min_ps": "346"
+      },
+      {
+        "net": "gen_core[38].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[38].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[38].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "895",
+        "fast_min_ps": "287"
+      }
+    ],
+    "39": [
+      {
+        "net": "gen_core[39].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[39].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[39].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "771",
+        "fast_min_ps": "293"
+      },
+      {
+        "net": "gen_core[39].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[39].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[39].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1627",
+        "fast_min_ps": "629"
+      },
+      {
+        "net": "gen_core[39].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[39].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[39].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "570",
+        "fast_min_ps": "176"
+      },
+      {
+        "net": "gen_core[39].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[39].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[39].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1721",
+        "fast_min_ps": "652"
+      },
+      {
+        "net": "gen_core[39].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[39].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[39].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1040",
+        "fast_min_ps": "379"
+      },
+      {
+        "net": "gen_core[39].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[39].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[39].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "990",
+        "fast_min_ps": "358"
+      },
+      {
+        "net": "gen_core[39].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[39].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[39].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "965",
+        "fast_min_ps": "330"
+      },
+      {
+        "net": "gen_core[39].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[39].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[39].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1080",
+        "fast_min_ps": "387"
+      }
+    ],
+    "40": [
+      {
+        "net": "gen_core[40].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[40].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[40].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "790",
+        "fast_min_ps": "285"
+      },
+      {
+        "net": "gen_core[40].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[40].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[40].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1600",
+        "fast_min_ps": "602"
+      },
+      {
+        "net": "gen_core[40].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[40].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[40].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "588",
+        "fast_min_ps": "194"
+      },
+      {
+        "net": "gen_core[40].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[40].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[40].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1755",
+        "fast_min_ps": "686"
+      },
+      {
+        "net": "gen_core[40].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[40].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[40].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1266",
+        "fast_min_ps": "628"
+      },
+      {
+        "net": "gen_core[40].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[40].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[40].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "972",
+        "fast_min_ps": "340"
+      },
+      {
+        "net": "gen_core[40].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[40].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[40].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "983",
+        "fast_min_ps": "348"
+      },
+      {
+        "net": "gen_core[40].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[40].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[40].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1163",
+        "fast_min_ps": "478"
+      }
+    ],
+    "41": [
+      {
+        "net": "gen_core[41].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[41].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[41].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "826",
+        "fast_min_ps": "313"
+      },
+      {
+        "net": "gen_core[41].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[41].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[41].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1620",
+        "fast_min_ps": "622"
+      },
+      {
+        "net": "gen_core[41].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[41].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[41].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "570",
+        "fast_min_ps": "176"
+      },
+      {
+        "net": "gen_core[41].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[41].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[41].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1721",
+        "fast_min_ps": "652"
+      },
+      {
+        "net": "gen_core[41].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[41].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[41].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1007",
+        "fast_min_ps": "424"
+      },
+      {
+        "net": "gen_core[41].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[41].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[41].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "990",
+        "fast_min_ps": "358"
+      },
+      {
+        "net": "gen_core[41].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[41].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[41].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "965",
+        "fast_min_ps": "330"
+      },
+      {
+        "net": "gen_core[41].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[41].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[41].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1173",
+        "fast_min_ps": "493"
+      }
+    ],
+    "42": [
+      {
+        "net": "gen_core[42].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[42].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[42].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "799",
+        "fast_min_ps": "293"
+      },
+      {
+        "net": "gen_core[42].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[42].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[42].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1653",
+        "fast_min_ps": "702"
+      },
+      {
+        "net": "gen_core[42].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[42].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[42].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "950",
+        "fast_min_ps": "433"
+      },
+      {
+        "net": "gen_core[42].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[42].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[42].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1734",
+        "fast_min_ps": "733"
+      },
+      {
+        "net": "gen_core[42].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[42].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[42].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "795",
+        "fast_min_ps": "304"
+      },
+      {
+        "net": "gen_core[42].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[42].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[42].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "971",
+        "fast_min_ps": "339"
+      },
+      {
+        "net": "gen_core[42].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[42].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[42].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1219",
+        "fast_min_ps": "478"
+      },
+      {
+        "net": "gen_core[42].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[42].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[42].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "927",
+        "fast_min_ps": "334"
+      }
+    ],
+    "43": [
+      {
+        "net": "gen_core[43].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[43].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[43].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "814",
+        "fast_min_ps": "308"
+      },
+      {
+        "net": "gen_core[43].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[43].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[43].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1497",
+        "fast_min_ps": "574"
+      },
+      {
+        "net": "gen_core[43].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[43].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[43].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "870",
+        "fast_min_ps": "354"
+      },
+      {
+        "net": "gen_core[43].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[43].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[43].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1656",
+        "fast_min_ps": "655"
+      },
+      {
+        "net": "gen_core[43].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[43].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[43].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "992",
+        "fast_min_ps": "416"
+      },
+      {
+        "net": "gen_core[43].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[43].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[43].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "991",
+        "fast_min_ps": "359"
+      },
+      {
+        "net": "gen_core[43].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[43].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[43].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1186",
+        "fast_min_ps": "445"
+      },
+      {
+        "net": "gen_core[43].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[43].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[43].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1038",
+        "fast_min_ps": "410"
+      }
+    ],
+    "44": [
+      {
+        "net": "gen_core[44].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[44].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[44].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "773",
+        "fast_min_ps": "295"
+      },
+      {
+        "net": "gen_core[44].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[44].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[44].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1650",
+        "fast_min_ps": "658"
+      },
+      {
+        "net": "gen_core[44].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[44].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[44].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "570",
+        "fast_min_ps": "176"
+      },
+      {
+        "net": "gen_core[44].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[44].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[44].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1721",
+        "fast_min_ps": "652"
+      },
+      {
+        "net": "gen_core[44].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[44].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[44].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1494",
+        "fast_min_ps": "664"
+      },
+      {
+        "net": "gen_core[44].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[44].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[44].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "977",
+        "fast_min_ps": "345"
+      },
+      {
+        "net": "gen_core[44].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[44].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[44].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "975",
+        "fast_min_ps": "340"
+      },
+      {
+        "net": "gen_core[44].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[44].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[44].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1402",
+        "fast_min_ps": "606"
+      }
+    ],
+    "45": [
+      {
+        "net": "gen_core[45].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[45].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[45].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "755",
+        "fast_min_ps": "277"
+      },
+      {
+        "net": "gen_core[45].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[45].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[45].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1597",
+        "fast_min_ps": "599"
+      },
+      {
+        "net": "gen_core[45].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[45].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[45].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "586",
+        "fast_min_ps": "192"
+      },
+      {
+        "net": "gen_core[45].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[45].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[45].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1900",
+        "fast_min_ps": "831"
+      },
+      {
+        "net": "gen_core[45].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[45].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[45].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "626",
+        "fast_min_ps": "204"
+      },
+      {
+        "net": "gen_core[45].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[45].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[45].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "962",
+        "fast_min_ps": "330"
+      },
+      {
+        "net": "gen_core[45].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[45].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[45].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "994",
+        "fast_min_ps": "359"
+      },
+      {
+        "net": "gen_core[45].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[45].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[45].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "679",
+        "fast_min_ps": "224"
+      }
+    ],
+    "46": [
+      {
+        "net": "gen_core[46].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[46].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[46].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "771",
+        "fast_min_ps": "293"
+      },
+      {
+        "net": "gen_core[46].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[46].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[46].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1587",
+        "fast_min_ps": "560"
+      },
+      {
+        "net": "gen_core[46].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[46].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[46].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "570",
+        "fast_min_ps": "176"
+      },
+      {
+        "net": "gen_core[46].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[46].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[46].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1755",
+        "fast_min_ps": "629"
+      },
+      {
+        "net": "gen_core[46].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[46].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[46].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "2292",
+        "fast_min_ps": "1023"
+      },
+      {
+        "net": "gen_core[46].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[46].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[46].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "990",
+        "fast_min_ps": "358"
+      },
+      {
+        "net": "gen_core[46].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[46].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[46].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "965",
+        "fast_min_ps": "330"
+      },
+      {
+        "net": "gen_core[46].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[46].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[46].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "2379",
+        "fast_min_ps": "1032"
+      }
+    ],
+    "47": [
+      {
+        "net": "gen_core[47].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[47].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[47].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "940",
+        "fast_min_ps": "388"
+      },
+      {
+        "net": "gen_core[47].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[47].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[47].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1542",
+        "fast_min_ps": "619"
+      },
+      {
+        "net": "gen_core[47].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[47].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[47].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "725",
+        "fast_min_ps": "277"
+      },
+      {
+        "net": "gen_core[47].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[47].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[47].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1689",
+        "fast_min_ps": "688"
+      },
+      {
+        "net": "gen_core[47].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[47].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[47].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1474",
+        "fast_min_ps": "632"
+      },
+      {
+        "net": "gen_core[47].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[47].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[47].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1206",
+        "fast_min_ps": "500"
+      },
+      {
+        "net": "gen_core[47].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[47].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[47].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1125",
+        "fast_min_ps": "417"
+      },
+      {
+        "net": "gen_core[47].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[47].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[47].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1512",
+        "fast_min_ps": "563"
+      }
+    ],
+    "48": [
+      {
+        "net": "gen_core[48].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[48].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[48].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "702",
+        "fast_min_ps": "258"
+      },
+      {
+        "net": "gen_core[48].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[48].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[48].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1607",
+        "fast_min_ps": "609"
+      },
+      {
+        "net": "gen_core[48].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[48].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[48].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "733",
+        "fast_min_ps": "285"
+      },
+      {
+        "net": "gen_core[48].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[48].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[48].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1806",
+        "fast_min_ps": "686"
+      },
+      {
+        "net": "gen_core[48].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[48].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[48].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1703",
+        "fast_min_ps": "655"
+      },
+      {
+        "net": "gen_core[48].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[48].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[48].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "971",
+        "fast_min_ps": "354"
+      },
+      {
+        "net": "gen_core[48].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[48].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[48].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1263",
+        "fast_min_ps": "467"
+      },
+      {
+        "net": "gen_core[48].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[48].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[48].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1613",
+        "fast_min_ps": "589"
+      }
+    ],
+    "49": [
+      {
+        "net": "gen_core[49].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[49].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[49].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "755",
+        "fast_min_ps": "277"
+      },
+      {
+        "net": "gen_core[49].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[49].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[49].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1557",
+        "fast_min_ps": "601"
+      },
+      {
+        "net": "gen_core[49].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[49].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[49].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "586",
+        "fast_min_ps": "192"
+      },
+      {
+        "net": "gen_core[49].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[49].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[49].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1724",
+        "fast_min_ps": "655"
+      },
+      {
+        "net": "gen_core[49].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[49].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[49].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1033",
+        "fast_min_ps": "385"
+      },
+      {
+        "net": "gen_core[49].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[49].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[49].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "962",
+        "fast_min_ps": "330"
+      },
+      {
+        "net": "gen_core[49].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[49].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[49].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "991",
+        "fast_min_ps": "356"
+      },
+      {
+        "net": "gen_core[49].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[49].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[49].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1065",
+        "fast_min_ps": "384"
+      }
+    ],
+    "50": [
+      {
+        "net": "gen_core[50].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[50].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[50].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "771",
+        "fast_min_ps": "293"
+      },
+      {
+        "net": "gen_core[50].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[50].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[50].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1557",
+        "fast_min_ps": "601"
+      },
+      {
+        "net": "gen_core[50].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[50].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[50].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "570",
+        "fast_min_ps": "176"
+      },
+      {
+        "net": "gen_core[50].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[50].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[50].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1692",
+        "fast_min_ps": "623"
+      },
+      {
+        "net": "gen_core[50].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[50].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[50].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1764",
+        "fast_min_ps": "686"
+      },
+      {
+        "net": "gen_core[50].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[50].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[50].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "990",
+        "fast_min_ps": "358"
+      },
+      {
+        "net": "gen_core[50].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[50].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[50].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "979",
+        "fast_min_ps": "344"
+      },
+      {
+        "net": "gen_core[50].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[50].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[50].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1801",
+        "fast_min_ps": "686"
+      }
+    ],
+    "51": [
+      {
+        "net": "gen_core[51].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[51].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[51].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "659",
+        "fast_min_ps": "243"
+      },
+      {
+        "net": "gen_core[51].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[51].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[51].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1566",
+        "fast_min_ps": "610"
+      },
+      {
+        "net": "gen_core[51].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[51].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[51].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "710",
+        "fast_min_ps": "231"
+      },
+      {
+        "net": "gen_core[51].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[51].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[51].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1795",
+        "fast_min_ps": "675"
+      },
+      {
+        "net": "gen_core[51].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[51].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[51].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1367",
+        "fast_min_ps": "534"
+      },
+      {
+        "net": "gen_core[51].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[51].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[51].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "971",
+        "fast_min_ps": "354"
+      },
+      {
+        "net": "gen_core[51].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[51].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[51].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1253",
+        "fast_min_ps": "457"
+      },
+      {
+        "net": "gen_core[51].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[51].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[51].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1445",
+        "fast_min_ps": "539"
+      }
+    ],
+    "52": [
+      {
+        "net": "gen_core[52].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[52].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[52].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "826",
+        "fast_min_ps": "313"
+      },
+      {
+        "net": "gen_core[52].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[52].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[52].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1586",
+        "fast_min_ps": "588"
+      },
+      {
+        "net": "gen_core[52].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[52].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[52].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "570",
+        "fast_min_ps": "176"
+      },
+      {
+        "net": "gen_core[52].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[52].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[52].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1692",
+        "fast_min_ps": "623"
+      },
+      {
+        "net": "gen_core[52].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[52].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[52].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1272",
+        "fast_min_ps": "489"
+      },
+      {
+        "net": "gen_core[52].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[52].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[52].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "988",
+        "fast_min_ps": "356"
+      },
+      {
+        "net": "gen_core[52].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[52].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[52].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "965",
+        "fast_min_ps": "330"
+      },
+      {
+        "net": "gen_core[52].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[52].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[52].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1112",
+        "fast_min_ps": "407"
+      }
+    ],
+    "53": [
+      {
+        "net": "gen_core[53].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[53].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[53].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "773",
+        "fast_min_ps": "295"
+      },
+      {
+        "net": "gen_core[53].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[53].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[53].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1598",
+        "fast_min_ps": "600"
+      },
+      {
+        "net": "gen_core[53].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[53].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[53].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "570",
+        "fast_min_ps": "176"
+      },
+      {
+        "net": "gen_core[53].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[53].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[53].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1695",
+        "fast_min_ps": "626"
+      },
+      {
+        "net": "gen_core[53].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[53].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[53].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1133",
+        "fast_min_ps": "487"
+      },
+      {
+        "net": "gen_core[53].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[53].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[53].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "991",
+        "fast_min_ps": "359"
+      },
+      {
+        "net": "gen_core[53].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[53].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[53].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "965",
+        "fast_min_ps": "330"
+      },
+      {
+        "net": "gen_core[53].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[53].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[53].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1302",
+        "fast_min_ps": "528"
+      }
+    ],
+    "54": [
+      {
+        "net": "gen_core[54].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[54].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[54].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "702",
+        "fast_min_ps": "258"
+      },
+      {
+        "net": "gen_core[54].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[54].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[54].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1590",
+        "fast_min_ps": "592"
+      },
+      {
+        "net": "gen_core[54].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[54].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[54].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "732",
+        "fast_min_ps": "284"
+      },
+      {
+        "net": "gen_core[54].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[54].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[54].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1804",
+        "fast_min_ps": "684"
+      },
+      {
+        "net": "gen_core[54].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[54].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[54].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1213",
+        "fast_min_ps": "451"
+      },
+      {
+        "net": "gen_core[54].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[54].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[54].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "967",
+        "fast_min_ps": "350"
+      },
+      {
+        "net": "gen_core[54].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[54].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[54].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1259",
+        "fast_min_ps": "463"
+      },
+      {
+        "net": "gen_core[54].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[54].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[54].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1256",
+        "fast_min_ps": "463"
+      }
+    ],
+    "55": [
+      {
+        "net": "gen_core[55].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[55].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[55].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "773",
+        "fast_min_ps": "295"
+      },
+      {
+        "net": "gen_core[55].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[55].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[55].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1650",
+        "fast_min_ps": "658"
+      },
+      {
+        "net": "gen_core[55].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[55].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[55].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "570",
+        "fast_min_ps": "176"
+      },
+      {
+        "net": "gen_core[55].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[55].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[55].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1721",
+        "fast_min_ps": "652"
+      },
+      {
+        "net": "gen_core[55].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[55].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[55].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1999",
+        "fast_min_ps": "827"
+      },
+      {
+        "net": "gen_core[55].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[55].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[55].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1118",
+        "fast_min_ps": "399"
+      },
+      {
+        "net": "gen_core[55].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[55].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[55].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "975",
+        "fast_min_ps": "340"
+      },
+      {
+        "net": "gen_core[55].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[55].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[55].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "2050",
+        "fast_min_ps": "819"
+      }
+    ],
+    "56": [
+      {
+        "net": "gen_core[56].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[56].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[56].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "940",
+        "fast_min_ps": "388"
+      },
+      {
+        "net": "gen_core[56].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[56].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[56].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1575",
+        "fast_min_ps": "652"
+      },
+      {
+        "net": "gen_core[56].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[56].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[56].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "725",
+        "fast_min_ps": "277"
+      },
+      {
+        "net": "gen_core[56].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[56].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[56].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1718",
+        "fast_min_ps": "717"
+      },
+      {
+        "net": "gen_core[56].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[56].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[56].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1406",
+        "fast_min_ps": "523"
+      },
+      {
+        "net": "gen_core[56].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[56].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[56].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1206",
+        "fast_min_ps": "500"
+      },
+      {
+        "net": "gen_core[56].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[56].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[56].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1125",
+        "fast_min_ps": "417"
+      },
+      {
+        "net": "gen_core[56].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[56].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[56].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1720",
+        "fast_min_ps": "679"
+      }
+    ],
+    "57": [
+      {
+        "net": "gen_core[57].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[57].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[57].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "836",
+        "fast_min_ps": "310"
+      },
+      {
+        "net": "gen_core[57].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[57].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[57].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1709",
+        "fast_min_ps": "671"
+      },
+      {
+        "net": "gen_core[57].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[57].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[57].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "814",
+        "fast_min_ps": "336"
+      },
+      {
+        "net": "gen_core[57].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[57].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[57].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "2049",
+        "fast_min_ps": "839"
+      },
+      {
+        "net": "gen_core[57].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[57].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[57].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1369",
+        "fast_min_ps": "509"
+      },
+      {
+        "net": "gen_core[57].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[57].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[57].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1127",
+        "fast_min_ps": "406"
+      },
+      {
+        "net": "gen_core[57].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[57].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[57].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1230",
+        "fast_min_ps": "487"
+      },
+      {
+        "net": "gen_core[57].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[57].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[57].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "2214",
+        "fast_min_ps": "939"
+      }
+    ],
+    "58": [
+      {
+        "net": "gen_core[58].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[58].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[58].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "702",
+        "fast_min_ps": "258"
+      },
+      {
+        "net": "gen_core[58].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[58].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[58].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1636",
+        "fast_min_ps": "638"
+      },
+      {
+        "net": "gen_core[58].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[58].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[58].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "733",
+        "fast_min_ps": "285"
+      },
+      {
+        "net": "gen_core[58].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[58].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[58].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1834",
+        "fast_min_ps": "714"
+      },
+      {
+        "net": "gen_core[58].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[58].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[58].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1453",
+        "fast_min_ps": "552"
+      },
+      {
+        "net": "gen_core[58].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[58].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[58].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "972",
+        "fast_min_ps": "355"
+      },
+      {
+        "net": "gen_core[58].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[58].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[58].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1264",
+        "fast_min_ps": "468"
+      },
+      {
+        "net": "gen_core[58].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[58].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[58].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1449",
+        "fast_min_ps": "516"
+      }
+    ],
+    "59": [
+      {
+        "net": "gen_core[59].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[59].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[59].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "755",
+        "fast_min_ps": "277"
+      },
+      {
+        "net": "gen_core[59].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[59].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[59].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1597",
+        "fast_min_ps": "599"
+      },
+      {
+        "net": "gen_core[59].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[59].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[59].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "586",
+        "fast_min_ps": "192"
+      },
+      {
+        "net": "gen_core[59].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[59].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[59].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1752",
+        "fast_min_ps": "683"
+      },
+      {
+        "net": "gen_core[59].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[59].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[59].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1991",
+        "fast_min_ps": "802"
+      },
+      {
+        "net": "gen_core[59].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[59].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[59].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "962",
+        "fast_min_ps": "330"
+      },
+      {
+        "net": "gen_core[59].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[59].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[59].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "994",
+        "fast_min_ps": "359"
+      },
+      {
+        "net": "gen_core[59].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[59].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[59].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "2145",
+        "fast_min_ps": "883"
+      }
+    ],
+    "60": [
+      {
+        "net": "gen_core[60].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[60].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[60].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "771",
+        "fast_min_ps": "293"
+      },
+      {
+        "net": "gen_core[60].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[60].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[60].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1627",
+        "fast_min_ps": "629"
+      },
+      {
+        "net": "gen_core[60].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[60].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[60].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "570",
+        "fast_min_ps": "176"
+      },
+      {
+        "net": "gen_core[60].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[60].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[60].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1721",
+        "fast_min_ps": "652"
+      },
+      {
+        "net": "gen_core[60].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[60].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[60].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1984",
+        "fast_min_ps": "803"
+      },
+      {
+        "net": "gen_core[60].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[60].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[60].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "991",
+        "fast_min_ps": "359"
+      },
+      {
+        "net": "gen_core[60].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[60].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[60].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "979",
+        "fast_min_ps": "344"
+      },
+      {
+        "net": "gen_core[60].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[60].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[60].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "2301",
+        "fast_min_ps": "919"
+      }
+    ],
+    "61": [
+      {
+        "net": "gen_core[61].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[61].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[61].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "659",
+        "fast_min_ps": "243"
+      },
+      {
+        "net": "gen_core[61].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[61].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[61].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1608",
+        "fast_min_ps": "610"
+      },
+      {
+        "net": "gen_core[61].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[61].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[61].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "710",
+        "fast_min_ps": "231"
+      },
+      {
+        "net": "gen_core[61].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[61].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[61].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1823",
+        "fast_min_ps": "703"
+      },
+      {
+        "net": "gen_core[61].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[61].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[61].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1832",
+        "fast_min_ps": "752"
+      },
+      {
+        "net": "gen_core[61].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[61].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[61].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "975",
+        "fast_min_ps": "358"
+      },
+      {
+        "net": "gen_core[61].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[61].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[61].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1256",
+        "fast_min_ps": "460"
+      },
+      {
+        "net": "gen_core[61].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[61].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[61].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1583",
+        "fast_min_ps": "570"
+      }
+    ],
+    "62": [
+      {
+        "net": "gen_core[62].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[62].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[62].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "771",
+        "fast_min_ps": "293"
+      },
+      {
+        "net": "gen_core[62].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[62].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[62].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1627",
+        "fast_min_ps": "629"
+      },
+      {
+        "net": "gen_core[62].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[62].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[62].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "570",
+        "fast_min_ps": "176"
+      },
+      {
+        "net": "gen_core[62].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[62].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[62].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1721",
+        "fast_min_ps": "652"
+      },
+      {
+        "net": "gen_core[62].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[62].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[62].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1651",
+        "fast_min_ps": "662"
+      },
+      {
+        "net": "gen_core[62].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[62].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[62].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "990",
+        "fast_min_ps": "358"
+      },
+      {
+        "net": "gen_core[62].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[62].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[62].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "965",
+        "fast_min_ps": "330"
+      },
+      {
+        "net": "gen_core[62].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[62].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[62].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "1572",
+        "fast_min_ps": "623"
+      }
+    ],
+    "63": [
+      {
+        "net": "gen_core[63].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[63].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[63].u_engine/u_core/u_arbiter_dff/C",
+        "slow_max_ps": "702",
+        "fast_min_ps": "258"
+      },
+      {
+        "net": "gen_core[63].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[63].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[63].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1618",
+        "fast_min_ps": "620"
+      },
+      {
+        "net": "gen_core[63].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[63].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[63].u_engine/u_core/u_arbiter_dff/D",
+        "slow_max_ps": "732",
+        "fast_min_ps": "284"
+      },
+      {
+        "net": "gen_core[63].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+        "driver": "gen_core[63].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+        "sink": "gen_core[63].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+        "slow_max_ps": "1833",
+        "fast_min_ps": "713"
+      },
+      {
+        "net": "gen_core[63].u_engine/u_ctrl/puf_clr_o",
+        "driver": "gen_core[63].u_engine/u_ctrl/puf_clr_o_reg/Q",
+        "sink": "gen_core[63].u_engine/u_core/u_arbiter_dff/CLR",
+        "slow_max_ps": "1826",
+        "fast_min_ps": "709"
+      },
+      {
+        "net": "gen_core[63].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[63].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[63].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "972",
+        "fast_min_ps": "355"
+      },
+      {
+        "net": "gen_core[63].u_engine/u_ctrl/puf_excite_o",
+        "driver": "gen_core[63].u_engine/u_ctrl/puf_excite_o_reg/Q",
+        "sink": "gen_core[63].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+        "slow_max_ps": "1263",
+        "fast_min_ps": "467"
+      },
+      {
+        "net": "gen_core[63].u_engine/u_ctrl/puf_latch_o",
+        "driver": "gen_core[63].u_engine/u_ctrl/puf_latch_o_reg/Q",
+        "sink": "gen_core[63].u_engine/u_core/u_arbiter_dff/CE",
+        "slow_max_ps": "2087",
+        "fast_min_ps": "824"
+      }
+    ]
+  },
+  "boundary_skews": {
+    "0": {
+      "launch": {
+        "slow_max_ps": 12.0,
+        "fast_min_ps": 15.0
+      },
+      "feedback": {
+        "slow_max_ps": 2.0,
+        "fast_min_ps": 3.0
+      },
+      "arbiter": {
+        "slow_max_ps": 198.0,
+        "fast_min_ps": 114.0
+      }
+    },
+    "1": {
+      "launch": {
+        "slow_max_ps": 79.0,
+        "fast_min_ps": 81.0
+      },
+      "feedback": {
+        "slow_max_ps": 256.0,
+        "fast_min_ps": 113.0
+      },
+      "arbiter": {
+        "slow_max_ps": 217.0,
+        "fast_min_ps": 113.0
+      }
+    },
+    "2": {
+      "launch": {
+        "slow_max_ps": 90.0,
+        "fast_min_ps": 68.0
+      },
+      "feedback": {
+        "slow_max_ps": 133.0,
+        "fast_min_ps": 46.0
+      },
+      "arbiter": {
+        "slow_max_ps": 24.0,
+        "fast_min_ps": 24.0
+      }
+    },
+    "3": {
+      "launch": {
+        "slow_max_ps": 167.0,
+        "fast_min_ps": 77.0
+      },
+      "feedback": {
+        "slow_max_ps": 1.0,
+        "fast_min_ps": 2.0
+      },
+      "arbiter": {
+        "slow_max_ps": 33.0,
+        "fast_min_ps": 29.0
+      }
+    },
+    "4": {
+      "launch": {
+        "slow_max_ps": 19.0,
+        "fast_min_ps": 16.0
+      },
+      "feedback": {
+        "slow_max_ps": 167.0,
+        "fast_min_ps": 54.0
+      },
+      "arbiter": {
+        "slow_max_ps": 169.0,
+        "fast_min_ps": 85.0
+      }
+    },
+    "5": {
+      "launch": {
+        "slow_max_ps": 12.0,
+        "fast_min_ps": 15.0
+      },
+      "feedback": {
+        "slow_max_ps": 135.0,
+        "fast_min_ps": 22.0
+      },
+      "arbiter": {
+        "slow_max_ps": 201.0,
+        "fast_min_ps": 117.0
+      }
+    },
+    "6": {
+      "launch": {
+        "slow_max_ps": 9.0,
+        "fast_min_ps": 6.0
+      },
+      "feedback": {
+        "slow_max_ps": 167.0,
+        "fast_min_ps": 54.0
+      },
+      "arbiter": {
+        "slow_max_ps": 167.0,
+        "fast_min_ps": 83.0
+      }
+    },
+    "7": {
+      "launch": {
+        "slow_max_ps": 25.0,
+        "fast_min_ps": 28.0
+      },
+      "feedback": {
+        "slow_max_ps": 135.0,
+        "fast_min_ps": 22.0
+      },
+      "arbiter": {
+        "slow_max_ps": 201.0,
+        "fast_min_ps": 117.0
+      }
+    },
+    "8": {
+      "launch": {
+        "slow_max_ps": 278.0,
+        "fast_min_ps": 169.0
+      },
+      "feedback": {
+        "slow_max_ps": 180.0,
+        "fast_min_ps": 87.0
+      },
+      "arbiter": {
+        "slow_max_ps": 149.0,
+        "fast_min_ps": 138.0
+      }
+    },
+    "9": {
+      "launch": {
+        "slow_max_ps": 195.0,
+        "fast_min_ps": 86.0
+      },
+      "feedback": {
+        "slow_max_ps": 246.0,
+        "fast_min_ps": 128.0
+      },
+      "arbiter": {
+        "slow_max_ps": 55.0,
+        "fast_min_ps": 44.0
+      }
+    },
+    "10": {
+      "launch": {
+        "slow_max_ps": 12.0,
+        "fast_min_ps": 15.0
+      },
+      "feedback": {
+        "slow_max_ps": 135.0,
+        "fast_min_ps": 22.0
+      },
+      "arbiter": {
+        "slow_max_ps": 201.0,
+        "fast_min_ps": 117.0
+      }
+    },
+    "11": {
+      "launch": {
+        "slow_max_ps": 32.0,
+        "fast_min_ps": 29.0
+      },
+      "feedback": {
+        "slow_max_ps": 314.0,
+        "fast_min_ps": 201.0
+      },
+      "arbiter": {
+        "slow_max_ps": 169.0,
+        "fast_min_ps": 85.0
+      }
+    },
+    "12": {
+      "launch": {
+        "slow_max_ps": 23.0,
+        "fast_min_ps": 26.0
+      },
+      "feedback": {
+        "slow_max_ps": 71.0,
+        "fast_min_ps": 6.0
+      },
+      "arbiter": {
+        "slow_max_ps": 203.0,
+        "fast_min_ps": 119.0
+      }
+    },
+    "13": {
+      "launch": {
+        "slow_max_ps": 93.0,
+        "fast_min_ps": 95.0
+      },
+      "feedback": {
+        "slow_max_ps": 143.0,
+        "fast_min_ps": 65.0
+      },
+      "arbiter": {
+        "slow_max_ps": 215.0,
+        "fast_min_ps": 111.0
+      }
+    },
+    "14": {
+      "launch": {
+        "slow_max_ps": 79.0,
+        "fast_min_ps": 57.0
+      },
+      "feedback": {
+        "slow_max_ps": 340.0,
+        "fast_min_ps": 168.0
+      },
+      "arbiter": {
+        "slow_max_ps": 22.0,
+        "fast_min_ps": 26.0
+      }
+    },
+    "15": {
+      "launch": {
+        "slow_max_ps": 292.0,
+        "fast_min_ps": 113.0
+      },
+      "feedback": {
+        "slow_max_ps": 0.0,
+        "fast_min_ps": 5.0
+      },
+      "arbiter": {
+        "slow_max_ps": 28.0,
+        "fast_min_ps": 24.0
+      }
+    },
+    "16": {
+      "launch": {
+        "slow_max_ps": 20.0,
+        "fast_min_ps": 24.0
+      },
+      "feedback": {
+        "slow_max_ps": 100.0,
+        "fast_min_ps": 33.0
+      },
+      "arbiter": {
+        "slow_max_ps": 343.0,
+        "fast_min_ps": 150.0
+      }
+    },
+    "17": {
+      "launch": {
+        "slow_max_ps": 11.0,
+        "fast_min_ps": 8.0
+      },
+      "feedback": {
+        "slow_max_ps": 304.0,
+        "fast_min_ps": 126.0
+      },
+      "arbiter": {
+        "slow_max_ps": 43.0,
+        "fast_min_ps": 29.0
+      }
+    },
+    "18": {
+      "launch": {
+        "slow_max_ps": 25.0,
+        "fast_min_ps": 28.0
+      },
+      "feedback": {
+        "slow_max_ps": 89.0,
+        "fast_min_ps": 18.0
+      },
+      "arbiter": {
+        "slow_max_ps": 201.0,
+        "fast_min_ps": 117.0
+      }
+    },
+    "19": {
+      "launch": {
+        "slow_max_ps": 259.0,
+        "fast_min_ps": 150.0
+      },
+      "feedback": {
+        "slow_max_ps": 81.0,
+        "fast_min_ps": 36.0
+      },
+      "arbiter": {
+        "slow_max_ps": 101.0,
+        "fast_min_ps": 120.0
+      }
+    },
+    "20": {
+      "launch": {
+        "slow_max_ps": 195.0,
+        "fast_min_ps": 86.0
+      },
+      "feedback": {
+        "slow_max_ps": 159.0,
+        "fast_min_ps": 81.0
+      },
+      "arbiter": {
+        "slow_max_ps": 89.0,
+        "fast_min_ps": 10.0
+      }
+    },
+    "21": {
+      "launch": {
+        "slow_max_ps": 0.0,
+        "fast_min_ps": 3.0
+      },
+      "feedback": {
+        "slow_max_ps": 71.0,
+        "fast_min_ps": 6.0
+      },
+      "arbiter": {
+        "slow_max_ps": 203.0,
+        "fast_min_ps": 119.0
+      }
+    },
+    "22": {
+      "launch": {
+        "slow_max_ps": 19.0,
+        "fast_min_ps": 16.0
+      },
+      "feedback": {
+        "slow_max_ps": 303.0,
+        "fast_min_ps": 232.0
+      },
+      "arbiter": {
+        "slow_max_ps": 169.0,
+        "fast_min_ps": 85.0
+      }
+    },
+    "23": {
+      "launch": {
+        "slow_max_ps": 25.0,
+        "fast_min_ps": 28.0
+      },
+      "feedback": {
+        "slow_max_ps": 118.0,
+        "fast_min_ps": 76.0
+      },
+      "arbiter": {
+        "slow_max_ps": 256.0,
+        "fast_min_ps": 137.0
+      }
+    },
+    "24": {
+      "launch": {
+        "slow_max_ps": 69.0,
+        "fast_min_ps": 71.0
+      },
+      "feedback": {
+        "slow_max_ps": 147.0,
+        "fast_min_ps": 69.0
+      },
+      "arbiter": {
+        "slow_max_ps": 215.0,
+        "fast_min_ps": 111.0
+      }
+    },
+    "25": {
+      "launch": {
+        "slow_max_ps": 80.0,
+        "fast_min_ps": 58.0
+      },
+      "feedback": {
+        "slow_max_ps": 330.0,
+        "fast_min_ps": 146.0
+      },
+      "arbiter": {
+        "slow_max_ps": 22.0,
+        "fast_min_ps": 26.0
+      }
+    },
+    "26": {
+      "launch": {
+        "slow_max_ps": 292.0,
+        "fast_min_ps": 113.0
+      },
+      "feedback": {
+        "slow_max_ps": 199.0,
+        "fast_min_ps": 77.0
+      },
+      "arbiter": {
+        "slow_max_ps": 31.0,
+        "fast_min_ps": 27.0
+      }
+    },
+    "27": {
+      "launch": {
+        "slow_max_ps": 9.0,
+        "fast_min_ps": 6.0
+      },
+      "feedback": {
+        "slow_max_ps": 155.0,
+        "fast_min_ps": 84.0
+      },
+      "arbiter": {
+        "slow_max_ps": 169.0,
+        "fast_min_ps": 85.0
+      }
+    },
+    "28": {
+      "launch": {
+        "slow_max_ps": 25.0,
+        "fast_min_ps": 28.0
+      },
+      "feedback": {
+        "slow_max_ps": 93.0,
+        "fast_min_ps": 22.0
+      },
+      "arbiter": {
+        "slow_max_ps": 201.0,
+        "fast_min_ps": 117.0
+      }
+    },
+    "29": {
+      "launch": {
+        "slow_max_ps": 11.0,
+        "fast_min_ps": 8.0
+      },
+      "feedback": {
+        "slow_max_ps": 154.0,
+        "fast_min_ps": 83.0
+      },
+      "arbiter": {
+        "slow_max_ps": 167.0,
+        "fast_min_ps": 83.0
+      }
+    },
+    "30": {
+      "launch": {
+        "slow_max_ps": 25.0,
+        "fast_min_ps": 28.0
+      },
+      "feedback": {
+        "slow_max_ps": 88.0,
+        "fast_min_ps": 17.0
+      },
+      "arbiter": {
+        "slow_max_ps": 517.0,
+        "fast_min_ps": 322.0
+      }
+    },
+    "31": {
+      "launch": {
+        "slow_max_ps": 259.0,
+        "fast_min_ps": 150.0
+      },
+      "feedback": {
+        "slow_max_ps": 168.0,
+        "fast_min_ps": 95.0
+      },
+      "arbiter": {
+        "slow_max_ps": 151.0,
+        "fast_min_ps": 141.0
+      }
+    },
+    "32": {
+      "launch": {
+        "slow_max_ps": 25.0,
+        "fast_min_ps": 28.0
+      },
+      "feedback": {
+        "slow_max_ps": 71.0,
+        "fast_min_ps": 6.0
+      },
+      "arbiter": {
+        "slow_max_ps": 203.0,
+        "fast_min_ps": 119.0
+      }
+    },
+    "33": {
+      "launch": {
+        "slow_max_ps": 32.0,
+        "fast_min_ps": 29.0
+      },
+      "feedback": {
+        "slow_max_ps": 302.0,
+        "fast_min_ps": 231.0
+      },
+      "arbiter": {
+        "slow_max_ps": 169.0,
+        "fast_min_ps": 85.0
+      }
+    },
+    "34": {
+      "launch": {
+        "slow_max_ps": 0.0,
+        "fast_min_ps": 3.0
+      },
+      "feedback": {
+        "slow_max_ps": 71.0,
+        "fast_min_ps": 6.0
+      },
+      "arbiter": {
+        "slow_max_ps": 203.0,
+        "fast_min_ps": 119.0
+      }
+    },
+    "35": {
+      "launch": {
+        "slow_max_ps": 91.0,
+        "fast_min_ps": 93.0
+      },
+      "feedback": {
+        "slow_max_ps": 143.0,
+        "fast_min_ps": 65.0
+      },
+      "arbiter": {
+        "slow_max_ps": 215.0,
+        "fast_min_ps": 111.0
+      }
+    },
+    "36": {
+      "launch": {
+        "slow_max_ps": 104.0,
+        "fast_min_ps": 82.0
+      },
+      "feedback": {
+        "slow_max_ps": 340.0,
+        "fast_min_ps": 168.0
+      },
+      "arbiter": {
+        "slow_max_ps": 22.0,
+        "fast_min_ps": 26.0
+      }
+    },
+    "37": {
+      "launch": {
+        "slow_max_ps": 292.0,
+        "fast_min_ps": 113.0
+      },
+      "feedback": {
+        "slow_max_ps": 198.0,
+        "fast_min_ps": 76.0
+      },
+      "arbiter": {
+        "slow_max_ps": 31.0,
+        "fast_min_ps": 27.0
+      }
+    },
+    "38": {
+      "launch": {
+        "slow_max_ps": 7.0,
+        "fast_min_ps": 4.0
+      },
+      "feedback": {
+        "slow_max_ps": 155.0,
+        "fast_min_ps": 84.0
+      },
+      "arbiter": {
+        "slow_max_ps": 169.0,
+        "fast_min_ps": 85.0
+      }
+    },
+    "39": {
+      "launch": {
+        "slow_max_ps": 25.0,
+        "fast_min_ps": 28.0
+      },
+      "feedback": {
+        "slow_max_ps": 94.0,
+        "fast_min_ps": 23.0
+      },
+      "arbiter": {
+        "slow_max_ps": 201.0,
+        "fast_min_ps": 117.0
+      }
+    },
+    "40": {
+      "launch": {
+        "slow_max_ps": 11.0,
+        "fast_min_ps": 8.0
+      },
+      "feedback": {
+        "slow_max_ps": 155.0,
+        "fast_min_ps": 84.0
+      },
+      "arbiter": {
+        "slow_max_ps": 202.0,
+        "fast_min_ps": 91.0
+      }
+    },
+    "41": {
+      "launch": {
+        "slow_max_ps": 25.0,
+        "fast_min_ps": 28.0
+      },
+      "feedback": {
+        "slow_max_ps": 101.0,
+        "fast_min_ps": 30.0
+      },
+      "arbiter": {
+        "slow_max_ps": 256.0,
+        "fast_min_ps": 137.0
+      }
+    },
+    "42": {
+      "launch": {
+        "slow_max_ps": 248.0,
+        "fast_min_ps": 139.0
+      },
+      "feedback": {
+        "slow_max_ps": 81.0,
+        "fast_min_ps": 31.0
+      },
+      "arbiter": {
+        "slow_max_ps": 151.0,
+        "fast_min_ps": 140.0
+      }
+    },
+    "43": {
+      "launch": {
+        "slow_max_ps": 195.0,
+        "fast_min_ps": 86.0
+      },
+      "feedback": {
+        "slow_max_ps": 159.0,
+        "fast_min_ps": 81.0
+      },
+      "arbiter": {
+        "slow_max_ps": 56.0,
+        "fast_min_ps": 46.0
+      }
+    },
+    "44": {
+      "launch": {
+        "slow_max_ps": 2.0,
+        "fast_min_ps": 5.0
+      },
+      "feedback": {
+        "slow_max_ps": 71.0,
+        "fast_min_ps": 6.0
+      },
+      "arbiter": {
+        "slow_max_ps": 203.0,
+        "fast_min_ps": 119.0
+      }
+    },
+    "45": {
+      "launch": {
+        "slow_max_ps": 32.0,
+        "fast_min_ps": 29.0
+      },
+      "feedback": {
+        "slow_max_ps": 303.0,
+        "fast_min_ps": 232.0
+      },
+      "arbiter": {
+        "slow_max_ps": 169.0,
+        "fast_min_ps": 85.0
+      }
+    },
+    "46": {
+      "launch": {
+        "slow_max_ps": 25.0,
+        "fast_min_ps": 28.0
+      },
+      "feedback": {
+        "slow_max_ps": 168.0,
+        "fast_min_ps": 69.0
+      },
+      "arbiter": {
+        "slow_max_ps": 201.0,
+        "fast_min_ps": 117.0
+      }
+    },
+    "47": {
+      "launch": {
+        "slow_max_ps": 81.0,
+        "fast_min_ps": 83.0
+      },
+      "feedback": {
+        "slow_max_ps": 147.0,
+        "fast_min_ps": 69.0
+      },
+      "arbiter": {
+        "slow_max_ps": 215.0,
+        "fast_min_ps": 111.0
+      }
+    },
+    "48": {
+      "launch": {
+        "slow_max_ps": 292.0,
+        "fast_min_ps": 113.0
+      },
+      "feedback": {
+        "slow_max_ps": 199.0,
+        "fast_min_ps": 77.0
+      },
+      "arbiter": {
+        "slow_max_ps": 31.0,
+        "fast_min_ps": 27.0
+      }
+    },
+    "49": {
+      "launch": {
+        "slow_max_ps": 29.0,
+        "fast_min_ps": 26.0
+      },
+      "feedback": {
+        "slow_max_ps": 167.0,
+        "fast_min_ps": 54.0
+      },
+      "arbiter": {
+        "slow_max_ps": 169.0,
+        "fast_min_ps": 85.0
+      }
+    },
+    "50": {
+      "launch": {
+        "slow_max_ps": 11.0,
+        "fast_min_ps": 14.0
+      },
+      "feedback": {
+        "slow_max_ps": 135.0,
+        "fast_min_ps": 22.0
+      },
+      "arbiter": {
+        "slow_max_ps": 201.0,
+        "fast_min_ps": 117.0
+      }
+    },
+    "51": {
+      "launch": {
+        "slow_max_ps": 282.0,
+        "fast_min_ps": 103.0
+      },
+      "feedback": {
+        "slow_max_ps": 229.0,
+        "fast_min_ps": 65.0
+      },
+      "arbiter": {
+        "slow_max_ps": 51.0,
+        "fast_min_ps": 12.0
+      }
+    },
+    "52": {
+      "launch": {
+        "slow_max_ps": 23.0,
+        "fast_min_ps": 26.0
+      },
+      "feedback": {
+        "slow_max_ps": 106.0,
+        "fast_min_ps": 35.0
+      },
+      "arbiter": {
+        "slow_max_ps": 256.0,
+        "fast_min_ps": 137.0
+      }
+    },
+    "53": {
+      "launch": {
+        "slow_max_ps": 26.0,
+        "fast_min_ps": 29.0
+      },
+      "feedback": {
+        "slow_max_ps": 97.0,
+        "fast_min_ps": 26.0
+      },
+      "arbiter": {
+        "slow_max_ps": 203.0,
+        "fast_min_ps": 119.0
+      }
+    },
+    "54": {
+      "launch": {
+        "slow_max_ps": 292.0,
+        "fast_min_ps": 113.0
+      },
+      "feedback": {
+        "slow_max_ps": 214.0,
+        "fast_min_ps": 92.0
+      },
+      "arbiter": {
+        "slow_max_ps": 30.0,
+        "fast_min_ps": 26.0
+      }
+    },
+    "55": {
+      "launch": {
+        "slow_max_ps": 143.0,
+        "fast_min_ps": 59.0
+      },
+      "feedback": {
+        "slow_max_ps": 71.0,
+        "fast_min_ps": 6.0
+      },
+      "arbiter": {
+        "slow_max_ps": 203.0,
+        "fast_min_ps": 119.0
+      }
+    },
+    "56": {
+      "launch": {
+        "slow_max_ps": 81.0,
+        "fast_min_ps": 83.0
+      },
+      "feedback": {
+        "slow_max_ps": 143.0,
+        "fast_min_ps": 65.0
+      },
+      "arbiter": {
+        "slow_max_ps": 215.0,
+        "fast_min_ps": 111.0
+      }
+    },
+    "57": {
+      "launch": {
+        "slow_max_ps": 103.0,
+        "fast_min_ps": 81.0
+      },
+      "feedback": {
+        "slow_max_ps": 340.0,
+        "fast_min_ps": 168.0
+      },
+      "arbiter": {
+        "slow_max_ps": 22.0,
+        "fast_min_ps": 26.0
+      }
+    },
+    "58": {
+      "launch": {
+        "slow_max_ps": 292.0,
+        "fast_min_ps": 113.0
+      },
+      "feedback": {
+        "slow_max_ps": 198.0,
+        "fast_min_ps": 76.0
+      },
+      "arbiter": {
+        "slow_max_ps": 31.0,
+        "fast_min_ps": 27.0
+      }
+    },
+    "59": {
+      "launch": {
+        "slow_max_ps": 32.0,
+        "fast_min_ps": 29.0
+      },
+      "feedback": {
+        "slow_max_ps": 155.0,
+        "fast_min_ps": 84.0
+      },
+      "arbiter": {
+        "slow_max_ps": 169.0,
+        "fast_min_ps": 85.0
+      }
+    },
+    "60": {
+      "launch": {
+        "slow_max_ps": 12.0,
+        "fast_min_ps": 15.0
+      },
+      "feedback": {
+        "slow_max_ps": 94.0,
+        "fast_min_ps": 23.0
+      },
+      "arbiter": {
+        "slow_max_ps": 201.0,
+        "fast_min_ps": 117.0
+      }
+    },
+    "61": {
+      "launch": {
+        "slow_max_ps": 281.0,
+        "fast_min_ps": 102.0
+      },
+      "feedback": {
+        "slow_max_ps": 215.0,
+        "fast_min_ps": 93.0
+      },
+      "arbiter": {
+        "slow_max_ps": 51.0,
+        "fast_min_ps": 12.0
+      }
+    },
+    "62": {
+      "launch": {
+        "slow_max_ps": 25.0,
+        "fast_min_ps": 28.0
+      },
+      "feedback": {
+        "slow_max_ps": 94.0,
+        "fast_min_ps": 23.0
+      },
+      "arbiter": {
+        "slow_max_ps": 201.0,
+        "fast_min_ps": 117.0
+      }
+    },
+    "63": {
+      "launch": {
+        "slow_max_ps": 291.0,
+        "fast_min_ps": 112.0
+      },
+      "feedback": {
+        "slow_max_ps": 215.0,
+        "fast_min_ps": 93.0
+      },
+      "arbiter": {
+        "slow_max_ps": 30.0,
+        "fast_min_ps": 26.0
+      }
+    }
+  },
+  "limitation": "Modeled net delays; not proof of analog symmetry, entropy or hardware reliability."
+}

@@ -1,0 +1,8 @@
+PASS: one core FF; negative-edge capture.
+PASS: D <- u_puf/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O
+PASS: C <- u_puf/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O
+PASS: CE <- u_puf/u_ctrl/puf_latch_o_reg/Q
+PASS: CLR <- u_puf/u_ctrl/puf_clr_o_reg/Q
+PASS: two fixed AND gates; cross feedback; common excitation.
+PASS: 16 paired stages; buffer/inverter/selector truth tables; paired primitives, BELs and LOCK_PINS.
+Limit: modeled net equality does not certify analog equality or exact unpublished paper mapping.

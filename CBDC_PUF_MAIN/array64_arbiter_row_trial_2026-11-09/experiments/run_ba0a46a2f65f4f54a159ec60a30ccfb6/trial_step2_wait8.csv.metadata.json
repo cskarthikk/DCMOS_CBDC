@@ -1,0 +1,21 @@
+{
+    "utc":  "2026-11-08T19:14:33.8076247Z",
+    "variant":  "paper_array64_arbiterrow_trial",
+    "mode":  "Parallel",
+    "excite_cycles":  8,
+    "bitstream":  "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\array64_arbiter_row_trial_2026-11-09\\build\\paper_array64.bit",
+    "sha256":  "48F00B2320F732906ED892C35007FE4425F039C40E899398D25FC42B8FEA01AB",
+    "patterns":  64,
+    "repeats":  20,
+    "cores":  64,
+    "seed":  20261107,
+    "port":  "COM5",
+    "operator_confirmed_file":  true,
+    "activity_measurements_available":  false,
+    "latch_cycles":  8,
+    "arbiter_head_y_offset":  16,
+    "challenges_file_sha256":  "AC749C1DD557C9DBBC56B3A76079300871C7F45D98C5CCA61B7AC0901BF75F65",
+    "enrollment_sha256":  "",
+    "configuration_source":  "frozen matrix replay",
+    "note":  "Local hash does not identify live firmware. Fixed-AND odd-parity Figure 1 interpretation, one Latch-controlled arbiter/core. Raw response; no activity monitors, BCH/hash."
+}

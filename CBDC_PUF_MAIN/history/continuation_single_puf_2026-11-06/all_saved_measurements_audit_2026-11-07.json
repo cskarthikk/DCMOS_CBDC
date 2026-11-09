@@ -1,0 +1,1471 @@
+[
+  {
+    "path": "build_m1\\measurements\\matched_run01.csv",
+    "rows": 5121,
+    "accepted": 5120,
+    "challenges": 256,
+    "ones": 685,
+    "ones_percent": 13.37890625,
+    "mixed": 12,
+    "ties": 0,
+    "smaller_count": 51,
+    "repeats": {
+      "20": 256
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\matched_run02.csv",
+    "rows": 5121,
+    "accepted": 5120,
+    "challenges": 256,
+    "ones": 679,
+    "ones_percent": 13.26171875,
+    "mixed": 13,
+    "ties": 2,
+    "smaller_count": 69,
+    "repeats": {
+      "20": 256
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\matched_smoke01.csv",
+    "rows": 37,
+    "accepted": 36,
+    "challenges": 12,
+    "ones": 11,
+    "ones_percent": 30.555555555555557,
+    "mixed": 1,
+    "ties": 0,
+    "smaller_count": 1,
+    "repeats": {
+      "3": 12
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\run01.csv",
+    "rows": 5121,
+    "accepted": 5120,
+    "challenges": 256,
+    "ones": 606,
+    "ones_percent": 11.8359375,
+    "mixed": 9,
+    "ties": 0,
+    "smaller_count": 28,
+    "repeats": {
+      "20": 256
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\run02.csv",
+    "rows": 5121,
+    "accepted": 5120,
+    "challenges": 256,
+    "ones": 605,
+    "ones_percent": 11.81640625,
+    "mixed": 8,
+    "ties": 0,
+    "smaller_count": 33,
+    "repeats": {
+      "20": 256
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\smoke.csv",
+    "rows": 37,
+    "accepted": 36,
+    "challenges": 12,
+    "ones": 14,
+    "ones_percent": 38.888888888888886,
+    "mixed": 1,
+    "ties": 0,
+    "smaller_count": 1,
+    "repeats": {
+      "3": 12
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing_smoke01.csv",
+    "rows": 55,
+    "accepted": 54,
+    "challenges": 18,
+    "ones": 14,
+    "ones_percent": 25.925925925925927,
+    "mixed": 5,
+    "ties": 0,
+    "smaller_count": 5,
+    "repeats": {
+      "3": 18
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\core_experiment\\run_349c843794534836a951e387ebd1bd20.csv",
+    "rows": 24,
+    "accepted": 24,
+    "challenges": 8,
+    "ones": 0,
+    "ones_percent": 0.0,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "3": 8
+    },
+    "metadata": {
+      "utc": "2026-11-03T14:36:09.7776945Z",
+      "mode": 3,
+      "wait": 0,
+      "capture": 16,
+      "repeats": 3,
+      "challenges": "0000,0001,0002,0003,0007,0008,8000,FFFF",
+      "port": "COM5",
+      "bitstream_sha256": "5A2B39DB2CF6B3CFA7156EC1B06674CE4F7627D79E6B73C96B436F2AE3566899",
+      "note": "Experimental derived architecture. Local hash requires operator to program this file. Raw A/B pair, no XOR correction."
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\pulled_single\\run2_verify.csv",
+    "rows": 5120,
+    "accepted": 5120,
+    "challenges": 256,
+    "ones": 1473,
+    "ones_percent": 28.76953125,
+    "mixed": 10,
+    "ties": 1,
+    "smaller_count": 37,
+    "repeats": {
+      "20": 256
+    },
+    "metadata": {
+      "utc": "2026-11-06T14:21:07.9416743Z",
+      "build": "pulled_single_7cfc392",
+      "bitstream_sha256": "5DCC2151205DE1C92A79DC5EAFF657A57885A6715FD1DEAA62ECA8B8A497F111",
+      "challenges": 256,
+      "repeats": 20,
+      "port": "COM5",
+      "auto_parity": 1,
+      "capture_mode": 1,
+      "dual_arbiter": 1,
+      "note": "Operator must load this exact file. Local hash does not identify active firmware. Raw primary A only; no BCH/hash/array."
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\pulled_single\\run_ab2cc0e61c854380a2e9dec91f7b500f.csv",
+    "rows": 5120,
+    "accepted": 5120,
+    "challenges": 256,
+    "ones": 1477,
+    "ones_percent": 28.84765625,
+    "mixed": 12,
+    "ties": 0,
+    "smaller_count": 39,
+    "repeats": {
+      "20": 256
+    },
+    "metadata": {
+      "utc": "2026-11-03T18:31:28.9317591Z",
+      "build": "pulled_single_7cfc392",
+      "bitstream_sha256": "5DCC2151205DE1C92A79DC5EAFF657A57885A6715FD1DEAA62ECA8B8A497F111",
+      "challenges": 256,
+      "repeats": 20,
+      "port": "COM5",
+      "auto_parity": 1,
+      "capture_mode": 1,
+      "dual_arbiter": 1,
+      "note": "Operator must load this exact file. Local hash does not identify active firmware. Raw primary A only; no BCH/hash/array."
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\pulled_single\\run_center_launch.csv",
+    "rows": 5120,
+    "accepted": 5120,
+    "challenges": 256,
+    "ones": 1468,
+    "ones_percent": 28.671875,
+    "mixed": 13,
+    "ties": 0,
+    "smaller_count": 44,
+    "repeats": {
+      "20": 256
+    },
+    "metadata": {
+      "utc": "2026-11-06T14:58:21.0547296Z",
+      "build": "pulled_single_7cfc392",
+      "bitstream_sha256": "90DE39AD971E687172AEB2EBB2D1DD24C69484D34ED74D8182B4FAFD3B596A57",
+      "challenges": 256,
+      "repeats": 20,
+      "port": "COM5",
+      "auto_parity": 1,
+      "capture_mode": 1,
+      "dual_arbiter": 1,
+      "note": "Operator must load this exact file. Local hash does not identify active firmware. Raw primary A only; no BCH/hash/array."
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\pulled_single\\run_restored_baseline.csv",
+    "rows": 5120,
+    "accepted": 5120,
+    "challenges": 256,
+    "ones": 1450,
+    "ones_percent": 28.3203125,
+    "mixed": 13,
+    "ties": 1,
+    "smaller_count": 50,
+    "repeats": {
+      "20": 256
+    },
+    "metadata": {
+      "utc": "2026-11-06T15:36:56.5578277Z",
+      "build": "pulled_single_7cfc392",
+      "bitstream_sha256": "AD7427A3D3A2494F3975167B0611073D2E407AF6C83DE12AF41E63593B0B023F",
+      "challenges": 256,
+      "repeats": 20,
+      "port": "COM5",
+      "auto_parity": 1,
+      "capture_mode": 1,
+      "dual_arbiter": 1,
+      "note": "Operator must load this exact file. Local hash does not identify active firmware. Raw primary A only; no BCH/hash/array."
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\pulled_single\\run_x22.csv",
+    "rows": 5120,
+    "accepted": 5120,
+    "challenges": 256,
+    "ones": 74,
+    "ones_percent": 1.4453125,
+    "mixed": 2,
+    "ties": 0,
+    "smaller_count": 6,
+    "repeats": {
+      "20": 256
+    },
+    "metadata": {
+      "utc": "2026-11-06T15:24:15.1454403Z",
+      "build": "pulled_single_7cfc392",
+      "bitstream_sha256": "50D9B5DD1837CC9B09D63F2D2B238B255C952FEF4F3720B2AD48D1A543908671",
+      "challenges": 256,
+      "repeats": 20,
+      "port": "COM5",
+      "auto_parity": 1,
+      "capture_mode": 1,
+      "dual_arbiter": 1,
+      "note": "Operator must load this exact file. Local hash does not identify active firmware. Raw primary A only; no BCH/hash/array."
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\pulled_single\\run_x24.csv",
+    "rows": 5120,
+    "accepted": 5120,
+    "challenges": 256,
+    "ones": 1167,
+    "ones_percent": 22.79296875,
+    "mixed": 8,
+    "ties": 0,
+    "smaller_count": 31,
+    "repeats": {
+      "20": 256
+    },
+    "metadata": {
+      "utc": "2026-11-06T14:37:28.8605117Z",
+      "build": "pulled_single_7cfc392",
+      "bitstream_sha256": "5FA59383B01375E424453C6B61693E7BB8E970FD8757195CAA8583B2465E17C0",
+      "challenges": 256,
+      "repeats": 20,
+      "port": "COM5",
+      "auto_parity": 1,
+      "capture_mode": 1,
+      "dual_arbiter": 1,
+      "note": "Operator must load this exact file. Local hash does not identify active firmware. Raw primary A only; no BCH/hash/array."
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\pulled_single\\smoke_564904bf57584780b04770d8e8eed348.csv",
+    "rows": 24,
+    "accepted": 24,
+    "challenges": 8,
+    "ones": 21,
+    "ones_percent": 87.5,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "3": 8
+    },
+    "metadata": {
+      "utc": "2026-11-03T18:28:50.4870727Z",
+      "build": "pulled_single_7cfc392",
+      "bitstream_sha256": "5DCC2151205DE1C92A79DC5EAFF657A57885A6715FD1DEAA62ECA8B8A497F111",
+      "challenges": 8,
+      "repeats": 3,
+      "port": "COM5",
+      "auto_parity": 1,
+      "capture_mode": 1,
+      "dual_arbiter": 1,
+      "note": "Operator must load this exact file. Local hash does not identify active firmware. Raw primary A only; no BCH/hash/array."
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\pulled_single\\smoke_verify.csv",
+    "rows": 0,
+    "accepted": 0,
+    "challenges": 0,
+    "ones": 0,
+    "ones_percent": null,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {},
+    "metadata": {
+      "utc": "2026-11-06T14:14:16.3963255Z",
+      "build": "pulled_single_7cfc392",
+      "bitstream_sha256": "5DCC2151205DE1C92A79DC5EAFF657A57885A6715FD1DEAA62ECA8B8A497F111",
+      "challenges": 8,
+      "repeats": 3,
+      "port": "COM5",
+      "auto_parity": 1,
+      "capture_mode": 1,
+      "dual_arbiter": 1,
+      "note": "Operator must load this exact file. Local hash does not identify active firmware. Raw primary A only; no BCH/hash/array."
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\pulled_single\\smoke_verify2.csv",
+    "rows": 24,
+    "accepted": 24,
+    "challenges": 8,
+    "ones": 21,
+    "ones_percent": 87.5,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "3": 8
+    },
+    "metadata": {
+      "utc": "2026-11-06T14:19:56.0684716Z",
+      "build": "pulled_single_7cfc392",
+      "bitstream_sha256": "5DCC2151205DE1C92A79DC5EAFF657A57885A6715FD1DEAA62ECA8B8A497F111",
+      "challenges": 8,
+      "repeats": 3,
+      "port": "COM5",
+      "auto_parity": 1,
+      "capture_mode": 1,
+      "dual_arbiter": 1,
+      "note": "Operator must load this exact file. Local hash does not identify active firmware. Raw primary A only; no BCH/hash/array."
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\core_experiment\\comparison_20261103_200708\\00_m0_w8_c8.csv",
+    "rows": 1280,
+    "accepted": 640,
+    "challenges": 32,
+    "ones": 145,
+    "ones_percent": 22.65625,
+    "mixed": 3,
+    "ties": 0,
+    "smaller_count": 11,
+    "repeats": {
+      "20": 32
+    },
+    "metadata": {
+      "utc": "2026-11-03T14:37:10.3424952Z",
+      "mode": 0,
+      "wait": 8,
+      "capture": 8,
+      "repeats": 20,
+      "challenges": "0001,0000,0002,0003,0004,0005,0008,0009,8000,8001,0007,0006,001F,001E,7FFF,7FFE,8003,8002,800C,800D,800F,800E,FFFE,FFFF,C830,C831,1047,1046,0A76,0A77,48A4,48A5,CC38,CC39,8A3F,8A3E,B179,B178,0698,0699,FC9D,FC9C,7055,7054,8B6E,8B6F,9383,9382,2D76,2D77,5BF6,5BF7,7678,7679,B39C,B39D,23B2,23B3,F4CF,F4CE,16FA,16FB,B286,B287",
+      "port": "COM5",
+      "bitstream_sha256": "5A2B39DB2CF6B3CFA7156EC1B06674CE4F7627D79E6B73C96B436F2AE3566899",
+      "note": "Experimental derived architecture. Local hash requires operator to program this file. Raw A/B pair, no XOR correction."
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\core_experiment\\comparison_20261103_200708\\01_m1_w8_c8.csv",
+    "rows": 1280,
+    "accepted": 640,
+    "challenges": 32,
+    "ones": 111,
+    "ones_percent": 17.34375,
+    "mixed": 3,
+    "ties": 1,
+    "smaller_count": 13,
+    "repeats": {
+      "20": 32
+    },
+    "metadata": {
+      "utc": "2026-11-03T14:37:31.1895970Z",
+      "mode": 1,
+      "wait": 8,
+      "capture": 8,
+      "repeats": 20,
+      "challenges": "0001,0000,0002,0003,0004,0005,0008,0009,8000,8001,0007,0006,001F,001E,7FFF,7FFE,8003,8002,800C,800D,800F,800E,FFFE,FFFF,C830,C831,1047,1046,0A76,0A77,48A4,48A5,CC38,CC39,8A3F,8A3E,B179,B178,0698,0699,FC9D,FC9C,7055,7054,8B6E,8B6F,9383,9382,2D76,2D77,5BF6,5BF7,7678,7679,B39C,B39D,23B2,23B3,F4CF,F4CE,16FA,16FB,B286,B287",
+      "port": "COM5",
+      "bitstream_sha256": "5A2B39DB2CF6B3CFA7156EC1B06674CE4F7627D79E6B73C96B436F2AE3566899",
+      "note": "Experimental derived architecture. Local hash requires operator to program this file. Raw A/B pair, no XOR correction."
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\core_experiment\\comparison_20261103_200708\\02_m1_w0_c8.csv",
+    "rows": 1280,
+    "accepted": 640,
+    "challenges": 32,
+    "ones": 0,
+    "ones_percent": 0.0,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "20": 32
+    },
+    "metadata": {
+      "utc": "2026-11-03T14:37:52.0383297Z",
+      "mode": 1,
+      "wait": 0,
+      "capture": 8,
+      "repeats": 20,
+      "challenges": "0001,0000,0002,0003,0004,0005,0008,0009,8000,8001,0007,0006,001F,001E,7FFF,7FFE,8003,8002,800C,800D,800F,800E,FFFE,FFFF,C830,C831,1047,1046,0A76,0A77,48A4,48A5,CC38,CC39,8A3F,8A3E,B179,B178,0698,0699,FC9D,FC9C,7055,7054,8B6E,8B6F,9383,9382,2D76,2D77,5BF6,5BF7,7678,7679,B39C,B39D,23B2,23B3,F4CF,F4CE,16FA,16FB,B286,B287",
+      "port": "COM5",
+      "bitstream_sha256": "5A2B39DB2CF6B3CFA7156EC1B06674CE4F7627D79E6B73C96B436F2AE3566899",
+      "note": "Experimental derived architecture. Local hash requires operator to program this file. Raw A/B pair, no XOR correction."
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\core_experiment\\comparison_20261103_200708\\03_m3_w0_c8.csv",
+    "rows": 1280,
+    "accepted": 1280,
+    "challenges": 64,
+    "ones": 0,
+    "ones_percent": 0.0,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "20": 64
+    },
+    "metadata": {
+      "utc": "2026-11-03T14:38:12.8916370Z",
+      "mode": 3,
+      "wait": 0,
+      "capture": 8,
+      "repeats": 20,
+      "challenges": "0001,0000,0002,0003,0004,0005,0008,0009,8000,8001,0007,0006,001F,001E,7FFF,7FFE,8003,8002,800C,800D,800F,800E,FFFE,FFFF,C830,C831,1047,1046,0A76,0A77,48A4,48A5,CC38,CC39,8A3F,8A3E,B179,B178,0698,0699,FC9D,FC9C,7055,7054,8B6E,8B6F,9383,9382,2D76,2D77,5BF6,5BF7,7678,7679,B39C,B39D,23B2,23B3,F4CF,F4CE,16FA,16FB,B286,B287",
+      "port": "COM5",
+      "bitstream_sha256": "5A2B39DB2CF6B3CFA7156EC1B06674CE4F7627D79E6B73C96B436F2AE3566899",
+      "note": "Experimental derived architecture. Local hash requires operator to program this file. Raw A/B pair, no XOR correction."
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\core_experiment\\comparison_20261103_200708\\04_m7_w0_c8.csv",
+    "rows": 1280,
+    "accepted": 1280,
+    "challenges": 64,
+    "ones": 0,
+    "ones_percent": 0.0,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "20": 64
+    },
+    "metadata": {
+      "utc": "2026-11-03T14:38:33.7273190Z",
+      "mode": 7,
+      "wait": 0,
+      "capture": 8,
+      "repeats": 20,
+      "challenges": "0001,0000,0002,0003,0004,0005,0008,0009,8000,8001,0007,0006,001F,001E,7FFF,7FFE,8003,8002,800C,800D,800F,800E,FFFE,FFFF,C830,C831,1047,1046,0A76,0A77,48A4,48A5,CC38,CC39,8A3F,8A3E,B179,B178,0698,0699,FC9D,FC9C,7055,7054,8B6E,8B6F,9383,9382,2D76,2D77,5BF6,5BF7,7678,7679,B39C,B39D,23B2,23B3,F4CF,F4CE,16FA,16FB,B286,B287",
+      "port": "COM5",
+      "bitstream_sha256": "5A2B39DB2CF6B3CFA7156EC1B06674CE4F7627D79E6B73C96B436F2AE3566899",
+      "note": "Experimental derived architecture. Local hash requires operator to program this file. Raw A/B pair, no XOR correction."
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\core_experiment\\comparison_20261103_200708\\05_m0_w8_c8.csv",
+    "rows": 1280,
+    "accepted": 640,
+    "challenges": 32,
+    "ones": 137,
+    "ones_percent": 21.40625,
+    "mixed": 4,
+    "ties": 0,
+    "smaller_count": 11,
+    "repeats": {
+      "20": 32
+    },
+    "metadata": {
+      "utc": "2026-11-03T14:38:54.4861300Z",
+      "mode": 0,
+      "wait": 8,
+      "capture": 8,
+      "repeats": 20,
+      "challenges": "0001,0000,0002,0003,0004,0005,0008,0009,8000,8001,0007,0006,001F,001E,7FFF,7FFE,8003,8002,800C,800D,800F,800E,FFFE,FFFF,C830,C831,1047,1046,0A76,0A77,48A4,48A5,CC38,CC39,8A3F,8A3E,B179,B178,0698,0699,FC9D,FC9C,7055,7054,8B6E,8B6F,9383,9382,2D76,2D77,5BF6,5BF7,7678,7679,B39C,B39D,23B2,23B3,F4CF,F4CE,16FA,16FB,B286,B287",
+      "port": "COM5",
+      "bitstream_sha256": "5A2B39DB2CF6B3CFA7156EC1B06674CE4F7627D79E6B73C96B436F2AE3566899",
+      "note": "Experimental derived architecture. Local hash requires operator to program this file. Raw A/B pair, no XOR correction."
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture01\\00_w8_c8.csv",
+    "rows": 901,
+    "accepted": 900,
+    "challenges": 18,
+    "ones": 271,
+    "ones_percent": 30.11111111111111,
+    "mixed": 12,
+    "ties": 0,
+    "smaller_count": 139,
+    "repeats": {
+      "50": 18
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture01\\01_w16_c8.csv",
+    "rows": 901,
+    "accepted": 900,
+    "challenges": 18,
+    "ones": 705,
+    "ones_percent": 78.33333333333333,
+    "mixed": 6,
+    "ties": 0,
+    "smaller_count": 47,
+    "repeats": {
+      "50": 18
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture01\\02_w8_c4.csv",
+    "rows": 901,
+    "accepted": 900,
+    "challenges": 18,
+    "ones": 77,
+    "ones_percent": 8.555555555555555,
+    "mixed": 3,
+    "ties": 0,
+    "smaller_count": 27,
+    "repeats": {
+      "50": 18
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture01\\03_w32_c16.csv",
+    "rows": 901,
+    "accepted": 900,
+    "challenges": 18,
+    "ones": 850,
+    "ones_percent": 94.44444444444444,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "50": 18
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture01\\04_w16_c16.csv",
+    "rows": 901,
+    "accepted": 900,
+    "challenges": 18,
+    "ones": 830,
+    "ones_percent": 92.22222222222223,
+    "mixed": 2,
+    "ties": 0,
+    "smaller_count": 20,
+    "repeats": {
+      "50": 18
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture01\\05_w8_c16.csv",
+    "rows": 901,
+    "accepted": 900,
+    "challenges": 18,
+    "ones": 713,
+    "ones_percent": 79.22222222222223,
+    "mixed": 6,
+    "ties": 0,
+    "smaller_count": 79,
+    "repeats": {
+      "50": 18
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture01\\06_w32_c4.csv",
+    "rows": 901,
+    "accepted": 900,
+    "challenges": 18,
+    "ones": 847,
+    "ones_percent": 94.11111111111111,
+    "mixed": 1,
+    "ties": 0,
+    "smaller_count": 3,
+    "repeats": {
+      "50": 18
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture01\\07_w16_c4.csv",
+    "rows": 901,
+    "accepted": 900,
+    "challenges": 18,
+    "ones": 525,
+    "ones_percent": 58.333333333333336,
+    "mixed": 12,
+    "ties": 0,
+    "smaller_count": 95,
+    "repeats": {
+      "50": 18
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture01\\08_w32_c8.csv",
+    "rows": 901,
+    "accepted": 900,
+    "challenges": 18,
+    "ones": 848,
+    "ones_percent": 94.22222222222223,
+    "mixed": 1,
+    "ties": 0,
+    "smaller_count": 2,
+    "repeats": {
+      "50": 18
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture01\\09_w8_c8.csv",
+    "rows": 901,
+    "accepted": 900,
+    "challenges": 18,
+    "ones": 241,
+    "ones_percent": 26.77777777777778,
+    "mixed": 8,
+    "ties": 1,
+    "smaller_count": 119,
+    "repeats": {
+      "50": 18
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_69952252803442d9a9b5f7bbbc8dcff5\\00_w8_c8.csv",
+    "rows": 0,
+    "accepted": 0,
+    "challenges": 0,
+    "ones": 0,
+    "ones_percent": null,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {}
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\00_w8_c8.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 48,
+    "ones_percent": 40.0,
+    "mixed": 1,
+    "ties": 0,
+    "smaller_count": 8,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\01_w1_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 0,
+    "ones_percent": 0.0,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\02_w2_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 0,
+    "ones_percent": 0.0,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\03_w3_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 0,
+    "ones_percent": 0.0,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\04_w4_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 0,
+    "ones_percent": 0.0,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\05_w5_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 0,
+    "ones_percent": 0.0,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\06_w6_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 0,
+    "ones_percent": 0.0,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\07_w7_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 20,
+    "ones_percent": 16.666666666666668,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\08_w8_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 0,
+    "ones_percent": 0.0,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\09_w9_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 0,
+    "ones_percent": 0.0,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\10_w10_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 33,
+    "ones_percent": 27.5,
+    "mixed": 1,
+    "ties": 0,
+    "smaller_count": 7,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\11_w11_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 0,
+    "ones_percent": 0.0,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\12_w12_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 0,
+    "ones_percent": 0.0,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\13_w13_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 32,
+    "ones_percent": 26.666666666666668,
+    "mixed": 3,
+    "ties": 0,
+    "smaller_count": 12,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\14_w14_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 19,
+    "ones_percent": 15.833333333333334,
+    "mixed": 2,
+    "ties": 0,
+    "smaller_count": 3,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\15_w15_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 0,
+    "ones_percent": 0.0,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\16_w16_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 28,
+    "ones_percent": 23.333333333333332,
+    "mixed": 1,
+    "ties": 0,
+    "smaller_count": 8,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\17_w17_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 39,
+    "ones_percent": 32.5,
+    "mixed": 2,
+    "ties": 0,
+    "smaller_count": 9,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\18_w18_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 0,
+    "ones_percent": 0.0,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\19_w19_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 17,
+    "ones_percent": 14.166666666666666,
+    "mixed": 2,
+    "ties": 0,
+    "smaller_count": 5,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\20_w20_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 61,
+    "ones_percent": 50.833333333333336,
+    "mixed": 2,
+    "ties": 0,
+    "smaller_count": 5,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\21_w21_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 0,
+    "ones_percent": 0.0,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\22_w22_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 10,
+    "ones_percent": 8.333333333333334,
+    "mixed": 2,
+    "ties": 0,
+    "smaller_count": 10,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\23_w23_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 69,
+    "ones_percent": 57.5,
+    "mixed": 1,
+    "ties": 0,
+    "smaller_count": 9,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\24_w24_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 0,
+    "ones_percent": 0.0,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\25_w25_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 8,
+    "ones_percent": 6.666666666666667,
+    "mixed": 1,
+    "ties": 0,
+    "smaller_count": 8,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\26_w26_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 69,
+    "ones_percent": 57.5,
+    "mixed": 2,
+    "ties": 0,
+    "smaller_count": 9,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\27_w27_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 0,
+    "ones_percent": 0.0,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\28_w28_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 3,
+    "ones_percent": 2.5,
+    "mixed": 2,
+    "ties": 0,
+    "smaller_count": 3,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\29_w29_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 81,
+    "ones_percent": 67.5,
+    "mixed": 3,
+    "ties": 0,
+    "smaller_count": 7,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\30_w30_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 0,
+    "ones_percent": 0.0,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\31_w31_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 0,
+    "ones_percent": 0.0,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\32_w32_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 76,
+    "ones_percent": 63.333333333333336,
+    "mixed": 3,
+    "ties": 0,
+    "smaller_count": 12,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\33_w33_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 14,
+    "ones_percent": 11.666666666666666,
+    "mixed": 2,
+    "ties": 0,
+    "smaller_count": 14,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\34_w34_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 0,
+    "ones_percent": 0.0,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\35_w35_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 62,
+    "ones_percent": 51.666666666666664,
+    "mixed": 3,
+    "ties": 1,
+    "smaller_count": 22,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\36_w36_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 29,
+    "ones_percent": 24.166666666666668,
+    "mixed": 3,
+    "ties": 0,
+    "smaller_count": 13,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\37_w37_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 0,
+    "ones_percent": 0.0,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\38_w38_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 55,
+    "ones_percent": 45.833333333333336,
+    "mixed": 3,
+    "ties": 0,
+    "smaller_count": 9,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\39_w39_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 44,
+    "ones_percent": 36.666666666666664,
+    "mixed": 2,
+    "ties": 0,
+    "smaller_count": 6,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\40_w40_c1.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 0,
+    "ones_percent": 0.0,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "build_m1\\measurements\\timing\\capture_scan_fe20e89e459249f59ff6d5d3288abfde\\41_w8_c8.csv",
+    "rows": 121,
+    "accepted": 120,
+    "challenges": 6,
+    "ones": 45,
+    "ones_percent": 37.5,
+    "mixed": 1,
+    "ties": 0,
+    "smaller_count": 5,
+    "repeats": {
+      "20": 6
+    }
+  },
+  {
+    "path": "continuation_single_puf_2026-11-06\\measurements\\run_665126d9012444b28afbfd686a578ce1.csv",
+    "rows": 5120,
+    "accepted": 5120,
+    "challenges": 256,
+    "ones": 1455,
+    "ones_percent": 28.41796875,
+    "mixed": 14,
+    "ties": 0,
+    "smaller_count": 55,
+    "repeats": {
+      "20": 256
+    },
+    "metadata": {
+      "utc": "2026-11-06T18:13:27.0888357Z",
+      "build": "pulled_single_7cfc392",
+      "bitstream_sha256": "5DCC2151205DE1C92A79DC5EAFF657A57885A6715FD1DEAA62ECA8B8A497F111",
+      "challenges": 256,
+      "repeats": 20,
+      "port": "COM5",
+      "auto_parity": 1,
+      "capture_mode": 1,
+      "dual_arbiter": 1,
+      "note": "Operator must load this exact file. Local hash does not identify active firmware. Raw primary A only; no BCH/hash/array."
+    }
+  },
+  {
+    "path": "continuation_single_puf_2026-11-06\\measurements\\run_6e85693e1279403fb2f6d2bb2a21fef4.csv",
+    "rows": 5120,
+    "accepted": 5120,
+    "challenges": 256,
+    "ones": 1452,
+    "ones_percent": 28.359375,
+    "mixed": 12,
+    "ties": 1,
+    "smaller_count": 48,
+    "repeats": {
+      "20": 256
+    },
+    "metadata": {
+      "utc": "2026-11-06T18:17:30.3434829Z",
+      "build": "pulled_single_7cfc392",
+      "bitstream_sha256": "5DCC2151205DE1C92A79DC5EAFF657A57885A6715FD1DEAA62ECA8B8A497F111",
+      "challenges": 256,
+      "repeats": 20,
+      "port": "COM5",
+      "auto_parity": 1,
+      "capture_mode": 1,
+      "dual_arbiter": 1,
+      "note": "Operator must load this exact file. Local hash does not identify active firmware. Raw primary A only; no BCH/hash/array."
+    }
+  },
+  {
+    "path": "continuation_single_puf_2026-11-06\\reference\\best_so_far_single_puf_2026-11-04\\results\\run_ab2cc0e61c854380a2e9dec91f7b500f.csv",
+    "rows": 5120,
+    "accepted": 5120,
+    "challenges": 256,
+    "ones": 1477,
+    "ones_percent": 28.84765625,
+    "mixed": 12,
+    "ties": 0,
+    "smaller_count": 39,
+    "repeats": {
+      "20": 256
+    },
+    "metadata": {
+      "utc": "2026-11-03T18:31:28.9317591Z",
+      "build": "pulled_single_7cfc392",
+      "bitstream_sha256": "5DCC2151205DE1C92A79DC5EAFF657A57885A6715FD1DEAA62ECA8B8A497F111",
+      "challenges": 256,
+      "repeats": 20,
+      "port": "COM5",
+      "auto_parity": 1,
+      "capture_mode": 1,
+      "dual_arbiter": 1,
+      "note": "Operator must load this exact file. Local hash does not identify active firmware. Raw primary A only; no BCH/hash/array."
+    }
+  },
+  {
+    "path": "continuation_single_puf_2026-11-06\\reference\\best_so_far_single_puf_2026-11-04\\results\\smoke_564904bf57584780b04770d8e8eed348.csv",
+    "rows": 24,
+    "accepted": 24,
+    "challenges": 8,
+    "ones": 21,
+    "ones_percent": 87.5,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "3": 8
+    },
+    "metadata": {
+      "utc": "2026-11-03T18:28:50.4870727Z",
+      "build": "pulled_single_7cfc392",
+      "bitstream_sha256": "5DCC2151205DE1C92A79DC5EAFF657A57885A6715FD1DEAA62ECA8B8A497F111",
+      "challenges": 8,
+      "repeats": 3,
+      "port": "COM5",
+      "auto_parity": 1,
+      "capture_mode": 1,
+      "dual_arbiter": 1,
+      "note": "Operator must load this exact file. Local hash does not identify active firmware. Raw primary A only; no BCH/hash/array."
+    }
+  },
+  {
+    "path": "paper_baseline_candidate_2026-11-06\\measurements\\boundary_2c82a4abad154a76a18bacef38ae4bca.csv",
+    "rows": 5120,
+    "accepted": 5120,
+    "challenges": 256,
+    "ones": 1380,
+    "ones_percent": 26.953125,
+    "mixed": 17,
+    "ties": 0,
+    "smaller_count": 72,
+    "repeats": {
+      "20": 256
+    },
+    "metadata": {
+      "utc": "2026-11-06T22:40:22.8126813Z",
+      "build": "figure1_and_candidate",
+      "physical_variant": "boundary_v3",
+      "operator_confirmed_file": "C:\\BTech\\Semester_5\\DCMOS\\Project\\paper_baseline_candidate_2026-11-06\\build_boundary_v3\\candidate.bit",
+      "bitstream_sha256": "22721F79215EEAC8596E2CBC7E4EB6EF3D4F2C9169537E6B11E8B3FF98DFD718",
+      "challenges": 256,
+      "repeats": 20,
+      "port": "COM5",
+      "auto_parity": 0,
+      "capture_mode": 0,
+      "dual_arbiter": 0,
+      "diagnostic": 0,
+      "gate_init": 8,
+      "note": "Operator must load this exact file. Local hash does not identify active firmware. Raw primary A only; no BCH/hash/array."
+    }
+  },
+  {
+    "path": "paper_baseline_candidate_2026-11-06\\measurements\\boundary_7c4639dba1ca47c3814768e9f9375d83.csv",
+    "rows": 5120,
+    "accepted": 5120,
+    "challenges": 256,
+    "ones": 1388,
+    "ones_percent": 27.109375,
+    "mixed": 18,
+    "ties": 0,
+    "smaller_count": 90,
+    "repeats": {
+      "20": 256
+    },
+    "metadata": {
+      "utc": "2026-11-06T22:36:26.2098484Z",
+      "build": "figure1_and_candidate",
+      "physical_variant": "boundary_v3",
+      "operator_confirmed_file": "C:\\BTech\\Semester_5\\DCMOS\\Project\\paper_baseline_candidate_2026-11-06\\build_boundary_v3\\candidate.bit",
+      "bitstream_sha256": "22721F79215EEAC8596E2CBC7E4EB6EF3D4F2C9169537E6B11E8B3FF98DFD718",
+      "challenges": 256,
+      "repeats": 20,
+      "port": "COM5",
+      "auto_parity": 0,
+      "capture_mode": 0,
+      "dual_arbiter": 0,
+      "diagnostic": 0,
+      "gate_init": 8,
+      "note": "Operator must load this exact file. Local hash does not identify active firmware. Raw primary A only; no BCH/hash/array."
+    }
+  },
+  {
+    "path": "paper_baseline_candidate_2026-11-06\\measurements\\run_4ed1e5348c3e40abbd34ed6da7409747.csv",
+    "rows": 24,
+    "accepted": 24,
+    "challenges": 8,
+    "ones": 15,
+    "ones_percent": 62.5,
+    "mixed": 0,
+    "ties": 0,
+    "smaller_count": 0,
+    "repeats": {
+      "3": 8
+    },
+    "metadata": {
+      "utc": "2026-11-06T22:09:29.0340519Z",
+      "build": "figure1_and_candidate",
+      "physical_variant": "internal_matched_v2",
+      "operator_confirmed_file": "C:\\BTech\\Semester_5\\DCMOS\\Project\\paper_baseline_candidate_2026-11-06\\build_internal_matched_v2\\candidate.bit",
+      "bitstream_sha256": "EA95455975095342B43FBEDF5592B7CC4592D20A0E328B1E9C795A5C516AB8E6",
+      "challenges": 8,
+      "repeats": 3,
+      "port": "COM5",
+      "auto_parity": 0,
+      "capture_mode": 0,
+      "dual_arbiter": 0,
+      "diagnostic": 0,
+      "gate_init": 8,
+      "note": "Operator must load this exact file. Local hash does not identify active firmware. Raw primary A only; no BCH/hash/array."
+    }
+  },
+  {
+    "path": "paper_baseline_candidate_2026-11-06\\measurements\\run_5b97cf3273a1484c8f8a4e6621df6989.csv",
+    "rows": 5120,
+    "accepted": 5120,
+    "challenges": 256,
+    "ones": 1204,
+    "ones_percent": 23.515625,
+    "mixed": 11,
+    "ties": 1,
+    "smaller_count": 36,
+    "repeats": {
+      "20": 256
+    },
+    "metadata": {
+      "utc": "2026-11-06T22:12:23.4970140Z",
+      "build": "figure1_and_candidate",
+      "physical_variant": "internal_matched_v2",
+      "operator_confirmed_file": "C:\\BTech\\Semester_5\\DCMOS\\Project\\paper_baseline_candidate_2026-11-06\\build_internal_matched_v2\\candidate.bit",
+      "bitstream_sha256": "EA95455975095342B43FBEDF5592B7CC4592D20A0E328B1E9C795A5C516AB8E6",
+      "challenges": 256,
+      "repeats": 20,
+      "port": "COM5",
+      "auto_parity": 0,
+      "capture_mode": 0,
+      "dual_arbiter": 0,
+      "diagnostic": 0,
+      "gate_init": 8,
+      "note": "Operator must load this exact file. Local hash does not identify active firmware. Raw primary A only; no BCH/hash/array."
+    }
+  }
+]

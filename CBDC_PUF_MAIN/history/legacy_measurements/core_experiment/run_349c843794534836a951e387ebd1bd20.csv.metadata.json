@@ -1,0 +1,11 @@
+{
+    "utc":  "2026-11-03T14:36:09.7776945Z",
+    "mode":  3,
+    "wait":  0,
+    "capture":  16,
+    "repeats":  3,
+    "challenges":  "0000,0001,0002,0003,0007,0008,8000,FFFF",
+    "port":  "COM5",
+    "bitstream_sha256":  "5A2B39DB2CF6B3CFA7156EC1B06674CE4F7627D79E6B73C96B436F2AE3566899",
+    "note":  "Experimental derived architecture. Local hash requires operator to program this file. Raw A/B pair, no XOR correction."
+}

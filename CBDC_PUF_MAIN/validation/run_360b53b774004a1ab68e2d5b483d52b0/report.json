@@ -1,0 +1,160 @@
+{
+  "schema": 1,
+  "model_id": "c70cae22c8af433bbe7bb6ad4cb2f2ba",
+  "model_sha256": "0E3C91CDD388EEEBC3C656DD4B557EA8D86177BF039DE0F75CB330A22CCF0BCC",
+  "validation_csv": "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\measurements\\validation\\capture_67dea387ebe04289b5f69cc1ba700c6a.csv",
+  "validation_sha256": "846AF3FA62CDF51B6E170ABFE4A962637540093E8F51AA9C7150F28B604413C7",
+  "profile": {
+    "variant": "paper_array8_and_ce",
+    "cores": 8,
+    "mode": "Parallel",
+    "excite_cycles": 8,
+    "bitstream_sha256": "6BE7B2C364E2FB0A59864DB1597934BBE5EAB6538B239375E33445109A5666C7"
+  },
+  "selected_positions": 1854,
+  "observations": 37080,
+  "disagreements": 109,
+  "positions_with_any_disagreement": 44,
+  "observed_selected_bit_agreement_percent": 99.70604099244876,
+  "frames_with_selected_positions": 5120,
+  "frames_with_any_selected_bit_error": 107,
+  "cores": [
+    {
+      "core": 0,
+      "selected_positions": 238,
+      "observations": 4760,
+      "disagreements": 18,
+      "positions_with_any_disagreement": 8,
+      "observed_agreement_percent": 99.6218487394958
+    },
+    {
+      "core": 1,
+      "selected_positions": 221,
+      "observations": 4420,
+      "disagreements": 8,
+      "positions_with_any_disagreement": 4,
+      "observed_agreement_percent": 99.81900452488688
+    },
+    {
+      "core": 2,
+      "selected_positions": 225,
+      "observations": 4500,
+      "disagreements": 25,
+      "positions_with_any_disagreement": 10,
+      "observed_agreement_percent": 99.44444444444444
+    },
+    {
+      "core": 3,
+      "selected_positions": 237,
+      "observations": 4740,
+      "disagreements": 21,
+      "positions_with_any_disagreement": 6,
+      "observed_agreement_percent": 99.55696202531645
+    },
+    {
+      "core": 4,
+      "selected_positions": 229,
+      "observations": 4580,
+      "disagreements": 5,
+      "positions_with_any_disagreement": 1,
+      "observed_agreement_percent": 99.89082969432314
+    },
+    {
+      "core": 5,
+      "selected_positions": 244,
+      "observations": 4880,
+      "disagreements": 6,
+      "positions_with_any_disagreement": 4,
+      "observed_agreement_percent": 99.87704918032787
+    },
+    {
+      "core": 6,
+      "selected_positions": 232,
+      "observations": 4640,
+      "disagreements": 15,
+      "positions_with_any_disagreement": 5,
+      "observed_agreement_percent": 99.67672413793103
+    },
+    {
+      "core": 7,
+      "selected_positions": 228,
+      "observations": 4560,
+      "disagreements": 11,
+      "positions_with_any_disagreement": 6,
+      "observed_agreement_percent": 99.75877192982456
+    }
+  ],
+  "raw_summary": {
+    "frames": 5120,
+    "raw_observations": 40960,
+    "ones_percent": 41.1767578125,
+    "cores": [
+      {
+        "core": 0,
+        "observations": 5120,
+        "ones": 2492,
+        "ones_percent": 48.671875,
+        "mixed_patterns": 19,
+        "ties": 0
+      },
+      {
+        "core": 1,
+        "observations": 5120,
+        "ones": 1906,
+        "ones_percent": 37.2265625,
+        "mixed_patterns": 31,
+        "ties": 1
+      },
+      {
+        "core": 2,
+        "observations": 5120,
+        "ones": 1734,
+        "ones_percent": 33.8671875,
+        "mixed_patterns": 35,
+        "ties": 2
+      },
+      {
+        "core": 3,
+        "observations": 5120,
+        "ones": 1733,
+        "ones_percent": 33.84765625,
+        "mixed_patterns": 21,
+        "ties": 0
+      },
+      {
+        "core": 4,
+        "observations": 5120,
+        "ones": 2071,
+        "ones_percent": 40.44921875,
+        "mixed_patterns": 22,
+        "ties": 0
+      },
+      {
+        "core": 5,
+        "observations": 5120,
+        "ones": 2493,
+        "ones_percent": 48.69140625,
+        "mixed_patterns": 14,
+        "ties": 1
+      },
+      {
+        "core": 6,
+        "observations": 5120,
+        "ones": 1372,
+        "ones_percent": 26.796875,
+        "mixed_patterns": 28,
+        "ties": 1
+      },
+      {
+        "core": 7,
+        "observations": 5120,
+        "ones": 3065,
+        "ones_percent": 59.86328125,
+        "mixed_patterns": 25,
+        "ties": 1
+      }
+    ],
+    "note": "Finite raw observations; not certified reliability, entropy or uniqueness."
+  },
+  "interpretation": "Independent-run agreement with a frozen enrollment mask; not certified reliability, entropy, environmental robustness or a cryptographic key. Exclusions were chosen before this capture."
+}

@@ -1,0 +1,44 @@
+[
+    {
+        "label":  "baseline_before_wait8",
+        "excite_cycles":  8,
+        "latch_cycles":  8,
+        "csv":  "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\array64_capture_window_trial_2026-11-08\\experiments\\run_8ca2f2a5986c46808aa476759f9fa56c\\baseline_before_wait8.csv"
+    },
+    {
+        "label":  "trial_step0_wait8",
+        "excite_cycles":  8,
+        "latch_cycles":  64,
+        "csv":  "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\array64_capture_window_trial_2026-11-08\\experiments\\run_8ca2f2a5986c46808aa476759f9fa56c\\trial_step0_wait8.csv"
+    },
+    {
+        "label":  "trial_step1_wait32",
+        "excite_cycles":  32,
+        "latch_cycles":  64,
+        "csv":  "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\array64_capture_window_trial_2026-11-08\\experiments\\run_8ca2f2a5986c46808aa476759f9fa56c\\trial_step1_wait32.csv"
+    },
+    {
+        "label":  "trial_step2_wait71",
+        "excite_cycles":  71,
+        "latch_cycles":  64,
+        "csv":  "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\array64_capture_window_trial_2026-11-08\\experiments\\run_8ca2f2a5986c46808aa476759f9fa56c\\trial_step2_wait71.csv"
+    },
+    {
+        "label":  "trial_step3_wait127",
+        "excite_cycles":  127,
+        "latch_cycles":  64,
+        "csv":  "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\array64_capture_window_trial_2026-11-08\\experiments\\run_8ca2f2a5986c46808aa476759f9fa56c\\trial_step3_wait127.csv"
+    },
+    {
+        "label":  "trial_step4_wait8",
+        "excite_cycles":  8,
+        "latch_cycles":  64,
+        "csv":  "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\array64_capture_window_trial_2026-11-08\\experiments\\run_8ca2f2a5986c46808aa476759f9fa56c\\trial_step4_wait8.csv"
+    },
+    {
+        "label":  "baseline_after_wait8",
+        "excite_cycles":  8,
+        "latch_cycles":  8,
+        "csv":  "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\array64_capture_window_trial_2026-11-08\\experiments\\run_8ca2f2a5986c46808aa476759f9fa56c\\baseline_after_wait8.csv"
+    }
+]

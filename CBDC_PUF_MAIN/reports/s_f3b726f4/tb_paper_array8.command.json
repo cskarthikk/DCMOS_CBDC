@@ -1,0 +1,21 @@
+{
+  "command": [
+    "C:/iverilog/bin/iverilog.exe",
+    "-g2012",
+    "-s",
+    "tb_paper_array8",
+    "-o",
+    "tb_paper_array8.vvp",
+    "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\sim\\sim_unisim_primitives.v",
+    "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\rtl\\cbdc_array8_serial.v",
+    "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\rtl\\cbdc_button.v",
+    "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\rtl\\cbdc_puf_chain.v",
+    "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\rtl\\cbdc_puf_core.v",
+    "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\rtl\\cbdc_puf_ctrl.v",
+    "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\rtl\\cbdc_puf_element.v",
+    "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\rtl\\cbdc_serial_engine.v",
+    "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\rtl\\cbdc_uart.v",
+    "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\sim\\tb_paper_array8.v"
+  ],
+  "cwd": "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\reports\\s_f3b726f4"
+}

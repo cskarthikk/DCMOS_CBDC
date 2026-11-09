@@ -1,0 +1,14 @@
+[
+    {
+        "clock":  20,
+        "csv":  "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\array64_clock_profile_2026-11-09\\runs\\run_5f39ce9b7e164e1ca23263e278aa4265\\development_wait20.csv"
+    },
+    {
+        "clock":  22,
+        "csv":  "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\array64_clock_profile_2026-11-09\\runs\\run_5f39ce9b7e164e1ca23263e278aa4265\\development_wait22.csv"
+    },
+    {
+        "clock":  24,
+        "csv":  "C:\\BTech\\Semester_5\\DCMOS\\Project\\CBDC_PUF_MAIN\\array64_clock_profile_2026-11-09\\runs\\run_5f39ce9b7e164e1ca23263e278aa4265\\development_wait24.csv"
+    }
+]

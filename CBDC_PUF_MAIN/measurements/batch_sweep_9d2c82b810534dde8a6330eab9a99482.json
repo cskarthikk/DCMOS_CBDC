@@ -1,0 +1,1504 @@
+﻿{
+    "challenges":  [
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  35026,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  39122,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  39122,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  39122,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  39122,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  10174,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_1",
+                           "enrolled_key_hex":  "0x88D2",
+                           "enrolled_key":  35026,
+                           "challenge_index":  1,
+                           "helper_data_hex":  "0x27BE"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  41245,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  41245,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  41245,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  41245,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  41245,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  17815,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_2",
+                           "enrolled_key_hex":  "0xA11D",
+                           "enrolled_key":  41245,
+                           "challenge_index":  2,
+                           "helper_data_hex":  "0x4597"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  40156,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  56540,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  40156,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  56540,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  40156,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  18307,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_3",
+                           "enrolled_key_hex":  "0x9CDC",
+                           "enrolled_key":  40156,
+                           "challenge_index":  3,
+                           "helper_data_hex":  "0x4783"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  47264,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  47266,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  47266,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  47266,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  47266,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  22892,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_4",
+                           "enrolled_key_hex":  "0xB8A2",
+                           "enrolled_key":  47266,
+                           "challenge_index":  4,
+                           "helper_data_hex":  "0x596C"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  35757,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  35757,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  43949,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  35757,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  35757,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  15094,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_5",
+                           "enrolled_key_hex":  "0x8BAD",
+                           "enrolled_key":  35757,
+                           "challenge_index":  5,
+                           "helper_data_hex":  "0x3AF6"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  18601,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  18601,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  51369,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  18665,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  18600,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  13232,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_6",
+                           "enrolled_key_hex":  "0x48A8",
+                           "enrolled_key":  18600,
+                           "challenge_index":  6,
+                           "helper_data_hex":  "0x33B0"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  14504,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  14504,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  14504,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  14504,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  14504,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  31901,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_7",
+                           "enrolled_key_hex":  "0x38A8",
+                           "enrolled_key":  14504,
+                           "challenge_index":  7,
+                           "helper_data_hex":  "0x7C9D"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  43192,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  43192,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  43192,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  43192,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  43192,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  22298,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_8",
+                           "enrolled_key_hex":  "0xA8B8",
+                           "enrolled_key":  43192,
+                           "challenge_index":  8,
+                           "helper_data_hex":  "0x571A"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  59409,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  59393,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  59409,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  59410,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  59408,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  8277,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_9",
+                           "enrolled_key_hex":  "0xE811",
+                           "enrolled_key":  59409,
+                           "challenge_index":  9,
+                           "helper_data_hex":  "0x2055"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  33723,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  33723,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  33723,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  33723,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  33723,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  9499,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_10",
+                           "enrolled_key_hex":  "0x83BB",
+                           "enrolled_key":  33723,
+                           "challenge_index":  10,
+                           "helper_data_hex":  "0x251B"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  35984,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  35984,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  35984,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  35984,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  35984,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  22725,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_11",
+                           "enrolled_key_hex":  "0x8C90",
+                           "enrolled_key":  35984,
+                           "challenge_index":  11,
+                           "helper_data_hex":  "0x58C5"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  10888,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  10760,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  10760,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  10760,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  10760,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  5858,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_12",
+                           "enrolled_key_hex":  "0x2A08",
+                           "enrolled_key":  10760,
+                           "challenge_index":  12,
+                           "helper_data_hex":  "0x16E2"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  5267,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  5265,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  5267,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  5267,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  5267,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  23996,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_13",
+                           "enrolled_key_hex":  "0x1493",
+                           "enrolled_key":  5267,
+                           "challenge_index":  13,
+                           "helper_data_hex":  "0x5DBC"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  40088,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  40088,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  40088,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  40088,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  40088,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  9661,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_14",
+                           "enrolled_key_hex":  "0x8C98",
+                           "enrolled_key":  35992,
+                           "challenge_index":  14,
+                           "helper_data_hex":  "0x25BD"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  35136,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  35072,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  35136,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  35200,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  35264,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  17621,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_15",
+                           "enrolled_key_hex":  "0x89C0",
+                           "enrolled_key":  35264,
+                           "challenge_index":  15,
+                           "helper_data_hex":  "0x44D5"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  45584,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  45584,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  45584,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  45584,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  61968,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  28529,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_16",
+                           "enrolled_key_hex":  "0xF210",
+                           "enrolled_key":  61968,
+                           "challenge_index":  16,
+                           "helper_data_hex":  "0x6F71"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  37040,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  37040,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  37040,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  37040,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  37040,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  18979,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_17",
+                           "enrolled_key_hex":  "0x90B0",
+                           "enrolled_key":  37040,
+                           "challenge_index":  17,
+                           "helper_data_hex":  "0x4A23"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  41527,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  41527,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  41527,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  41527,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  41535,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  22814,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_18",
+                           "enrolled_key_hex":  "0xA237",
+                           "enrolled_key":  41527,
+                           "challenge_index":  18,
+                           "helper_data_hex":  "0x591E"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  42015,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  42015,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  44061,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  9247,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  42013,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  12764,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_19",
+                           "enrolled_key_hex":  "0x241F",
+                           "enrolled_key":  9247,
+                           "challenge_index":  19,
+                           "helper_data_hex":  "0x31DC"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  41906,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  41906,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  41906,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  41906,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  41906,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  26066,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_20",
+                           "enrolled_key_hex":  "0xA3B2",
+                           "enrolled_key":  41906,
+                           "challenge_index":  20,
+                           "helper_data_hex":  "0x65D2"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  35205,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  35205,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  35205,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  35205,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  35205,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  12363,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_21",
+                           "enrolled_key_hex":  "0x8985",
+                           "enrolled_key":  35205,
+                           "challenge_index":  21,
+                           "helper_data_hex":  "0x304B"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  33712,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  33712,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  33712,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  33712,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  33712,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  18578,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_22",
+                           "enrolled_key_hex":  "0x83B0",
+                           "enrolled_key":  33712,
+                           "challenge_index":  22,
+                           "helper_data_hex":  "0x4892"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  20608,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  20608,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  53376,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  20608,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  20608,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  31110,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_23",
+                           "enrolled_key_hex":  "0x5080",
+                           "enrolled_key":  20608,
+                           "challenge_index":  23,
+                           "helper_data_hex":  "0x7986"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  5065,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  5065,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  5065,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  5067,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  5065,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  12638,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_24",
+                           "enrolled_key_hex":  "0x13C9",
+                           "enrolled_key":  5065,
+                           "challenge_index":  24,
+                           "helper_data_hex":  "0x315E"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  10431,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  10431,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  10431,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  10427,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  10431,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  16000,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_25",
+                           "enrolled_key_hex":  "0x28BF",
+                           "enrolled_key":  10431,
+                           "challenge_index":  25,
+                           "helper_data_hex":  "0x3E80"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  37144,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  37144,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  37144,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  37144,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  37144,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  24469,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_26",
+                           "enrolled_key_hex":  "0x9118",
+                           "enrolled_key":  37144,
+                           "challenge_index":  26,
+                           "helper_data_hex":  "0x5F95"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  38292,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  38292,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  38292,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  38292,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  38300,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  15692,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_27",
+                           "enrolled_key_hex":  "0x9594",
+                           "enrolled_key":  38292,
+                           "challenge_index":  27,
+                           "helper_data_hex":  "0x3D4C"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  16227,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  16227,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  16227,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  16227,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  16227,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  28218,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_28",
+                           "enrolled_key_hex":  "0x3F63",
+                           "enrolled_key":  16227,
+                           "challenge_index":  28,
+                           "helper_data_hex":  "0x6E3A"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  41511,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  47653,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  43557,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  47653,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  41509,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  30799,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_29",
+                           "enrolled_key_hex":  "0xAA25",
+                           "enrolled_key":  43557,
+                           "challenge_index":  29,
+                           "helper_data_hex":  "0x784F"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  33303,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  33301,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  33301,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  33301,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  33301,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  4431,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_30",
+                           "enrolled_key_hex":  "0x8215",
+                           "enrolled_key":  33301,
+                           "challenge_index":  30,
+                           "helper_data_hex":  "0x114F"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  2363,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  2363,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  2362,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  2362,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  2363,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  12370,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_31",
+                           "enrolled_key_hex":  "0x093A",
+                           "enrolled_key":  2362,
+                           "challenge_index":  31,
+                           "helper_data_hex":  "0x3052"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  41927,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  41927,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  41927,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  41927,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  41927,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  258,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_32",
+                           "enrolled_key_hex":  "0xA3C7",
+                           "enrolled_key":  41927,
+                           "challenge_index":  32,
+                           "helper_data_hex":  "0x0102"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  65,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  65,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  65,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  65,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  65,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  18978,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_33",
+                           "enrolled_key_hex":  "0x0041",
+                           "enrolled_key":  65,
+                           "challenge_index":  33,
+                           "helper_data_hex":  "0x4A22"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  129,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  129,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  129,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  133,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  129,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  2842,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_34",
+                           "enrolled_key_hex":  "0x0081",
+                           "enrolled_key":  129,
+                           "challenge_index":  34,
+                           "helper_data_hex":  "0x0B1A"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  283,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  287,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  2331,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  283,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  283,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  4540,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_35",
+                           "enrolled_key_hex":  "0x011B",
+                           "enrolled_key":  283,
+                           "challenge_index":  35,
+                           "helper_data_hex":  "0x11BC"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  46513,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  46513,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  46513,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  46513,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  46497,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  23376,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_36",
+                           "enrolled_key_hex":  "0xB5B1",
+                           "enrolled_key":  46513,
+                           "challenge_index":  36,
+                           "helper_data_hex":  "0x5B50"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  16516,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  16516,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  16388,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  16388,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  16388,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  23168,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_37",
+                           "enrolled_key_hex":  "0x4004",
+                           "enrolled_key":  16388,
+                           "challenge_index":  37,
+                           "helper_data_hex":  "0x5A80"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  46220,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  46220,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  46220,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  46220,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  46220,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  3615,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_38",
+                           "enrolled_key_hex":  "0xB48C",
+                           "enrolled_key":  46220,
+                           "challenge_index":  38,
+                           "helper_data_hex":  "0x0E1F"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  5168,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  5296,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  5168,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  5168,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  5168,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  10332,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_39",
+                           "enrolled_key_hex":  "0x14B0",
+                           "enrolled_key":  5296,
+                           "challenge_index":  39,
+                           "helper_data_hex":  "0x285C"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  9248,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  9248,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  9248,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  9248,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  9248,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  29351,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_40",
+                           "enrolled_key_hex":  "0x2420",
+                           "enrolled_key":  9248,
+                           "challenge_index":  40,
+                           "helper_data_hex":  "0x72A7"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  4233,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  4233,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  4233,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  4233,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  4233,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  28525,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_41",
+                           "enrolled_key_hex":  "0x1089",
+                           "enrolled_key":  4233,
+                           "challenge_index":  41,
+                           "helper_data_hex":  "0x6F6D"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  7517,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  7519,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  7519,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  7517,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  7519,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  7546,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_42",
+                           "enrolled_key_hex":  "0x1D5F",
+                           "enrolled_key":  7519,
+                           "challenge_index":  42,
+                           "helper_data_hex":  "0x1D7A"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  32984,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  32986,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  49368,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  49370,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  32986,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  3784,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_43",
+                           "enrolled_key_hex":  "0x80D8",
+                           "enrolled_key":  32984,
+                           "challenge_index":  43,
+                           "helper_data_hex":  "0x0EC8"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  47264,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  47264,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  47264,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  47264,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  47280,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  17970,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_44",
+                           "enrolled_key_hex":  "0xB8A0",
+                           "enrolled_key":  47264,
+                           "challenge_index":  44,
+                           "helper_data_hex":  "0x4632"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  33443,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  33443,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  33443,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  33443,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  33443,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  9302,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_45",
+                           "enrolled_key_hex":  "0x82A3",
+                           "enrolled_key":  33443,
+                           "challenge_index":  45,
+                           "helper_data_hex":  "0x2456"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  25760,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  25760,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  25824,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  25760,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  25760,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  4654,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_46",
+                           "enrolled_key_hex":  "0x64A0",
+                           "enrolled_key":  25760,
+                           "challenge_index":  46,
+                           "helper_data_hex":  "0x122E"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  29488,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  29488,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  29488,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  29488,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  29488,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  17629,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_47",
+                           "enrolled_key_hex":  "0x7330",
+                           "enrolled_key":  29488,
+                           "challenge_index":  47,
+                           "helper_data_hex":  "0x44DD"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  54289,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  54289,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  54289,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  54289,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  54289,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  26044,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_48",
+                           "enrolled_key_hex":  "0xD411",
+                           "enrolled_key":  54289,
+                           "challenge_index":  48,
+                           "helper_data_hex":  "0x65BC"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  60721,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  60721,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  60721,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  60721,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  60721,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  27014,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_49",
+                           "enrolled_key_hex":  "0xED31",
+                           "enrolled_key":  60721,
+                           "challenge_index":  49,
+                           "helper_data_hex":  "0x6986"
+                       },
+                       {
+                           "live_queries":  [
+                                                {
+                                                    "noisy_response":  33161,
+                                                    "query_index":  1
+                                                },
+                                                {
+                                                    "noisy_response":  33161,
+                                                    "query_index":  2
+                                                },
+                                                {
+                                                    "noisy_response":  33161,
+                                                    "query_index":  3
+                                                },
+                                                {
+                                                    "noisy_response":  33161,
+                                                    "query_index":  4
+                                                },
+                                                {
+                                                    "noisy_response":  33161,
+                                                    "query_index":  5
+                                                }
+                                            ],
+                           "helper_data":  14559,
+                           "challenge_str":  "DCMOS_CBDC_Challenge_Vector_50",
+                           "enrolled_key_hex":  "0x8189",
+                           "enrolled_key":  33161,
+                           "challenge_index":  50,
+                           "helper_data_hex":  "0x38DF"
+                       }
+                   ]
+}

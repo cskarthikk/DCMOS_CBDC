@@ -1,0 +1,167 @@
+{
+  "eight": {
+    "ones_percent": 41.25,
+    "min_core_ones": 27.08984375,
+    "max_core_ones": 60.17578125,
+    "minority_observations": 740,
+    "total": 40960
+  },
+  "sixty_four": {
+    "ones_percent": 35.968017578125,
+    "min_core_ones": 0.4296875,
+    "max_core_ones": 92.36328125,
+    "minority_observations": 4458,
+    "total": 327680
+  },
+  "boundary_ranges": {
+    "eight": {
+      "launch": {
+        "min_abs_ps": 1.0,
+        "median_abs_ps": 11.5,
+        "max_abs_ps": 29.0
+      },
+      "arbiter": {
+        "min_abs_ps": 67.0,
+        "median_abs_ps": 71.0,
+        "max_abs_ps": 76.0
+      },
+      "feedback": {
+        "min_abs_ps": 209.0,
+        "median_abs_ps": 226.0,
+        "max_abs_ps": 276.0
+      }
+    },
+    "sixty_four": {
+      "launch": {
+        "min_abs_ps": 0.0,
+        "median_abs_ps": 32.0,
+        "max_abs_ps": 292.0
+      },
+      "arbiter": {
+        "min_abs_ps": 22.0,
+        "median_abs_ps": 169.0,
+        "max_abs_ps": 517.0
+      },
+      "feedback": {
+        "min_abs_ps": 0.0,
+        "median_abs_ps": 150.5,
+        "max_abs_ps": 340.0
+      }
+    }
+  },
+  "near_reference_pairs": [
+    {
+      "reference_core": 1,
+      "candidate_core": 0,
+      "upper_x": 1,
+      "lower_x": 5,
+      "old_head_y": 0,
+      "new_head_y": 1,
+      "old_arbiter_y": 16,
+      "new_arbiter_y": 18,
+      "old_excite_y": 0,
+      "new_excite_y": 0,
+      "old_ones_percent": 38.02734375,
+      "new_ones_percent": 5.87890625,
+      "old_arbiter_signed_ps": -67.0,
+      "new_arbiter_signed_ps": -198.0,
+      "old_launch_signed_ps": -29.0,
+      "new_launch_signed_ps": -12.0
+    },
+    {
+      "reference_core": 3,
+      "candidate_core": 10,
+      "upper_x": 59,
+      "lower_x": 63,
+      "old_head_y": 0,
+      "new_head_y": 1,
+      "old_arbiter_y": 16,
+      "new_arbiter_y": 18,
+      "old_excite_y": 0,
+      "new_excite_y": 0,
+      "old_ones_percent": 32.734375,
+      "new_ones_percent": 20.17578125,
+      "old_arbiter_signed_ps": -67.0,
+      "new_arbiter_signed_ps": -201.0,
+      "old_launch_signed_ps": -4.0,
+      "new_launch_signed_ps": -12.0
+    },
+    {
+      "reference_core": 4,
+      "candidate_core": 12,
+      "upper_x": 1,
+      "lower_x": 5,
+      "old_head_y": 21,
+      "new_head_y": 22,
+      "old_arbiter_y": 37,
+      "new_arbiter_y": 39,
+      "old_excite_y": 21,
+      "new_excite_y": 21,
+      "old_ones_percent": 40.76171875,
+      "new_ones_percent": 18.515625,
+      "old_arbiter_signed_ps": -75.0,
+      "new_arbiter_signed_ps": -203.0,
+      "old_launch_signed_ps": -11.0,
+      "new_launch_signed_ps": -23.0
+    },
+    {
+      "reference_core": 6,
+      "candidate_core": 21,
+      "upper_x": 59,
+      "lower_x": 63,
+      "old_head_y": 21,
+      "new_head_y": 22,
+      "old_arbiter_y": 37,
+      "new_arbiter_y": 39,
+      "old_excite_y": 21,
+      "new_excite_y": 21,
+      "old_ones_percent": 27.08984375,
+      "new_ones_percent": 8.7109375,
+      "old_arbiter_signed_ps": -75.0,
+      "new_arbiter_signed_ps": -203.0,
+      "old_launch_signed_ps": -1.0,
+      "new_launch_signed_ps": 0.0
+    },
+    {
+      "reference_core": 7,
+      "candidate_core": 23,
+      "upper_x": 1,
+      "lower_x": 5,
+      "old_head_y": 50,
+      "new_head_y": 51,
+      "old_arbiter_y": 66,
+      "new_arbiter_y": 68,
+      "old_excite_y": 50,
+      "new_excite_y": 50,
+      "old_ones_percent": 60.17578125,
+      "new_ones_percent": 32.48046875,
+      "old_arbiter_signed_ps": -73.0,
+      "new_arbiter_signed_ps": -256.0,
+      "old_launch_signed_ps": -9.0,
+      "new_launch_signed_ps": -25.0
+    },
+    {
+      "reference_core": 0,
+      "candidate_core": 50,
+      "upper_x": 21,
+      "lower_x": 25,
+      "old_head_y": 100,
+      "new_head_y": 101,
+      "old_arbiter_y": 116,
+      "new_arbiter_y": 118,
+      "old_excite_y": 100,
+      "new_excite_y": 100,
+      "old_ones_percent": 48.75,
+      "new_ones_percent": 15.0,
+      "old_arbiter_signed_ps": -67.0,
+      "new_arbiter_signed_ps": -201.0,
+      "old_launch_signed_ps": -12.0,
+      "new_launch_signed_ps": -11.0
+    }
+  ],
+  "limitations": [
+    "The old and new pools differ; per-core balance comparisons are descriptive, not matched-challenge temporal reliability.",
+    "The six near-reference pairs retain columns but move chain and arbiter rows; this is not an otherwise-identical controlled placement experiment.",
+    "All core classifications describe observations and modeled nets, not a proven per-core root cause."
+  ]
+}

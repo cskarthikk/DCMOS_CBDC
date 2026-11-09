@@ -1,0 +1,466 @@
+{
+  "status": "Corrected Figure 1 interpretation; hardware acceptance pending; not an exact paper reproduction",
+  "bitstream": "build_matched/paper_array8.bit",
+  "sha256": "6BE7B2C364E2FB0A59864DB1597934BBE5EAB6538B239375E33445109A5666C7",
+  "cores": 8,
+  "core_response_ffs": 8,
+  "fully_routed_nets": 2322,
+  "fixed_internal_nets": 768,
+  "internal_net_audit": [
+    {
+      "core": 0,
+      "internal_pairs": 64,
+      "max_internal_net_mismatch_ps": {
+        "slow_max_ps": 0.0,
+        "fast_min_ps": 0.0
+      }
+    },
+    {
+      "core": 1,
+      "internal_pairs": 64,
+      "max_internal_net_mismatch_ps": {
+        "slow_max_ps": 0.0,
+        "fast_min_ps": 0.0
+      }
+    },
+    {
+      "core": 2,
+      "internal_pairs": 64,
+      "max_internal_net_mismatch_ps": {
+        "slow_max_ps": 0.0,
+        "fast_min_ps": 0.0
+      }
+    },
+    {
+      "core": 3,
+      "internal_pairs": 64,
+      "max_internal_net_mismatch_ps": {
+        "slow_max_ps": 0.0,
+        "fast_min_ps": 0.0
+      }
+    },
+    {
+      "core": 4,
+      "internal_pairs": 64,
+      "max_internal_net_mismatch_ps": {
+        "slow_max_ps": 0.0,
+        "fast_min_ps": 0.0
+      }
+    },
+    {
+      "core": 5,
+      "internal_pairs": 64,
+      "max_internal_net_mismatch_ps": {
+        "slow_max_ps": 0.0,
+        "fast_min_ps": 0.0
+      }
+    },
+    {
+      "core": 6,
+      "internal_pairs": 64,
+      "max_internal_net_mismatch_ps": {
+        "slow_max_ps": 0.0,
+        "fast_min_ps": 0.0
+      }
+    },
+    {
+      "core": 7,
+      "internal_pairs": 64,
+      "max_internal_net_mismatch_ps": {
+        "slow_max_ps": 0.0,
+        "fast_min_ps": 0.0
+      }
+    }
+  ],
+  "boundary_net_estimates": [
+    {
+      "net": "gen_core[0].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[0].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[0].u_engine/u_core/u_arbiter_dff/C",
+      "slow_max_ps": "836",
+      "fast_min_ps": "307"
+    },
+    {
+      "net": "gen_core[0].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[0].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[0].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+      "slow_max_ps": "1415",
+      "fast_min_ps": "540"
+    },
+    {
+      "net": "gen_core[0].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[0].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[0].u_engine/u_core/u_arbiter_dff/D",
+      "slow_max_ps": "769",
+      "fast_min_ps": "256"
+    },
+    {
+      "net": "gen_core[0].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[0].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[0].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+      "slow_max_ps": "1625",
+      "fast_min_ps": "614"
+    },
+    {
+      "net": "gen_core[0].u_engine/u_ctrl/puf_excite_o",
+      "driver": "gen_core[0].u_engine/u_ctrl/puf_excite_o_reg/Q",
+      "sink": "gen_core[0].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+      "slow_max_ps": "978",
+      "fast_min_ps": "360"
+    },
+    {
+      "net": "gen_core[0].u_engine/u_ctrl/puf_excite_o",
+      "driver": "gen_core[0].u_engine/u_ctrl/puf_excite_o_reg/Q",
+      "sink": "gen_core[0].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+      "slow_max_ps": "966",
+      "fast_min_ps": "345"
+    },
+    {
+      "net": "gen_core[1].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[1].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[1].u_engine/u_core/u_arbiter_dff/C",
+      "slow_max_ps": "836",
+      "fast_min_ps": "307"
+    },
+    {
+      "net": "gen_core[1].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[1].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[1].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+      "slow_max_ps": "1415",
+      "fast_min_ps": "540"
+    },
+    {
+      "net": "gen_core[1].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[1].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[1].u_engine/u_core/u_arbiter_dff/D",
+      "slow_max_ps": "769",
+      "fast_min_ps": "256"
+    },
+    {
+      "net": "gen_core[1].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[1].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[1].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+      "slow_max_ps": "1625",
+      "fast_min_ps": "614"
+    },
+    {
+      "net": "gen_core[1].u_engine/u_ctrl/puf_excite_o",
+      "driver": "gen_core[1].u_engine/u_ctrl/puf_excite_o_reg/Q",
+      "sink": "gen_core[1].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+      "slow_max_ps": "853",
+      "fast_min_ps": "304"
+    },
+    {
+      "net": "gen_core[1].u_engine/u_ctrl/puf_excite_o",
+      "driver": "gen_core[1].u_engine/u_ctrl/puf_excite_o_reg/Q",
+      "sink": "gen_core[1].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+      "slow_max_ps": "824",
+      "fast_min_ps": "276"
+    },
+    {
+      "net": "gen_core[2].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[2].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[2].u_engine/u_core/u_arbiter_dff/C",
+      "slow_max_ps": "838",
+      "fast_min_ps": "309"
+    },
+    {
+      "net": "gen_core[2].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[2].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[2].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+      "slow_max_ps": "1418",
+      "fast_min_ps": "543"
+    },
+    {
+      "net": "gen_core[2].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[2].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[2].u_engine/u_core/u_arbiter_dff/D",
+      "slow_max_ps": "769",
+      "fast_min_ps": "256"
+    },
+    {
+      "net": "gen_core[2].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[2].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[2].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+      "slow_max_ps": "1627",
+      "fast_min_ps": "616"
+    },
+    {
+      "net": "gen_core[2].u_engine/u_ctrl/puf_excite_o",
+      "driver": "gen_core[2].u_engine/u_ctrl/puf_excite_o_reg/Q",
+      "sink": "gen_core[2].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+      "slow_max_ps": "857",
+      "fast_min_ps": "308"
+    },
+    {
+      "net": "gen_core[2].u_engine/u_ctrl/puf_excite_o",
+      "driver": "gen_core[2].u_engine/u_ctrl/puf_excite_o_reg/Q",
+      "sink": "gen_core[2].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+      "slow_max_ps": "838",
+      "fast_min_ps": "290"
+    },
+    {
+      "net": "gen_core[3].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[3].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[3].u_engine/u_core/u_arbiter_dff/C",
+      "slow_max_ps": "836",
+      "fast_min_ps": "307"
+    },
+    {
+      "net": "gen_core[3].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[3].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[3].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+      "slow_max_ps": "1415",
+      "fast_min_ps": "540"
+    },
+    {
+      "net": "gen_core[3].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[3].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[3].u_engine/u_core/u_arbiter_dff/D",
+      "slow_max_ps": "769",
+      "fast_min_ps": "256"
+    },
+    {
+      "net": "gen_core[3].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[3].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[3].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+      "slow_max_ps": "1625",
+      "fast_min_ps": "614"
+    },
+    {
+      "net": "gen_core[3].u_engine/u_ctrl/puf_excite_o",
+      "driver": "gen_core[3].u_engine/u_ctrl/puf_excite_o_reg/Q",
+      "sink": "gen_core[3].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+      "slow_max_ps": "840",
+      "fast_min_ps": "291"
+    },
+    {
+      "net": "gen_core[3].u_engine/u_ctrl/puf_excite_o",
+      "driver": "gen_core[3].u_engine/u_ctrl/puf_excite_o_reg/Q",
+      "sink": "gen_core[3].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+      "slow_max_ps": "836",
+      "fast_min_ps": "288"
+    },
+    {
+      "net": "gen_core[4].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[4].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[4].u_engine/u_core/u_arbiter_dff/C",
+      "slow_max_ps": "836",
+      "fast_min_ps": "307"
+    },
+    {
+      "net": "gen_core[4].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[4].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[4].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+      "slow_max_ps": "1650",
+      "fast_min_ps": "658"
+    },
+    {
+      "net": "gen_core[4].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[4].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[4].u_engine/u_core/u_arbiter_dff/D",
+      "slow_max_ps": "761",
+      "fast_min_ps": "248"
+    },
+    {
+      "net": "gen_core[4].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[4].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[4].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+      "slow_max_ps": "1892",
+      "fast_min_ps": "717"
+    },
+    {
+      "net": "gen_core[4].u_engine/u_ctrl/puf_excite_o",
+      "driver": "gen_core[4].u_engine/u_ctrl/puf_excite_o_reg/Q",
+      "sink": "gen_core[4].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+      "slow_max_ps": "976",
+      "fast_min_ps": "359"
+    },
+    {
+      "net": "gen_core[4].u_engine/u_ctrl/puf_excite_o",
+      "driver": "gen_core[4].u_engine/u_ctrl/puf_excite_o_reg/Q",
+      "sink": "gen_core[4].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+      "slow_max_ps": "965",
+      "fast_min_ps": "344"
+    },
+    {
+      "net": "gen_core[5].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[5].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[5].u_engine/u_core/u_arbiter_dff/C",
+      "slow_max_ps": "837",
+      "fast_min_ps": "308"
+    },
+    {
+      "net": "gen_core[5].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[5].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[5].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+      "slow_max_ps": "1626",
+      "fast_min_ps": "628"
+    },
+    {
+      "net": "gen_core[5].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[5].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[5].u_engine/u_core/u_arbiter_dff/D",
+      "slow_max_ps": "761",
+      "fast_min_ps": "248"
+    },
+    {
+      "net": "gen_core[5].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[5].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[5].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+      "slow_max_ps": "1894",
+      "fast_min_ps": "719"
+    },
+    {
+      "net": "gen_core[5].u_engine/u_ctrl/puf_excite_o",
+      "driver": "gen_core[5].u_engine/u_ctrl/puf_excite_o_reg/Q",
+      "sink": "gen_core[5].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+      "slow_max_ps": "975",
+      "fast_min_ps": "358"
+    },
+    {
+      "net": "gen_core[5].u_engine/u_ctrl/puf_excite_o",
+      "driver": "gen_core[5].u_engine/u_ctrl/puf_excite_o_reg/Q",
+      "sink": "gen_core[5].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+      "slow_max_ps": "952",
+      "fast_min_ps": "331"
+    },
+    {
+      "net": "gen_core[6].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[6].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[6].u_engine/u_core/u_arbiter_dff/C",
+      "slow_max_ps": "836",
+      "fast_min_ps": "307"
+    },
+    {
+      "net": "gen_core[6].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[6].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[6].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+      "slow_max_ps": "1650",
+      "fast_min_ps": "658"
+    },
+    {
+      "net": "gen_core[6].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[6].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[6].u_engine/u_core/u_arbiter_dff/D",
+      "slow_max_ps": "761",
+      "fast_min_ps": "248"
+    },
+    {
+      "net": "gen_core[6].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[6].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[6].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+      "slow_max_ps": "1892",
+      "fast_min_ps": "717"
+    },
+    {
+      "net": "gen_core[6].u_engine/u_ctrl/puf_excite_o",
+      "driver": "gen_core[6].u_engine/u_ctrl/puf_excite_o_reg/Q",
+      "sink": "gen_core[6].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+      "slow_max_ps": "963",
+      "fast_min_ps": "346"
+    },
+    {
+      "net": "gen_core[6].u_engine/u_ctrl/puf_excite_o",
+      "driver": "gen_core[6].u_engine/u_ctrl/puf_excite_o_reg/Q",
+      "sink": "gen_core[6].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+      "slow_max_ps": "962",
+      "fast_min_ps": "341"
+    },
+    {
+      "net": "gen_core[7].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[7].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[7].u_engine/u_core/u_arbiter_dff/C",
+      "slow_max_ps": "834",
+      "fast_min_ps": "305"
+    },
+    {
+      "net": "gen_core[7].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[7].u_engine/u_core/u_chain_lower/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[7].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I1",
+      "slow_max_ps": "1587",
+      "fast_min_ps": "560"
+    },
+    {
+      "net": "gen_core[7].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[7].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[7].u_engine/u_core/u_arbiter_dff/D",
+      "slow_max_ps": "761",
+      "fast_min_ps": "248"
+    },
+    {
+      "net": "gen_core[7].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/sig_o",
+      "driver": "gen_core[7].u_engine/u_core/u_chain_upper/gen_elem[15].u_elem/gen_style_p.u_mux/O",
+      "sink": "gen_core[7].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I1",
+      "slow_max_ps": "1863",
+      "fast_min_ps": "688"
+    },
+    {
+      "net": "gen_core[7].u_engine/u_ctrl/puf_excite_o",
+      "driver": "gen_core[7].u_engine/u_ctrl/puf_excite_o_reg/Q",
+      "sink": "gen_core[7].u_engine/u_core/u_chain_lower/gen_fixed_parity_gate.u_head_gate/I0",
+      "slow_max_ps": "977",
+      "fast_min_ps": "359"
+    },
+    {
+      "net": "gen_core[7].u_engine/u_ctrl/puf_excite_o",
+      "driver": "gen_core[7].u_engine/u_ctrl/puf_excite_o_reg/Q",
+      "sink": "gen_core[7].u_engine/u_core/u_chain_upper/gen_fixed_parity_gate.u_head_gate/I0",
+      "slow_max_ps": "968",
+      "fast_min_ps": "347"
+    }
+  ],
+  "limitations": [
+    "Remaining boundary net mismatch",
+    "Three-LUT stage mapping interpretation; paper reports two LUT2s/stage",
+    "Fixed AND accepts odd parity only; full paper challenge coverage unresolved",
+    "Different FPGA",
+    "No activity monitors or live firmware hash attestation",
+    "SHA3/BCH/128-core framework deferred"
+  ],
+  "files": {
+    "rtl/cbdc_array8_serial.v": "10B154C42AB56047ACE216B7965CA24D7BEFDD9801737B0363E7B7D7397B11C3",
+    "rtl/cbdc_button.v": "B7BF5342968012E1B138E2C92D9F5C9557BC1A4CCD6CB55049D57A86627CEF33",
+    "rtl/cbdc_puf_chain.v": "30EEC11F5459690A14D95AD71F719787A9F3B8ECFC031E6227FAC98B65B1B870",
+    "rtl/cbdc_puf_core.v": "13DCFE300778AA4B6B88792FF93E926AB7EE42ADC008D502158C252EC65B213D",
+    "rtl/cbdc_puf_ctrl.v": "D08CC6FD13880CD62F046D998FB14DA00CC63F918F7760D018C5DAD990C33A33",
+    "rtl/cbdc_puf_element.v": "CC1B30AD272D8A1D26072A34B782FBB2B0C488087DCDCF0D3F02B98EBE8D4D36",
+    "rtl/cbdc_serial_engine.v": "D3F9763521043255283DE0EB967DF302C900B18A6A2EE07E355B07D8ACDC0A4B",
+    "rtl/cbdc_uart.v": "D73E500A2C62776A57BFA89609CBBD3B0B3673A1B0CFB7BF6F05459F6B83B3CF",
+    "scripts/analyze.py": "1B5ED999B9AD6C6F785F63B20D22A3BD4590EA71AF9F0DB2C0E027BA161539ED",
+    "scripts/audit.tcl": "EB72648EC233849B2B7C1F5E4B715EE0343904F05C7D27017CDC28EBDB45652B",
+    "scripts/build.tcl": "DA010F29297697897CE64BE0B5B7F4720E627851E69DFF90103E6909A3D5FEEC",
+    "scripts/collect.ps1": "4F99B616FDC5A4CB5518D5B907015F2DF53F3504DF97111A5BFCEB83DA96A40F",
+    "scripts/match_local.tcl": "E8B3ECE1DF2C6DA80795588CD84EA4873CA8C1CB4F364E59B9E39C8620D7D2A4",
+    "scripts/protect.tcl": "38B68B2A296A540563BBC1DAD2A42208793EA2BD4C37E2660C3CF86570F1A261",
+    "scripts/record_build.py": "37F725E1D753807CB10773FD8CCB82A81032E25F039D7EB6A6EE0D751492233B",
+    "scripts/resume.tcl": "BDEBC2E4F6D66BD5691BF65A32EE91232D8D33C7734A89C12DCC8C0967C7E0BD",
+    "scripts/run_diagnostics.ps1": "BC444EDA3F7050DE4FCAC25963F3F6B1B5CAAA37868A24EF556F9127CB112E2E",
+    "scripts/verify_collector.ps1": "4C588CE0842AD073D7C3D092F23D45B5DFF8801693DF041C792DDA857BE546D7",
+    "scripts/verify_placement.tcl": "06691492AF34BD2ACC40780C3C8469111A6C78921BBE206FDC8154D8C61FDCA1",
+    "sim/analyzer_fixture.csv": "BFA9F4291B5F518F66F26828ECD7900F4CC4AD14449C65AA3812D007681A86AE",
+    "sim/analyzer_fixture.csv.challenges.json": "CDB1C52F5FC52F1E25CB857A41E9DEB6499828B0BECF4199D421A48F6A0A76FA",
+    "sim/analyzer_fixture.csv.metadata.json": "868B1854B52267FD7FF57E812C16F4FCE113A8FD93868E0FDEBF71DB8051F050",
+    "sim/analyzer_test.log": "A7948BEFF0BB3796D3BF1384C42A9D4E34D8627EAC2A371252067A7E65A7A3A5",
+    "sim/chain_truth.log": "A16DFC3AE51ECDC4D193BD21CC732728E0AB9C32E4D64964B5939691E9A1197E",
+    "sim/result.log": "76ED460CBB442ADC96BFF9832CD7A4E3433BA14FB9F7DB08A801FC93C5B634C5",
+    "sim/sim_unisim_primitives.v": "141564C348DC0E7FCFF1D6890EC363053BE5DEE4CA4067B01A60905372B7C6C0",
+    "sim/tb_chain_truth.v": "340A4DDD8F67A31C797466AAC0D8E6228F48002C0D2FF05365AD936B07EEAE1C",
+    "sim/tb_paper_array8.v": "545BE1F2B97E9B2D0DC983C41F4201E58CCAF5631CED161A9B598BC9F2542B25",
+    "constraints/basys3_serial.xdc": "9BC4125641B69A03C9B094DCE18FB307E383A83B8AC6F7CAF0F61BFDBC976548"
+  },
+  "evidence": {
+    "drc.rpt": "0D9A516BB1B3A3A003FEB4495E11ED4BC50D61C7A01B3702905949C0D4FC9973",
+    "methodology.rpt": "382196761251CCDF69F41ADC289D3F5ABB151D7158CB76DC7E969824F09E045B",
+    "net_delays.csv": "635AF0021C5F902CA4BF694015EA0A0D3764A7CA2469DB007C08B76DB500994E",
+    "paper_array8.bit": "6BE7B2C364E2FB0A59864DB1597934BBE5EAB6538B239375E33445109A5666C7",
+    "placement_verified.txt": "203DCA08CA8364FE04C48EF839240280E93F067909FFB37A28F0B348AD1057BF",
+    "routed.dcp": "4A1CCCF564F48A8E70F65A655AA9A09BFC663BD6F7B6ADD582A4F868C4100DDD",
+    "route_status.rpt": "D6797A9B0731B5A0467F53A822ECE9F673A49D182330F1F6AA7D74B660FB09EC",
+    "structure.txt": "BA426166FC83268B32A6767787E850E988B24917366D860212B424423505FACB",
+    "timing.rpt": "61D80D780A283223527315167D395AC570942380EE6EA30017B2AC7EA68D24A8",
+    "utilization.rpt": "B730F9DC01311064813D2544F6728AEB458229EB6DB6CE87F849E65EE5CACFB4"
+  },
+  "layout_sha256": "CC8B45D26993C4057DFF8D3A700A7312E6DB1BBDF485DD462505F953F3C5871C",
+  "template_sha256": "20B4EEF513C79D78E313668DC0EDBFADF7DE8579655AE529078B436EF758E615"
+}

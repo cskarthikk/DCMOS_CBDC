@@ -1,0 +1,1 @@
+PASS: all 816 constrained PUF primitives have the planned implemented sites/BELs and all 784 LUTs have the intended input pin locks.

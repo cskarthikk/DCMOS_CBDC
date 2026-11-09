@@ -1,0 +1,10 @@
+{
+  "cbdc_array64_serial.v": "3b82668e24f7ac948ec00fa177fa41277e4bc289747023e1da188e645119507c",
+  "cbdc_button.v": "b7bf5342968012e1b138e2c92d9f5c9557bc1a4ccd6cb55049d57a86627cef33",
+  "cbdc_puf_chain.v": "30eec11f5459690a14d95ad71f719787a9f3b8ecfc031e6227fac98b65b1b870",
+  "cbdc_puf_core.v": "13dcfe300778aa4b6b88792ff93e926ab7ee42adc008d502158c252ec65b213d",
+  "cbdc_puf_ctrl.v": "d08cc6fd13880cd62f046d998fb14da00cc63f918f7760d018c5dad990c33a33",
+  "cbdc_puf_element.v": "cc1b30ad272d8a1d26072a34b782fbb2b0c488087dcdcf0d3f02b98ebe8d4d36",
+  "cbdc_serial_engine.v": "d3f9763521043255283de0eb967df302c900b18a6a2ee07e355b07d8acdc0a4b",
+  "cbdc_uart.v": "d73e500a2c62776a57bfa89609cbbd3b0b3673a1b0cfb7bf6f05459f6b83b3cf"
+}
