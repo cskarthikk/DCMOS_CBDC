@@ -19,7 +19,7 @@ if ($ExciteCycles -le 0) {
 }
 
 if (!$Output) {
-    $Output = Join-Path $root ("measurements/validation/batch_sweep_" + [Guid]::NewGuid().ToString('N') + ".json")
+    $Output = Join-Path $root ("measurements/batch_sweep_" + [Guid]::NewGuid().ToString('N') + ".json")
 }
 $Output = [IO.Path]::GetFullPath($Output)
 New-Item -ItemType Directory -Force (Split-Path $Output -Parent) | Out-Null
