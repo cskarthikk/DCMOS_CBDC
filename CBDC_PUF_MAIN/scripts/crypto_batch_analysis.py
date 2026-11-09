@@ -15,7 +15,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from crypto_engine import SHA3ChallengePreprocessor, FuzzyExtractor, BCH31_16_3
+from crypto_engine import SHA3ChallengePreprocessor, FuzzyExtractor, MultiBlockFuzzyExtractor, BCH31_16_3
 
 
 def analyze_batch(results_data: dict, output_path: Path = None):
@@ -24,6 +24,14 @@ def analyze_batch(results_data: dict, output_path: Path = None):
     if num_challenges == 0:
         print("No challenges to analyze.")
         return
+
+    # Auto-detect key width (16-bit vs 64-bit)
+    if 'key_bits' in results_data:
+        key_bits = int(results_data['key_bits'])
+    elif len(items) > 0 and (isinstance(items[0].get('helper_data'), list) or items[0].get('enrolled_key', 0) > 0xFFFF):
+        key_bits = 64
+    else:
+        key_bits = 16
 
     # 1. Intra-Challenge Analysis (Stability & BCH Correction)
     total_evals = 0
@@ -46,33 +54,38 @@ def analyze_batch(results_data: dict, output_path: Path = None):
             if diff > 0:
                 raw_word_errors += 1
             
-            rec_key, errs, ok = FuzzyExtractor.reproduce(noisy, helper)
+            if key_bits == 64:
+                rec_key, errs, ok = MultiBlockFuzzyExtractor.reproduce(noisy, helper, total_bits=64)
+            else:
+                rec_key, errs, ok = FuzzyExtractor.reproduce(noisy, helper)
+
             if not ok or rec_key != ref_key:
                 post_bch_word_errors += 1
             total_evals += 1
 
-    raw_ber_pct = (raw_flips_total / (total_evals * 16)) * 100.0 if total_evals else 0.0
+    raw_ber_pct = (raw_flips_total / (total_evals * key_bits)) * 100.0 if total_evals else 0.0
     raw_wer_pct = (raw_word_errors / total_evals) * 100.0 if total_evals else 0.0
     post_bch_wer_pct = (post_bch_word_errors / total_evals) * 100.0 if total_evals else 0.0
     key_agreement_pct = ((total_evals - post_bch_word_errors) / total_evals) * 100.0 if total_evals else 0.0
 
     # 2. Inter-Challenge Uniqueness (Fractional Hamming Distance)
-    # Between all pairs of distinct enrolled keys: sum(HD(Ki, Kj)) / (16 * C(N, 2))
+    # Between all pairs of distinct enrolled keys: sum(HD(Ki, Kj)) / (key_bits * C(N, 2))
     pair_hds = []
     for k1, k2 in itertools.combinations(reconstructed_keys, 2):
         hd = bin(k1 ^ k2).count('1')
-        pair_hds.append(hd / 16.0)
+        pair_hds.append(hd / float(key_bits))
 
     mean_uniqueness_pct = (sum(pair_hds) / len(pair_hds)) * 100.0 if pair_hds else 0.0
     min_uniqueness_pct = (min(pair_hds) * 100.0) if pair_hds else 0.0
     max_uniqueness_pct = (max(pair_hds) * 100.0) if pair_hds else 0.0
 
     # 3. Overall Bit Randomness / Ones Percentage across Enrolled Keys
-    total_key_bits = num_challenges * 16
+    total_key_bits = num_challenges * key_bits
     total_key_ones = sum(bin(k).count('1') for k in reconstructed_keys)
     ones_pct = (total_key_ones / total_key_bits) * 100.0 if total_key_bits else 0.0
 
     report = {
+        'key_bits': key_bits,
         'num_challenges': num_challenges,
         'total_live_queries': total_evals,
         'ones_percentage': ones_pct,
