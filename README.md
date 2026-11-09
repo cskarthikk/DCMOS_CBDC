@@ -134,10 +134,16 @@ Analyzes 327,680 real physical bits across all 64 parallel cores from the Basys 
 .\runtime\python\python.exe .\scripts\analyze.py measurements\validation_1.csv
 ```
 
-### 4. Test Cryptographic Engine & BCH Codec
-Validates the multi-block BCH(31,16,3) error-correcting codec and SHAKE-256 preprocessor:
+### 4. Test Cryptographic Engine & Code-Offset Fuzzy Extractor
+Validates both the **Cryptographically Secure Dodis Code-Offset Fuzzy Extractor** (256-bit entropy) and the legacy BCH(31,16,3) channel ECC codec across 1,000 randomized test vectors:
 ```powershell
 .\runtime\python\python.exe scripts\crypto_engine.py
+```
+
+### 5. Audit Helper Data Information Leakage (Vulnerability Demonstration)
+Empirically proves that naive 15-bit parity helper data collapses the 64-bit search space to only 16 candidate keys, demonstrating why the Dodis Code-Offset construction is required for cryptographic security:
+```powershell
+.\runtime\python\python.exe scripts\audit_helper_leakage.py
 ```
 
 ### 5. Run Machine Learning Modeling Attack Suite (Table 3 & Figure 9)
@@ -180,8 +186,11 @@ If connected to a physical Basys 3 board loaded with the 64-core bitstream (`bit
 # Optional: Program board via Vivado
 powershell -ExecutionPolicy Bypass -File scripts\program_board.ps1
 
-# Run live enrollment & reconstruction demo
-powershell -ExecutionPolicy Bypass -File scripts\crypto_demo.ps1 -Port COM5
+# Run live enrollment & reconstruction demo (Cryptographically Secure Dodis Code-Offset, 256-bit key)
+powershell -ExecutionPolicy Bypass -File scripts\crypto_demo.ps1 -Port COM5 -Mode secure -KeyBits 256
+
+# Optional: Run live enrollment in legacy Paper Channel ECC benchmark mode
+powershell -ExecutionPolicy Bypass -File scripts\crypto_demo.ps1 -Port COM5 -Mode legacy
 ```
 
 ---

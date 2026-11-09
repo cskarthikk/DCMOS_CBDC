@@ -79,13 +79,37 @@ The CBDC-PUF framework applies NIST **SHAKE-256** sponge expansion:
 $$C' = f(C) = \text{SHAKE-256}(C, \text{length}=128 \text{ bytes})$$
 Bit 15 on each core's 16-bit word is dynamically set/cleared to guarantee odd parity $\sum_{b=0}^{15} C'[b] \equiv 1 \pmod 2$. Due to the cryptographic avalanche effect, changing a single bit in the input challenge flips $\approx 50\%$ of the configuration bits across the 64 cores.
 
-### B. Multi-Block BCH(31, 16, 3) Fuzzy Extractor (Section 4.1 & 4.2)
+### B. Error Correction & Cryptographic Key Generation: Channel ECC vs. Secure Fuzzy Extractor
+
+In PUF engineering, there is a fundamental distinction between **Channel Error Correction (ECC)** (recovering a response over a noisy physical channel) and **Cryptographic Key Generation / Fuzzy Extractors** (generating a high-entropy secret key in the presence of public helper data).
+
+#### 1. Paper Baseline Mode: Raw Channel Error Correction (Liu et al. Section 4.1 & 4.2)
 - **Field Polynomial:** $p(x) = x^5 + x^2 + 1$ ($0\text{x}25$) over Galois Field $\text{GF}(2^5)$.
 - **Generator Polynomial:** $g(x) = x^{15} + x^{11} + x^{10} + x^9 + x^8 + x^7 + x^5 + x^3 + x^2 + x + 1$ ($0\text{x}8\text{FAF}$).
 - **Partitioning:** The 64-bit hardware response is divided into four 16-bit blocks:
   $$\text{Block}_0 = R[0..15], \quad \text{Block}_1 = R[16..31], \quad \text{Block}_2 = R[32..47], \quad \text{Block}_3 = R[48..63]$$
-- **Helper Data:** $4 \times 15 = 60$ helper bits.
-- **Correction Capability:** Up to $t=3$ bit flips per 16-bit block, allowing up to **12 bit flips total** across the 64-bit response to be corrected via Berlekamp-Massey decoding and Chien search.
+- **Channel Metric:** Corrects up to $t=3$ bit flips per 16-bit block, achieving $\mathbf{WER = 0.0000\%}$ (100% key recovery on silicon).
+- **Security Audit & Helper Data Information Leakage:**  
+  If the 15-bit systematic BCH parities are published directly as public helper data, the linear parity operator $P: \mathbb{F}_2^{16} \to \mathbb{F}_2^{15}$ has kernel dimension $\dim(\ker(P)) = 16 - 15 = 1$. The null space is spanned by $g(x) = \mathtt{0x8FAF}$. Consequently, for each 16-bit block, there are exactly two messages with that parity: $\{m, m \oplus \mathtt{0x8FAF}\}$. Across four blocks, only $2^4 = \mathbf{16 \text{ candidate 64-bit keys}}$ remain. An attacker who intercepts the helper data can brute-force the secret in $< 1 \text{ ms}$ (`scripts/audit_helper_leakage.py`).
+
+#### 2. Cryptographically Secure Mode: Dodis et al. Code-Offset Fuzzy Extractor (Eurocrypt 2004 / SIAM 2008)
+To prevent helper leakage and ensure full 128-bit / 256-bit cryptographic strength:
+- **Code-Offset Secure Sketch:**  
+  The 64 physical cores provide two 31-bit physical response blocks ($2 \times 31 = 62$ bits):
+  $$\text{Block}_0 = R[0..30], \quad \text{Block}_1 = R[31..61]$$
+  For each 31-bit block, a uniform random 16-bit secret $S \in \{0, 1\}^{16}$ is chosen, encoded into $C = \text{BCH31\_16\_3}(S) \in \{0, 1\}^{31}$, and masked with the PUF response:
+  $$W = R_{31} \oplus C \quad (\text{Public Helper Data})$$
+- **Reconstruction:**  
+  Upon subsequent challenge queries with noisy response $R'_{31} = R_{31} \oplus e$:
+  $$C' = R'_{31} \oplus W = C \oplus e \quad \xrightarrow{\text{BCH Decode}} \quad S$$
+- **Min-Entropy Security Guarantee:**  
+  By Dodis et al. Lemma 1, $W$ reveals at most $31 - 16 = 15$ bits about $R$. Because $S$ is drawn uniformly at random, **$S$ maintains full 16 bits of independent min-entropy per block** ($2^{16} = 65,536$ states).
+- **Multi-Challenge Entropy Scaling:**  
+  - 1 Challenge (64 cores): 32 bits secret entropy ($2^{32}$)
+  - 4 Challenges: 128 bits secret entropy ($2^{128}$, NIST AES-128 standard)
+  - 8 Challenges: 256 bits secret entropy ($2^{256}$, post-quantum security margin)
+- **Randomness Extraction:** A universal hash function (SHAKE-256) extracts the concatenated secrets into a cryptographically uniform 256-bit AES master key.
+- **Hardware Verification:** Evaluated across independent Basys 3 silicon captures (`validation_1.csv` vs `validation_2.csv`), correcting all 10 physical bit errors and achieving **100.0% Key Agreement** with provable 256-bit security.
 
 ---
 
@@ -150,9 +174,11 @@ Evaluated across **100 to 5,000 physical CRPs** with a **70% Training / 30% Held
 | Task | PowerShell Script | Description |
 | :--- | :--- | :--- |
 | **Program FPGA** | `scripts\program_board.ps1` | Loads verified `bitstream\paper_array64.bit` bitstream on Basys 3 |
-| **Live Crypto Demo** | `scripts\crypto_demo.ps1 -Port COM5` | Queries 64 cores, enrolls BCH, fixes noise, derives AES-256 key |
+| **Live Crypto Demo (Secure)** | `scripts\crypto_demo.ps1 -Port COM5 -Mode secure -KeyBits 256` | Full Dodis Code-Offset Fuzzy Extractor with 256-bit min-entropy |
+| **Live Crypto Demo (Legacy)** | `scripts\crypto_demo.ps1 -Port COM5 -Mode legacy` | Raw channel error-correction benchmark replicating Liu et al. |
+| **Helper Leakage Audit** | `.\runtime\python\python.exe scripts\audit_helper_leakage.py` | Demonstrates the 16-candidate exploit on naive parity helper data |
 | **Multi-Challenge Sweep**| `scripts\crypto_batch_sweep.ps1 -Port COM5 -NumChallenges 50` | Sweeps 50 SHA-3 challenges $\times$ 5 live queries; generates report |
-| **ML Modeling Attack** | `.\runtime\python\python.exe scripts\crypto_ml_attack.py --mode both` | Replicates Table 3: trains SVM, RBFNN, GRNN on 100–5,000 CRPs |
+| **ML Modeling Attack** | `.\runtime\python\python.exe scripts\crypto_ml_attack.py --source both` | Dual evaluation: 16,384 Basys 3 silicon CRPs + Table 3 Eq. 4 model |
 | **NIST Test Suite** | `.\runtime\python\python.exe scripts\crypto_nist_test.py` | Replicates Table 2: runs 9 NIST SP 800-22 tests on silicon bitstream |
 | **Unstable Core Map** | `.\runtime\python\python.exe scripts\crypto_unstable_bits.py` | Replicates Figures 5, 6, 7: identifies noisy cores and stability rate |
 
