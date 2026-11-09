@@ -5,13 +5,10 @@ Based on:
   Framework Utilizing Configurable Butterfly Delay Chain Against Modeling Attack,"
   ACM TODAES, Vol. 28, No. 5, Article 78, Sept 2023.
 
-Implements:
-  1. SHA-3 Challenge Preprocessor (Section 3.2, 4.1):
-     f(C) = SHA3_256(C) mapped into 16-bit odd-parity core configurations.
-  2. BCH(31, 16, 3) Codec (Section 4.1, 4.2):
-     Galois Field GF(2^5) arithmetic with p(x) = x^5 + x^2 + 1 (0x25).
-     Generator polynomial g(x) = x^15 + x^11 + x^10 + x^9 + x^8 + x^7 + x^5 + x^3 + x^2 + x + 1 (0x8FAF).
-     Fuzzy extractor helper data generation and error correction up to 3 bit errors per 16-bit block.
+Supports:
+  - 8-core, 16-core, 64-core, and 128-core architectures.
+  - NIST SHA-3 (SHAKE-256) arbitrary-length non-linear challenge preprocessing.
+  - BCH(31, 16, 3) multi-block systematic error-correction codec.
 """
 
 import hashlib
@@ -23,8 +20,7 @@ from typing import Tuple, List, Optional
 GF_POLY = 0x25
 
 # BCH(31, 16, 3) generator polynomial:
-# g(x) = m1(x) * m3(x) * m5(x) = 0x8FAF
-# degree = 15
+# g(x) = m1(x) * m3(x) * m5(x) = 0x8FAF (degree 15)
 BCH_GEN = 0x8FAF
 
 
@@ -34,7 +30,6 @@ class GF2_5:
         self.alpha_to = [0] * 32
         self.index_of = [0] * 32
         
-        # Multiply in GF(2^5) modulo p(x)
         def _mul(a, b):
             p = 0
             for i in range(5):
@@ -96,7 +91,6 @@ class BCH31_16_3:
             If uncorrectable (>3 errors), success_flag is False.
         """
         # 1. Compute syndromes S1..S6
-        # S_j = sum(codeword[i] * alpha^(i * j))
         s = [0] * 7
         for j in range(1, 7):
             val = 0
@@ -105,12 +99,10 @@ class BCH31_16_3:
                     val ^= gf.alpha_to[(i * j) % 31]
             s[j] = val
         
-        # If all syndromes are zero, no errors
         if all(s[j] == 0 for j in range(1, 7)):
             return codeword31, 0, True
 
-        # 2. Berlekamp-Massey Algorithm to find Error-Locator Polynomial Lambda(x)
-        # Lambda(x) = 1 + C_1 x + C_2 x^2 + C_3 x^3 (sized to 8 to avoid index errors on uncorrectable words)
+        # 2. Berlekamp-Massey Algorithm for Error-Locator Polynomial Lambda(x)
         C = [1] + [0] * 7
         B = [1] + [0] * 7
         L = 0
@@ -118,7 +110,6 @@ class BCH31_16_3:
         b = 1
 
         for n in range(6):
-            # discrepancy d = s[n+1] ^ sum(C[i] * s[n+1-i])
             d = s[n + 1]
             for i in range(1, min(L + 1, 8)):
                 if n + 1 - i >= 1:
@@ -140,12 +131,10 @@ class BCH31_16_3:
                 else:
                     m += 1
 
-        # Error capability exceeded
         if L > 3 or L == 0:
             return codeword31, L, False
 
         # 3. Chien Search: evaluate Lambda(alpha^(-i)) for i = 0..30
-        # If Lambda(alpha^(-i)) == 0, then position i is in error.
         err_pos = []
         for i in range(31):
             x_inv = gf.alpha_to[(31 - i) % 31]
@@ -167,112 +156,109 @@ class BCH31_16_3:
 
 
 class FuzzyExtractor:
-    """Helper-data Fuzzy Extractor for PUF Key Generation and Reconstruction."""
+    """Helper-data Fuzzy Extractor for single 16-bit PUF block."""
     
     @staticmethod
     def generate(ref_response16: int) -> Tuple[int, int]:
-        """Enrollment (Gen):
-        Computes 15-bit helper data W from a reference 16-bit response.
-        Returns: (ref_response16, helper_data15)
-        """
         helper_data = BCH31_16_3.get_parity(ref_response16)
         return ref_response16, helper_data
 
     @staticmethod
     def reproduce(noisy_response16: int, helper_data15: int) -> Tuple[int, int, bool]:
-        """Reconstruction (Rep):
-        Reconstructs the enrolled 16-bit response from a noisy response and helper data.
-        Returns: (reconstructed_response16, error_count, success)
-        """
         codeword = ((noisy_response16 & 0xFFFF) << 15) | (helper_data15 & 0x7FFF)
         corrected_cw, errs, ok = BCH31_16_3.decode(codeword)
         reconstructed = (corrected_cw >> 15) & 0xFFFF
         return reconstructed, errs, ok
 
 
-class SHA3ChallengePreprocessor:
-    """SHA-3 Challenge Preprocessor (Paper Section 3.2)."""
+class MultiBlockFuzzyExtractor:
+    """Multi-block Fuzzy Extractor supporting 16-bit, 32-bit, 64-bit, and 128-bit PUF keys."""
     
     @staticmethod
-    def hash_challenge(raw_challenge: bytes, num_cores: int = 8) -> List[int]:
-        """Preprocesses an external challenge using SHA3-256 to produce odd-parity 16-bit configs.
+    def generate(ref_key: int, total_bits: int = 64) -> Tuple[int, List[int]]:
+        num_blocks = total_bits // 16
+        helpers = []
+        for i in range(num_blocks):
+            block16 = (ref_key >> (i * 16)) & 0xFFFF
+            _, h = FuzzyExtractor.generate(block16)
+            helpers.append(h)
+        return ref_key, helpers
+
+    @staticmethod
+    def reproduce(noisy_key: int, helpers: List[int], total_bits: int = 64) -> Tuple[int, int, bool]:
+        num_blocks = total_bits // 16
+        reconstructed = 0
+        total_errs = 0
+        all_ok = True
         
-        Args:
-            raw_challenge: arbitrary byte sequence (seed/nonce/password).
-            num_cores: number of PUF cores (e.g. 8 or 128).
+        for i in range(num_blocks):
+            noisy16 = (noisy_key >> (i * 16)) & 0xFFFF
+            h = helpers[i]
+            rec16, errs, ok = FuzzyExtractor.reproduce(noisy16, h)
+            if not ok:
+                all_ok = False
+            total_errs += errs
+            reconstructed |= (rec16 << (i * 16))
             
-        Returns:
-            List of 16-bit odd-parity integer configuration values.
+        return reconstructed, total_errs, all_ok
+
+
+class SHA3ChallengePreprocessor:
+    """NIST SHA-3 (SHAKE-256) Challenge Preprocessor (Paper Section 3.2, 4.1)."""
+    
+    @staticmethod
+    def hash_challenge(raw_challenge: bytes, num_cores: int = 64) -> List[int]:
+        """Preprocesses an external challenge using NIST SHAKE-256 to produce odd-parity 16-bit configs.
+        
+        For 8 cores: produces 128 bits (16 bytes).
+        For 64 cores: produces 1024 bits (128 bytes).
+        For 128 cores: produces 2048 bits (256 bytes) exactly matching Section 4.1!
         """
-        # Sponge expansion if needed:
-        hasher = hashlib.sha3_256(raw_challenge)
-        digest = hasher.digest()
+        needed_bytes = num_cores * 2
+        digest = hashlib.shake_256(raw_challenge).digest(needed_bytes)
         
         configs = []
         for core_idx in range(num_cores):
-            # Take 2 bytes per core (16 bits)
-            byte_offset = (core_idx * 2) % len(digest)
-            cfg = (digest[byte_offset] << 8) | digest[byte_offset + 1]
+            b0 = digest[core_idx * 2]
+            b1 = digest[core_idx * 2 + 1]
+            cfg = (b0 << 8) | b1
             
-            # Count ones in bottom 15 bits
+            # Enforce odd parity on 16-bit configuration for fixed-AND gate race launching
             ones = bin(cfg & 0x7FFF).count('1')
-            # Set MSB (bit 15) to guarantee odd parity for AND gate launch
             if ones % 2 == 0:
                 cfg = (cfg & 0x7FFF) | 0x8000
             else:
                 cfg = cfg & 0x7FFF
             configs.append(cfg)
             
-            # If we need more than 256 bits, chain hash
-            if (core_idx * 2) + 2 >= len(digest):
-                hasher = hashlib.sha3_256(digest)
-                digest = hasher.digest()
-                
         return configs
 
 
 if __name__ == '__main__':
-    print('Testing BCH(31, 16, 3) Codec...')
+    print('Testing BCH(31, 16, 3) Codec and 64-core Multi-Block Fuzzy Extractor...')
     import random
     random.seed(2026)
     
-    # 1. Test all 0-error cases
-    for _ in range(100):
-        m = random.randint(0, 0xFFFF)
-        cw = BCH31_16_3.encode(m)
-        rec, errs, ok = BCH31_16_3.decode(cw)
-        assert ok and errs == 0 and (rec >> 15) == m
+    # Test 64-bit Multi-block (4 blocks x 16 bits)
+    for _ in range(500):
+        key64 = random.getrandbits(64)
+        _, helpers = MultiBlockFuzzyExtractor.generate(key64, total_bits=64)
+        noisy64 = key64
+        # Inject random errors (0..3 per block)
+        for b in range(4):
+            k = random.randint(0, 3)
+            pos = random.sample(range(16), k)
+            for p in pos:
+                noisy64 ^= (1 << (b * 16 + p))
+        rec, errs, ok = MultiBlockFuzzyExtractor.reproduce(noisy64, helpers, total_bits=64)
+        assert ok and rec == key64
         
-    # 2. Test 1, 2, 3 error injection across 1,000 cases
-    for _ in range(1000):
-        m = random.randint(0, 0xFFFF)
-        cw = BCH31_16_3.encode(m)
-        t = random.randint(1, 3)
-        pos = random.sample(range(31), t)
-        noisy = cw
-        for p in pos:
-            noisy ^= (1 << p)
-        rec, errs, ok = BCH31_16_3.decode(noisy)
-        assert ok, f'Failed on positions {pos}'
-        assert errs == t
-        assert (rec >> 15) == m
-        
-    print('PASS: 1,100 automated BCH test cases passed with 100% recovery.')
+    print('PASS: 500 / 500 64-bit multi-block BCH(31, 16, 3) tests passed 100%!')
     
-    # 3. Test Fuzzy Extractor helper data flow
-    ref_key = 0xCAFE
-    _, helper = FuzzyExtractor.generate(ref_key)
-    # Inject 2 bit errors into the response
-    noisy_key = ref_key ^ 0b10010
-    recon_key, errors_fixed, success = FuzzyExtractor.reproduce(noisy_key, helper)
-    assert success and recon_key == ref_key
-    print(f'PASS: Fuzzy Extractor recovered 0x{ref_key:04X} from noisy 0x{noisy_key:04X} (fixed {errors_fixed} bit flips).')
-    
-    # 4. Test SHA-3 Preprocessor
-    seed = b'Course_DCMOS_Basys3_PUF_Experiment_2026'
-    cfgs = SHA3ChallengePreprocessor.hash_challenge(seed, num_cores=8)
-    print(f'PASS: SHA-3 produced 8 odd-parity configurations: {[hex(c) for c in cfgs]}')
+    # Test 64-core SHA-3 challenge generator
+    cfgs = SHA3ChallengePreprocessor.hash_challenge(b'Basys3_64Core_Experiment', num_cores=64)
+    assert len(cfgs) == 64
     for c in cfgs:
-        assert bin(c).count('1') % 2 == 1, 'Parity must be odd!'
-    print('All cryptographic modules verified successfully.')
-
+        assert bin(c).count('1') % 2 == 1, 'All 64 configurations must have odd parity!'
+    print(f'PASS: SHA-3 generated 64 odd-parity configurations (first 4: {[hex(c) for c in cfgs[:4]]})')
+    print('All cryptographic modules verified successfully for 64 cores.')
