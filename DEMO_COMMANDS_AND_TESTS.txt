@@ -1,260 +1,67 @@
 ========================================================================================
-           CBDC-PUF HARDWARE & CRYPTOGRAPHY: LIVE DEMO & TEST CHEAT SHEET
+             CBDC-PUF HARDWARE & CRYPTO: DEMO COMMANDS QUICK-REFERENCE
 ========================================================================================
-Project: Configurable Butterfly Delay Chain PUF (Basys 3 Artix-7 FPGA)
-Course : Digital CMOS (DCMOS)
 
-QUICK-REFERENCE CHEAT SHEET:
-----------------------------------------------------------------------------------------
-If the Professor asks:                                | Run this command:
-----------------------------------------------------------------------------------------
-1. "Show me the Randomness / % of Ones (Uniformity)"  | .\runtime\python\python.exe scripts/audit_randomness.py
-2. "Show me the vulnerability you found in the paper" | .\runtime\python\python.exe scripts/audit_helper_leakage.py
-3. "Show me the NIST Randomness tests"                | .\runtime\python\python.exe scripts/crypto_nist_test.py
-4. "Show me error correction and BER (Bit Error Rate)"| .\runtime\python\python.exe scripts/crypto_batch_analysis.py
-5. "Show me your code works / self-tests"             | .\runtime\python\python.exe scripts/crypto_engine.py
-6. "Show me the physical Silicon Min-Entropy"         | .\runtime\python\python.exe scripts/audit_silicon_entropy.py
-7. "Show me Cross-Core Uniqueness / Filtering"        | .\runtime\python\python.exe scripts/audit_uniqueness_filtering.py
-8. "Show me the Bitstream & Hardware Timing profile"  | .\run.ps1 -Action Verify
-9. "Run a live key generation on the Basys 3 board"   | powershell -ExecutionPolicy Bypass -File scripts\crypto_demo.ps1 -Port COM5
-----------------------------------------------------------------------------------------
-*NOTE: Tests 1 through 7 run OFFLINE instantly (1-2 seconds each) using the authentic
-       silicon validation datasets in `measurements/`. No board is required to run them!
+COMMAND 1: RANDOMNESS & UNIFORMITY (% OF ONES)
+Command : .\runtime\python\python.exe scripts/audit_randomness.py
+Purpose : Checks the balance of 0s and 1s across 327,680 physical bits.
+Result  : 48.64% measured (Paper: 49.60%, Target: 50.00%).
+
 ----------------------------------------------------------------------------------------
 
+COMMAND 2: PAPER VULNERABILITY EXPLOIT (16-KEY CRACK)
+Command : .\runtime\python\python.exe scripts/audit_helper_leakage.py
+Purpose : Cracks the paper's naive 15-bit parity helper data using linear algebra.
+Result  : Key space collapses from 18 quintillion to 16 keys; cracked in < 0.1 ms.
 
+----------------------------------------------------------------------------------------
+
+COMMAND 3: NIST SP 800-22 STATISTICAL RANDOMNESS TESTS
+Command : .\runtime\python\python.exe scripts/crypto_nist_test.py
+Purpose : Replicates Table 2: 9 official NIST statistical randomness tests on silicon.
+Result  : 9 / 9 tests PASS (FFT Spectral pass rate = 98.4%, exactly matching paper).
+
+----------------------------------------------------------------------------------------
+
+COMMAND 4: ERROR CORRECTION & BIT ERROR RATE (BER) SWEEP
+Command : .\runtime\python\python.exe scripts/crypto_batch_analysis.py
+Purpose : Measures raw silicon BER and tests Dodis Code-Offset key reconstruction.
+Result  : Raw BER = 1.11% (voted); Key Agreement = 100.0000% across 256 challenges.
+
+----------------------------------------------------------------------------------------
+
+COMMAND 5: CRYPTO ENGINE & BCH CODEC SELF-TESTS
+Command : .\runtime\python\python.exe scripts/crypto_engine.py
+Purpose : Verifies BCH(31, 16, 3) decoder and Dodis Code-Offset algorithms.
+Result  : PASS 500/500 BCH tests and 500/500 Code-Offset reconstruction tests.
+
+----------------------------------------------------------------------------------------
+
+COMMAND 6: NIST SP 800-90B PHYSICAL SILICON MIN-ENTROPY
+Command : .\runtime\python\python.exe scripts/audit_silicon_entropy.py
+Purpose : Measures physical silicon unpredictability lower bound across all 64 cores.
+Result  : Raw mean = 0.575 bits/core; NIST 99% confidence bound = 0.423 bits/core.
+
+----------------------------------------------------------------------------------------
+
+COMMAND 7: CROSS-CORE SPATIAL UNIQUENESS & FILTERING AUDIT
+Command : .\runtime\python\python.exe scripts/audit_uniqueness_filtering.py
+Purpose : Evaluates spatial Hamming distance across all 2,016 core pairs.
+Result  : Mean HD = 50.23% (Ideal: 50.00%); documents paper's 22.4% candidate filter.
+
+----------------------------------------------------------------------------------------
+
+COMMAND 8: HARDWARE BITSTREAM & TIMING PROFILE VERIFY
+Command : .\run.ps1 -Action Verify
+Purpose : Checks bitstream integrity and 100 MHz clock profile (220ns excite, 80ns latch).
+Result  : Bitstream verified; 0 DRC errors, 100% routed; hardware ready.
+
+----------------------------------------------------------------------------------------
+
+COMMAND 9: LIVE FPGA KEY GENERATION (WHEN BOARD CONNECTED)
+Command : powershell -ExecutionPolicy Bypass -File scripts\crypto_demo.ps1 -Port COM5
+Purpose : Connects to Basys 3 over USB-UART, reads live PUF bits, derives 256-bit AES key.
+Result  : 100% live key match with enrolled secret; displays 256-bit AES master key.
 ========================================================================================
-TEST 1: UNIFORMITY & RANDOMNESS AUDIT (PERCENTAGE OF ONES IN SILICON)
-========================================================================================
-COMMAND TO RUN:
-.\runtime\python\python.exe scripts/audit_randomness.py
-
-TIME TO RUN: ~1 second
-
-WHAT IT DOES:
-Analyzes all 327,680 physical silicon bits captured from the Basys 3 FPGA to calculate
-the exact percentage of 1s (Uniformity), replicating Section 4.1 of the paper.
-
-WHAT YOU WILL SEE ON SCREEN:
-  Total Physical Bits Read    : 327,680 bits (5,120 frames x 64 cores)
-  Total Logic '1' Bits        : 159,395 bits
-  Total Logic '0' Bits        : 168,285 bits
-  --------------------------------------------------------------------------------
-    MEASURED SILICON UNIFORMITY :  48.6435%  (Percentage of 1s)
-    PAPER REPORTED UNIFORMITY   :  49.6000%  (Liu et al. Section 4.1)
-    IDEAL THEORETICAL TARGET    :  50.0000%  (Pure random coin toss)
-    DEVIATION FROM IDEAL        :   1.3565%
-  --------------------------------------------------------------------------------
-  64-Bit Response Word Mean   : 48.83%
-
-WHAT TO SAY TO THE PROFESSOR:
-"Uniformity measures the balance of 0s and 1s in the PUF output. The theoretical ideal
-is a dead-center 50.00% (like a fair coin toss). The original paper reported 49.60%.
-As you can see on the screen, our physical Basys 3 silicon achieves 48.64% across all
-327,680 raw physical bits, with a mean response word uniformity of 48.83%. This proves
-there is no systemic bias toward 0 or 1 for attackers to exploit."
-
-
-========================================================================================
-TEST 2: LIVE EXPLOIT OF THE PAPER'S 15-BIT HELPER VULNERABILITY (16-KEY CRACK)
-========================================================================================
-COMMAND TO RUN:
-.\runtime\python\python.exe scripts/audit_helper_leakage.py
-
-TIME TO RUN: < 0.1 seconds (Instantaneous)
-
-WHAT IT DOES:
-Demonstrates mathematically and empirically the fatal flaw in the paper's naive helper
-data scheme: publishing 15 parity bits leaks 15 linear equations, collapsing a 64-bit key
-space (18 quintillion possibilities) down to just 16 candidate keys in microseconds.
-
-WHAT YOU WILL SEE ON SCREEN:
-  Victim Secret PUF Response : 0x872362489E89703F
-  Public Helper Values (4x15): ['0x0C56', '0x5496', '0x7C03', '0x0C21']
-  [ATTACK RESULT]
-  Total Candidate Keys Found : 16 (Out of 2^64 = 18,446,744,073,709,551,616)
-  Remaining Min-Entropy      : log2(16) = 4.00 bits (60 bits LEAKED!)
-  Time Taken to Crack Space  : < 100 microseconds
-  Victim Key in Candidates?  : True
-
-WHAT TO SAY TO THE PROFESSOR:
-"In Section 4.1 of the paper, the authors published 15 parity bits per 16-bit block.
-Because BCH is linear, 16 unknowns minus 15 equations leaves only 1 bit of uncertainty
-per block (2 candidates). For a 64-bit key, only 2^4 = 16 candidate keys remain!
-As you can see, our exploit script cracks the secret key in under 100 microseconds.
-We fixed this critical vulnerability by implementing Dodis Code-Offset fuzzy extraction."
-
-
-========================================================================================
-TEST 3: NIST SP 800-22 STATISTICAL RANDOMNESS TEST SUITE (TABLE 2 REPLICATION)
-========================================================================================
-COMMAND TO RUN:
-.\runtime\python\python.exe scripts/crypto_nist_test.py
-
-TIME TO RUN: ~2 seconds
-
-WHAT IT DOES:
-Runs the 9 gold-standard NIST SP 800-22 randomness tests across 128 physical silicon
-bitstreams captured from our Basys 3 board, replicating Table 2 of the paper.
-
-WHAT YOU WILL SEE ON SCREEN:
-  [PASS] Frequency (Monobit)                  | Pass Rate:  98.4%
-  [PASS] Block Frequency (BF, M=16)           | Pass Rate: 100.0%
-  [PASS] Runs                                 | Pass Rate:  98.4%
-  [PASS] Longest Run of Ones (LRO)            | Pass Rate: 100.0%
-  [PASS] Discrete Fourier (FFT)               | Pass Rate:  98.4%  (Matches paper: 98.4%)
-  [PASS] Non-overlapping Template (NOT, m=5)  | Pass Rate:  98.4%
-  [PASS] Serial (m=4)                         | Pass Rate:  99.2%
-  [PASS] Approximate Entropy (AppEn, m=4)     | Pass Rate:  96.1%
-  [PASS] Cumulative Sums (CumSums)            | Pass Rate:  98.4%
-
-WHAT TO SAY TO THE PROFESSOR:
-"We tested our raw physical silicon responses using the official NIST SP 800-22 statistical
-randomness suite. Our silicon bitstream passes all 9 tests with pass rates above 96%,
-proving that the delay variation across the 64 cores behaves like true random noise.
-In particular, our Discrete Fourier FFT spectral pass rate is 98.44%, exactly matching
-the paper's Table 2."
-
-
-========================================================================================
-TEST 4: ERROR CORRECTION & BIT ERROR RATE (BER) SWEEP (256 PHYSICAL PATTERNS)
-========================================================================================
-COMMAND TO RUN:
-.\runtime\python\python.exe scripts/crypto_batch_analysis.py
-
-TIME TO RUN: ~3 seconds
-
-WHAT IT DOES:
-Compares two completely independent physical captures (256 patterns x 64 cores x 20 trials)
-to measure raw silicon Bit Error Rate (BER) and verify that our Dodis Code-Offset extractor
-achieves 100.0000% exact key reconstruction.
-
-WHAT YOU WILL SEE ON SCREEN:
-  Mode 1: Single Trial Raw (No Majority Voting)
-    Raw Silicon BER            : 2.2827% (374 bit flips / 16,384)
-    Dodis Code-Offset Extractor: Key Agreement = 98.44% (WER = 1.56%)
-
-  Mode 2: 20-Trial Majority Voting (Temporal Filtered)
-    Raw Silicon BER            : 1.1108% (182 residual bit flips)
-    Dodis Code-Offset Extractor: Key Agreement = 100.0000% (WER = 0.0000%)
-
-WHAT TO SAY TO THE PROFESSOR:
-"Due to thermal noise, raw silicon has a bit error rate of 2.28%. By applying 20-trial
-temporal majority voting, we filter out Gaussian thermal noise, cutting the BER down
-to 1.11%. Our Dodis Code-Offset BCH decoder then corrects all remaining flipped bits,
-achieving a perfect 100.0000% key reconstruction across all 256 test challenges."
-
-
-========================================================================================
-TEST 5: CRYPTOGRAPHIC ENGINE & CODE-OFFSET CODEC (500 SELF-TESTS)
-========================================================================================
-COMMAND TO RUN:
-.\runtime\python\python.exe scripts/crypto_engine.py
-
-TIME TO RUN: ~1.5 seconds
-
-WHAT IT DOES:
-Runs 500 automated self-tests on the BCH(31, 16, 3) decoder, Dodis Code-Offset fuzzy
-extractor, and SHAKE-256 challenge preprocessor. Verifies that all mathematical
-polynomials, syndromes, and error correction algorithms work with 100% precision.
-
-WHAT YOU WILL SEE ON SCREEN:
-  PASS: 500 / 500 64-bit multi-block BCH(31, 16, 3) tests passed 100%!
-  PASS: 500 / 500 code-offset reconstruction tests passed (256-bit output)!
-  PASS: SHA-3 generated 64 odd-parity configurations!
-
-WHAT TO SAY TO THE PROFESSOR:
-"Professor, this script verifies our core cryptographic algorithms. It runs 500 random
-Monte Carlo tests through our BCH(31, 16, 3) Berlekamp-Massey decoder and Dodis code-offset
-fuzzy extractor. Every single test achieves 100% mathematical recovery."
-
-
-========================================================================================
-TEST 6: NIST SP 800-90B PHYSICAL SILICON MIN-ENTROPY ASSESSMENT
-========================================================================================
-COMMAND TO RUN:
-.\runtime\python\python.exe scripts/audit_silicon_entropy.py
-
-TIME TO RUN: ~1 second
-
-WHAT IT DOES:
-Calculates the Most Common Value (MCV) min-entropy per core defined in NIST SP 800-90B
-Section 6.3.1, providing the mathematical lower bound on unpredictable physical entropy.
-
-WHAT YOU WILL SEE ON SCREEN:
-  Raw Sample Min-Entropy     : Mean = 0.5748 bits/core (Median: 0.6077)
-  NIST 99% Conf. Min-Entropy : Mean = 0.4234 bits/core (Median: 0.4484)
-  Per-Core Range (NIST 99%)  : [0.0468 bits (Core 61) .. 0.7746 bits (Core 62)]
-
-WHAT TO SAY TO THE PROFESSOR:
-"NIST SP 800-90B measures the worst-case unpredictability of a physical source.
-Our physical cores exhibit a mean 99% confidence min-entropy of 0.423 bits/core.
-To derive a 256-bit AES master key, we need 256 / 0.423 = 605 bits of physical entropy.
-By evaluating 8 challenges across 64 cores, our pipeline harvests 3,200 physical bits,
-guaranteeing full cryptographic security."
-
-
-========================================================================================
-TEST 7: CROSS-CORE UNIQUENESS & CANDIDATE FILTERING AUDIT
-========================================================================================
-COMMAND TO RUN:
-.\runtime\python\python.exe scripts/audit_uniqueness_filtering.py
-
-TIME TO RUN: ~1.5 seconds
-
-WHAT IT DOES:
-Evaluates the cross-core spatial Hamming distance across all 2,016 core pairs (50.23%)
-and documents the paper's candidate selection protocol (discarding 77.6% of CRPs).
-
-WHAT YOU WILL SEE ON SCREEN:
-  Total Core Pairs Evaluated   : 2,016 combinations (C(64, 2))
-  Mean Cross-Core Hamming Dist : 50.23% (Ideal: 50.0%)
-  Paper Selection Procedure    : Selected only 11,202 / 50,000 CRPs (22.4% yield)
-  Our Implementation           : Evaluated 100% UNFILTERED natural silicon captures
-
-WHAT TO SAY TO THE PROFESSOR:
-"Across all 2,016 pairs of cores on our Basys 3 die, the mean cross-core Hamming distance
-is 50.23%, showing excellent spatial delay variation. Furthermore, while the paper
-discarded 77.6% of challenges to pass NIST tests, our results are evaluated on 100%
-unfiltered natural silicon captures."
-
-
-========================================================================================
-TEST 8: HARDWARE BITSTREAM & TIMING PROFILE VERIFICATION
-========================================================================================
-COMMAND TO RUN:
-.\run.ps1 -Action Verify
-
-TIME TO RUN: ~1 second
-
-WHAT IT DOES:
-Verifies that the compiled bitstream `bitstream/paper_array64.bit` is present, passes
-integrity checks, and matches the 100 MHz clock profile (22-cycle excitation, 8-cycle latch).
-
-WHAT YOU WILL SEE ON SCREEN:
-  PASS: Bitstream verified: bitstream/paper_array64.bit
-  Profile: 100 MHz clock, 22-cycle excite (220 ns), 8-cycle latch (80 ns)
-  Hardware status: READY
-
-
-========================================================================================
-TEST 9: LIVE INTERACTIVE HARDWARE DEMO (IF BASYS 3 BOARD IS CONNECTED)
-========================================================================================
-COMMAND TO RUN:
-powershell -ExecutionPolicy Bypass -File scripts\crypto_demo.ps1 -Port COM5
-
-(Replace COM5 with the actual USB-UART COM port shown in Windows Device Manager)
-
-WHAT IT DOES:
-Connects to the physical Basys 3 board over USB serial at 115,200 baud. Sends 8 live
-challenges, reads 64 raw response bits per challenge from the physical PUF array,
-performs Dodis Code-Offset reconstruction, and derives a live 256-bit AES master key!
-
-WHAT YOU WILL SEE ON SCREEN:
-  [INFO] Connected to Basys 3 on COM5 @ 115200 baud
-  [INFO] Enrolling 8 challenges into Dodis Code-Offset Fuzzy Extractor...
-  [PASS] Live Silicon Challenge 1/8: Raw Response = 0x872362489E89703F
-  ...
-  [PASS] Key Regeneration Success: 100.0% match with enrolled secret!
-  [KEY ] Derived 256-Bit Master AES Key: e3b0c44298fc1c149afbf4c8996fb924...
+*Note: Commands 1 to 7 run OFFLINE instantly (1-2s each) on authentic silicon captures.
 ========================================================================================
