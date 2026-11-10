@@ -1,67 +1,79 @@
 ========================================================================================
-             CBDC-PUF HARDWARE & CRYPTO: DEMO COMMANDS QUICK-REFERENCE
+             CBDC-PUF HARDWARE & CRYPTO: MASTER DEMO CHEAT SHEET
 ========================================================================================
 
-COMMAND 1: RANDOMNESS & UNIFORMITY (% OF ONES)
-Command : .\runtime\python\python.exe scripts/audit_randomness.py
-Purpose : Checks the balance of 0s and 1s across 327,680 physical bits.
-Result  : 48.64% measured (Paper: 49.60%, Target: 50.00%).
+========================================================================================
+PART 1: LIVE HARDWARE DEMO (WHEN BASYS 3 BOARD IS PLUGGED IN)
+========================================================================================
+
+STEP 1: FIND YOUR COM PORT
+Command : [System.IO.Ports.SerialPort]::GetPortNames()
+Purpose : Displays the COM port assigned to the Basys 3 board (e.g., COM3, COM4, COM5).
+
+STEP 2: PROGRAM THE FPGA BOARD (LOAD BITSTREAM)
+Command : powershell -ExecutionPolicy Bypass -File scripts\program_board.ps1
+Purpose : Programs the Artix-7 chip with `bitstream\paper_array64.bit` via Vivado.
+Check   : The 'DONE' LED on the Basys 3 board will light up GREEN when ready!
+
+STEP 3: RUN LIVE END-TO-END CRYPTO KEY GENERATION
+Command : powershell -ExecutionPolicy Bypass -File scripts\crypto_demo.ps1 -Port COM5
+Purpose : Sends 8 live challenges to FPGA, captures 64 raw silicon bits, corrects noise
+          via Dodis Code-Offset BCH(31,16,3), and displays live 256-bit AES master key.
+Result  : 100% matched live key reconstruction directly from physical silicon!
 
 ----------------------------------------------------------------------------------------
+*NOTE ON COM PORT "ACCESS DENIED":
+If you get "Access denied", close Vivado Hardware Manager or unplug/replug the USB cable.
+Remember to re-run STEP 2 after replugging because unplugging clears FPGA memory.
+----------------------------------------------------------------------------------------
 
-COMMAND 2: PAPER VULNERABILITY EXPLOIT (16-KEY CRACK)
+
+========================================================================================
+PART 2: OFFLINE EVALUATION TESTS (NO FPGA BOARD NEEDED — 1-2 SECONDS EACH)
+========================================================================================
+
+TEST 1: RANDOMNESS & UNIFORMITY (% OF ONES)
+Command : .\runtime\python\python.exe scripts/audit_randomness.py
+Purpose : Checks the balance of 0s and 1s across 327,680 physical silicon bits.
+Result  : 48.64% measured (Paper: 49.60%, Target: 50.00%).
+
+TEST 2: PAPER VULNERABILITY EXPLOIT (16-KEY CRACK)
 Command : .\runtime\python\python.exe scripts/audit_helper_leakage.py
 Purpose : Cracks the paper's naive 15-bit parity helper data using linear algebra.
 Result  : Key space collapses from 18 quintillion to 16 keys; cracked in < 0.1 ms.
 
-----------------------------------------------------------------------------------------
-
-COMMAND 3: NIST SP 800-22 STATISTICAL RANDOMNESS TESTS
+TEST 3: NIST SP 800-22 STATISTICAL RANDOMNESS TESTS
 Command : .\runtime\python\python.exe scripts/crypto_nist_test.py
 Purpose : Replicates Table 2: 9 official NIST statistical randomness tests on silicon.
 Result  : 9 / 9 tests PASS (FFT Spectral pass rate = 98.4%, exactly matching paper).
 
-----------------------------------------------------------------------------------------
-
-COMMAND 4: ERROR CORRECTION & BIT ERROR RATE (BER) SWEEP
+TEST 4: ERROR CORRECTION & BIT ERROR RATE (BER) SWEEP
 Command : .\runtime\python\python.exe scripts/crypto_batch_analysis.py
 Purpose : Measures raw silicon BER and tests Dodis Code-Offset key reconstruction.
 Result  : Raw BER = 1.11% (voted); Key Agreement = 100.0000% across 256 challenges.
 
-----------------------------------------------------------------------------------------
-
-COMMAND 5: CRYPTO ENGINE & BCH CODEC SELF-TESTS
+TEST 5: CRYPTO ENGINE & BCH CODEC SELF-TESTS
 Command : .\runtime\python\python.exe scripts/crypto_engine.py
 Purpose : Verifies BCH(31, 16, 3) decoder and Dodis Code-Offset algorithms.
 Result  : PASS 500/500 BCH tests and 500/500 Code-Offset reconstruction tests.
 
-----------------------------------------------------------------------------------------
-
-COMMAND 6: NIST SP 800-90B PHYSICAL SILICON MIN-ENTROPY
+TEST 6: NIST SP 800-90B PHYSICAL SILICON MIN-ENTROPY
 Command : .\runtime\python\python.exe scripts/audit_silicon_entropy.py
 Purpose : Measures physical silicon unpredictability lower bound across all 64 cores.
 Result  : Raw mean = 0.575 bits/core; NIST 99% confidence bound = 0.423 bits/core.
 
-----------------------------------------------------------------------------------------
-
-COMMAND 7: CROSS-CORE SPATIAL UNIQUENESS & FILTERING AUDIT
+TEST 7: CROSS-CORE SPATIAL UNIQUENESS & FILTERING AUDIT
 Command : .\runtime\python\python.exe scripts/audit_uniqueness_filtering.py
 Purpose : Evaluates spatial Hamming distance across all 2,016 core pairs.
 Result  : Mean HD = 50.23% (Ideal: 50.00%); documents paper's 22.4% candidate filter.
 
-----------------------------------------------------------------------------------------
-
-COMMAND 8: HARDWARE BITSTREAM & TIMING PROFILE VERIFY
+TEST 8: HARDWARE BITSTREAM & TIMING PROFILE VERIFY
 Command : .\run.ps1 -Action Verify
 Purpose : Checks bitstream integrity and 100 MHz clock profile (220ns excite, 80ns latch).
 Result  : Bitstream verified; 0 DRC errors, 100% routed; hardware ready.
 
-----------------------------------------------------------------------------------------
-
-COMMAND 9: LIVE FPGA KEY GENERATION (WHEN BOARD CONNECTED)
-Command : powershell -ExecutionPolicy Bypass -File scripts\crypto_demo.ps1 -Port COM5
-Purpose : Connects to Basys 3 over USB-UART, reads live PUF bits, derives 256-bit AES key.
-Result  : 100% live key match with enrolled secret; displays 256-bit AES master key.
-========================================================================================
-*Note: Commands 1 to 7 run OFFLINE instantly (1-2s each) on authentic silicon captures.
+TEST 9: SIMULATED END-TO-END CRYPTO KEY GENERATION DEMO
+Command : powershell -ExecutionPolicy Bypass -File scripts\crypto_demo.ps1 -Simulate
+Purpose : Full end-to-end 256-bit AES key derivation demo with simulated thermal noise.
+Result  : 100% matched 256-bit AES master key reconstruction with zero hardware needed.
 ========================================================================================
